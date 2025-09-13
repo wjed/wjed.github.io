@@ -1,88 +1,1131 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Will Jedrzejczak • Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="IT student at JMU focused on networking, cloud, and security. Projects, experience, and contact.">
-  <link rel="icon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will J. Jedrzejczak • Cloud Developer & Cyber Threat Analyst</title>
+    <meta name="description" content="Valedictorian-ranked B.S. IT student at James Madison University with interim Top Secret Clearance. AWS Professional Services intern, ManTech engineer, and cybersecurity analyst specializing in cloud infrastructure and federal technology.">
+    <meta name="keywords" content="cloud developer, cyber threat analyst, IT student, James Madison University, federal defense, DevSecOps, AI/ML">
+    <meta property="og:title" content="Will J. Jedrzejczak • Cloud Developer & Cyber Threat Analyst">
+    <meta property="og:description" content="Valedictorian-ranked B.S. IT student with interim Top Secret Clearance. AWS Professional Services intern, ManTech engineer, and cybersecurity analyst specializing in cloud infrastructure and federal technology.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Will J. Jedrzejczak • Cloud Developer & Cyber Threat Analyst">
+    <meta name="twitter:description" content="Valedictorian-ranked B.S. IT student with interim Top Secret Clearance. AWS Professional Services intern, ManTech engineer, and cybersecurity analyst specializing in cloud infrastructure and federal technology.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css">
+    
+    <!-- Performance optimizations -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>WJ</text></svg>">
+    
   <style>
-    :root { --bg:#0f1220; --card:#171a2a; --text:#e7e9ee; --muted:#a8b0c3; --accent:#5aa9ff; }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; background:var(--bg); color:var(--text); }
-    .wrap { max-width: 980px; margin: 0 auto; padding: 32px 20px 80px; }
-    header { display:flex; align-items:center; justify-content:space-between; gap:16px; }
-    nav a { color:var(--muted); text-decoration:none; margin-left:16px; }
-    nav a:hover { color:var(--text); }
-    .hero { margin:48px 0 28px; }
-    h1 { font-size:40px; margin:0 0 12px; line-height:1.1; }
-    p.lead { font-size:18px; color:var(--muted); margin:0; }
-    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:16px; margin-top:24px; }
-    .card { background:var(--card); border:1px solid #262a44; border-radius:16px; padding:18px; }
-    .card h3 { margin:0 0 6px; font-size:18px; }
-    .card p { margin:0 0 10px; color:var(--muted); }
-    .badge { display:inline-block; font-size:12px; padding:2px 8px; border-radius:999px; border:1px solid #2b335a; color:#b7c3e0; margin-right:6px; }
-    .footer { margin-top:48px; color:var(--muted); font-size:14px; }
-    .btn { display:inline-block; padding:10px 14px; background:var(--accent); color:#09111e; border-radius:10px; text-decoration:none; font-weight:600; }
-    .btn:hover { filter:brightness(1.05); }
-    img.avatar { width:64px; height:64px; border-radius:50%; border:1px solid #2b335a; }
-    @media (prefers-color-scheme: light) {
-      :root { --bg:#f6f7fb; --card:#ffffff; --text:#0a0d1a; --muted:#5a6173; --accent:#0b74ff; }
-      body { background:var(--bg); color:var(--text); }
-      .card { border-color:#e8ebf5; }
-      nav a { color:#44506b; }
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-tertiary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent-blue: #00d4ff;
+            --accent-purple: #8b5cf6;
+            --accent-green: #10b981;
+            --border: #2a2a2a;
+            --border-hover: #404040;
+            --shadow: rgba(0, 0, 0, 0.3);
+            --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 100%);
+            --gradient-secondary: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--accent-blue);
+            color: var(--bg-primary);
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 1001;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--gradient-primary);
+            color: var(--bg-primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.5rem;
+            color: var(--accent-blue);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text .description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--bg-primary);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            padding: 1rem 2rem;
+            border: 2px solid var(--border);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-card {
+            background: var(--gradient-secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 20px 40px var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            border: 3px solid var(--accent-blue);
+            object-fit: cover;
+        }
+
+        .profile-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .clearance-badge {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gradient-primary);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 3rem;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 3rem;
+        }
+
+        .timeline-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px var(--shadow);
+            border-color: var(--accent-blue);
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -20px;
+            border-left-color: var(--bg-secondary);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -20px;
+            border-right-color: var(--bg-secondary);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 2rem;
+            width: 20px;
+            height: 20px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-company {
+            color: var(--accent-blue);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px var(--shadow);
+            border-color: var(--accent-blue);
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-badge {
+            background: var(--bg-tertiary);
+            color: var(--accent-blue);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: var(--text-primary);
+        }
+
+        /* Leadership Section */
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .leadership-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .leadership-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px var(--shadow);
+            border-color: var(--accent-purple);
+        }
+
+        .leadership-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .leadership-icon i {
+            color: var(--bg-primary);
+            font-size: 1.5rem;
+        }
+
+        .leadership-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .leadership-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .contact-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-link:hover {
+            color: var(--text-primary);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            color: var(--text-secondary);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-right: 0 !important;
+                padding-left: 0 !important;
+            }
+
+            .timeline-item::before {
+                display: none;
+            }
+
+            .timeline-content::before {
+                display: none;
+            }
+
+            .timeline-dot {
+                left: 2rem;
+                transform: none;
+            }
+
+            .experience-timeline::before {
+                left: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .leadership-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div style="display:flex; align-items:center; gap:14px;">
-        <img class="avatar" src="images/avatar.jpg" alt="Headshot">
-        <div>
-          <strong>Will Jedrzejczak</strong><br>
-          <span style="color:var(--muted)">IT student at JMU • Networking, Cloud, Security</span>
+    <!-- Skip to main content for accessibility -->
+    <a href="#home" class="skip-link" aria-label="Skip to main content">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo" aria-label="Will J. Jedrzejczak">WJ</div>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="#home" role="menuitem" aria-label="Go to home section">Home</a></li>
+                    <li role="none"><a href="#experience" role="menuitem" aria-label="Go to experience section">Experience</a></li>
+                    <li role="none"><a href="projects.html" role="menuitem" aria-label="View projects">Projects</a></li>
+                    <li role="none"><a href="#leadership" role="menuitem" aria-label="Go to leadership section">Leadership</a></li>
+                    <li role="none"><a href="certifications.html" role="menuitem" aria-label="View certifications">Certifications</a></li>
+                    <li role="none"><a href="recommendations.html" role="menuitem" aria-label="View recommendations">Recommendations</a></li>
+                    <li role="none"><a href="contact.html" role="menuitem" aria-label="Go to contact page">Contact</a></li>
+                </ul>
+                <a href="contact.html" class="cta-button" aria-label="Get in touch with Will">Get In Touch</a>
+            </div>
         </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero" role="banner" aria-labelledby="hero-title">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="subtitle" role="text">Cloud Developer • Cyber Threat Analyst</div>
+                    <h1 id="hero-title">Will J. Jedrzejczak</h1>
+                    <p class="description" role="text">
+                        Valedictorian-ranked B.S. IT student at James Madison University with interim Top Secret Clearance. 
+                        AWS Professional Services intern, ManTech engineer, and cybersecurity analyst specializing in 
+                        cloud infrastructure, AI/ML, and federal technology solutions.
+                    </p>
+                    <div class="hero-buttons" role="group" aria-label="Action buttons">
+                        <a href="resume.pdf" class="btn-primary" download aria-label="Download Will's resume as PDF">
+                            <i data-lucide="download" aria-hidden="true"></i>
+                            Download Resume
+                        </a>
+                        <a href="contact.html" class="btn-secondary" aria-label="Go to contact page to get in touch">
+                            <i data-lucide="mail" aria-hidden="true"></i>
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-card" role="complementary" aria-labelledby="profile-title">
+                        <img src="images/Will-Jedrzejczak-Amazon-Truck.jpeg" alt="Professional headshot of Will J. Jedrzejczak" class="profile-image">
+                        <div class="profile-title" id="profile-title">Will J. Jedrzejczak</div>
+                        <div class="profile-subtitle">B.S. IT • James Madison University</div>
+                        <div class="clearance-badge" role="text" aria-label="Interim Top Secret Security Clearance">🔒 Interim Top Secret Clearance</div>
+                        <p>Cloud Developer • Cyber Threat Analyst<br>R&D Engineer • Tech Leader</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <p class="section-subtitle">Building secure, scalable solutions in federal and defense technology</p>
+            
+            <div class="experience-timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Research Engineer</div>
+                        <div class="timeline-company">Blue Sky Innovators</div>
+                        <div class="timeline-date">Sep 2025 - Present</div>
+                        <div class="timeline-description">
+                            Developing secure AI/ML, cyber, and RF solutions for DoD and Intelligence clients. 
+                            Working on cutting-edge technologies to solve the toughest challenges in government 
+                            and commercial sectors, bringing "Insight to Operations" to client missions.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Information Technology Specialist</div>
+                        <div class="timeline-company">Rockingham County Public Schools</div>
+                        <div class="timeline-date">Sep 2025 - Present</div>
+                        <div class="timeline-description">
+                            Managing PII, data migration, and infrastructure challenges for 11,500+ students. 
+                            Supporting the division's mission to deliver exceptional learning experiences through 
+                            technology solutions and IT management.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Professional Services National Security Cloud Developer</div>
+                        <div class="timeline-company">Amazon Web Services (AWS)</div>
+                        <div class="timeline-date">May 2025 - Sep 2025</div>
+                        <div class="timeline-description">
+                            Analytics + Application Development for Amazon Dedicated Cloud. Doubled project scope 
+                            and tripled certification requirements. Worked on secure, scalable cloud solutions 
+                            for federal government missions across civilian agencies, Intelligence Community, and DoD.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Technical Engineer & Subject Matter Expert (II)</div>
+                        <div class="timeline-company">ManTech</div>
+                        <div class="timeline-date">Nov 2024 - May 2025</div>
+                        <div class="timeline-description">
+                            Supporting the CIO across IAM, AD, and Virtualization. Received two promotions in less 
+                            than a year. Previously worked as Software Engineer (II) on an $850M DOW Contract as 
+                            the only freshman on the team, developing solutions for national security missions.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Cyber Threat Intelligence Analyst</div>
+                        <div class="timeline-company">Cyber Security Forum Initiative (CSFI)</div>
+                        <div class="timeline-date">Jan 2025 - Apr 2025</div>
+                        <div class="timeline-description">
+                            Cybercom + Intelligence Collection. Worked with non-profit organization providing 
+                            Cyber Warfare awareness, guidance, and security solutions through collaboration, 
+                            education, and training for US Government, Military, and Commercial interests.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Cyber Security Analyst</div>
+                        <div class="timeline-company">Solvitur Systems LLC</div>
+                        <div class="timeline-date">Sep 2024 - Dec 2024</div>
+                        <div class="timeline-description">
+                            User Experience Design + Web Security Testing. Collaborated with clients on regulatory 
+                            compliance, security assessments, and cybersecurity modernization to create more 
+                            resilient cyber environments.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Leadership Section -->
+    <section id="leadership" class="section">
+        <div class="container">
+            <h2 class="section-title">Leadership & Academic Excellence</h2>
+            <p class="section-subtitle">Driving innovation and excellence in technology and academia</p>
+            
+            <div class="leadership-grid">
+                <div class="leadership-card fade-in">
+                    <div class="leadership-icon">
+                        <i data-lucide="graduation-cap"></i>
+                    </div>
+                    <h3 class="leadership-title">Valedictorian Candidate</h3>
+                    <p class="leadership-description">
+                        Ranked #1 in B.S. IT program at James Madison University with 3.984/4.000 GPA. 
+                        Consistently on President's List every semester, demonstrating exceptional academic excellence 
+                        in Information Technology and Computer Science.
+                    </p>
+                </div>
+
+                <div class="leadership-card fade-in">
+                    <div class="leadership-icon">
+                        <i data-lucide="award"></i>
+                    </div>
+                    <h3 class="leadership-title">Honors College Member</h3>
+                    <p class="leadership-description">
+                        Selected for James Madison University Honors College, participating in advanced coursework 
+                        and interdisciplinary studies. Represented JMU at NCHC, CYBERWARCON, CAPWIC, and Shmoocon conferences.
+                    </p>
+                </div>
+
+                <div class="leadership-card fade-in">
+                    <div class="leadership-icon">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <h3 class="leadership-title">Founding IT Ambassador</h3>
+                    <p class="leadership-description">
+                        Led IT major to become one of JMU's fastest-growing programs as top-ranked ambassador by hours contributed. 
+                        Founded and led the Information Technology Program Ambassadors, significantly growing the program.
+                    </p>
+                </div>
+
+                <div class="leadership-card fade-in">
+                    <div class="leadership-icon">
+                        <i data-lucide="book-open"></i>
+                    </div>
+                    <h3 class="leadership-title">Teaching Fellow</h3>
+                    <p class="leadership-description">
+                        Appointed as instructor for Honors 100 course, a position typically reserved for senior educators. 
+                        Designed and delivered comprehensive coursework for first-year honors students, demonstrating 
+                        exceptional teaching and leadership capabilities.
+                    </p>
+                </div>
+
+                <div class="leadership-card fade-in">
+                    <div class="leadership-icon">
+                        <i data-lucide="microscope"></i>
+                    </div>
+                    <h3 class="leadership-title">First-Year Researcher</h3>
+                    <p class="leadership-description">
+                        Led MusicCPR Project (Computer Science) + Development as a first-year researcher. 
+                        Collaborated on web application development and scholarly research, contributing to 
+                        innovative educational technology solutions.
+                    </p>
+                </div>
+
+                <div class="leadership-card fade-in">
+                    <div class="leadership-icon">
+                        <i data-lucide="crown"></i>
+                    </div>
+                    <h3 class="leadership-title">Madison Tech Society President</h3>
+                    <p class="leadership-description">
+                        President of Madison Tech Society (MTS) since March 2024. Leading technology initiatives 
+                        and fostering innovation within the university community, driving forward-thinking 
+                        technological solutions and collaboration.
+                    </p>
+                </div>
+            </div>
       </div>
-      <nav>
-        <a href="#projects">Projects</a>
-        <a href="resume.pdf">Resume</a>
-        <a class="btn" href="mailto:you@example.com">Contact</a>
-      </nav>
-    </header>
-
-    <section class="hero">
-      <h1>Building secure, reliable networks and cloud systems</h1>
-      <p class="lead">I work at the intersection of networking and security. Recent work includes AWS Beacon, OpenWRT LuCI tooling, and a Dockerized update system.</p>
     </section>
 
-    <section id="projects">
-      <div class="grid">
-        <article class="card">
-          <h3>AWS Beacon</h3>
-          <p>Static Next.js front end on S3 and CloudFront; Cognito auth; Bedrock powered chat, quiz, and flashcards.</p>
-          <span class="badge">AWS</span><span class="badge">Cognito</span><span class="badge">Bedrock</span>
-          <p><a href="https://github.com/YOURUSER/aws-beacon" class="btn">View code</a></p>
-        </article>
-        <article class="card">
-          <h3>LuCI Update UI</h3>
-          <p>OpenWRT extension that triggers secure update checks with a clean web UI.</p>
-          <span class="badge">OpenWRT</span><span class="badge">Lua</span><span class="badge">Shell</span>
-          <p><a href="https://github.com/YOURUSER/luci-app-csupdates" class="btn">View code</a></p>
-        </article>
-        <article class="card">
-          <h3>CyberSecDB</h3>
-          <p>Relational schema, synthetic data, and queries for security analytics.</p>
-          <span class="badge">MySQL</span><span class="badge">Schema</span>
-          <p><a href="https://github.com/YOURUSER/cybersecdb" class="btn">View code</a></p>
-        </article>
-      </div>
-    </section>
 
-    <section class="footer">
-      © <span id="y"></span> Will Jedrzejczak. Built with plain HTML and CSS on GitHub Pages.
-    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#experience">Experience</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="#leadership">Leadership</a>
+                    <a href="certifications.html">Certifications</a>
+                    <a href="recommendations.html">Recommendations</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <p>&copy; 2025 Will J. Jedrzejczak. All rights reserved. Built with modern web technologies.</p>
+            </div>
   </div>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Add hover effects to project cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add typing effect to hero title (only on desktop)
+        if (window.innerWidth > 768) {
+            const heroTitle = document.querySelector('.hero-text h1');
+            const titleText = heroTitle.textContent;
+            heroTitle.textContent = '';
+            
+            let i = 0;
+            const typeWriter = () => {
+                if (i < titleText.length) {
+                    heroTitle.textContent += titleText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            };
+            
+            // Start typing effect after a short delay
+            setTimeout(typeWriter, 1000);
+        }
+
+        // Lazy load images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src || img.src;
+                        img.classList.remove('lazy');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+    </script>
 </body>
 </html>

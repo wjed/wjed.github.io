@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations • Will J. Jedrzejczak</title>
+    <meta name="description" content="Professional recommendations and testimonials for Will J. Jedrzejczak from colleagues, mentors, and industry professionals.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css">
+    
+    <!-- Performance optimizations -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>WJ</text></svg>">
+    
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-tertiary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent-blue: #00d4ff;
+            --accent-purple: #8b5cf6;
+            --accent-green: #10b981;
+            --border: #2a2a2a;
+            --border-hover: #404040;
+            --shadow: rgba(0, 0, 0, 0.3);
+            --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 100%);
+            --gradient-secondary: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--gradient-primary);
+            color: var(--bg-primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding-top: 100px;
+            min-height: 100vh;
+        }
+
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Recommendations Grid */
+        .recommendations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .recommendation-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .recommendation-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .recommendation-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .recommendation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px var(--shadow);
+            border-color: var(--accent-blue);
+        }
+
+        .recommendation-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .recommendation-avatar {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--bg-primary);
+        }
+
+        .recommendation-info h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .recommendation-title {
+            color: var(--accent-blue);
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .recommendation-company {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .recommendation-date {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        .recommendation-content {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .recommendation-quote {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .recommendation-quote::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -0.5rem;
+            font-size: 2rem;
+            color: var(--accent-blue);
+            font-family: serif;
+        }
+
+        .recommendation-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .recommendation-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .recommendation-link:hover {
+            color: var(--text-primary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .recommendations-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .recommendation-header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="logo">WJ</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#experience">Experience</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="index.html#leadership">Leadership</a></li>
+                    <li><a href="certifications.html">Certifications</a></li>
+                    <li><a href="recommendations.html">Recommendations</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <a href="contact.html" class="cta-button">Get In Touch</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="section">
+            <div class="container">
+                <h1 class="section-title">Professional Recommendations</h1>
+                <p class="section-subtitle">Testimonials from colleagues, mentors, and industry professionals</p>
+                
+                <div class="recommendations-grid">
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <div class="recommendation-avatar">SN</div>
+                            <div class="recommendation-info">
+                                <h3>Shishira Nakka</h3>
+                                <div class="recommendation-title">Marketing and English Student at James Madison University</div>
+                                <div class="recommendation-company">First degree connection</div>
+                                <div class="recommendation-date">August 21, 2025</div>
+                            </div>
+                        </div>
+                        <div class="recommendation-content">
+                            <div class="recommendation-quote">
+                                Imagine the greatest, brightest, smartest person you know. Will is that person to the millionth power. His dedication, patience, expertise, and willingness to put 110% of himself into everything he does is inspiring, and I know I speak for more than just myself when I say that. Watching him balance his challenging schoolwork, somehow ever-growing extracurriculars, and still managing to pick up the phone when friends or family rings is exceptional. I find myself in awe that one single person can carry that much potential, compassion, and humility. Whether in class or clubs, Will has never wavered away from being the responsible, driven, and more than capable individual he is. Within the first five seconds of meeting him, any team member knows they are in good company and that he is an incredible asset to have. To work with him is an immense privilege, and if you don't believe me, hire him and then get back to me. Brilliance has a name, and his name is William Jedrzejczak.
+                            </div>
+                        </div>
+                        <div class="recommendation-actions">
+                            <a href="#" class="recommendation-link">
+                                <i data-lucide="linkedin"></i>
+                                View on LinkedIn
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <div class="recommendation-avatar">AB</div>
+                            <div class="recommendation-info">
+                                <h3>Adam Bluhm</h3>
+                                <div class="recommendation-title">Focused on GenAI for NatSec | ML certified & Sr. Solutions Architect @ AWS</div>
+                                <div class="recommendation-company">Mentor at AWS</div>
+                                <div class="recommendation-date">June 29, 2025</div>
+                            </div>
+                        </div>
+                        <div class="recommendation-content">
+                            <div class="recommendation-quote">
+                                I connected with William Jedrzejczak on LinkedIn well before he landed his AWS Professional Services internship, and he immediately stood out. Most students send generic connection requests; William sent a thoughtful note asking how to combine customer obsession with hands‑on skills in AI and DevOps for the public sector. That focus on the right questions—rather than simply the "next" questions—told me he was operating several steps ahead of his peers. Once he joined AWS, we moved our conversations inside the firewall, and I watched him translate curiosity into impact at speed. He jumped onto high‑visibility internal projects, mapped out where he could add value, and then sought targeted guidance to close any gaps. He never asks for shortcuts, only for context that accelerates his own learning so he can serve customers better. That combination of initiative and humility is rare even among seasoned consultants. William's trajectory is going to the moon: whether as a future senior technologist, a standout consultant, or the founder of his own venture, he is going to make outsized contributions. I'm genuinely excited to see where he takes his career, and I consider it a privilege to play even a small part in that journey. Any team that gets him next will quickly realize they've hired a rising star.
+                            </div>
+                        </div>
+                        <div class="recommendation-actions">
+                            <a href="#" class="recommendation-link">
+                                <i data-lucide="linkedin"></i>
+                                View on LinkedIn
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <div class="recommendation-avatar">TE</div>
+                            <div class="recommendation-info">
+                                <h3>Troy.L Edwards Jr</h3>
+                                <div class="recommendation-title">AWS | CISM | PMP | NASA | Cybersecurity & Risk | Georgetown MBA Candidate ('27) | US Navy Veteran | DOD Clearance</div>
+                                <div class="recommendation-company">Direct Manager at AWS</div>
+                                <div class="recommendation-date">June 23, 2025</div>
+                            </div>
+                        </div>
+                        <div class="recommendation-content">
+                            <div class="recommendation-quote">
+                                Throughout my professional journey, from supporting over 1,800 secure missions under U.S. STRATCOM to advancing cybersecurity and compliance at NASA and now contributing to secure, cloud-focused delivery at AWS, I've worked alongside individuals at every level. William Jedrzejczak is, without question, one of the most promising young professionals I've come across. He brings a level of focus, humility, and discipline that you don't see often, especially not from someone still completing their undergraduate degree. He doesn't just execute. He engages. He listens, absorbs, and applies feedback with intention. He asks the right questions, takes initiative, and holds himself to a high standard. But beyond the skills and potential, it's his consistency and character that set him apart. William is one of the most grounded and driven young men I've had the chance to work with. Watching him grow, contribute, and stay locked in has been a privilege. He's not chasing titles. He's doing the work. And the industry doesn't just need more people like him. It needs to make room for them.
+                            </div>
+                        </div>
+                        <div class="recommendation-actions">
+                            <a href="#" class="recommendation-link">
+                                <i data-lucide="linkedin"></i>
+                                View on LinkedIn
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <div class="recommendation-avatar">TM</div>
+                            <div class="recommendation-info">
+                                <h3>Thomas Montgomery</h3>
+                                <div class="recommendation-title">Intelligence Analyst @ USAF | Active TS/SCI Clearance</div>
+                                <div class="recommendation-company">Professional Colleague</div>
+                                <div class="recommendation-date">July 11, 2024</div>
+                            </div>
+                        </div>
+                        <div class="recommendation-content">
+                            <div class="recommendation-quote">
+                                Will is an exceptionally talented professional whose work in the government sector has been transformative. His technical expertise, along with his problem-solving abilities, consistently deliver outstanding results. Beyond his professional skills, Will is a dedicated and compassionate team player, always willing to support and lead with integrity and enthusiasm.
+                            </div>
+                        </div>
+                        <div class="recommendation-actions">
+                            <a href="#" class="recommendation-link">
+                                <i data-lucide="linkedin"></i>
+                                View on LinkedIn
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <div class="recommendation-avatar">NR</div>
+                            <div class="recommendation-info">
+                                <h3>Nicolas Reiser</h3>
+                                <div class="recommendation-title">CS Student @ NoVa | CTO @ AimForge</h3>
+                                <div class="recommendation-company">Team Member</div>
+                                <div class="recommendation-date">June 22, 2024</div>
+                            </div>
+                        </div>
+                        <div class="recommendation-content">
+                            <div class="recommendation-quote">
+                                I have been working on AimForge amongst other projects with Will for months, and I can say that he stands out as an exceptional leader and communicator. Will has an incredible ability to manage teams effectively, ensuring everyone is aligned and motivated. His clear communication and strategic thinking drive projects to success. Highly recommend him for any role requiring leadership and team management.
+                            </div>
+                        </div>
+                        <div class="recommendation-actions">
+                            <a href="#" class="recommendation-link">
+                                <i data-lucide="linkedin"></i>
+                                View on LinkedIn
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <div class="recommendation-avatar">RC</div>
+                            <div class="recommendation-info">
+                                <h3>Raymond Cagnina</h3>
+                                <div class="recommendation-title">GMU Graduate</div>
+                                <div class="recommendation-company">Study Partner</div>
+                                <div class="recommendation-date">May 18, 2024</div>
+                            </div>
+                        </div>
+                        <div class="recommendation-content">
+                            <div class="recommendation-quote">
+                                Will is truly one-of-a-kind, a rare blend of drive, integrity, and a genuine passion for innovation. His perspective and dedication make him an asset to any team, always pushing the boundaries in his work and inspiring those around him to achieve greatness.
+                            </div>
+                        </div>
+                        <div class="recommendation-actions">
+                            <a href="#" class="recommendation-link">
+                                <i data-lucide="linkedin"></i>
+                                View on LinkedIn
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <div class="recommendation-avatar">CD</div>
+                            <div class="recommendation-info">
+                                <h3>Colin Davis</h3>
+                                <div class="recommendation-title">Student at James Madison University</div>
+                                <div class="recommendation-company">Roommate & Study Partner</div>
+                                <div class="recommendation-date">May 4, 2024</div>
+                            </div>
+                        </div>
+                        <div class="recommendation-content">
+                            <div class="recommendation-quote">
+                                Living with Will at JMU has been inspiring. Whether he's in our dorm coding, leading projects, or just learning more about the industry, Will constantly demonstrates his commitment and talent. Balancing demanding academics with impactful initiatives, he stands out in IT. Will is undoubtedly an asset to any team, with unbelievable tech skills and a genuine passion.
+                            </div>
+                        </div>
+                        <div class="recommendation-actions">
+                            <a href="#" class="recommendation-link">
+                                <i data-lucide="linkedin"></i>
+                                View on LinkedIn
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <div class="recommendation-avatar">DG</div>
+                            <div class="recommendation-info">
+                                <h3>Dilpreet Gill</h3>
+                                <div class="recommendation-title">Networking @ Verizon</div>
+                                <div class="recommendation-company">Study Partner</div>
+                                <div class="recommendation-date">March 23, 2024</div>
+                            </div>
+                        </div>
+                        <div class="recommendation-content">
+                            <div class="recommendation-quote">
+                                William Jedrzejczak is a rare blend of brilliance, motivation, and kindness, making an unforgettable mark on everyone he meets. William's unparalleled drive and profound intellect were evident from just our freshman year, exemplified by securing a coveted internship at ManTech. His tenacity isn't just about achieving goals but surpassing them, setting a benchmark for excellence. William embodies leadership, not just through his words but through his actions, fostering a sense of camaraderie and support among peers. His ability to easily tackle complex challenges and his genuine concern for others' well-being resonate deeply. Witnessing his journey, I am convinced that William is not just on the path to success; he is paving the way for a future where his visionary leadership and exceptional skills transform any endeavor he undertakes. It's an honor and a privilege to recommend William, a man whose potential knows no bounds and defines excellence and who I'm always, always glad to be with. If it's any person, it is him.
+                            </div>
+                        </div>
+                        <div class="recommendation-actions">
+                            <a href="#" class="recommendation-link">
+                                <i data-lucide="linkedin"></i>
+                                View on LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certifications • Will J. Jedrzejczak</title>
+    <meta name="description" content="Professional certifications and credentials of Will J. Jedrzejczak in AWS, CompTIA, and cybersecurity.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css">
+    
+    <!-- Performance optimizations -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>WJ</text></svg>">
+    
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-tertiary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent-blue: #00d4ff;
+            --accent-purple: #8b5cf6;
+            --accent-green: #10b981;
+            --border: #2a2a2a;
+            --border-hover: #404040;
+            --shadow: rgba(0, 0, 0, 0.3);
+            --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 100%);
+            --gradient-secondary: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--gradient-primary);
+            color: var(--bg-primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding-top: 100px;
+            min-height: 100vh;
+        }
+
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Certifications Grid */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .cert-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .cert-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px var(--shadow);
+            border-color: var(--accent-blue);
+        }
+
+        .cert-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cert-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .cert-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-issuer {
+            color: var(--accent-blue);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .cert-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .cert-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-badge {
+            background: var(--bg-tertiary);
+            color: var(--accent-blue);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
+        }
+
+        .cert-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .cert-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .cert-link:hover {
+            color: var(--text-primary);
+        }
+
+        /* Category Headers */
+        .category-header {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 4rem 0 2rem 0;
+            color: var(--accent-purple);
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cert-header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="logo">WJ</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#experience">Experience</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="index.html#leadership">Leadership</a></li>
+                    <li><a href="certifications.html">Certifications</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <a href="contact.html" class="cta-button">Get In Touch</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="section">
+            <div class="container">
+                <h1 class="section-title">Professional Certifications</h1>
+                <p class="section-subtitle">Industry-recognized credentials demonstrating expertise in cloud computing, cybersecurity, and technology</p>
+                
+                <!-- AWS Certifications -->
+                <h2 class="category-header">Amazon Web Services (AWS)</h2>
+                <div class="certifications-grid">
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <div class="cert-icon">☁️</div>
+                            <div>
+                                <h3 class="cert-title">AWS Certified Data Engineer - Associate</h3>
+                                <div class="cert-issuer">Amazon Web Services (AWS)</div>
+                                <div class="cert-date">Aug 2025 - Aug 2028</div>
+                            </div>
+                        </div>
+                        <p class="cert-description">
+                            Advanced certification in data engineering on AWS, covering data privacy, data science, 
+                            databases, and comprehensive AWS data services.
+                        </p>
+                        <div class="cert-skills">
+                            <span class="skill-badge">Data Privacy</span>
+                            <span class="skill-badge">Data Science</span>
+                            <span class="skill-badge">Databases</span>
+                            <span class="skill-badge">AWS</span>
+                        </div>
+                        <div class="cert-actions">
+                            <a href="#" class="cert-link">
+                                <i data-lucide="external-link"></i>
+                                View Credential
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <div class="cert-icon">☁️</div>
+                            <div>
+                                <h3 class="cert-title">AWS Certified Developer - Associate</h3>
+                                <div class="cert-issuer">Amazon Web Services (AWS)</div>
+                                <div class="cert-date">Jul 2025 - Jul 2028</div>
+                            </div>
+                        </div>
+                        <p class="cert-description">
+                            Professional certification in developing and maintaining applications on AWS platform, 
+                            covering infrastructure as code, Lambda, and API Gateways.
+                        </p>
+                        <div class="cert-skills">
+                            <span class="skill-badge">Infrastructure as Code</span>
+                            <span class="skill-badge">AWS Lambda</span>
+                            <span class="skill-badge">API Gateways</span>
+                            <span class="skill-badge">AWS</span>
+                        </div>
+                        <div class="cert-actions">
+                            <a href="#" class="cert-link">
+                                <i data-lucide="external-link"></i>
+                                View Credential
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <div class="cert-icon">☁️</div>
+                            <div>
+                                <h3 class="cert-title">AWS Certified Machine Learning Engineer - Associate</h3>
+                                <div class="cert-issuer">Amazon Web Services (AWS)</div>
+                                <div class="cert-date">Jul 2025 - Jul 2028</div>
+                            </div>
+                        </div>
+                        <p class="cert-description">
+                            Specialized certification in machine learning engineering on AWS, covering AI, 
+                            Large Language Models, and advanced ML services.
+                        </p>
+                        <div class="cert-skills">
+                            <span class="skill-badge">Artificial Intelligence</span>
+                            <span class="skill-badge">Large Language Models</span>
+                            <span class="skill-badge">Machine Learning</span>
+                            <span class="skill-badge">AWS</span>
+                        </div>
+                        <div class="cert-actions">
+                            <a href="#" class="cert-link">
+                                <i data-lucide="external-link"></i>
+                                View Credential
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <div class="cert-icon">☁️</div>
+                            <div>
+                                <h3 class="cert-title">AWS Certified SysOps Administrator - Associate</h3>
+                                <div class="cert-issuer">Amazon Web Services (AWS)</div>
+                                <div class="cert-date">May 2025 - May 2028</div>
+                            </div>
+                        </div>
+                        <p class="cert-description">
+                            Systems operations certification covering deployment, management, and operations 
+                            of scalable, highly available systems on AWS.
+                        </p>
+                        <div class="cert-skills">
+                            <span class="skill-badge">Cloud Computing</span>
+                            <span class="skill-badge">System Administration</span>
+                            <span class="skill-badge">AWS</span>
+                        </div>
+                        <div class="cert-actions">
+                            <a href="#" class="cert-link">
+                                <i data-lucide="external-link"></i>
+                                View Credential
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <div class="cert-icon">☁️</div>
+                            <div>
+                                <h3 class="cert-title">AWS Certified AI Practitioner</h3>
+                                <div class="cert-issuer">Amazon Web Services (AWS)</div>
+                                <div class="cert-date">Mar 2025 - Mar 2028</div>
+                            </div>
+                        </div>
+                        <p class="cert-description">
+                            Foundational AI certification covering artificial intelligence concepts, 
+                            Large Language Models, and cloud computing applications.
+                        </p>
+                        <div class="cert-skills">
+                            <span class="skill-badge">Artificial Intelligence</span>
+                            <span class="skill-badge">Large Language Models</span>
+                            <span class="skill-badge">Cloud Computing</span>
+                            <span class="skill-badge">AWS</span>
+                        </div>
+                        <div class="cert-actions">
+                            <a href="#" class="cert-link">
+                                <i data-lucide="external-link"></i>
+                                View Credential
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <div class="cert-icon">☁️</div>
+                            <div>
+                                <h3 class="cert-title">AWS Certified Solutions Architect - Associate</h3>
+                                <div class="cert-issuer">Amazon Web Services (AWS)</div>
+                                <div class="cert-date">Jul 2024 - Jul 2027</div>
+                            </div>
+                        </div>
+                        <p class="cert-description">
+                            Solutions architecture certification covering designing distributed systems 
+                            and applications on AWS platform.
+                        </p>
+                        <div class="cert-skills">
+                            <span class="skill-badge">Cloud Computing</span>
+                            <span class="skill-badge">Solutions Architecture</span>
+                            <span class="skill-badge">AWS</span>
+                        </div>
+                        <div class="cert-actions">
+                            <a href="#" class="cert-link">
+                                <i data-lucide="external-link"></i>
+                                View Credential
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <div class="cert-icon">☁️</div>
+                            <div>
+                                <h3 class="cert-title">AWS Certified Cloud Practitioner</h3>
+                                <div class="cert-issuer">Amazon Web Services (AWS)</div>
+                                <div class="cert-date">Jun 2024 - Jun 2027</div>
+                            </div>
+                        </div>
+                        <p class="cert-description">
+                            Foundational cloud certification covering AWS Cloud concepts, services, 
+                            security, architecture, pricing, and support.
+                        </p>
+                        <div class="cert-skills">
+                            <span class="skill-badge">Cloud Computing</span>
+                            <span class="skill-badge">Large Language Models</span>
+                            <span class="skill-badge">Cybersecurity</span>
+                            <span class="skill-badge">AWS</span>
+                        </div>
+                        <div class="cert-actions">
+                            <a href="#" class="cert-link">
+                                <i data-lucide="external-link"></i>
+                                View Credential
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CompTIA Certifications -->
+                <h2 class="category-header">CompTIA</h2>
+                <div class="certifications-grid">
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <div class="cert-icon">🔒</div>
+                            <div>
+                                <h3 class="cert-title">CompTIA Cybersecurity Analyst (CySA+)</h3>
+                                <div class="cert-issuer">CompTIA</div>
+                                <div class="cert-date">Feb 2025 - Feb 2028</div>
+                            </div>
+                        </div>
+                        <p class="cert-description">
+                            Advanced cybersecurity certification covering threat detection, analysis, 
+                            and response using behavioral analytics and security tools.
+                        </p>
+                        <div class="cert-skills">
+                            <span class="skill-badge">Data Privacy</span>
+                            <span class="skill-badge">Cybersecurity</span>
+                            <span class="skill-badge">Threat Analysis</span>
+                        </div>
+                        <div class="cert-actions">
+                            <a href="#" class="cert-link">
+                                <i data-lucide="external-link"></i>
+                                View Credential
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <div class="cert-icon">🔒</div>
+                            <div>
+                                <h3 class="cert-title">CompTIA Security Analytics Practitioner (CSAP)</h3>
+                                <div class="cert-issuer">CompTIA</div>
+                                <div class="cert-date">Feb 2025 - Feb 2028</div>
+                            </div>
+                        </div>
+                        <p class="cert-description">
+                            Specialized certification in security analytics, covering advanced threat 
+                            detection and security data analysis techniques.
+                        </p>
+                        <div class="cert-skills">
+                            <span class="skill-badge">Security Analytics</span>
+                            <span class="skill-badge">Threat Detection</span>
+                            <span class="skill-badge">Data Analysis</span>
+                        </div>
+                        <div class="cert-actions">
+                            <a href="#" class="cert-link">
+                                <i data-lucide="external-link"></i>
+                                View Credential
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <div class="cert-icon">🔒</div>
+                            <div>
+                                <h3 class="cert-title">CompTIA Secure Infrastructure Specialist (CSIS)</h3>
+                                <div class="cert-issuer">CompTIA</div>
+                                <div class="cert-date">Jun 2024 - Feb 2028</div>
+                            </div>
+                        </div>
+                        <p class="cert-description">
+                            Comprehensive security infrastructure certification covering network security, 
+                            system security, and secure infrastructure design.
+                        </p>
+                        <div class="cert-skills">
+                            <span class="skill-badge">Infrastructure Security</span>
+                            <span class="skill-badge">Network Security</span>
+                            <span class="skill-badge">System Security</span>
+                        </div>
+                        <div class="cert-actions">
+                            <a href="#" class="cert-link">
+                                <i data-lucide="external-link"></i>
+                                View Credential
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <div class="cert-icon">🔒</div>
+                            <div>
+                                <h3 class="cert-title">CompTIA Security+</h3>
+                                <div class="cert-issuer">CompTIA</div>
+                                <div class="cert-date">Jun 2024 - Feb 2028</div>
+                            </div>
+                        </div>
+                        <p class="cert-description">
+                            Foundational cybersecurity certification covering core security functions, 
+                            risk management, and security operations.
+                        </p>
+                        <div class="cert-skills">
+                            <span class="skill-badge">Cybersecurity</span>
+                            <span class="skill-badge">Risk Management</span>
+                            <span class="skill-badge">Security Operations</span>
+                        </div>
+                        <div class="cert-actions">
+                            <a href="#" class="cert-link">
+                                <i data-lucide="external-link"></i>
+                                View Credential
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <div class="cert-icon">🔒</div>
+                            <div>
+                                <h3 class="cert-title">CompTIA IT Operations Specialist (CIOS)</h3>
+                                <div class="cert-issuer">CompTIA</div>
+                                <div class="cert-date">Apr 2024 - Feb 2028</div>
+                            </div>
+                        </div>
+                        <p class="cert-description">
+                            IT operations certification covering system administration, troubleshooting, 
+                            and operational security practices.
+                        </p>
+                        <div class="cert-skills">
+                            <span class="skill-badge">IT Operations</span>
+                            <span class="skill-badge">System Administration</span>
+                            <span class="skill-badge">Troubleshooting</span>
+                        </div>
+                        <div class="cert-actions">
+                            <a href="#" class="cert-link">
+                                <i data-lucide="external-link"></i>
+                                View Credential
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <div class="cert-icon">🔒</div>
+                            <div>
+                                <h3 class="cert-title">CompTIA Network+</h3>
+                                <div class="cert-issuer">CompTIA</div>
+                                <div class="cert-date">Apr 2024 - Feb 2028</div>
+                            </div>
+                        </div>
+                        <p class="cert-description">
+                            Network administration certification covering network design, implementation, 
+                            troubleshooting, and security.
+                        </p>
+                        <div class="cert-skills">
+                            <span class="skill-badge">Networking</span>
+                            <span class="skill-badge">Network Security</span>
+                            <span class="skill-badge">Troubleshooting</span>
+                        </div>
+                        <div class="cert-actions">
+                            <a href="#" class="cert-link">
+                                <i data-lucide="external-link"></i>
+                                View Credential
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <div class="cert-icon">🔒</div>
+                            <div>
+                                <h3 class="cert-title">CompTIA A+</h3>
+                                <div class="cert-issuer">CompTIA</div>
+                                <div class="cert-date">Feb 2024 - Feb 2028</div>
+                            </div>
+                        </div>
+                        <p class="cert-description">
+                            Foundational IT certification covering hardware, software, troubleshooting, 
+                            and operational procedures.
+                        </p>
+                        <div class="cert-skills">
+                            <span class="skill-badge">Hardware</span>
+                            <span class="skill-badge">Software</span>
+                            <span class="skill-badge">Troubleshooting</span>
+                        </div>
+                        <div class="cert-actions">
+                            <a href="#" class="cert-link">
+                                <i data-lucide="external-link"></i>
+                                View Credential
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <div class="cert-icon">🔒</div>
+                            <div>
+                                <h3 class="cert-title">CompTIA IT Fundamentals+</h3>
+                                <div class="cert-issuer">CompTIA</div>
+                                <div class="cert-date">May 2023 - May 2026</div>
+                            </div>
+                        </div>
+                        <p class="cert-description">
+                            Entry-level IT certification covering basic IT concepts, terminology, 
+                            and fundamental skills.
+                        </p>
+                        <div class="cert-skills">
+                            <span class="skill-badge">IT Fundamentals</span>
+                            <span class="skill-badge">Basic Concepts</span>
+                            <span class="skill-badge">Terminology</span>
+                        </div>
+                        <div class="cert-actions">
+                            <a href="#" class="cert-link">
+                                <i data-lucide="external-link"></i>
+                                View Credential
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Certifications -->
+                <h2 class="category-header">Additional Certifications</h2>
+                <div class="certifications-grid">
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <div class="cert-icon">🏢</div>
+                            <div>
+                                <h3 class="cert-title">DLAMP Scholar</h3>
+                                <div class="cert-issuer">Deloitte</div>
+                                <div class="cert-date">Mar 2024 - Nov 2024</div>
+                            </div>
+                        </div>
+                        <p class="cert-description">
+                            Selected twice as DLAMP Scholar and youngest Summer 2024 participant for JMU cohort. 
+                            Advanced leadership and management program in professional services.
+                        </p>
+                        <div class="cert-skills">
+                            <span class="skill-badge">Leadership</span>
+                            <span class="skill-badge">Management</span>
+                            <span class="skill-badge">Professional Development</span>
+                        </div>
+                        <div class="cert-actions">
+                            <a href="#" class="cert-link">
+                                <i data-lucide="external-link"></i>
+                                View Program
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <div class="cert-icon">🛡️</div>
+                            <div>
+                                <h3 class="cert-title">Cyber Awareness Challenge 2025</h3>
+                                <div class="cert-issuer">U.S. Department of Defense</div>
+                                <div class="cert-date">Nov 2024</div>
+                            </div>
+                        </div>
+                        <p class="cert-description">
+                            Department of Defense cybersecurity awareness training covering threat recognition, 
+                            incident response, and security best practices.
+                        </p>
+                        <div class="cert-skills">
+                            <span class="skill-badge">Cybersecurity</span>
+                            <span class="skill-badge">Threat Awareness</span>
+                            <span class="skill-badge">DoD</span>
+                        </div>
+                        <div class="cert-actions">
+                            <a href="#" class="cert-link">
+                                <i data-lucide="external-link"></i>
+                                View Certificate
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <div class="cert-icon">☁️</div>
+                            <div>
+                                <h3 class="cert-title">Create Serverless Applications</h3>
+                                <div class="cert-issuer">Microsoft</div>
+                                <div class="cert-date">Aug 2024</div>
+                            </div>
+                        </div>
+                        <p class="cert-description">
+                            Microsoft Azure serverless application development certification covering 
+                            cloud functions, APIs, and serverless architecture.
+                        </p>
+                        <div class="cert-skills">
+                            <span class="skill-badge">Microsoft Azure</span>
+                            <span class="skill-badge">Serverless</span>
+                            <span class="skill-badge">Cloud Functions</span>
+                        </div>
+                        <div class="cert-actions">
+                            <a href="#" class="cert-link">
+                                <i data-lucide="external-link"></i>
+                                View Certificate
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <div class="cert-icon">🌐</div>
+                            <div>
+                                <h3 class="cert-title">Network Technician Career Path</h3>
+                                <div class="cert-issuer">Cisco</div>
+                                <div class="cert-date">Aug 2024</div>
+                            </div>
+                        </div>
+                        <p class="cert-description">
+                            Cisco networking certification covering network design, implementation, 
+                            and troubleshooting in enterprise environments.
+                        </p>
+                        <div class="cert-skills">
+                            <span class="skill-badge">Networking</span>
+                            <span class="skill-badge">Cisco</span>
+                            <span class="skill-badge">Enterprise</span>
+                        </div>
+                        <div class="cert-actions">
+                            <a href="#" class="cert-link">
+                                <i data-lucide="external-link"></i>
+                                View Certificate
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
