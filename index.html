@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Will Jedrzejczak • Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="IT student at JMU focused on networking, cloud, and security. Projects, experience, and contact.">
+  <link rel="icon" href="favicon.ico">
+  <style>
+    :root { --bg:#0f1220; --card:#171a2a; --text:#e7e9ee; --muted:#a8b0c3; --accent:#5aa9ff; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; background:var(--bg); color:var(--text); }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 32px 20px 80px; }
+    header { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    nav a { color:var(--muted); text-decoration:none; margin-left:16px; }
+    nav a:hover { color:var(--text); }
+    .hero { margin:48px 0 28px; }
+    h1 { font-size:40px; margin:0 0 12px; line-height:1.1; }
+    p.lead { font-size:18px; color:var(--muted); margin:0; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:16px; margin-top:24px; }
+    .card { background:var(--card); border:1px solid #262a44; border-radius:16px; padding:18px; }
+    .card h3 { margin:0 0 6px; font-size:18px; }
+    .card p { margin:0 0 10px; color:var(--muted); }
+    .badge { display:inline-block; font-size:12px; padding:2px 8px; border-radius:999px; border:1px solid #2b335a; color:#b7c3e0; margin-right:6px; }
+    .footer { margin-top:48px; color:var(--muted); font-size:14px; }
+    .btn { display:inline-block; padding:10px 14px; background:var(--accent); color:#09111e; border-radius:10px; text-decoration:none; font-weight:600; }
+    .btn:hover { filter:brightness(1.05); }
+    img.avatar { width:64px; height:64px; border-radius:50%; border:1px solid #2b335a; }
+    @media (prefers-color-scheme: light) {
+      :root { --bg:#f6f7fb; --card:#ffffff; --text:#0a0d1a; --muted:#5a6173; --accent:#0b74ff; }
+      body { background:var(--bg); color:var(--text); }
+      .card { border-color:#e8ebf5; }
+      nav a { color:#44506b; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div style="display:flex; align-items:center; gap:14px;">
+        <img class="avatar" src="images/avatar.jpg" alt="Headshot">
+        <div>
+          <strong>Will Jedrzejczak</strong><br>
+          <span style="color:var(--muted)">IT student at JMU • Networking, Cloud, Security</span>
+        </div>
+      </div>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="resume.pdf">Resume</a>
+        <a class="btn" href="mailto:you@example.com">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Building secure, reliable networks and cloud systems</h1>
+      <p class="lead">I work at the intersection of networking and security. Recent work includes AWS Beacon, OpenWRT LuCI tooling, and a Dockerized update system.</p>
+    </section>
+
+    <section id="projects">
+      <div class="grid">
+        <article class="card">
+          <h3>AWS Beacon</h3>
+          <p>Static Next.js front end on S3 and CloudFront; Cognito auth; Bedrock powered chat, quiz, and flashcards.</p>
+          <span class="badge">AWS</span><span class="badge">Cognito</span><span class="badge">Bedrock</span>
+          <p><a href="https://github.com/YOURUSER/aws-beacon" class="btn">View code</a></p>
+        </article>
+        <article class="card">
+          <h3>LuCI Update UI</h3>
+          <p>OpenWRT extension that triggers secure update checks with a clean web UI.</p>
+          <span class="badge">OpenWRT</span><span class="badge">Lua</span><span class="badge">Shell</span>
+          <p><a href="https://github.com/YOURUSER/luci-app-csupdates" class="btn">View code</a></p>
+        </article>
+        <article class="card">
+          <h3>CyberSecDB</h3>
+          <p>Relational schema, synthetic data, and queries for security analytics.</p>
+          <span class="badge">MySQL</span><span class="badge">Schema</span>
+          <p><a href="https://github.com/YOURUSER/cybersecdb" class="btn">View code</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="footer">
+      © <span id="y"></span> Will Jedrzejczak. Built with plain HTML and CSS on GitHub Pages.
+    </section>
+  </div>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
