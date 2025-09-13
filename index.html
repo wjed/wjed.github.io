@@ -421,14 +421,20 @@
 
         .timeline-dot {
             position: absolute;
-            left: 50%;
             top: 2rem;
             width: 20px;
             height: 20px;
             background: var(--gradient-primary);
             border-radius: 50%;
-            transform: translateX(-50%);
             z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
         }
 
         .timeline-title {
