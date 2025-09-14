@@ -135,7 +135,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1.25rem 2rem;
     min-height: 70px;
 }
 
@@ -150,7 +150,7 @@ body {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 2.5rem;
+    gap: 2rem;
     align-items: center;
 }
 
@@ -161,7 +161,7 @@ body {
     font-size: 0.95rem;
     transition: var(--transition-fast);
     position: relative;
-    padding: 0.5rem 0;
+    padding: 0.5rem 0.25rem;
 }
 
 .nav-links a:hover {
@@ -172,28 +172,30 @@ body {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0;
-    width: 0;
+    left: 0.25rem;
+    right: 0.25rem;
     height: 1px;
     background: var(--text-primary);
+    transform: scaleX(0);
     transition: var(--transition-fast);
+    transform-origin: left;
 }
 
 .nav-links a:hover::after {
-    width: 100%;
+    transform: scaleX(1);
 }
 
 .cta-button {
     background: var(--text-primary);
     color: var(--bg-primary);
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 1.25rem;
     border-radius: var(--border-radius);
     text-decoration: none;
     font-weight: 600;
     font-size: 0.9rem;
     transition: var(--transition-fast);
     border: 1px solid var(--text-primary);
-    margin-left: 1rem;
+    margin-left: 1.5rem;
 }
 
 .cta-button:hover {
@@ -216,7 +218,7 @@ body {
     justify-content: center;
     width: 40px;
     height: 40px;
-    margin-right: 1rem;
+    margin-right: 1.5rem;
     flex-shrink: 0;
     position: relative;
 }
@@ -495,6 +497,7 @@ body {
     box-shadow: 0 20px 25px -5px var(--shadow), 0 10px 10px -5px var(--shadow);
 }
 
+/* Remove duplicate dots on timeline cards - they look ugly
 .timeline-content::before {
     content: '';
     position: absolute;
@@ -514,6 +517,7 @@ body {
 .timeline-item:nth-child(even) .timeline-content::before {
     left: -11px;
 }
+*/
 
 .timeline-dot {
     position: absolute;
@@ -879,10 +883,11 @@ body {
 /* Recommendations Styles */
 .recommendations-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
     align-items: start;
+    justify-content: center;
 }
 
 @media (max-width: 768px) {
@@ -1098,14 +1103,9 @@ body {
     color: var(--text-primary);
 }
 
-.linkedin-badge {
-    margin: 2rem 0;
-    display: flex;
-    justify-content: center;
-}
-
+/* Resume Download Section */
 .resume-download {
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
 /* Footer */
@@ -1216,10 +1216,6 @@ body {
         left: 0 !important;
         padding-left: 3rem !important;
         padding-right: 0 !important;
-    }
-
-    .timeline-content::before {
-        left: -8px !important;
     }
 
     .projects-grid {

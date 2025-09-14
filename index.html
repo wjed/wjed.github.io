@@ -29,6 +29,16 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>WJ</text></svg>">
     
+    <!-- Prevent FOUC (Flash of Unstyled Content) for theme -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            if (savedTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -230,23 +240,29 @@
             });
         });
 
-        // Add typing effect to hero title (only on desktop)
+        // Add typing effect to hero description (only on desktop)
         if (window.innerWidth > 768) {
-            const heroTitle = document.querySelector('.hero-text h1');
-            const titleText = heroTitle.textContent;
-            heroTitle.textContent = '';
+            const heroDescription = document.querySelector('.hero-text .description');
+            const descriptionText = heroDescription.textContent;
+            heroDescription.textContent = '';
+            heroDescription.style.borderRight = '2px solid var(--text-primary)';
             
             let i = 0;
             const typeWriter = () => {
-                if (i < titleText.length) {
-                    heroTitle.textContent += titleText.charAt(i);
+                if (i < descriptionText.length) {
+                    heroDescription.textContent += descriptionText.charAt(i);
                     i++;
-                    setTimeout(typeWriter, 100);
+                    setTimeout(typeWriter, 50);
+                } else {
+                    // Remove cursor after typing is complete
+                    setTimeout(() => {
+                        heroDescription.style.borderRight = 'none';
+                    }, 1000);
                 }
             };
             
             // Start typing effect after a short delay
-            setTimeout(typeWriter, 1000);
+            setTimeout(typeWriter, 500);
         }
 
         // Lazy load images
