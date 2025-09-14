@@ -135,8 +135,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.25rem 2rem;
-    min-height: 70px;
+    padding: 1.5rem 2.5rem;
+    min-height: 80px;
 }
 
 .logo {
@@ -150,7 +150,7 @@ body {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 2.5rem;
     align-items: center;
 }
 
@@ -196,6 +196,10 @@ body {
     transition: var(--transition-fast);
     border: 1px solid var(--text-primary);
     margin-left: 1.5rem;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
 }
 
 .cta-button:hover {
@@ -211,13 +215,13 @@ body {
     border-radius: var(--border-radius);
     color: var(--text-primary);
     cursor: pointer;
-    padding: 0.5rem;
+    padding: 0.75rem;
     transition: var(--transition-fast);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     margin-right: 1.5rem;
     flex-shrink: 0;
     position: relative;
@@ -533,6 +537,18 @@ body {
     z-index: 2;
 }
 
+/* Position dots relative to the timeline container for proper alignment */
+.timeline-item:nth-child(odd) .timeline-dot {
+    right: -3rem;
+    left: auto;
+    transform: translateX(50%);
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+    left: -3rem;
+    transform: translateX(-50%);
+}
+
 .experience-header {
     margin-bottom: 1rem;
 }
@@ -747,6 +763,16 @@ body {
     box-shadow: 0 4px 6px -1px var(--shadow);
 }
 
+.leadership-icon i {
+    font-size: 1.8rem;
+    color: white;
+}
+
+/* Show emoji fallback when lucide icons aren't loaded */
+.icon-fallback {
+    font-size: 2rem;
+}
+
 .leadership-title {
     font-size: 1.3rem;
     font-weight: 600;
@@ -883,11 +909,12 @@ body {
 /* Recommendations Styles */
 .recommendations-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
     align-items: start;
-    justify-content: center;
+    justify-items: stretch;
+    width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -1085,6 +1112,11 @@ body {
     color: white;
 }
 
+/* Show emoji fallback when lucide icons aren't loaded */
+.icon-fallback {
+    font-size: 2rem;
+}
+
 .contact-title {
     font-size: 1.2rem;
     font-weight: 600;
@@ -1280,6 +1312,12 @@ body {
         max-width: 280px;
         justify-content: center;
     }
+}
+
+/* Icon fallback styles */
+.icon-fallback {
+    font-size: 2rem;
+    display: none;
 }
 
 /* Utility Classes */
