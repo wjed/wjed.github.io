@@ -158,6 +158,19 @@ body {
     font-feature-settings: 'kern' 1, 'liga' 1;
     letter-spacing: -0.011em;
     scroll-behavior: smooth;
+    opacity: 0;
+    animation: pageLoad 1s ease-out 0.1s both;
+}
+
+@keyframes pageLoad {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Premium Typography Hierarchy */
@@ -329,18 +342,24 @@ a:focus {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(10, 10, 10, 0.8);
-    backdrop-filter: blur(32px) saturate(180%);
-    -webkit-backdrop-filter: blur(32px) saturate(180%);
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(40px) saturate(200%);
+    -webkit-backdrop-filter: blur(40px) saturate(200%);
     border-bottom: 1px solid var(--border);
     z-index: 1000;
     transition: var(--transition-premium);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15),
+        0 4px 16px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 [data-theme="light"] .navbar {
-    background: rgba(255, 255, 255, 0.85);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.12),
+        0 4px 16px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .nav-container {
@@ -966,29 +985,63 @@ a:focus {
 .clearance-badge {
     background: var(--gradient-accent);
     color: white;
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.2rem;
     border-radius: var(--border-radius-lg);
     font-size: 0.75rem;
     font-weight: 700;
     display: inline-block;
     margin-bottom: 1.5rem;
     letter-spacing: 0.05em;
-    box-shadow: var(--shadow-md);
+    box-shadow: 
+        0 6px 24px rgba(59, 130, 246, 0.3),
+        0 3px 12px rgba(59, 130, 246, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
     position: relative;
     overflow: hidden;
+    animation: badgePulse 3s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+    0%, 100% {
+        box-shadow: 
+            0 6px 24px rgba(59, 130, 246, 0.3),
+            0 3px 12px rgba(59, 130, 246, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+    50% {
+        box-shadow: 
+            0 8px 32px rgba(59, 130, 246, 0.4),
+            0 4px 16px rgba(59, 130, 246, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
 }
 
 .clearance-badge::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%);
     opacity: 0;
     transition: var(--transition-normal);
 }
 
+.clearance-badge::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: var(--transition-premium);
+}
+
 .clearance-badge:hover::before {
     opacity: 1;
+}
+
+.clearance-badge:hover::after {
+    left: 100%;
 }
 
 .profile-card p {
