@@ -642,6 +642,12 @@ body {
     color: white;
 }
 
+/* Special styling for emoji icons */
+.project-icon:not(:has(i)) {
+    background: var(--bg-tertiary);
+    border: 2px solid var(--border-hover);
+}
+
 .project-title {
     font-size: 1.3rem;
     font-weight: 600;
@@ -1051,25 +1057,27 @@ body {
 }
 
 .contact-icon {
-    width: 60px;
-    height: 60px;
-    background: var(--bg-tertiary);
+    width: 70px;
+    height: 70px;
+    background: var(--gradient-accent);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 1rem;
-    border: 1px solid var(--border);
+    border: none;
     transition: var(--transition-normal);
+    box-shadow: 0 4px 6px -1px var(--shadow);
 }
 
 .contact-icon:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px -3px var(--shadow);
 }
 
 .contact-icon i {
-    font-size: 1.5rem;
-    color: var(--text-primary);
+    font-size: 2rem;
+    color: white;
 }
 
 .contact-title {
