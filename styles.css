@@ -1043,15 +1043,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 3px solid rgba(255, 255, 255, 0.1);
+    border: 3px solid rgba(255, 255, 255, 0.2);
     flex-shrink: 0;
-    font-weight: 700;
+    font-weight: 800;
     color: white;
     font-size: 1.2rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.15);
     transition: var(--transition-normal);
     position: relative;
     overflow: hidden;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), 0 1px 3px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.5px;
 }
 
 .recommendation-avatar::before {
@@ -1076,29 +1078,29 @@ body {
     opacity: 1;
 }
 
-/* Avatar color variations with enhanced gradients */
+/* Avatar color variations with enhanced gradients and better contrast */
 .recommendation-item:nth-child(1) .recommendation-avatar {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #6b73ff 100%);
+    background: linear-gradient(135deg, #4c51bf 0%, #553c9a 50%, #5145cd 100%);
 }
 
 .recommendation-item:nth-child(2) .recommendation-avatar {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #ff6b9d 100%);
+    background: linear-gradient(135deg, #e53e3e 0%, #c53030 50%, #e63946 100%);
 }
 
 .recommendation-item:nth-child(3) .recommendation-avatar {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #43e8d8 100%);
+    background: linear-gradient(135deg, #2b6cb0 0%, #2c5282 50%, #2a69ac 100%);
 }
 
 .recommendation-item:nth-child(4) .recommendation-avatar {
-    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 50%, #4adeaa 100%);
+    background: linear-gradient(135deg, #2f855a 0%, #276749 50%, #38a169 100%);
 }
 
 .recommendation-item:nth-child(5) .recommendation-avatar {
-    background: linear-gradient(135deg, #fa709a 0%, #fee140 50%, #ffa726 100%);
+    background: linear-gradient(135deg, #d69e2e 0%, #b7791f 50%, #dd6b20 100%);
 }
 
 .recommendation-item:nth-child(6) .recommendation-avatar {
-    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 50%, #d299c2 100%);
+    background: linear-gradient(135deg, #805ad5 0%, #6b46c1 50%, #9f7aea 100%);
 }
 
 .recommendation-info h3 {
