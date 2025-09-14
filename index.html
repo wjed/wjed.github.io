@@ -179,10 +179,20 @@
         // Navbar background on scroll
         window.addEventListener('scroll', () => {
             const navbar = document.querySelector('.navbar');
+            const isLightMode = html.hasAttribute('data-theme') && html.getAttribute('data-theme') === 'light';
+            
             if (window.scrollY > 50) {
-                navbar.style.background = 'rgba(0, 0, 0, 0.98)';
+                if (isLightMode) {
+                    navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                } else {
+                    navbar.style.background = 'rgba(0, 0, 0, 0.98)';
+                }
             } else {
-                navbar.style.background = 'rgba(0, 0, 0, 0.95)';
+                if (isLightMode) {
+                    navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                } else {
+                    navbar.style.background = 'rgba(0, 0, 0, 0.95)';
+                }
             }
         });
 
