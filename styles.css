@@ -19,6 +19,8 @@
     --gradient-primary: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
     --gradient-secondary: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
     --gradient-subtle: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
+    --gradient-accent: linear-gradient(135deg, #4338ca 0%, #6366f1 100%);
+    --gradient-card: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
 }
 
 /* Light Theme */
@@ -40,6 +42,8 @@
     --gradient-primary: linear-gradient(135deg, #1a1a1a 0%, #4a5568 100%);
     --gradient-secondary: linear-gradient(135deg, #f8f9fa 0%, #e2e8f0 100%);
     --gradient-subtle: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    --gradient-accent: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    --gradient-card: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
 }
 
 /* Typography - Global for all themes */
@@ -453,9 +457,10 @@ body {
     left: 50%;
     top: 0;
     bottom: 0;
-    width: 1px;
-    background: var(--border);
+    width: 3px;
+    background: var(--gradient-accent);
     transform: translateX(-50%);
+    border-radius: 2px;
 }
 
 .timeline-item {
@@ -475,35 +480,53 @@ body {
 }
 
 .timeline-content {
-    background: var(--bg-card);
+    background: var(--gradient-card);
     border: 1px solid var(--border);
     border-radius: var(--border-radius-large);
     padding: var(--card-padding);
     position: relative;
     transition: var(--transition-normal);
+    box-shadow: 0 4px 6px -1px var(--shadow), 0 2px 4px -1px var(--shadow);
 }
 
 .timeline-content:hover {
     border-color: var(--border-hover);
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px var(--shadow), 0 10px 10px -5px var(--shadow);
 }
 
 .timeline-content::before {
     content: '';
     position: absolute;
     top: 30px;
-    width: 15px;
-    height: 15px;
-    background: var(--text-primary);
+    width: 20px;
+    height: 20px;
+    background: var(--gradient-accent);
     border-radius: 50%;
+    border: 3px solid var(--bg-primary);
+    box-shadow: 0 2px 4px var(--shadow);
 }
 
 .timeline-item:nth-child(odd) .timeline-content::before {
-    right: -8px;
+    right: -11px;
 }
 
 .timeline-item:nth-child(even) .timeline-content::before {
-    left: -8px;
+    left: -11px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    top: 30px;
+    width: 20px;
+    height: 20px;
+    background: var(--gradient-accent);
+    border-radius: 50%;
+    border: 3px solid var(--bg-primary);
+    transform: translateX(-50%);
+    box-shadow: 0 2px 4px var(--shadow);
+    z-index: 2;
 }
 
 .experience-header {
@@ -577,18 +600,20 @@ body {
 }
 
 .project-card {
-    background: var(--bg-card);
+    background: var(--gradient-card);
     border: 1px solid var(--border);
     border-radius: var(--border-radius-large);
     padding: var(--card-padding);
     transition: var(--transition-normal);
     position: relative;
     overflow: hidden;
+    box-shadow: 0 4px 6px -1px var(--shadow), 0 2px 4px -1px var(--shadow);
 }
 
 .project-card:hover {
     border-color: var(--border-hover);
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px var(--shadow), 0 10px 10px -5px var(--shadow);
 }
 
 .project-header {
@@ -599,20 +624,28 @@ body {
 }
 
 .project-icon {
-    width: 50px;
-    height: 50px;
-    background: var(--bg-tertiary);
-    border-radius: var(--border-radius);
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-accent);
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--border);
+    border: none;
     flex-shrink: 0;
+    box-shadow: 0 4px 6px -1px var(--shadow);
+    font-size: 2rem;
 }
 
 .project-icon i {
-    font-size: 1.5rem;
-    color: var(--text-primary);
+    font-size: 1.8rem;
+    color: white;
+}
+
+/* Special styling for emoji icons */
+.project-icon:not(:has(i)) {
+    background: var(--bg-tertiary);
+    border: 2px solid var(--border-hover);
 }
 
 .project-title {
@@ -679,32 +712,35 @@ body {
 }
 
 .leadership-card {
-    background: var(--bg-card);
+    background: var(--gradient-card);
     border: 1px solid var(--border);
     border-radius: var(--border-radius-large);
     padding: var(--card-padding);
     transition: var(--transition-normal);
     position: relative;
     overflow: hidden;
+    box-shadow: 0 4px 6px -1px var(--shadow), 0 2px 4px -1px var(--shadow);
 }
 
 .leadership-card:hover {
     border-color: var(--border-hover);
-    transform: translateY(-5px);
-    box-shadow: 0 8px 32px var(--shadow);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px var(--shadow), 0 10px 10px -5px var(--shadow);
 }
 
 .leadership-icon {
-    width: 60px;
-    height: 60px;
-    background: var(--bg-tertiary);
+    width: 70px;
+    height: 70px;
+    background: var(--gradient-accent);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 1.5rem;
-    border: 1px solid var(--border);
-    font-size: 1.5rem;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    box-shadow: 0 4px 6px -1px var(--shadow);
 }
 
 .leadership-title {
@@ -737,19 +773,20 @@ body {
 }
 
 .cert-card {
-    background: var(--bg-card);
+    background: var(--gradient-card);
     border: 1px solid var(--border);
     border-radius: var(--border-radius-large);
     padding: var(--card-padding);
     transition: var(--transition-normal);
     position: relative;
     overflow: hidden;
+    box-shadow: 0 4px 6px -1px var(--shadow), 0 2px 4px -1px var(--shadow);
 }
 
 .cert-card:hover {
     border-color: var(--border-hover);
-    transform: translateY(-5px);
-    box-shadow: 0 8px 32px var(--shadow);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px var(--shadow), 0 10px 10px -5px var(--shadow);
 }
 
 .cert-header {
@@ -760,16 +797,18 @@ body {
 }
 
 .cert-icon {
-    width: 50px;
-    height: 50px;
-    background: var(--bg-tertiary);
-    border-radius: var(--border-radius);
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-accent);
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--border);
+    border: none;
     flex-shrink: 0;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    color: white;
+    box-shadow: 0 4px 6px -1px var(--shadow);
 }
 
 .cert-title {
@@ -840,25 +879,33 @@ body {
 /* Recommendations Styles */
 .recommendations-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .recommendations-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .recommendation-card {
-    background: var(--bg-card);
+    background: var(--gradient-card);
     border: 1px solid var(--border);
     border-radius: var(--border-radius-large);
     padding: var(--card-padding);
     transition: var(--transition-normal);
     position: relative;
     overflow: hidden;
+    box-shadow: 0 4px 6px -1px var(--shadow), 0 2px 4px -1px var(--shadow);
 }
 
 .recommendation-card:hover {
     border-color: var(--border-hover);
-    transform: translateY(-5px);
-    box-shadow: 0 8px 32px var(--shadow);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px var(--shadow), 0 10px 10px -5px var(--shadow);
 }
 
 .recommendation-header {
@@ -871,15 +918,49 @@ body {
 .recommendation-avatar {
     width: 60px;
     height: 60px;
-    background: var(--bg-tertiary);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--border);
+    border: 2px solid var(--border);
     flex-shrink: 0;
-    font-weight: 600;
-    color: var(--text-primary);
+    font-weight: 700;
+    color: white;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 6px -1px var(--shadow);
+}
+
+/* Avatar color variations */
+.recommendation-card:nth-child(1) .recommendation-avatar {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.recommendation-card:nth-child(2) .recommendation-avatar {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.recommendation-card:nth-child(3) .recommendation-avatar {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.recommendation-card:nth-child(4) .recommendation-avatar {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.recommendation-card:nth-child(5) .recommendation-avatar {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.recommendation-card:nth-child(6) .recommendation-avatar {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+}
+
+.recommendation-card:nth-child(7) .recommendation-avatar {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+}
+
+.recommendation-card:nth-child(8) .recommendation-avatar {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
 }
 
 .recommendation-info h3 {
@@ -976,25 +1057,27 @@ body {
 }
 
 .contact-icon {
-    width: 60px;
-    height: 60px;
-    background: var(--bg-tertiary);
+    width: 70px;
+    height: 70px;
+    background: var(--gradient-accent);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 1rem;
-    border: 1px solid var(--border);
+    border: none;
     transition: var(--transition-normal);
+    box-shadow: 0 4px 6px -1px var(--shadow);
 }
 
 .contact-icon:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px -3px var(--shadow);
 }
 
 .contact-icon i {
-    font-size: 1.5rem;
-    color: var(--text-primary);
+    font-size: 2rem;
+    color: white;
 }
 
 .contact-title {
