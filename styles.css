@@ -1,3 +1,23 @@
+/* Text selection styling */
+::selection {
+    background: rgba(59, 130, 246, 0.2);
+    color: var(--text-primary);
+}
+
+::-moz-selection {
+    background: rgba(59, 130, 246, 0.2);
+    color: var(--text-primary);
+}
+
+/* Ensure recommendation content can be selected properly */
+.recommendation-quote::selection {
+    background: rgba(59, 130, 246, 0.15);
+}
+
+.recommendation-quote::-moz-selection {
+    background: rgba(59, 130, 246, 0.15);
+}
+
 /* Premium Professional Design System */
 :root {
     /* Dark Theme (Default) - Premium and sophisticated */
@@ -155,7 +175,7 @@ h1 {
     font-size: clamp(2.75rem, 6vw, 5rem);
     font-weight: 800;
     letter-spacing: -0.05em;
-    line-height: 1.1;
+    line-height: 1.25;
     background: var(--gradient-accent);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -563,7 +583,7 @@ a:focus {
     font-weight: 900;
     margin-bottom: 1.5rem;
     letter-spacing: -0.03em;
-    line-height: 1.05;
+    line-height: 1.2;
     position: relative;
     z-index: 1;
 }
@@ -1639,6 +1659,11 @@ a:focus {
     overflow: hidden;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), 0 1px 3px rgba(0, 0, 0, 0.5);
     letter-spacing: 0.5px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;
 }
 
 .recommendation-avatar::before {
