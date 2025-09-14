@@ -763,6 +763,16 @@ body {
     box-shadow: 0 4px 6px -1px var(--shadow);
 }
 
+.leadership-icon i {
+    font-size: 1.8rem;
+    color: white;
+}
+
+/* Show emoji fallback when lucide icons aren't loaded */
+.icon-fallback {
+    font-size: 2rem;
+}
+
 .leadership-title {
     font-size: 1.3rem;
     font-weight: 600;
@@ -1102,6 +1112,11 @@ body {
     color: white;
 }
 
+/* Show emoji fallback when lucide icons aren't loaded */
+.icon-fallback {
+    font-size: 2rem;
+}
+
 .contact-title {
     font-size: 1.2rem;
     font-weight: 600;
@@ -1297,6 +1312,12 @@ body {
         max-width: 280px;
         justify-content: center;
     }
+}
+
+/* Icon fallback styles */
+.icon-fallback {
+    font-size: 2rem;
+    display: none;
 }
 
 /* Utility Classes */

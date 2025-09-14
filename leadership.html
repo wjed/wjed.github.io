@@ -71,7 +71,7 @@
                 <div class="leadership-grid">
                     <div class="leadership-card fade-in">
                         <div class="leadership-icon">
-                            <i data-lucide="graduation-cap"></i>
+                            🎓
                         </div>
                         <h3 class="leadership-title">Valedictorian Candidate</h3>
                         <p class="leadership-description">
@@ -83,7 +83,7 @@
 
                     <div class="leadership-card fade-in">
                         <div class="leadership-icon">
-                            <i data-lucide="award"></i>
+                            🏆
                         </div>
                         <h3 class="leadership-title">Honors College Member</h3>
                         <p class="leadership-description">
@@ -94,7 +94,7 @@
 
                     <div class="leadership-card fade-in">
                         <div class="leadership-icon">
-                            <i data-lucide="users"></i>
+                            👥
                         </div>
                         <h3 class="leadership-title">Founding IT Ambassador</h3>
                         <p class="leadership-description">
@@ -105,7 +105,7 @@
 
                     <div class="leadership-card fade-in">
                         <div class="leadership-icon">
-                            <i data-lucide="book-open"></i>
+                            📚
                         </div>
                         <h3 class="leadership-title">Teaching Fellow</h3>
                         <p class="leadership-description">
@@ -117,7 +117,7 @@
 
                     <div class="leadership-card fade-in">
                         <div class="leadership-icon">
-                            <i data-lucide="microscope"></i>
+                            🔬
                         </div>
                         <h3 class="leadership-title">First-Year Researcher</h3>
                         <p class="leadership-description">
@@ -129,7 +129,7 @@
 
                     <div class="leadership-card fade-in">
                         <div class="leadership-icon">
-                            <i data-lucide="crown"></i>
+                            👑
                         </div>
                         <h3 class="leadership-title">Madison Tech Society President</h3>
                         <p class="leadership-description">
@@ -150,6 +150,20 @@
         if (typeof lucide !== 'undefined') {
             lucide.createIcons();
         }
+
+        // Fallback to emoji icons if Lucide doesn't work
+        setTimeout(() => {
+            const icons = document.querySelectorAll('[data-lucide]');
+            icons.forEach(icon => {
+                if (!icon.querySelector('svg')) {
+                    const fallback = icon.nextElementSibling;
+                    if (fallback && fallback.classList.contains('icon-fallback')) {
+                        icon.style.display = 'none';
+                        fallback.style.display = 'block';
+                    }
+                }
+            });
+        }, 500);
 
         // Theme management
         const themeToggle = document.getElementById('theme-toggle');
