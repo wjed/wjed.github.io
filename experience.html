@@ -41,7 +41,12 @@
                     <li><a href="recommendations.html">Recommendations</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
-                <a href="contact.html" class="cta-button">Get In Touch</a>
+                <div style="display: flex; align-items: center;">
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+                        <span id="theme-icon">☀️</span>
+                    </button>
+                    <a href="contact.html" class="cta-button">Get In Touch</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -58,7 +63,9 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <div class="timeline-title">Research Engineer</div>
-                            <div class="timeline-company">Blue Sky Innovators</div>
+                            <div class="timeline-company">
+                                <a href="https://www.blueskyinnovators.com" target="_blank" rel="noopener noreferrer">Blue Sky Innovators</a>
+                            </div>
                             <div class="timeline-date">Sep 2025 - Present</div>
                             <div class="timeline-description">
                                 Developing secure AI/ML, cyber, and RF solutions for DoD and Intelligence clients. 
@@ -72,7 +79,9 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <div class="timeline-title">Information Technology Specialist</div>
-                            <div class="timeline-company">Rockingham County Public Schools</div>
+                            <div class="timeline-company">
+                                <a href="https://www.rockingham.k12.va.us" target="_blank" rel="noopener noreferrer">Rockingham County Public Schools</a>
+                            </div>
                             <div class="timeline-date">Sep 2025 - Present</div>
                             <div class="timeline-description">
                                 Managing PII, data migration, and infrastructure challenges for 11,500+ students. 
@@ -86,7 +95,9 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <div class="timeline-title">Professional Services National Security Cloud Developer</div>
-                            <div class="timeline-company">Amazon Web Services (AWS)</div>
+                            <div class="timeline-company">
+                                <a href="https://aws.amazon.com" target="_blank" rel="noopener noreferrer">Amazon Web Services (AWS)</a>
+                            </div>
                             <div class="timeline-date">May 2025 - Sep 2025</div>
                             <div class="timeline-description">
                                 Analytics + Application Development for Amazon Dedicated Cloud. Doubled project scope 
@@ -100,7 +111,9 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <div class="timeline-title">Technical Engineer & Subject Matter Expert (II)</div>
-                            <div class="timeline-company">ManTech</div>
+                            <div class="timeline-company">
+                                <a href="https://www.mantech.com" target="_blank" rel="noopener noreferrer">ManTech</a>
+                            </div>
                             <div class="timeline-date">Nov 2024 - May 2025</div>
                             <div class="timeline-description">
                                 Supporting the CIO across IAM, AD, and Virtualization. Received two promotions in less 
@@ -114,7 +127,9 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <div class="timeline-title">Cyber Threat Intelligence Analyst</div>
-                            <div class="timeline-company">Cyber Security Forum Initiative (CSFI)</div>
+                            <div class="timeline-company">
+                                <a href="https://www.cybersecurityforuminitiative.org" target="_blank" rel="noopener noreferrer">Cyber Security Forum Initiative (CSFI)</a>
+                            </div>
                             <div class="timeline-date">Jan 2025 - Apr 2025</div>
                             <div class="timeline-description">
                                 Cybercom + Intelligence Collection. Worked with non-profit organization providing 
@@ -128,7 +143,9 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <div class="timeline-title">Cyber Security Analyst</div>
-                            <div class="timeline-company">Solvitur Systems LLC</div>
+                            <div class="timeline-company">
+                                <a href="https://solvitursystemsllc.com" target="_blank" rel="noopener noreferrer">Solvitur Systems LLC</a>
+                            </div>
                             <div class="timeline-date">Sep 2024 - Dec 2024</div>
                             <div class="timeline-description">
                                 User Experience Design + Web Security Testing. Collaborated with clients on regulatory 
@@ -145,8 +162,74 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
     <script>
-        // Initialize Lucide icons
-        lucide.createIcons();
+        // Initialize Lucide icons if available
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+
+        // Theme management
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+
+        // Get saved theme or default to dark
+        let currentTheme = localStorage.getItem('theme') || 'dark';
+        
+        // Apply initial theme
+        if (currentTheme === 'light') {
+            html.setAttribute('data-theme', 'light');
+            if (themeIcon) themeIcon.innerHTML = '🌙';
+        } else {
+            html.removeAttribute('data-theme');
+            if (themeIcon) themeIcon.innerHTML = '☀️';
+        }
+
+        // Theme toggle functionality
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                if (currentTheme === 'dark') {
+                    currentTheme = 'light';
+                    html.setAttribute('data-theme', 'light');
+                    if (themeIcon) themeIcon.innerHTML = '🌙';
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    currentTheme = 'dark';
+                    html.removeAttribute('data-theme');
+                    if (themeIcon) themeIcon.innerHTML = '☀️';
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+        }
+
+        // Initialize Lucide icons if available
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+            }
+        });
+    </script>
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
