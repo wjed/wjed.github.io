@@ -135,8 +135,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 2.5rem;
+    padding: 1.5rem 2rem;
     min-height: 80px;
+    gap: 2rem;
 }
 
 .logo {
@@ -145,6 +146,7 @@ body {
     color: var(--text-primary);
     text-decoration: none;
     letter-spacing: -0.02em;
+    margin-right: 1.5rem;
 }
 
 .nav-links {
@@ -152,6 +154,7 @@ body {
     list-style: none;
     gap: 2.5rem;
     align-items: center;
+    margin-right: 1.5rem;
 }
 
 .nav-links a {
@@ -185,52 +188,29 @@ body {
     transform: scaleX(1);
 }
 
-.cta-button {
-    background: var(--text-primary);
-    color: var(--bg-primary);
-    padding: 0.75rem 1.25rem;
-    border-radius: var(--border-radius);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: var(--transition-fast);
-    border: 1px solid var(--text-primary);
-    margin-left: 1.5rem;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
-}
 
-.cta-button:hover {
-    background: transparent;
-    color: var(--text-primary);
-    transform: translateY(-1px);
-}
 
 /* Theme Toggle */
 .theme-toggle {
-    background: var(--bg-tertiary);
+    background: transparent;
     border: 1px solid var(--border);
     border-radius: var(--border-radius);
-    color: var(--text-primary);
+    color: var(--text-secondary);
     cursor: pointer;
-    padding: 0.75rem;
+    padding: 0.5rem 0.75rem;
     transition: var(--transition-fast);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
     height: 44px;
-    margin-right: 1.5rem;
-    flex-shrink: 0;
+    font-weight: 500;
+    font-size: 0.95rem;
     position: relative;
 }
 
 .theme-toggle:hover {
-    background: var(--bg-card);
+    color: var(--text-primary);
     border-color: var(--border-hover);
-    transform: none; /* Prevent any transform on hover */
 }
 
 .theme-toggle:active {
@@ -239,7 +219,7 @@ body {
 
 .theme-toggle span {
     display: block;
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1;
     transition: var(--transition-fast);
 }
@@ -912,14 +892,15 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
+    justify-items: center;
     align-items: start;
-    justify-items: stretch;
     width: 100%;
 }
 
 @media (max-width: 768px) {
     .recommendations-grid {
         grid-template-columns: 1fr;
+        justify-items: stretch;
     }
 }
 
@@ -932,6 +913,8 @@ body {
     position: relative;
     overflow: hidden;
     box-shadow: 0 4px 6px -1px var(--shadow), 0 2px 4px -1px var(--shadow);
+    max-width: 500px;
+    width: 100%;
 }
 
 .recommendation-card:hover {
@@ -1195,10 +1178,6 @@ body {
     }
 
     .nav-links {
-        display: none;
-    }
-
-    .cta-button {
         display: none;
     }
 
