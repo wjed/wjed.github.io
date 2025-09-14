@@ -421,14 +421,20 @@
 
         .timeline-dot {
             position: absolute;
-            left: 50%;
             top: 2rem;
             width: 20px;
             height: 20px;
             background: var(--gradient-primary);
             border-radius: 50%;
-            transform: translateX(-50%);
             z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
         }
 
         .timeline-title {
@@ -784,9 +790,9 @@
                 <div class="logo" aria-label="Will J. Jedrzejczak">WJ</div>
                 <ul class="nav-links" role="menubar">
                     <li role="none"><a href="#home" role="menuitem" aria-label="Go to home section">Home</a></li>
-                    <li role="none"><a href="#experience" role="menuitem" aria-label="Go to experience section">Experience</a></li>
+                    <li role="none"><a href="experience.html" role="menuitem" aria-label="View experience page">Experience</a></li>
                     <li role="none"><a href="projects.html" role="menuitem" aria-label="View projects">Projects</a></li>
-                    <li role="none"><a href="#leadership" role="menuitem" aria-label="Go to leadership section">Leadership</a></li>
+                    <li role="none"><a href="leadership.html" role="menuitem" aria-label="View leadership page">Leadership</a></li>
                     <li role="none"><a href="certifications.html" role="menuitem" aria-label="View certifications">Certifications</a></li>
                     <li role="none"><a href="recommendations.html" role="menuitem" aria-label="View recommendations">Recommendations</a></li>
                     <li role="none"><a href="contact.html" role="menuitem" aria-label="Go to contact page">Contact</a></li>
@@ -832,191 +838,15 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="section">
-        <div class="container">
-            <h2 class="section-title">Professional Experience</h2>
-            <p class="section-subtitle">Building secure, scalable solutions in federal and defense technology</p>
-            
-            <div class="experience-timeline">
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-title">Research Engineer</div>
-                        <div class="timeline-company">Blue Sky Innovators</div>
-                        <div class="timeline-date">Sep 2025 - Present</div>
-                        <div class="timeline-description">
-                            Developing secure AI/ML, cyber, and RF solutions for DoD and Intelligence clients. 
-                            Working on cutting-edge technologies to solve the toughest challenges in government 
-                            and commercial sectors, bringing "Insight to Operations" to client missions.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-title">Information Technology Specialist</div>
-                        <div class="timeline-company">Rockingham County Public Schools</div>
-                        <div class="timeline-date">Sep 2025 - Present</div>
-                        <div class="timeline-description">
-                            Managing PII, data migration, and infrastructure challenges for 11,500+ students. 
-                            Supporting the division's mission to deliver exceptional learning experiences through 
-                            technology solutions and IT management.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-title">Professional Services National Security Cloud Developer</div>
-                        <div class="timeline-company">Amazon Web Services (AWS)</div>
-                        <div class="timeline-date">May 2025 - Sep 2025</div>
-                        <div class="timeline-description">
-                            Analytics + Application Development for Amazon Dedicated Cloud. Doubled project scope 
-                            and tripled certification requirements. Worked on secure, scalable cloud solutions 
-                            for federal government missions across civilian agencies, Intelligence Community, and DoD.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-title">Technical Engineer & Subject Matter Expert (II)</div>
-                        <div class="timeline-company">ManTech</div>
-                        <div class="timeline-date">Nov 2024 - May 2025</div>
-                        <div class="timeline-description">
-                            Supporting the CIO across IAM, AD, and Virtualization. Received two promotions in less 
-                            than a year. Previously worked as Software Engineer (II) on an $850M DOW Contract as 
-                            the only freshman on the team, developing solutions for national security missions.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-title">Cyber Threat Intelligence Analyst</div>
-                        <div class="timeline-company">Cyber Security Forum Initiative (CSFI)</div>
-                        <div class="timeline-date">Jan 2025 - Apr 2025</div>
-                        <div class="timeline-description">
-                            Cybercom + Intelligence Collection. Worked with non-profit organization providing 
-                            Cyber Warfare awareness, guidance, and security solutions through collaboration, 
-                            education, and training for US Government, Military, and Commercial interests.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-title">Cyber Security Analyst</div>
-                        <div class="timeline-company">Solvitur Systems LLC</div>
-                        <div class="timeline-date">Sep 2024 - Dec 2024</div>
-                        <div class="timeline-description">
-                            User Experience Design + Web Security Testing. Collaborated with clients on regulatory 
-                            compliance, security assessments, and cybersecurity modernization to create more 
-                            resilient cyber environments.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Leadership Section -->
-    <section id="leadership" class="section">
-        <div class="container">
-            <h2 class="section-title">Leadership & Academic Excellence</h2>
-            <p class="section-subtitle">Driving innovation and excellence in technology and academia</p>
-            
-            <div class="leadership-grid">
-                <div class="leadership-card fade-in">
-                    <div class="leadership-icon">
-                        <i data-lucide="graduation-cap"></i>
-                    </div>
-                    <h3 class="leadership-title">Valedictorian Candidate</h3>
-                    <p class="leadership-description">
-                        Ranked #1 in B.S. IT program at James Madison University with 3.984/4.000 GPA. 
-                        Consistently on President's List every semester, demonstrating exceptional academic excellence 
-                        in Information Technology and Computer Science.
-                    </p>
-                </div>
-
-                <div class="leadership-card fade-in">
-                    <div class="leadership-icon">
-                        <i data-lucide="award"></i>
-                    </div>
-                    <h3 class="leadership-title">Honors College Member</h3>
-                    <p class="leadership-description">
-                        Selected for James Madison University Honors College, participating in advanced coursework 
-                        and interdisciplinary studies. Represented JMU at NCHC, CYBERWARCON, CAPWIC, and Shmoocon conferences.
-                    </p>
-                </div>
-
-                <div class="leadership-card fade-in">
-                    <div class="leadership-icon">
-                        <i data-lucide="users"></i>
-                    </div>
-                    <h3 class="leadership-title">Founding IT Ambassador</h3>
-                    <p class="leadership-description">
-                        Led IT major to become one of JMU's fastest-growing programs as top-ranked ambassador by hours contributed. 
-                        Founded and led the Information Technology Program Ambassadors, significantly growing the program.
-                    </p>
-                </div>
-
-                <div class="leadership-card fade-in">
-                    <div class="leadership-icon">
-                        <i data-lucide="book-open"></i>
-                    </div>
-                    <h3 class="leadership-title">Teaching Fellow</h3>
-                    <p class="leadership-description">
-                        Appointed as instructor for Honors 100 course, a position typically reserved for senior educators. 
-                        Designed and delivered comprehensive coursework for first-year honors students, demonstrating 
-                        exceptional teaching and leadership capabilities.
-                    </p>
-                </div>
-
-                <div class="leadership-card fade-in">
-                    <div class="leadership-icon">
-                        <i data-lucide="microscope"></i>
-                    </div>
-                    <h3 class="leadership-title">First-Year Researcher</h3>
-                    <p class="leadership-description">
-                        Led MusicCPR Project (Computer Science) + Development as a first-year researcher. 
-                        Collaborated on web application development and scholarly research, contributing to 
-                        innovative educational technology solutions.
-                    </p>
-                </div>
-
-                <div class="leadership-card fade-in">
-                    <div class="leadership-icon">
-                        <i data-lucide="crown"></i>
-                    </div>
-                    <h3 class="leadership-title">Madison Tech Society President</h3>
-                    <p class="leadership-description">
-                        President of Madison Tech Society (MTS) since March 2024. Leading technology initiatives 
-                        and fostering innovation within the university community, driving forward-thinking 
-                        technological solutions and collaboration.
-                    </p>
-                </div>
-            </div>
-      </div>
-    </section>
-
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-links">
                     <a href="#home">Home</a>
-                    <a href="#experience">Experience</a>
+                    <a href="experience.html">Experience</a>
                     <a href="projects.html">Projects</a>
-                    <a href="#leadership">Leadership</a>
+                    <a href="leadership.html">Leadership</a>
                     <a href="certifications.html">Certifications</a>
                     <a href="recommendations.html">Recommendations</a>
                     <a href="contact.html">Contact</a>

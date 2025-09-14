@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects • Will J. Jedrzejczak</title>
-    <meta name="description" content="Personal and academic projects by Will J. Jedrzejczak including MusicCPR, JMU DukesSat, and other innovative technology solutions.">
+    <title>Leadership • Will J. Jedrzejczak</title>
+    <meta name="description" content="Leadership experience and academic excellence of Will J. Jedrzejczak at James Madison University.">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -175,122 +175,55 @@
             margin-right: auto;
         }
 
-        /* Projects Grid */
-        .projects-grid {
+        /* Leadership Section */
+        .leadership-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        .project-card {
+        .leadership-card {
             background: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: 15px;
             padding: 2rem;
+            text-align: center;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
 
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-primary);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
+        .leadership-card:hover {
+            transform: translateY(-5px);
             box-shadow: 0 20px 40px var(--shadow);
-            border-color: var(--accent-blue);
+            border-color: var(--accent-purple);
         }
 
-        .project-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .project-icon {
-            width: 50px;
-            height: 50px;
+        .leadership-icon {
+            width: 60px;
+            height: 60px;
             background: var(--gradient-primary);
-            border-radius: 10px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0 auto 1.5rem;
             font-size: 1.5rem;
         }
 
-        .project-title {
+        .leadership-icon i {
+            color: var(--bg-primary);
+            font-size: 1.5rem;
+        }
+
+        .leadership-title {
             font-size: 1.3rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-organization {
-            color: var(--accent-blue);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-date {
-            color: var(--text-muted);
-            font-size: 0.9rem;
             margin-bottom: 1rem;
         }
 
-        .project-description {
+        .leadership-description {
             color: var(--text-secondary);
-            margin-bottom: 1.5rem;
             line-height: 1.6;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tech-badge {
-            background: var(--bg-tertiary);
-            color: var(--accent-blue);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            border: 1px solid var(--border);
-        }
-
-        .project-actions {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .project-link {
-            color: var(--accent-blue);
-            text-decoration: none;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .project-link:hover {
-            color: var(--text-primary);
         }
 
         /* Responsive Design */
@@ -299,13 +232,8 @@
                 display: none;
             }
 
-            .projects-grid {
+            .leadership-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .project-header {
-                flex-direction: column;
-                text-align: center;
             }
         }
 
@@ -348,69 +276,78 @@
     <main class="main-content">
         <section class="section">
             <div class="container">
-                <h1 class="section-title">Personal & Academic Projects</h1>
-                <p class="section-subtitle">Innovative solutions and research projects developed during academic and personal time</p>
+                <h1 class="section-title">Leadership & Academic Excellence</h1>
+                <p class="section-subtitle">Driving innovation and excellence in technology and academia</p>
                 
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-icon">
-                                <i data-lucide="music"></i>
-                            </div>
-                            <div>
-                                <h3 class="project-title">MusicCPR</h3>
-                                <div class="project-organization">James Madison University</div>
-                                <div class="project-date">Dec 2023 - May 2024</div>
-                            </div>
+                <div class="leadership-grid">
+                    <div class="leadership-card fade-in">
+                        <div class="leadership-icon">
+                            <i data-lucide="graduation-cap"></i>
                         </div>
-                        <p class="project-description">
-                            Educational website aimed at enhancing music education, developed as a niche Learning Management System 
-                            similar to Canvas. Collaborated with music teachers to design and implement this web application, 
-                            which was enthusiastically received by students and teachers during the pandemic.
+                        <h3 class="leadership-title">Valedictorian Candidate</h3>
+                        <p class="leadership-description">
+                            Ranked #1 in B.S. IT program at James Madison University with 3.984/4.000 GPA. 
+                            Consistently on President's List every semester, demonstrating exceptional academic excellence 
+                            in Information Technology and Computer Science.
                         </p>
-                        <div class="project-tech">
-                            <span class="tech-badge">JavaScript</span>
-                            <span class="tech-badge">React</span>
-                            <span class="tech-badge">HTML</span>
-                            <span class="tech-badge">CSS</span>
-                            <span class="tech-badge">Web Development</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://www.jmu.edu" class="project-link" target="_blank">
-                                <i data-lucide="external-link"></i>
-                                James Madison University
-                            </a>
-                        </div>
                     </div>
 
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-icon">
-                                <i data-lucide="satellite"></i>
-                            </div>
-                            <div>
-                                <h3 class="project-title">JMU DukesSat (MeshSAT)</h3>
-                                <div class="project-organization">James Madison University</div>
-                                <div class="project-date">Feb 2024 - Mar 2024</div>
-                            </div>
+                    <div class="leadership-card fade-in">
+                        <div class="leadership-icon">
+                            <i data-lucide="award"></i>
                         </div>
-                        <p class="project-description">
-                            Supported the development of MeshSAT, a satellite project at James Madison University. 
-                            Contributed to the technical development and implementation of this innovative satellite 
-                            communication system using AI/ML and Python technologies.
+                        <h3 class="leadership-title">Honors College Member</h3>
+                        <p class="leadership-description">
+                            Selected for James Madison University Honors College, participating in advanced coursework 
+                            and interdisciplinary studies. Represented JMU at NCHC, CYBERWARCON, CAPWIC, and Shmoocon conferences.
                         </p>
-                        <div class="project-tech">
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">AI/ML</span>
-                            <span class="tech-badge">Satellite Tech</span>
-                            <span class="tech-badge">Research</span>
+                    </div>
+
+                    <div class="leadership-card fade-in">
+                        <div class="leadership-icon">
+                            <i data-lucide="users"></i>
                         </div>
-                        <div class="project-actions">
-                            <a href="https://www.jmu.edu" class="project-link" target="_blank">
-                                <i data-lucide="external-link"></i>
-                                James Madison University
-                            </a>
+                        <h3 class="leadership-title">Founding IT Ambassador</h3>
+                        <p class="leadership-description">
+                            Led IT major to become one of JMU's fastest-growing programs as top-ranked ambassador by hours contributed. 
+                            Founded and led the Information Technology Program Ambassadors, significantly growing the program.
+                        </p>
+                    </div>
+
+                    <div class="leadership-card fade-in">
+                        <div class="leadership-icon">
+                            <i data-lucide="book-open"></i>
                         </div>
+                        <h3 class="leadership-title">Teaching Fellow</h3>
+                        <p class="leadership-description">
+                            Appointed as instructor for Honors 100 course, a position typically reserved for senior educators. 
+                            Designed and delivered comprehensive coursework for first-year honors students, demonstrating 
+                            exceptional teaching and leadership capabilities.
+                        </p>
+                    </div>
+
+                    <div class="leadership-card fade-in">
+                        <div class="leadership-icon">
+                            <i data-lucide="microscope"></i>
+                        </div>
+                        <h3 class="leadership-title">First-Year Researcher</h3>
+                        <p class="leadership-description">
+                            Led MusicCPR Project (Computer Science) + Development as a first-year researcher. 
+                            Collaborated on web application development and scholarly research, contributing to 
+                            innovative educational technology solutions.
+                        </p>
+                    </div>
+
+                    <div class="leadership-card fade-in">
+                        <div class="leadership-icon">
+                            <i data-lucide="crown"></i>
+                        </div>
+                        <h3 class="leadership-title">Madison Tech Society President</h3>
+                        <p class="leadership-description">
+                            President of Madison Tech Society (MTS) since March 2024. Leading technology initiatives 
+                            and fostering innovation within the university community, driving forward-thinking 
+                            technological solutions and collaboration.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -445,6 +382,29 @@
             } else {
                 navbar.style.background = 'rgba(10, 10, 10, 0.95)';
             }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
         });
     </script>
 </body>
