@@ -196,6 +196,27 @@
                     if (themeIcon) themeIcon.innerHTML = '☀️';
                     localStorage.setItem('theme', 'dark');
                 }
+                
+                // Force immediate reflow to ensure theme changes are applied instantly
+                document.body.offsetHeight;
+                
+                // Update navbar background immediately based on new theme
+                const navbar = document.querySelector('.navbar');
+                const isLightMode = html.hasAttribute('data-theme') && html.getAttribute('data-theme') === 'light';
+                
+                if (window.scrollY > 50) {
+                    if (isLightMode) {
+                        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                    } else {
+                        navbar.style.background = 'rgba(0, 0, 0, 0.98)';
+                    }
+                } else {
+                    if (isLightMode) {
+                        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                    } else {
+                        navbar.style.background = 'rgba(0, 0, 0, 0.95)';
+                    }
+                }
             });
         }
 

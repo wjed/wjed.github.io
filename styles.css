@@ -111,11 +111,12 @@
     --border-radius-xl: 24px;
     --border-radius-large: 32px;
     
-    /* Premium transitions */
-    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-normal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-premium: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* Premium transitions - Enhanced for smoother feel */
+    --transition-fast: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-premium: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-elastic: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     
     /* Premium shadows */
     --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -143,6 +144,8 @@ html {
     scroll-behavior: smooth;
     font-size: 16px;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    background: var(--bg-primary);
+    height: 100%;
 }
 
 body {
@@ -352,6 +355,8 @@ a:focus {
         0 8px 32px rgba(0, 0, 0, 0.15),
         0 4px 16px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    will-change: background, box-shadow;
+    transform: translateZ(0); /* Force GPU acceleration */
 }
 
 [data-theme="light"] .navbar {
@@ -368,7 +373,10 @@ a:focus {
     align-items: center;
     padding: 1.25rem 2rem;
     min-height: 80px;
+    max-height: 80px; /* Prevent height variations */
     gap: 2rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .logo {
