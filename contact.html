@@ -14,9 +14,6 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css">
     
-    <!-- LinkedIn Badge -->
-    <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
-    
     <!-- Performance optimizations -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -25,6 +22,16 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>WJ</text></svg>">
     
+    <!-- Prevent FOUC (Flash of Unstyled Content) for theme -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            if (savedTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -99,13 +106,6 @@
                             </div>
                             <h3 class="contact-title">Location</h3>
                             <p>Harrisonburg, VA • Washington, DC Metro</p>
-                        </div>
-                    </div>
-
-                    <!-- LinkedIn Badge -->
-                    <div class="linkedin-badge">
-                        <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="defend" data-version="v1">
-                            <a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/defend?trk=profile-badge">William Jedrzejczak</a>
                         </div>
                     </div>
 
