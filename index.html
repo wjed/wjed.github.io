@@ -71,11 +71,22 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero" role="banner" aria-labelledby="hero-title">
+        <!-- Geometric Background Elements -->
+        <div class="hero-bg-elements">
+            <div class="geometric-grid"></div>
+            <div class="floating-elements">
+                <div class="floating-element" style="--delay: 0s; --duration: 8s;"></div>
+                <div class="floating-element" style="--delay: 2s; --duration: 12s;"></div>
+                <div class="floating-element" style="--delay: 4s; --duration: 10s;"></div>
+                <div class="floating-element" style="--delay: 6s; --duration: 14s;"></div>
+            </div>
+        </div>
+        
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
                     <div class="subtitle" role="text">Cloud Developer • Cyber Threat Analyst</div>
-                    <h1 id="hero-title">Will J. Jedrzejczak</h1>
+                    <h1 id="hero-title" data-text="Will J. Jedrzejczak">Will J. Jedrzejczak</h1>
                     <p class="description" role="text">
                         Valedictorian-ranked B.S. IT student at James Madison University with interim Top Secret Clearance. 
                         AWS Professional Services intern, ManTech engineer, and cybersecurity analyst specializing in 
@@ -94,7 +105,9 @@
                 </div>
                 <div class="hero-image">
                     <div class="profile-card" role="complementary" aria-labelledby="profile-title">
-                        <img src="images/Will-Jedrzejczak-Amazon-Truck.jpeg" alt="Professional headshot of Will J. Jedrzejczak" class="profile-image">
+                        <div class="profile-frame">
+                            <img src="images/Will-Jedrzejczak-Amazon-Truck.jpeg" alt="Professional headshot of Will J. Jedrzejczak" class="profile-image">
+                        </div>
                         <div class="profile-title" id="profile-title">Will J. Jedrzejczak</div>
                         <div class="profile-subtitle">B.S. IT • James Madison University</div>
                         <div class="clearance-badge" role="text" aria-label="Interim Top Secret Security Clearance">INTERIM TOP SECRET CLEARANCE</div>
