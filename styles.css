@@ -161,20 +161,9 @@ body {
     font-feature-settings: 'kern' 1, 'liga' 1;
     letter-spacing: -0.011em;
     scroll-behavior: smooth;
-    opacity: 0;
-    animation: pageLoad 1s ease-out 0.1s both;
 }
 
-@keyframes pageLoad {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+
 
 /* Premium Typography Hierarchy */
 h1, h2, h3, h4, h5, h6 {
