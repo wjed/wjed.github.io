@@ -173,8 +173,8 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     font-weight: 900;
-    line-height: 1.1;
-    letter-spacing: -0.04em;
+    line-height: 1.15;
+    letter-spacing: -0.045em;
     color: var(--text-primary);
     margin-bottom: 0.75em;
     font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
@@ -232,12 +232,13 @@ h6 {
 }
 
 p {
-    line-height: 1.7;
+    line-height: 1.75;
     margin-bottom: 1.5em;
     color: var(--text-secondary);
     font-size: 1.125rem;
     font-weight: 300;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.005em;
+    font-feature-settings: 'kern' 1;
 }
 
 .lead {
@@ -264,6 +265,7 @@ p {
     margin-bottom: 2rem;
     padding-bottom: 1.5rem;
     text-align: center;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
 }
 
 .section-title::after {
@@ -1119,69 +1121,6 @@ a:focus {
     margin-bottom: 2rem;
     font-weight: 400;
     letter-spacing: 0.02em;
-}
-
-.clearance-badge {
-    background: var(--gradient-accent);
-    color: var(--bg-primary);
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--border-radius);
-    font-size: 0.75rem;
-    font-weight: 800;
-    display: inline-block;
-    margin-bottom: 2rem;
-    letter-spacing: 0.1em;
-    box-shadow: 
-        0 6px 24px rgba(255, 255, 255, 0.2),
-        0 3px 12px rgba(255, 255, 255, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    position: relative;
-    overflow: hidden;
-    animation: badgePulse 4s ease-in-out infinite;
-    text-transform: uppercase;
-}
-
-@keyframes badgePulse {
-    0%, 100% {
-        box-shadow: 
-            0 6px 24px rgba(255, 255, 255, 0.2),
-            0 3px 12px rgba(255, 255, 255, 0.1),
-            inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    }
-    50% {
-        box-shadow: 
-            0 8px 32px rgba(255, 255, 255, 0.3),
-            0 4px 16px rgba(255, 255, 255, 0.2),
-            inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    }
-}
-
-.clearance-badge::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%);
-    opacity: 0;
-    transition: var(--transition-normal);
-}
-
-.clearance-badge::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    transition: var(--transition-premium);
-}
-
-.clearance-badge:hover::before {
-    opacity: 1;
-}
-
-.clearance-badge:hover::after {
-    left: 100%;
 }
 
 .profile-card p {
@@ -2421,7 +2360,7 @@ a:focus {
 
 .contact-orbital-item {
     position: absolute;
-    width: 260px;
+    width: 300px;
     min-height: 160px;
     display: flex;
     align-items: center;
@@ -2453,11 +2392,12 @@ a:focus {
 }
 
 .contact-orbital-item:hover {
-    transform: scale(1.1) translateZ(20px);
+    transform: scale(1.08) translateZ(20px);
     border-color: var(--border-accent);
     box-shadow: 
         var(--shadow-2xl),
-        0 0 30px rgba(255, 255, 255, 0.1);
+        0 0 40px rgba(255, 255, 255, 0.15),
+        0 0 80px rgba(255, 255, 255, 0.05);
     z-index: 5;
 }
 
@@ -2526,6 +2466,10 @@ a:focus {
     font-size: 0.9rem;
     line-height: 1.4;
     transition: var(--transition-fast);
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 180px;
+    display: block;
 }
 
 .contact-item-content a:hover {
@@ -2636,7 +2580,7 @@ a:focus {
     }
     
     .contact-orbital-item {
-        width: 240px;
+        width: 280px;
         min-height: 140px;
         padding: 1.5rem;
     }
@@ -2657,6 +2601,7 @@ a:focus {
     .contact-item-content a,
     .contact-item-content span {
         font-size: 0.85rem;
+        max-width: 160px;
     }
     
     .ring-1 {
@@ -2710,7 +2655,7 @@ a:focus {
     }
     
     .contact-orbital-item {
-        width: 220px;
+        width: 260px;
         min-height: 130px;
         padding: 1.25rem;
         gap: 0.75rem;
@@ -2733,6 +2678,7 @@ a:focus {
     .contact-item-content a,
     .contact-item-content span {
         font-size: 0.8rem;
+        max-width: 140px;
     }
     
     .contact-resume-btn {
@@ -3156,11 +3102,6 @@ a:focus {
 
     .profile-subtitle {
         font-size: 1rem;
-    }
-
-    .clearance-badge {
-        font-size: 0.7rem;
-        padding: 0.5rem 1rem;
     }
 
     .timeline-item {
