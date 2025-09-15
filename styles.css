@@ -1230,7 +1230,7 @@ a:focus {
     left: 50%;
     top: 0;
     bottom: 0;
-    width: 2px;
+    width: 1px;
     background: var(--gradient-accent);
     transform: translateX(-50%);
     border-radius: 0;
@@ -1239,7 +1239,7 @@ a:focus {
 
 .timeline-item {
     position: relative;
-    margin-bottom: 6rem;
+    margin-bottom: 4rem;
     width: 50%;
     opacity: 0;
     animation: timelineSlideIn 0.8s ease-out forwards;
@@ -1247,13 +1247,13 @@ a:focus {
 
 .timeline-item:nth-child(odd) {
     left: 0;
-    padding-right: 5rem;
+    padding-right: 3rem;
     animation-delay: calc(var(--item-index, 0) * 0.15s);
 }
 
 .timeline-item:nth-child(even) {
     left: 50%;
-    padding-left: 5rem;
+    padding-left: 3rem;
     animation-delay: calc(var(--item-index, 0) * 0.15s);
 }
 
@@ -1272,7 +1272,7 @@ a:focus {
     background: var(--gradient-card);
     border: 2px solid var(--border);
     border-radius: var(--border-radius);
-    padding: var(--card-padding-lg);
+    padding: var(--card-padding);
     position: relative;
     transition: var(--transition-premium);
     box-shadow: var(--shadow-xl);
@@ -1348,19 +1348,19 @@ a:focus {
 
 /* Futuristic Timeline Content */
 .timeline-title, .job-title {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 800;
     color: var(--text-primary);
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     letter-spacing: -0.03em;
     line-height: 1.3;
     text-transform: uppercase;
 }
 
 .timeline-company, .company-name {
-    font-size: 1.375rem;
+    font-size: 1.25rem;
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     color: var(--text-secondary);
     letter-spacing: 0.02em;
 }
@@ -1657,8 +1657,8 @@ a:focus {
 /* Futuristic Leadership Grid */
 .leadership-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-    gap: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
     margin-top: 5rem;
 }
 
@@ -1666,7 +1666,7 @@ a:focus {
     background: var(--gradient-card);
     border: 2px solid var(--border);
     border-radius: var(--border-radius);
-    padding: var(--card-padding-lg);
+    padding: var(--card-padding);
     transition: var(--transition-premium);
     position: relative;
     box-shadow: var(--shadow-xl);
@@ -1697,16 +1697,16 @@ a:focus {
 }
 
 .leadership-icon {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     background: var(--gradient-accent);
     border-radius: var(--border-radius);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
     border: none;
-    font-size: 2.25rem;
+    font-size: 1.75rem;
     box-shadow: var(--shadow-lg);
     position: relative;
     overflow: hidden;
@@ -1726,7 +1726,7 @@ a:focus {
 }
 
 .leadership-icon i {
-    font-size: 2.25rem;
+    font-size: 1.75rem;
     color: var(--bg-primary);
     z-index: 1;
 }
@@ -1738,9 +1738,9 @@ a:focus {
 }
 
 .leadership-title {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 800;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     color: var(--text-primary);
     letter-spacing: -0.03em;
     line-height: 1.3;
@@ -1782,8 +1782,8 @@ a:focus {
 
 .certifications-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    gap: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 2rem;
     margin-bottom: 5rem;
 }
 
@@ -1791,7 +1791,7 @@ a:focus {
     background: var(--gradient-card);
     border: 2px solid var(--border);
     border-radius: var(--border-radius);
-    padding: var(--card-padding-lg);
+    padding: var(--card-padding);
     transition: var(--transition-premium);
     position: relative;
     box-shadow: var(--shadow-xl);
@@ -1824,13 +1824,13 @@ a:focus {
 .cert-header {
     display: flex;
     align-items: flex-start;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .cert-icon {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     background: var(--gradient-accent);
     border-radius: var(--border-radius);
     display: flex;
@@ -1838,15 +1838,15 @@ a:focus {
     justify-content: center;
     border: none;
     flex-shrink: 0;
-    font-size: 2.25rem;
+    font-size: 1.75rem;
     color: var(--bg-primary);
     box-shadow: 0 4px 6px -1px var(--shadow);
 }
 
 .cert-title {
-    font-size: 1.375rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
     color: var(--text-primary);
     letter-spacing: -0.02em;
     text-transform: uppercase;
@@ -1880,16 +1880,16 @@ a:focus {
 .cert-skills {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-bottom: 2rem;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .skill-badge {
     background: var(--bg-tertiary);
     color: var(--text-secondary);
-    padding: 0.5rem 1rem;
+    padding: 0.375rem 0.75rem;
     border-radius: var(--border-radius);
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     font-weight: 500;
     border: 1px solid var(--border);
     text-transform: uppercase;
