@@ -2074,6 +2074,7 @@ a:focus {
     border-radius: 50%;
     opacity: 0.8;
     transition: var(--transition-fast);
+    z-index: -1;
 }
 
 .recommendation-card:hover .recommendation-avatar {
@@ -2433,9 +2434,6 @@ a:focus {
     backdrop-filter: blur(10px);
     transition: var(--transition-premium);
     cursor: pointer;
-    animation-duration: 20s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
 }
 
 .contact-orbital-item::before {
@@ -2463,29 +2461,25 @@ a:focus {
     z-index: 5;
 }
 
-/* Orbital positioning */
+/* Static positioning for contact items */
 .contact-item-1 {
-    top: 10%;
-    right: 15%;
-    animation-name: orbit1;
+    top: 15%;
+    right: 5%;
 }
 
 .contact-item-2 {
-    top: 60%;
-    right: 5%;
-    animation-name: orbit2;
+    top: 15%;
+    left: 5%;
 }
 
 .contact-item-3 {
-    bottom: 10%;
-    left: 15%;
-    animation-name: orbit3;
+    bottom: 15%;
+    right: 5%;
 }
 
 .contact-item-4 {
-    top: 60%;
+    bottom: 15%;
     left: 5%;
-    animation-name: orbit4;
 }
 
 /* Contact item content */
@@ -2602,42 +2596,6 @@ a:focus {
     100% {
         opacity: 0.4;
         transform: scale(1.02);
-    }
-}
-
-@keyframes orbit1 {
-    0% {
-        transform: rotate(0deg) translateX(200px) rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg) translateX(200px) rotate(-360deg);
-    }
-}
-
-@keyframes orbit2 {
-    0% {
-        transform: rotate(90deg) translateX(220px) rotate(-90deg);
-    }
-    100% {
-        transform: rotate(450deg) translateX(220px) rotate(-450deg);
-    }
-}
-
-@keyframes orbit3 {
-    0% {
-        transform: rotate(180deg) translateX(200px) rotate(-180deg);
-    }
-    100% {
-        transform: rotate(540deg) translateX(200px) rotate(-540deg);
-    }
-}
-
-@keyframes orbit4 {
-    0% {
-        transform: rotate(270deg) translateX(220px) rotate(-270deg);
-    }
-    100% {
-        transform: rotate(630deg) translateX(220px) rotate(-630deg);
     }
 }
 
