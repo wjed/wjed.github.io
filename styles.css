@@ -520,10 +520,10 @@ a:focus {
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 40%),
-        radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.02) 0%, transparent 30%),
-        linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.01) 50%, transparent 70%);
+        radial-gradient(circle at 20% 20%, var(--accent-glow) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, var(--accent-subtle) 0%, transparent 40%),
+        radial-gradient(circle at 40% 60%, var(--accent-subtle) 0%, transparent 30%),
+        linear-gradient(45deg, transparent 30%, var(--accent-subtle) 50%, transparent 70%);
     pointer-events: none;
     animation: heroGlow 20s ease-in-out infinite;
 }
@@ -536,8 +536,8 @@ a:focus {
     right: 0;
     bottom: 0;
     background: 
-        linear-gradient(0deg, transparent 0%, rgba(255, 255, 255, 0.02) 50%, transparent 100%),
-        linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.01) 50%, transparent 100%);
+        linear-gradient(0deg, transparent 0%, var(--accent-subtle) 50%, transparent 100%),
+        linear-gradient(90deg, transparent 0%, var(--accent-subtle) 50%, transparent 100%);
     pointer-events: none;
     animation: geometricScan 15s linear infinite;
 }
@@ -560,11 +560,15 @@ a:focus {
     right: 0;
     bottom: 0;
     background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        linear-gradient(var(--text-primary) 1px, transparent 1px),
+        linear-gradient(90deg, var(--text-primary) 1px, transparent 1px);
     background-size: 100px 100px;
-    opacity: 0.3;
+    opacity: 0.03;
     animation: gridShift 25s linear infinite;
+}
+
+[data-theme="light"] .geometric-grid {
+    opacity: 0.08;
 }
 
 .floating-elements {
@@ -579,10 +583,15 @@ a:focus {
     position: absolute;
     width: 200px;
     height: 200px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--text-primary);
     border-radius: 50%;
+    opacity: 0.1;
     animation: float var(--duration, 10s) ease-in-out infinite;
     animation-delay: var(--delay, 0s);
+}
+
+[data-theme="light"] .floating-element {
+    opacity: 0.15;
 }
 
 .floating-element:nth-child(1) {
@@ -831,8 +840,9 @@ a:focus {
     left: -15px;
     right: -15px;
     bottom: -15px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid var(--text-primary);
     border-radius: 50%;
+    opacity: 0.2;
     animation: frameRotate 20s linear infinite;
     z-index: -1;
 }
@@ -844,9 +854,10 @@ a:focus {
     left: -25px;
     right: -25px;
     bottom: -25px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--text-primary);
     border-radius: 50%;
     border-style: dashed;
+    opacity: 0.1;
     animation: frameRotate 30s linear infinite reverse;
     z-index: -2;
 }
@@ -1923,115 +1934,111 @@ a:focus {
     background: var(--bg-primary);
 }
 
-/* Recommendations Timeline Styles */
-.recommendations-timeline {
-    position: relative;
-    max-width: 900px;
+/* Modern Masonry Recommendations Layout */
+.recommendations-masonry {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    align-items: start;
     margin: 3rem auto 0;
-    padding: 2rem 0;
+    max-width: 1400px;
 }
 
-.recommendations-timeline::before {
-    content: '';
-    position: absolute;
-    left: 30px;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: var(--gradient-accent);
-    border-radius: 2px;
-    z-index: 1;
-}
-
-.recommendation-item {
-    position: relative;
-    margin-bottom: 4rem;
-    padding-left: 80px;
-}
-
-.recommendation-timeline-dot {
-    position: absolute;
-    left: 18px;
-    top: 30px;
-    width: 24px;
-    height: 24px;
-    background: var(--gradient-accent);
-    border-radius: 50%;
-    border: 4px solid var(--bg-primary);
-    box-shadow: 0 4px 8px var(--shadow);
-    z-index: 2;
-}
-
-.recommendation-content-wrapper {
+.recommendation-card {
     background: var(--gradient-card);
-    border: 1px solid var(--border);
+    border: 2px solid var(--border);
     border-radius: var(--border-radius-large);
-    padding: var(--card-padding);
-    transition: var(--transition-normal);
+    padding: 2.5rem;
+    transition: var(--transition-premium);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 8px 25px var(--shadow), 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-lg);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
 
-.recommendation-content-wrapper::before {
+.recommendation-card::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    z-index: 1;
+    height: 3px;
+    background: var(--gradient-accent);
+    opacity: 0;
+    transition: var(--transition-normal);
 }
 
-.recommendation-content-wrapper:hover {
-    border-color: var(--border-hover);
-    transform: translateX(10px);
-    box-shadow: 0 25px 50px var(--shadow), 0 15px 25px rgba(0, 0, 0, 0.15);
+.recommendation-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+    opacity: 0;
+    transition: var(--transition-normal);
+    pointer-events: none;
 }
 
-.recommendation-content-wrapper:hover::before {
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+.recommendation-card:hover::before {
+    opacity: 1;
 }
 
-/* Timeline responsive adjustments */
-@media (max-width: 768px) {
-    .recommendations-timeline {
-        max-width: 100%;
-        padding: 1rem 0;
-    }
-    
-    .recommendations-timeline::before {
-        left: 20px;
-    }
-    
-    .recommendation-item {
-        padding-left: 60px;
-        margin-bottom: 3rem;
-    }
-    
-    .recommendation-timeline-dot {
-        left: 8px;
-        width: 20px;
-        height: 20px;
-        border-width: 3px;
-    }
-    
-    .recommendation-content-wrapper {
-        padding: 1.5rem;
-    }
+.recommendation-card:hover::after {
+    opacity: 1;
 }
 
-.recommendation-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
+.recommendation-card:hover {
+    border-color: var(--border-accent);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--shadow-2xl);
+}
+
+/* Featured card styling */
+.recommendation-featured {
+    grid-row: span 2;
+    background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-elevated) 100%);
+    border-color: var(--border-accent);
+}
+
+.recommendation-featured::before {
+    opacity: 0.3;
+    background: var(--gradient-accent);
+}
+
+.recommendation-featured:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 
+        var(--shadow-2xl),
+        0 0 40px rgba(255, 255, 255, 0.1);
+}
+
+/* Compact card styling */
+.recommendation-compact {
+    grid-row: span 1;
+}
+
+.recommendation-compact .recommendation-quote {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.recommendation-compact .recommendation-header {
     margin-bottom: 1.5rem;
 }
 
-.recommendation-avatar {
+.recommendation-compact .recommendation-content {
+    margin-bottom: 1.5rem;
+}
+
+/* Masonry card header */
+.recommendation-card .recommendation-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.recommendation-card .recommendation-avatar {
     width: 65px;
     height: 65px;
     border-radius: 50%;
@@ -2056,7 +2063,7 @@ a:focus {
     pointer-events: none;
 }
 
-.recommendation-avatar::before {
+.recommendation-card .recommendation-avatar::before {
     content: '';
     position: absolute;
     top: 0;
@@ -2069,73 +2076,79 @@ a:focus {
     transition: var(--transition-fast);
 }
 
-.recommendation-content-wrapper:hover .recommendation-avatar {
+.recommendation-card:hover .recommendation-avatar {
     transform: scale(1.1);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.recommendation-content-wrapper:hover .recommendation-avatar::before {
+.recommendation-card:hover .recommendation-avatar::before {
     opacity: 1;
 }
 
-/* Avatar color variations with enhanced gradients and better contrast */
-.recommendation-item:nth-child(1) .recommendation-avatar {
+/* Avatar color variations for masonry layout */
+.recommendation-card:nth-child(1) .recommendation-avatar {
     background: linear-gradient(135deg, #4c51bf 0%, #553c9a 50%, #5145cd 100%);
 }
 
-.recommendation-item:nth-child(2) .recommendation-avatar {
+.recommendation-card:nth-child(2) .recommendation-avatar {
     background: linear-gradient(135deg, #e53e3e 0%, #c53030 50%, #e63946 100%);
 }
 
-.recommendation-item:nth-child(3) .recommendation-avatar {
+.recommendation-card:nth-child(3) .recommendation-avatar {
     background: linear-gradient(135deg, #2b6cb0 0%, #2c5282 50%, #2a69ac 100%);
 }
 
-.recommendation-item:nth-child(4) .recommendation-avatar {
+.recommendation-card:nth-child(4) .recommendation-avatar {
     background: linear-gradient(135deg, #2f855a 0%, #276749 50%, #38a169 100%);
 }
 
-.recommendation-item:nth-child(5) .recommendation-avatar {
+.recommendation-card:nth-child(5) .recommendation-avatar {
     background: linear-gradient(135deg, #d69e2e 0%, #b7791f 50%, #dd6b20 100%);
 }
 
-.recommendation-item:nth-child(6) .recommendation-avatar {
+.recommendation-card:nth-child(6) .recommendation-avatar {
     background: linear-gradient(135deg, #805ad5 0%, #6b46c1 50%, #9f7aea 100%);
 }
 
-.recommendation-info h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.25rem;
+.recommendation-card .recommendation-info h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
     color: var(--text-primary);
+    letter-spacing: -0.02em;
 }
 
-.recommendation-title {
+.recommendation-card .recommendation-title {
     color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+.recommendation-card .recommendation-company {
+    color: var(--text-muted);
     font-size: 0.9rem;
     margin-bottom: 0.25rem;
-    line-height: 1.4;
+    font-weight: 500;
 }
 
-.recommendation-company {
+.recommendation-card .recommendation-date {
     color: var(--text-muted);
     font-size: 0.85rem;
-    margin-bottom: 0.25rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
-.recommendation-date {
-    color: var(--text-muted);
-    font-size: 0.8rem;
-}
-
-.recommendation-content {
-    margin-bottom: 1.5rem;
+.recommendation-card .recommendation-content {
+    margin-bottom: 2rem;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
-.recommendation-quote {
+.recommendation-card .recommendation-quote {
     color: var(--text-secondary);
     line-height: 1.7;
     font-style: italic;
@@ -2143,12 +2156,12 @@ a:focus {
     padding-left: 1.5rem;
     border-left: 4px solid;
     border-image: linear-gradient(135deg, #667eea, #764ba2) 1;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     flex-grow: 1;
     transition: var(--transition-fast);
 }
 
-.recommendation-quote::before {
+.recommendation-card .recommendation-quote::before {
     content: '"';
     position: absolute;
     top: -0.5rem;
@@ -2160,7 +2173,7 @@ a:focus {
     opacity: 0.3;
 }
 
-.recommendation-quote::after {
+.recommendation-card .recommendation-quote::after {
     content: '"';
     position: absolute;
     bottom: -1rem;
@@ -2172,16 +2185,16 @@ a:focus {
     opacity: 0.3;
 }
 
-.recommendation-content-wrapper:hover .recommendation-quote {
+.recommendation-card:hover .recommendation-quote {
     color: var(--text-primary);
 }
 
-.recommendation-actions {
+.recommendation-card .recommendation-actions {
     display: flex;
     gap: 1rem;
 }
 
-.recommendation-link {
+.recommendation-card .recommendation-link {
     color: var(--text-primary);
     text-decoration: none;
     font-weight: 600;
@@ -2189,17 +2202,19 @@ a:focus {
     align-items: center;
     gap: 0.75rem;
     transition: var(--transition-fast);
-    padding: 0.75rem 1.5rem;
+    padding: 0.875rem 1.75rem;
     border: 2px solid var(--border);
     border-radius: var(--border-radius);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     background: var(--bg-tertiary);
     position: relative;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
 }
 
-.recommendation-link::before {
+.recommendation-card .recommendation-link::before {
     content: '';
     position: absolute;
     top: 0;
@@ -2210,53 +2225,220 @@ a:focus {
     transition: var(--transition-normal);
 }
 
-.recommendation-link:hover {
+.recommendation-card .recommendation-link:hover {
     border-color: var(--text-primary);
     background: var(--bg-primary);
     transform: translateY(-2px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.recommendation-link:hover::before {
+.recommendation-card .recommendation-link:hover::before {
     left: 100%;
 }
 
-.recommendation-link i {
+.recommendation-card .recommendation-link i {
     transition: var(--transition-fast);
 }
 
-.recommendation-link:hover i {
+.recommendation-card .recommendation-link:hover i {
     transform: scale(1.2);
 }
 
-/* Futuristic Contact Section */
+/* Responsive masonry layout */
+@media (max-width: 768px) {
+    .recommendations-masonry {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+    
+    .recommendation-featured {
+        grid-row: span 1;
+    }
+    
+    .recommendation-card {
+        padding: 2rem;
+    }
+    
+    .recommendation-card .recommendation-header {
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .recommendation-card .recommendation-avatar {
+        width: 55px;
+        height: 55px;
+        font-size: 1rem;
+    }
+    
+    .recommendation-card .recommendation-quote {
+        font-size: 1rem;
+        padding-left: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .recommendations-masonry {
+        gap: 1.5rem;
+        padding: 0 0.5rem;
+    }
+    
+    .recommendation-card {
+        padding: 1.5rem;
+    }
+    
+    .recommendation-card .recommendation-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .recommendation-card .recommendation-avatar {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto;
+    }
+    
+    .recommendation-card .recommendation-quote {
+        padding-left: 0.75rem;
+        border-left-width: 3px;
+    }
+}
+
+/* Orbital Contact Layout */
 .contact-content {
+    position: relative;
     max-width: 1000px;
     margin: 0 auto;
+    min-height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.contact-center-card {
+    position: relative;
+    z-index: 10;
+    background: var(--gradient-card);
+    border: 3px solid var(--border-accent);
+    border-radius: 50%;
+    width: 320px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    padding: 2rem;
+    box-shadow: 
+        var(--shadow-2xl),
+        0 0 60px rgba(255, 255, 255, 0.1),
+        inset 0 2px 4px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    transition: var(--transition-premium);
+    animation: centerFloat 6s ease-in-out infinite;
 }
 
-.contact-info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 3rem;
-    margin: 5rem 0;
+.contact-center-card::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    background: var(--gradient-accent);
+    opacity: 0.3;
+    z-index: -1;
+    animation: centerGlow 4s ease-in-out infinite alternate;
 }
 
-.contact-item {
+.contact-center-card:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        var(--shadow-2xl),
+        0 0 80px rgba(255, 255, 255, 0.15),
+        inset 0 2px 4px rgba(255, 255, 255, 0.15);
+}
+
+.contact-center-avatar {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.contact-profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-primary);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: var(--transition-normal);
+}
+
+.contact-center-card:hover .contact-profile-image {
+    transform: scale(1.1);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.contact-center-card h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+}
+
+.contact-center-card p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    max-width: 200px;
+}
+
+.contact-center-actions {
+    margin-top: 0.5rem;
+}
+
+.contact-resume-btn {
+    padding: 0.875rem 1.75rem !important;
+    font-size: 0.9rem !important;
+    border-radius: 50px !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Orbital Items */
+.contact-orbital-items {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+}
+
+.contact-orbital-item {
+    position: absolute;
+    width: 200px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     background: var(--gradient-card);
     border: 2px solid var(--border);
-    border-radius: var(--border-radius);
-    padding: var(--card-padding-lg);
+    border-radius: var(--border-radius-large);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(10px);
     transition: var(--transition-premium);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    box-shadow: var(--shadow-xl);
-    backdrop-filter: var(--blur-sm);
+    cursor: pointer;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 
-.contact-item::before {
+.contact-orbital-item::before {
     content: '';
     position: absolute;
     top: 0;
@@ -2268,104 +2450,358 @@ a:focus {
     transition: var(--transition-normal);
 }
 
-.contact-item:hover::before {
+.contact-orbital-item:hover::before {
     opacity: 1;
 }
 
-.contact-item:hover {
-    transform: translateY(-8px) scale(1.02);
+.contact-orbital-item:hover {
+    transform: scale(1.1) translateZ(20px);
     border-color: var(--border-accent);
-    box-shadow: var(--shadow-2xl);
+    box-shadow: 
+        var(--shadow-2xl),
+        0 0 30px rgba(255, 255, 255, 0.1);
+    z-index: 5;
 }
 
-.contact-icon {
-    width: 90px;
-    height: 90px;
+/* Orbital positioning */
+.contact-item-1 {
+    top: 10%;
+    right: 15%;
+    animation-name: orbit1;
+}
+
+.contact-item-2 {
+    top: 60%;
+    right: 5%;
+    animation-name: orbit2;
+}
+
+.contact-item-3 {
+    bottom: 10%;
+    left: 15%;
+    animation-name: orbit3;
+}
+
+.contact-item-4 {
+    top: 60%;
+    left: 5%;
+    animation-name: orbit4;
+}
+
+/* Contact item content */
+.contact-orbital-item .contact-icon {
+    width: 60px;
+    height: 60px;
     background: var(--gradient-accent);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 2rem;
-    border: none;
-    transition: var(--transition-normal);
-    box-shadow: var(--shadow-lg);
-    position: relative;
-    overflow: hidden;
-}
-
-.contact-icon::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
-    opacity: 0;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-md);
     transition: var(--transition-normal);
 }
 
-.contact-item:hover .contact-icon::before {
-    opacity: 1;
-}
-
-.contact-item:hover .contact-icon {
-    transform: scale(1.1);
-    box-shadow: var(--shadow-xl), 0 0 30px rgba(255, 255, 255, 0.3);
-}
-
-.contact-icon i {
-    font-size: 2.5rem;
-    color: var(--bg-primary);
-    z-index: 1;
-}
-
-/* Show emoji fallback when lucide icons aren't loaded */
-.icon-fallback {
-    font-size: 2.75rem;
-    z-index: 1;
-}
-
-.contact-title {
+.contact-orbital-item .contact-icon i {
     font-size: 1.5rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
-    color: var(--text-primary);
-    letter-spacing: -0.03em;
-    text-transform: uppercase;
+    color: var(--bg-primary);
 }
 
-.contact-link {
+.contact-orbital-item:hover .contact-icon {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-lg);
+}
+
+.contact-item-content {
+    flex: 1;
+}
+
+.contact-item-content h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+}
+
+.contact-item-content a,
+.contact-item-content span {
     color: var(--text-secondary);
     text-decoration: none;
-    font-weight: 500;
-    transition: var(--transition-normal);
-    font-size: 1.125rem;
-    position: relative;
-    letter-spacing: 0.02em;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    transition: var(--transition-fast);
 }
 
-.contact-link::before {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background: var(--gradient-accent);
-    transition: var(--transition-normal);
-}
-
-.contact-link:hover::before {
-    width: 100%;
-}
-
-.contact-link:hover {
+.contact-item-content a:hover {
     color: var(--accent-primary);
 }
 
-/* Resume Download Section */
-.resume-download {
-    margin-top: 4rem;
+/* Orbital Rings */
+.contact-orbital-rings {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.orbital-ring {
+    position: absolute;
+    border: 1px solid var(--text-primary);
+    border-radius: 50%;
+    opacity: 0.1;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.ring-1 {
+    width: 480px;
+    height: 480px;
+    top: -240px;
+    left: -240px;
+    animation: ringRotate 30s;
+    border-style: dashed;
+}
+
+.ring-2 {
+    width: 600px;
+    height: 600px;
+    top: -300px;
+    left: -300px;
+    animation: ringRotate 45s reverse;
+    opacity: 0.05;
+}
+
+.ring-3 {
+    width: 720px;
+    height: 720px;
+    top: -360px;
+    left: -360px;
+    animation: ringRotate 60s;
+    opacity: 0.03;
+    border-style: dotted;
+}
+
+/* Animations */
+@keyframes centerFloat {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(1deg);
+    }
+}
+
+@keyframes centerGlow {
+    0% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0.4;
+        transform: scale(1.02);
+    }
+}
+
+@keyframes orbit1 {
+    0% {
+        transform: rotate(0deg) translateX(200px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translateX(200px) rotate(-360deg);
+    }
+}
+
+@keyframes orbit2 {
+    0% {
+        transform: rotate(90deg) translateX(220px) rotate(-90deg);
+    }
+    100% {
+        transform: rotate(450deg) translateX(220px) rotate(-450deg);
+    }
+}
+
+@keyframes orbit3 {
+    0% {
+        transform: rotate(180deg) translateX(200px) rotate(-180deg);
+    }
+    100% {
+        transform: rotate(540deg) translateX(200px) rotate(-540deg);
+    }
+}
+
+@keyframes orbit4 {
+    0% {
+        transform: rotate(270deg) translateX(220px) rotate(-270deg);
+    }
+    100% {
+        transform: rotate(630deg) translateX(220px) rotate(-630deg);
+    }
+}
+
+@keyframes ringRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive orbital layout */
+@media (max-width: 768px) {
+    .contact-content {
+        min-height: 700px;
+        padding: 2rem 1rem;
+    }
+    
+    .contact-center-card {
+        width: 280px;
+        height: 280px;
+        padding: 1.5rem;
+    }
+    
+    .contact-profile-image {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .contact-center-card h2 {
+        font-size: 1.25rem;
+    }
+    
+    .contact-center-card p {
+        font-size: 0.9rem;
+        max-width: 180px;
+    }
+    
+    .contact-orbital-item {
+        width: 180px;
+        height: 100px;
+        padding: 1.25rem;
+    }
+    
+    .contact-orbital-item .contact-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .contact-orbital-item .contact-icon i {
+        font-size: 1.25rem;
+    }
+    
+    .contact-item-content h3 {
+        font-size: 1rem;
+    }
+    
+    .contact-item-content a,
+    .contact-item-content span {
+        font-size: 0.85rem;
+    }
+    
+    .ring-1 {
+        width: 400px;
+        height: 400px;
+        top: -200px;
+        left: -200px;
+    }
+    
+    .ring-2 {
+        width: 500px;
+        height: 500px;
+        top: -250px;
+        left: -250px;
+    }
+    
+    .ring-3 {
+        width: 600px;
+        height: 600px;
+        top: -300px;
+        left: -300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-content {
+        min-height: 600px;
+        padding: 1rem;
+    }
+    
+    .contact-center-card {
+        width: 240px;
+        height: 240px;
+        padding: 1.25rem;
+    }
+    
+    .contact-profile-image {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .contact-center-card h2 {
+        font-size: 1.125rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .contact-center-card p {
+        font-size: 0.85rem;
+        max-width: 160px;
+        margin-bottom: 1rem;
+    }
+    
+    .contact-orbital-item {
+        width: 160px;
+        height: 90px;
+        padding: 1rem;
+        gap: 0.75rem;
+    }
+    
+    .contact-orbital-item .contact-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .contact-orbital-item .contact-icon i {
+        font-size: 1.125rem;
+    }
+    
+    .contact-item-content h3 {
+        font-size: 0.9rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .contact-item-content a,
+    .contact-item-content span {
+        font-size: 0.8rem;
+    }
+    
+    .contact-resume-btn {
+        padding: 0.75rem 1.5rem !important;
+        font-size: 0.85rem !important;
+    }
+    
+    .ring-1 {
+        width: 320px;
+        height: 320px;
+        top: -160px;
+        left: -160px;
+    }
+    
+    .ring-2 {
+        width: 400px;
+        height: 400px;
+        top: -200px;
+        left: -200px;
+    }
+    
+    .ring-3 {
+        width: 480px;
+        height: 480px;
+        top: -240px;
+        left: -240px;
+    }
 }
 
 /* Futuristic Footer */
