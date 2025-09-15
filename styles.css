@@ -2421,8 +2421,8 @@ a:focus {
 
 .contact-orbital-item {
     position: absolute;
-    width: 240px;
-    min-height: 140px;
+    width: 260px;
+    min-height: 160px;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -2636,8 +2636,8 @@ a:focus {
     }
     
     .contact-orbital-item {
-        width: 220px;
-        min-height: 120px;
+        width: 240px;
+        min-height: 140px;
         padding: 1.5rem;
     }
     
@@ -2710,8 +2710,8 @@ a:focus {
     }
     
     .contact-orbital-item {
-        width: 200px;
-        min-height: 110px;
+        width: 220px;
+        min-height: 130px;
         padding: 1.25rem;
         gap: 0.75rem;
     }
