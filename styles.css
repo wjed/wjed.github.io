@@ -427,125 +427,50 @@ a:focus {
 }
 
 /* Futuristic Profile Card */
+/* Simple Profile Card */
 .profile-card {
-    background: var(--gradient-card);
-    border: 2px solid var(--border);
-    border-radius: var(--border-radius);
-    padding: 3rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 0px;
+    padding: 2rem;
     text-align: center;
-    width: 380px;
-    transition: var(--transition-premium);
-    box-shadow: 
-        0 20px 40px rgba(0, 0, 0, 0.8),
-        0 8px 16px rgba(0, 0, 0, 0.6),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(16px);
-}
-
-.profile-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--gradient-accent);
-    opacity: 0;
+    width: 300px;
     transition: var(--transition-normal);
-}
-
-.profile-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
-    opacity: 0;
-    transition: var(--transition-normal);
-    pointer-events: none;
-}
-
-.profile-card:hover::before {
-    opacity: 1;
-}
-
-.profile-card:hover::after {
-    opacity: 1;
 }
 
 .profile-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    border-color: var(--border-accent);
-    box-shadow: 
-        0 32px 64px rgba(0, 0, 0, 0.9),
-        0 16px 32px rgba(255, 255, 255, 0.05),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border-color: var(--text-muted);
 }
 
 .profile-image {
-    width: 180px;
-    height: 180px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    margin: 0 auto 2rem;
+    margin: 0 auto 1rem;
     display: block;
-    border: 3px solid var(--border);
-    transition: var(--transition-normal);
-    position: relative;
-    box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.6),
-        0 4px 16px rgba(0, 0, 0, 0.4),
-        inset 0 2px 4px rgba(255, 255, 255, 0.05);
-}
-
-.profile-image::before {
-    content: '';
-    position: absolute;
-    inset: -3px;
-    border-radius: 50%;
-    background: var(--gradient-accent);
-    opacity: 0;
-    transition: var(--transition-normal);
-    z-index: -1;
-}
-
-.profile-card:hover .profile-image {
-    border-color: var(--accent-primary);
-    transform: scale(1.05);
-    box-shadow: 
-        0 12px 48px rgba(0, 0, 0, 0.8),
-        0 6px 24px rgba(255, 255, 255, 0.1),
-        inset 0 2px 4px rgba(255, 255, 255, 0.1);
-}
-
-.profile-card:hover .profile-image::before {
-    opacity: 0.3;
+    border: 1px solid var(--border);
 }
 
 .profile-title {
-    font-size: 1.75rem;
-    font-weight: 800;
-    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
     color: var(--text-primary);
-    letter-spacing: -0.03em;
-    text-transform: uppercase;
 }
 
 .profile-subtitle {
-    font-size: 1.125rem;
-    color: var(--text-secondary);
-    margin-bottom: 2rem;
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
     font-weight: 400;
-    letter-spacing: 0.02em;
 }
 
 .profile-card p {
-    color: var(--text-secondary);
-    line-height: 1.6;
-    font-size: 1.125rem;
-    letter-spacing: -0.01em;
-    font-weight: 300;
+    color: var(--text-primary);
+    line-height: 1.5;
+    font-size: 1rem;
+    font-weight: 400;
 }
 
 /* Professional Main Content Layout */
@@ -2126,74 +2051,42 @@ a:focus {
     }
 }
 
-/* Futuristic Footer */
+/* Simple Footer */
 .footer {
-    background: var(--bg-secondary);
-    border-top: 2px solid var(--border);
-    padding: 4rem 0;
+    background: var(--bg-primary);
+    border-top: 1px solid var(--border);
+    padding: 2rem 0;
     text-align: center;
-    position: relative;
-}
-
-.footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: var(--gradient-accent);
-    opacity: 0.5;
 }
 
 .footer-content {
-    color: var(--text-secondary);
+    color: var(--text-primary);
 }
 
 .footer-content p {
-    font-size: 1rem;
-    font-weight: 300;
-    letter-spacing: 0.02em;
+    font-size: 0.875rem;
+    font-weight: 400;
     margin-bottom: 0;
 }
 
 .footer-links {
     display: flex;
     justify-content: center;
-    gap: 3rem;
-    margin: 2.5rem 0;
+    gap: 2rem;
+    margin: 1.5rem 0;
     flex-wrap: wrap;
 }
 
 .footer-links a {
-    color: var(--text-secondary);
+    color: var(--text-primary);
     text-decoration: none;
-    transition: var(--transition-fast);
-    font-weight: 500;
-    font-size: 1rem;
-    position: relative;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.footer-links a::before {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: var(--gradient-accent);
     transition: var(--transition-normal);
-}
-
-.footer-links a:hover::before {
-    width: 100%;
+    font-weight: 400;
+    font-size: 0.875rem;
 }
 
 .footer-links a:hover {
-    color: var(--text-primary);
-    transform: translateY(-1px);
+    color: var(--text-muted);
 }
 
 /* Animations */
