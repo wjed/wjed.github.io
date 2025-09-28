@@ -214,12 +214,13 @@ a:focus {
 
 .nav-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 1rem 1.5rem;
     min-height: 60px;
     width: 100%;
     box-sizing: border-box;
+    position: relative;
 }
 
 .logo {
@@ -510,7 +511,6 @@ a:focus {
     line-height: 1.1;
     color: var(--text-primary);
     position: relative;
-    text-transform: uppercase;
 }
 
 .section-subtitle {
@@ -845,17 +845,10 @@ a:focus {
 }
 
 .project-icon::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
-    opacity: 0;
-    transition: var(--transition-normal);
+    display: none;
 }
 
-.project-card:hover .project-icon::before {
-    opacity: 1;
-}
+/* Removed hover effect for invisible emoji boxes */
 
 .project-icon i {
     font-size: 2.25rem;
@@ -865,8 +858,8 @@ a:focus {
 
 /* Special styling for emoji icons */
 .project-icon:not(:has(i)) {
-    background: var(--bg-elevated);
-    border: 2px solid var(--border-hover);
+    background: transparent;
+    border: none;
     font-size: 2.75rem;
     color: var(--text-primary);
 }
@@ -877,7 +870,6 @@ a:focus {
     margin-bottom: 1rem;
     color: var(--text-primary);
     letter-spacing: -0.03em;
-    text-transform: uppercase;
 }
 
 .project-organization {
@@ -1009,7 +1001,7 @@ a:focus {
 .leadership-icon {
     width: 60px;
     height: 60px;
-    background: var(--gradient-accent);
+    background: transparent;
     border-radius: var(--border-radius);
     display: flex;
     align-items: center;
@@ -1017,23 +1009,15 @@ a:focus {
     margin-bottom: 1.5rem;
     border: none;
     font-size: 1.75rem;
-    box-shadow: var(--shadow-lg);
     position: relative;
     overflow: hidden;
 }
 
 .leadership-icon::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
-    opacity: 0;
-    transition: var(--transition-normal);
+    display: none;
 }
 
-.leadership-card:hover .leadership-icon::before {
-    opacity: 1;
-}
+/* Removed hover effect for invisible emoji boxes */
 
 .leadership-icon i {
     font-size: 1.75rem;
@@ -1054,7 +1038,6 @@ a:focus {
     color: var(--text-primary);
     letter-spacing: -0.03em;
     line-height: 1.3;
-    text-transform: uppercase;
 }
 
 .leadership-description {
@@ -1075,7 +1058,6 @@ a:focus {
     padding-bottom: 2rem;
     position: relative;
     letter-spacing: -0.04em;
-    text-transform: uppercase;
 }
 
 .category-header::after {
