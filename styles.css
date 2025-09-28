@@ -23,7 +23,7 @@
     --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-/* Remove dark/light theme complexity - single minimal theme */
+/* Light theme variables */
 [data-theme="light"] {
     --bg-primary: #f7f5f2;
     --bg-secondary: #f7f5f2;
@@ -40,14 +40,31 @@
     --border-accent: #2c2c2c;
 }
 
-/* Text selection styling - simple */
+/* Dark theme variables (default) */
+:root:not([data-theme="light"]) {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #1a1a1a;
+    --bg-tertiary: #1a1a1a;
+    --bg-card: #1a1a1a;
+    --bg-elevated: #1a1a1a;
+    --text-primary: #e5e5e5;
+    --text-secondary: #e5e5e5;
+    --text-muted: #a0a0a0;
+    --text-accent: #e5e5e5;
+    --border: #333333;
+    --border-hover: #444444;
+    --border-focus: #555555;
+    --border-accent: #e5e5e5;
+}
+
+/* Text selection styling */
 ::selection {
-    background: #d0d0d0;
+    background: var(--border-hover);
     color: var(--text-primary);
 }
 
 ::-moz-selection {
-    background: #d0d0d0;
+    background: var(--border-hover);
     color: var(--text-primary);
 }
 
