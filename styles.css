@@ -514,7 +514,7 @@ a:focus {
 
 .section-title {
     font-size: clamp(2.5rem, 6vw, 4rem);
-    font-weight: 800;
+    font-weight: 400;
     text-align: center;
     margin-bottom: 2rem;
     letter-spacing: -0.04em;
@@ -668,7 +668,7 @@ a:focus {
 /* Futuristic Timeline Content */
 .timeline-title, .job-title {
     font-size: 1.5rem;
-    font-weight: 800;
+    font-weight: 400;
     color: var(--text-primary);
     margin-bottom: 0.75rem;
     letter-spacing: -0.03em;
@@ -678,7 +678,7 @@ a:focus {
 
 .timeline-company, .company-name {
     font-size: 1.25rem;
-    font-weight: 600;
+    font-weight: 400;
     margin-bottom: 0.75rem;
     color: var(--text-secondary);
     letter-spacing: 0.02em;
@@ -714,7 +714,7 @@ a:focus {
 .timeline-date, .job-duration {
     color: var(--text-muted);
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 400;
     margin-bottom: 1.5rem;
     padding: 0.75rem 1.5rem;
     background: var(--bg-tertiary);
@@ -747,7 +747,7 @@ a:focus {
     padding: 0.75rem 1.5rem;
     border-radius: var(--border-radius);
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 400;
     border: 2px solid var(--border);
     transition: var(--transition-normal);
     position: relative;
@@ -876,7 +876,7 @@ a:focus {
 
 .project-title {
     font-size: 1.75rem;
-    font-weight: 800;
+    font-weight: 400;
     margin-bottom: 1rem;
     color: var(--text-primary);
     letter-spacing: -0.03em;
@@ -884,7 +884,7 @@ a:focus {
 
 .project-organization {
     color: var(--accent-primary);
-    font-weight: 600;
+    font-weight: 400;
     margin-bottom: 0.75rem;
     font-size: 1.125rem;
     letter-spacing: 0.02em;
@@ -899,7 +899,7 @@ a:focus {
     border-radius: var(--border-radius);
     display: inline-block;
     border: 1px solid var(--border);
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: 0.02em;
     text-transform: uppercase;
 }
@@ -929,7 +929,7 @@ a:focus {
 .project-link {
     color: var(--text-primary);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 400;
     display: inline-flex;
     align-items: center;
     gap: 1rem;
@@ -1043,7 +1043,7 @@ a:focus {
 
 .leadership-title {
     font-size: 1.5rem;
-    font-weight: 800;
+    font-weight: 400;
     margin-bottom: 1rem;
     color: var(--text-primary);
     letter-spacing: -0.03em;
@@ -1061,7 +1061,7 @@ a:focus {
 /* Futuristic Certifications Styles */
 .category-header {
     font-size: 2.5rem;
-    font-weight: 900;
+    font-weight: 400;
     margin: 6rem 0 4rem 0;
     color: var(--text-primary);
     border-bottom: 2px solid var(--border);
@@ -1147,7 +1147,7 @@ a:focus {
 
 .cert-title {
     font-size: 1.25rem;
-    font-weight: 700;
+    font-weight: 400;
     margin-bottom: 0.5rem;
     color: var(--text-primary);
     letter-spacing: -0.02em;
@@ -1156,7 +1156,7 @@ a:focus {
 
 .cert-issuer {
     color: var(--text-secondary);
-    font-weight: 500;
+    font-weight: 400;
     margin-bottom: 0.5rem;
     font-size: 1.125rem;
     letter-spacing: 0.02em;
@@ -1165,7 +1165,7 @@ a:focus {
 .cert-date {
     color: var(--text-muted);
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
@@ -1192,7 +1192,7 @@ a:focus {
     padding: 0.375rem 0.75rem;
     border-radius: var(--border-radius);
     font-size: 0.8rem;
-    font-weight: 500;
+    font-weight: 400;
     border: 1px solid var(--border);
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -1206,7 +1206,7 @@ a:focus {
 .cert-link {
     color: var(--text-primary);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 400;
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
@@ -1338,7 +1338,7 @@ a:focus {
     justify-content: center;
     border: 3px solid rgba(255, 255, 255, 0.2);
     flex-shrink: 0;
-    font-weight: 800;
+    font-weight: 400;
     color: white;
     font-size: 1.2rem;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.15);
@@ -1404,7 +1404,7 @@ a:focus {
 
 .recommendation-card .recommendation-info h3 {
     font-size: 1.2rem;
-    font-weight: 700;
+    font-weight: 400;
     margin-bottom: 0.5rem;
     color: var(--text-primary);
     letter-spacing: -0.02em;
@@ -1415,20 +1415,20 @@ a:focus {
     font-size: 0.95rem;
     margin-bottom: 0.5rem;
     line-height: 1.4;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .recommendation-card .recommendation-company {
     color: var(--text-muted);
     font-size: 0.9rem;
     margin-bottom: 0.25rem;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .recommendation-card .recommendation-date {
     color: var(--text-muted);
     font-size: 0.85rem;
-    font-weight: 600;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
@@ -1489,7 +1489,7 @@ a:focus {
 .recommendation-card .recommendation-link {
     color: var(--text-primary);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 400;
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
@@ -1673,7 +1673,7 @@ a:focus {
 
 .contact-center-card h2 {
     font-size: 1.5rem;
-    font-weight: 800;
+    font-weight: 400;
     margin-bottom: 1rem;
     color: var(--text-primary);
     text-transform: uppercase;
@@ -1804,7 +1804,7 @@ a:focus {
 
 .contact-item-content h3 {
     font-size: 1.125rem;
-    font-weight: 700;
+    font-weight: 400;
     margin-bottom: 0.5rem;
     color: var(--text-primary);
     text-transform: uppercase;
@@ -2612,14 +2612,14 @@ a:focus {
 
 .date-day {
     font-size: 2rem;
-    font-weight: 900;
+    font-weight: 400;
     line-height: 1;
     margin-bottom: 0.25rem;
 }
 
 .date-month {
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: 0.25rem;
@@ -2627,7 +2627,7 @@ a:focus {
 
 .date-year {
     font-size: 0.8rem;
-    font-weight: 500;
+    font-weight: 400;
     opacity: 0.8;
 }
 
@@ -2644,7 +2644,7 @@ a:focus {
     padding: 0.5rem 1rem;
     border-radius: var(--border-radius);
     font-size: 0.85rem;
-    font-weight: 600;
+    font-weight: 400;
     border: 1px solid var(--border);
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -2664,7 +2664,7 @@ a:focus {
 
 .blog-title {
     font-size: 2rem;
-    font-weight: 800;
+    font-weight: 400;
     margin-bottom: 1.5rem;
     line-height: 1.3;
     letter-spacing: -0.03em;
@@ -2704,7 +2704,7 @@ a:focus {
     gap: 0.5rem;
     color: var(--text-muted);
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .read-time i,
@@ -2726,7 +2726,7 @@ a:focus {
     color: var(--bg-primary);
     text-decoration: none;
     border-radius: var(--border-radius);
-    font-weight: 600;
+    font-weight: 400;
     font-size: 1rem;
     transition: var(--transition-normal);
     border: 2px solid var(--accent-primary);
@@ -2795,7 +2795,7 @@ a:focus {
 
 .placeholder-title {
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 400;
     margin-bottom: 1rem;
     color: var(--text-secondary);
     text-transform: uppercase;
@@ -2889,7 +2889,7 @@ a:focus {
 .blog-post-date {
     color: var(--text-muted);
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: 1rem;
@@ -2897,7 +2897,7 @@ a:focus {
 
 .blog-post-title {
     font-size: clamp(2.5rem, 6vw, 4rem);
-    font-weight: 900;
+    font-weight: 400;
     margin-bottom: 2rem;
     line-height: 1.2;
     letter-spacing: -0.04em;
@@ -2930,7 +2930,7 @@ a:focus {
 
 .blog-post-content h2 {
     font-size: 2rem;
-    font-weight: 800;
+    font-weight: 400;
     margin: 3rem 0 1.5rem 0;
     color: var(--text-primary);
     text-transform: uppercase;
@@ -2939,7 +2939,7 @@ a:focus {
 
 .blog-post-content h3 {
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 400;
     margin: 2.5rem 0 1rem 0;
     color: var(--text-primary);
     text-transform: uppercase;
@@ -2965,7 +2965,7 @@ a:focus {
 
 .blog-post-content strong {
     color: var(--text-primary);
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .blog-post-navigation {
@@ -2984,7 +2984,7 @@ a:focus {
     color: var(--text-primary);
     text-decoration: none;
     border-radius: var(--border-radius);
-    font-weight: 600;
+    font-weight: 400;
     border: 2px solid var(--border);
     transition: var(--transition-normal);
     text-transform: uppercase;
