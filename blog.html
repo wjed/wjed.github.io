@@ -20,24 +20,17 @@
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='60' font-size='45' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='600' fill='%23fff'>WJ</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='60' font-size='45' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='600' fill='%23fff'>wj</text></svg>">
     
     <!-- Prevent FOUC (Flash of Unstyled Content) for theme -->
-    <script>
-        (function() {
-            const savedTheme = localStorage.getItem('theme') || 'dark';
-            if (savedTheme === 'light') {
-                document.documentElement.setAttribute('data-theme', 'light');
-            }
-        })();
-    </script>
+    ___script_0___
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="nav-container">
                 <div class="nav-left">
@@ -53,7 +46,7 @@
                 </ul>
                 </div>
                 <div class="nav-right">
-                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+                    <button class="theme-toggle" id="theme-toggle" aria-label="toggle dark/light mode">
                         <span id="theme-icon">☀️</span>
                     </button>
                 </div>
@@ -74,7 +67,7 @@
                         <div class="blog-header">
                             <div class="blog-date">
                                 <div class="date-day">02</div>
-                                <div class="date-month">Sep</div>
+                                <div class="date-month">sep</div>
                                 <div class="date-year">2025</div>
                             </div>
                             <div class="blog-categories">
@@ -88,7 +81,7 @@
                                 <a href="blog/palantir-undervalued-2025.html">why palantir is about to blow up (and wall street doesn't get it)</a>
                             </h2>
                             <p class="blog-excerpt">
-                                After building secure ai systems in the federal trenches, i've seen what most investors miss about palantir. 
+                                after building secure ai systems in the federal trenches, i've seen what most investors miss about palantir. 
                                 this isn't just another software company—it's the aws of decision-making infrastructure, and the market 
                                 fundamentally misunderstands what they're building.
                             </p>
@@ -128,87 +121,7 @@
     </main>
 
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
-    <script>
-        // Initialize Lucide icons
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
-        }
-
-        // Theme management
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const html = document.documentElement;
-
-        // Get saved theme or default to dark
-        let currentTheme = localStorage.getItem('theme') || 'dark';
-        
-        // Apply initial theme
-        if (currentTheme === 'light') {
-            html.setAttribute('data-theme', 'light');
-            if (themeIcon) themeIcon.innerHTML = '🌙';
-        } else {
-            html.removeAttribute('data-theme');
-            if (themeIcon) themeIcon.innerHTML = '☀️';
-        }
-
-        // Theme toggle functionality
-        if (themeToggle) {
-            themeToggle.addEventListener('click', () => {
-                if (currentTheme === 'dark') {
-                    currentTheme = 'light';
-                    html.setAttribute('data-theme', 'light');
-                    if (themeIcon) themeIcon.innerHTML = '🌙';
-                    localStorage.setItem('theme', 'light');
-                } else {
-                    currentTheme = 'dark';
-                    html.removeAttribute('data-theme');
-                    if (themeIcon) themeIcon.innerHTML = '☀️';
-                    localStorage.setItem('theme', 'dark');
-                }
-                
-                // Force immediate reflow to ensure theme changes are applied instantly
-                document.body.offsetHeight;
-                
-                // Update navbar background immediately based on new theme
-                const navbar = document.querySelector('.navbar');
-                const isLightMode = html.hasAttribute('data-theme') && html.getAttribute('data-theme') === 'light';
-                
-                if (window.scrollY > 50) {
-                    if (isLightMode) {
-                        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-                    } else {
-                        navbar.style.background = 'rgba(0, 0, 0, 0.98)';
-                    }
-                } else {
-                    if (isLightMode) {
-                        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-                    } else {
-                        navbar.style.background = 'rgba(0, 0, 0, 0.95)';
-                    }
-                }
-            });
-        }
-
-        // Navbar background on scroll
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            const isLightMode = html.hasAttribute('data-theme') && html.getAttribute('data-theme') === 'light';
-            
-            if (window.scrollY > 50) {
-                if (isLightMode) {
-                    navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-                } else {
-                    navbar.style.background = 'rgba(0, 0, 0, 0.98)';
-                }
-            } else {
-                if (isLightMode) {
-                    navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-                } else {
-                    navbar.style.background = 'rgba(0, 0, 0, 0.95)';
-                }
-            }
-        });
-    </script>
+    ___script_1___
+    ___script_2___
 </body>
 </html>
