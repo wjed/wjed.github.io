@@ -673,7 +673,6 @@ a:focus {
     margin-bottom: 0.75rem;
     letter-spacing: -0.03em;
     line-height: 1.3;
-    text-transform: uppercase;
 }
 
 .timeline-company, .company-name {
@@ -721,7 +720,6 @@ a:focus {
     border-radius: var(--border-radius);
     display: inline-block;
     border: 2px solid var(--border);
-    text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
@@ -752,7 +750,6 @@ a:focus {
     transition: var(--transition-normal);
     position: relative;
     overflow: hidden;
-    text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
@@ -901,7 +898,6 @@ a:focus {
     border: 1px solid var(--border);
     font-weight: 400;
     letter-spacing: 0.02em;
-    text-transform: uppercase;
 }
 
 .project-description {
@@ -941,7 +937,6 @@ a:focus {
     background: var(--bg-elevated);
     position: relative;
     overflow: hidden;
-    text-transform: uppercase;
     letter-spacing: 0.02em;
     font-family: var(--font-ui);
 }
@@ -1151,7 +1146,6 @@ a:focus {
     margin-bottom: 0.5rem;
     color: var(--text-primary);
     letter-spacing: -0.02em;
-    text-transform: uppercase;
 }
 
 .cert-issuer {
@@ -1166,7 +1160,6 @@ a:focus {
     color: var(--text-muted);
     font-size: 1rem;
     font-weight: 400;
-    text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
@@ -1194,7 +1187,6 @@ a:focus {
     font-size: 0.8rem;
     font-weight: 400;
     border: 1px solid var(--border);
-    text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
@@ -1216,7 +1208,6 @@ a:focus {
     border-radius: var(--border-radius);
     font-size: 1rem;
     background: var(--bg-elevated);
-    text-transform: uppercase;
     letter-spacing: 0.02em;
 }
 
@@ -1429,7 +1420,6 @@ a:focus {
     color: var(--text-muted);
     font-size: 0.85rem;
     font-weight: 400;
-    text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
@@ -1502,7 +1492,6 @@ a:focus {
     position: relative;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-transform: uppercase;
     letter-spacing: 0.02em;
 }
 
@@ -1676,7 +1665,7 @@ a:focus {
     font-weight: 400;
     margin-bottom: 1rem;
     color: var(--text-primary);
-    text-transform: uppercase;
+    
     letter-spacing: -0.02em;
 }
 
@@ -1696,7 +1685,7 @@ a:focus {
     padding: 0.875rem 1.75rem !important;
     font-size: 0.9rem !important;
     border-radius: 50px !important;
-    text-transform: uppercase;
+    
     letter-spacing: 0.05em;
 }
 
@@ -1807,7 +1796,7 @@ a:focus {
     font-weight: 400;
     margin-bottom: 0.5rem;
     color: var(--text-primary);
-    text-transform: uppercase;
+    
     letter-spacing: -0.02em;
 }
 
@@ -2620,7 +2609,7 @@ a:focus {
 .date-month {
     font-size: 0.9rem;
     font-weight: 400;
-    text-transform: uppercase;
+    
     letter-spacing: 0.1em;
     margin-bottom: 0.25rem;
 }
@@ -2646,7 +2635,7 @@ a:focus {
     font-size: 0.85rem;
     font-weight: 400;
     border: 1px solid var(--border);
-    text-transform: uppercase;
+    
     letter-spacing: 0.05em;
     transition: var(--transition-fast);
 }
@@ -2730,7 +2719,7 @@ a:focus {
     font-size: 1rem;
     transition: var(--transition-normal);
     border: 2px solid var(--accent-primary);
-    text-transform: uppercase;
+    
     letter-spacing: 0.05em;
     position: relative;
     overflow: hidden;
@@ -2798,7 +2787,7 @@ a:focus {
     font-weight: 400;
     margin-bottom: 1rem;
     color: var(--text-secondary);
-    text-transform: uppercase;
+    
     letter-spacing: -0.02em;
 }
 
@@ -2890,7 +2879,7 @@ a:focus {
     color: var(--text-muted);
     font-size: 1rem;
     font-weight: 400;
-    text-transform: uppercase;
+    
     letter-spacing: 0.1em;
     margin-bottom: 1rem;
 }
@@ -2933,7 +2922,6 @@ a:focus {
     font-weight: 400;
     margin: 3rem 0 1.5rem 0;
     color: var(--text-primary);
-    text-transform: uppercase;
     letter-spacing: -0.03em;
 }
 
@@ -2942,7 +2930,7 @@ a:focus {
     font-weight: 400;
     margin: 2.5rem 0 1rem 0;
     color: var(--text-primary);
-    text-transform: uppercase;
+    
     letter-spacing: -0.02em;
 }
 
@@ -2987,7 +2975,7 @@ a:focus {
     font-weight: 400;
     border: 2px solid var(--border);
     transition: var(--transition-normal);
-    text-transform: uppercase;
+    
     letter-spacing: 0.02em;
 }
 
