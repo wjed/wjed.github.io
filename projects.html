@@ -20,17 +20,10 @@
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='60' font-size='45' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='600' fill='%23fff'>WJ</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='60' font-size='45' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='600' fill='%23fff'>wj</text></svg>">
     
     <!-- Prevent FOUC (Flash of Unstyled Content) for theme -->
-    <script>
-        (function() {
-            const savedTheme = localStorage.getItem('theme') || 'dark';
-            if (savedTheme === 'light') {
-                document.documentElement.setAttribute('data-theme', 'light');
-            }
-        })();
-    </script>
+    ___script_0___
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
@@ -38,7 +31,7 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="nav-container">
                 <div class="nav-left">
@@ -54,7 +47,7 @@
                 </ul>
                 </div>
                 <div class="nav-right">
-                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+                    <button class="theme-toggle" id="theme-toggle" aria-label="toggle dark/light mode">
                         <span id="theme-icon">☀️</span>
                     </button>
                 </div>
@@ -78,20 +71,20 @@
                             <div>
                                 <h3 class="project-title">musiccpr</h3>
                                 <div class="project-organization">james madison university</div>
-                                <div class="project-date">Dec 2023 - May 2024</div>
+                                <div class="project-date">dec 2023 - may 2024</div>
                             </div>
                         </div>
                         <p class="project-description">
-                            Educational website aimed at enhancing music education, developed as a niche Learning Management System 
-                            similar to Canvas. Collaborated with music teachers to design and implement this web application, 
+                            educational website aimed at enhancing music education, developed as a niche learning management system 
+                            similar to canvas. collaborated with music teachers to design and implement this web application, 
                             which was enthusiastically received by students and teachers during the pandemic.
                         </p>
                         <div class="project-tech">
-                            <span class="tech-badge">JavaScript</span>
-                            <span class="tech-badge">React</span>
-                            <span class="tech-badge">HTML</span>
-                            <span class="tech-badge">CSS</span>
-                            <span class="tech-badge">Web Development</span>
+                            <span class="tech-badge">javascript</span>
+                            <span class="tech-badge">react</span>
+                            <span class="tech-badge">html</span>
+                            <span class="tech-badge">css</span>
+                            <span class="tech-badge">web development</span>
                         </div>
                         <div class="project-actions">
                             <a href="https://www.jmu.edu" class="project-link" target="_blank">
@@ -109,19 +102,19 @@
                             <div>
                                 <h3 class="project-title">jmu dukessat (meshsat)</h3>
                                 <div class="project-organization">james madison university</div>
-                                <div class="project-date">Feb 2024 - Mar 2024</div>
+                                <div class="project-date">feb 2024 - mar 2024</div>
                             </div>
                         </div>
                         <p class="project-description">
-                            Supported the development of MeshSAT, a satellite project at james madison university. 
-                            Contributed to the technical development and implementation of this innovative satellite 
-                            communication system using AI/ML and Python technologies.
+                            supported the development of meshsat, a satellite project at james madison university. 
+                            contributed to the technical development and implementation of this innovative satellite 
+                            communication system using ai/ml and python technologies.
                         </p>
                         <div class="project-tech">
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">AI/ML</span>
-                            <span class="tech-badge">Satellite Tech</span>
-                            <span class="tech-badge">Research</span>
+                            <span class="tech-badge">python</span>
+                            <span class="tech-badge">ai/ml</span>
+                            <span class="tech-badge">satellite tech</span>
+                            <span class="tech-badge">research</span>
                         </div>
                         <div class="project-actions">
                             <a href="https://www.jmu.edu" class="project-link" target="_blank">
@@ -143,17 +136,17 @@
                             </div>
                         </div>
                         <p class="project-description">
-                            Cybersecurity database built collaboratively with friends to help threat detection. 
-                            Utilized SQL for database design and Mockaroo for realistic data generation. 
-                            The database was designed to support cybersecurity operations and was presented 
+                            cybersecurity database built collaboratively with friends to help threat detection. 
+                            utilized sql for database design and mockaroo for realistic data generation. 
+                            the database was designed to support cybersecurity operations and was presented 
                             to our class as a comprehensive threat detection solution.
                         </p>
                         <div class="project-tech">
-                            <span class="tech-badge">SQL</span>
-                            <span class="tech-badge">Mockaroo</span>
-                            <span class="tech-badge">Database Design</span>
-                            <span class="tech-badge">Cybersecurity</span>
-                            <span class="tech-badge">Threat Detection</span>
+                            <span class="tech-badge">sql</span>
+                            <span class="tech-badge">mockaroo</span>
+                            <span class="tech-badge">database design</span>
+                            <span class="tech-badge">cybersecurity</span>
+                            <span class="tech-badge">threat detection</span>
                         </div>
                         <div class="project-actions">
                             <a href="https://www.jmu.edu" class="project-link" target="_blank">
@@ -168,141 +161,8 @@
     </main>
 
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
-    <script>
-        // Initialize Lucide icons if available
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
-        }
-
-        // Theme management
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const html = document.documentElement;
-
-        // Get saved theme or default to dark
-        let currentTheme = localStorage.getItem('theme') || 'dark';
-        
-        // Apply initial theme
-        if (currentTheme === 'light') {
-            html.setAttribute('data-theme', 'light');
-            if (themeIcon) themeIcon.innerHTML = '🌙';
-        } else {
-            html.removeAttribute('data-theme');
-            if (themeIcon) themeIcon.innerHTML = '☀️';
-        }
-
-        // Theme toggle functionality
-        if (themeToggle) {
-            themeToggle.addEventListener('click', () => {
-                if (currentTheme === 'dark') {
-                    currentTheme = 'light';
-                    html.setAttribute('data-theme', 'light');
-                    if (themeIcon) themeIcon.innerHTML = '🌙';
-                    localStorage.setItem('theme', 'light');
-                } else {
-                    currentTheme = 'dark';
-                    html.removeAttribute('data-theme');
-                    if (themeIcon) themeIcon.innerHTML = '☀️';
-                    localStorage.setItem('theme', 'dark');
-                }
-                
-                // Force immediate reflow to ensure theme changes are applied instantly
-                document.body.offsetHeight;
-                
-                // Update navbar background immediately based on new theme
-                const navbar = document.querySelector('.navbar');
-                const isLightMode = html.hasAttribute('data-theme') && html.getAttribute('data-theme') === 'light';
-                
-                if (window.scrollY > 50) {
-                    if (isLightMode) {
-                        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-                    } else {
-                        navbar.style.background = 'rgba(0, 0, 0, 0.98)';
-                    }
-                } else {
-                    if (isLightMode) {
-                        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-                    } else {
-                        navbar.style.background = 'rgba(0, 0, 0, 0.95)';
-                    }
-                }
-            });
-        }
-
-        // Initialize Lucide icons if available
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
-        }
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Navbar background on scroll
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            const isLightMode = html.hasAttribute('data-theme') && html.getAttribute('data-theme') === 'light';
-            
-            if (window.scrollY > 50) {
-                if (isLightMode) {
-                    navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-                } else {
-                    navbar.style.background = 'rgba(0, 0, 0, 0.98)';
-                }
-            } else {
-                if (isLightMode) {
-                    navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-                } else {
-                    navbar.style.background = 'rgba(0, 0, 0, 0.95)';
-                }
-            }
-        });
-
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-
-        // Add hover effects to project cards
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-    </script>
+    ___script_1___
+    ___script_2___
     </script>
 </body>
 </html>
