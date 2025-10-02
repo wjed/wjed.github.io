@@ -12,6 +12,8 @@
     --text-accent: #1C1C1E;
     --accent-yellow: #FFD60A;
     --accent-yellow-soft: #FFF4CC;
+    --accent-primary: #FFD60A;
+    --gradient-accent: linear-gradient(135deg, #FFD60A 0%, #FFC800 100%);
     --border: #E5E5E5;
     --border-hover: #D1D1D6;
     --border-focus: #C7C7CC;
@@ -38,6 +40,8 @@
     --text-accent: #1C1C1E;
     --accent-yellow: #FFD60A;
     --accent-yellow-soft: #FFF4CC;
+    --accent-primary: #FFD60A;
+    --gradient-accent: linear-gradient(135deg, #FFD60A 0%, #FFC800 100%);
     --border: #E5E5E5;
     --border-hover: #D1D1D6;
     --border-focus: #C7C7CC;
@@ -57,6 +61,8 @@
     --text-accent: #F2F2F7;
     --accent-yellow: #FFD60A;
     --accent-yellow-soft: #4A4000;
+    --accent-primary: #FFD60A;
+    --gradient-accent: linear-gradient(135deg, #FFD60A 0%, #FFC800 100%);
     --border: #38383A;
     --border-hover: #48484A;
     --border-focus: #58585A;
