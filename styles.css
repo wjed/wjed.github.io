@@ -1443,6 +1443,7 @@ a:focus {
     transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
+    z-index: 5;
 }
 
 .contact-orbital-item {
@@ -1545,6 +1546,7 @@ a:focus {
     left: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none;
+    z-index: 1;
 }
 
 .orbital-ring {
