@@ -9,7 +9,10 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Serif+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Preload custom font -->
+    <link rel="preload" href="fonts/Alliance No.2 Regular.otf" as="font" type="font/otf" crossorigin>
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css">
@@ -45,6 +48,7 @@
                     <li><a href="index.html">home</a></li>
                     <li><a href="experience.html">experience</a></li>
                     <li><a href="projects.html">projects</a></li>
+                    <li><a href="coursework.html">coursework</a></li>
                     <li><a href="leadership.html">leadership</a></li>
                     <li><a href="certifications.html">certifications</a></li>
                     <li><a href="contact.html">contact</a></li>
@@ -67,6 +71,37 @@
                 <p class="section-subtitle">innovative solutions and research projects developed during academic and personal time</p>
                 
                 <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <h3 class="project-title">jmu it advising bot</h3>
+                                <div class="project-organization">james madison university</div>
+                                <div class="project-date">oct 2025 - dec 2026</div>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            fully built-out jmu it/cs advisor created with aws cdk infrastructure as code. 
+                            leverages amazon bedrock for ai capabilities, claude haiku for natural language processing, 
+                            dynamodb for scalable data storage, and s3 for document management. provides personalized 
+                            academic advising and course recommendations for information technology and computer science students.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">aws cdk</span>
+                            <span class="tech-badge">amazon bedrock</span>
+                            <span class="tech-badge">claude haiku</span>
+                            <span class="tech-badge">dynamodb</span>
+                            <span class="tech-badge">amazon s3</span>
+                            <span class="tech-badge">infrastructure as code</span>
+                            <span class="tech-badge">ai/ml</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://www.jmu.edu" class="project-link" target="_blank">
+                                <i data-lucide="external-link"></i>
+                                james madison university
+                            </a>
+                        </div>
+                    </div>
+
                     <div class="project-card">
                         <div class="project-header">
                             <div>
