@@ -1616,6 +1616,31 @@ a:focus {
     }
 }
 
+/* Simple Contact Content */
+.simple-contact-content {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.simple-contact-content p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+}
+
+.simple-contact-content a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: var(--transition-normal);
+}
+
+.simple-contact-content a:hover {
+    border-bottom-color: var(--accent-primary);
+}
+
 /* Responsive orbital layout */
 @media (max-width: 768px) {
     .contact-content {
