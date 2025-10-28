@@ -1,11 +1,21 @@
-/* iPhone Notes App Design System */
+/* Custom Font Integration */
+@font-face {
+    font-family: 'Alliance';
+    src: url('fonts/Alliance No.2 Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Enhanced Design System */
 :root {
-    /* Notes app inspired colors - warm off-white/cream background with subtle accents */
+    /* Enhanced color palette with more depth */
     --bg-primary: #FFFBF5;
     --bg-secondary: #FFF9F0;
     --bg-tertiary: #FFF7EB;
-    --bg-card: #FFFBF5;
-    --bg-elevated: #FFFFFF;
+    --bg-card: rgba(255, 251, 245, 0.8);
+    --bg-elevated: rgba(255, 255, 255, 0.9);
+    --bg-glass: rgba(255, 255, 255, 0.1);
     --text-primary: #1C1C1E;
     --text-secondary: #3A3A3C;
     --text-muted: #8E8E93;
@@ -13,27 +23,38 @@
     --accent-yellow: #FFD60A;
     --accent-yellow-soft: #FFF4CC;
     --accent-primary: #FFD60A;
+    --accent-secondary: #FF9500;
     --gradient-accent: linear-gradient(135deg, #FFD60A 0%, #FFC800 100%);
-    --border: #E5E5E5;
-    --border-hover: #D1D1D6;
+    --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 251, 245, 0.8) 100%);
+    --gradient-hero: linear-gradient(135deg, #FFFBF5 0%, #FFF9F0 50%, #FFF7EB 100%);
+    --border: rgba(229, 229, 229, 0.6);
+    --border-hover: rgba(209, 209, 214, 0.8);
     --border-focus: #C7C7CC;
     --border-accent: #FFD60A;
-    --shadow: none;
-    --shadow-light: none;
-    --shadow-card: none;
-    --shadow-premium: none;
     
-    /* Apple San Francisco-like font system */
-    --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+    /* Enhanced shadows and effects */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+    --shadow-xl: 0 16px 64px rgba(0, 0, 0, 0.16);
+    --shadow-glow: 0 0 32px rgba(255, 214, 10, 0.3);
+    --blur-sm: blur(8px);
+    --blur-md: blur(16px);
+    --blur-lg: blur(24px);
+    
+    /* Custom font system with Alliance as primary */
+    --font-family: 'Alliance', -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+    --font-family-mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
 }
 
-/* Light theme variables - iPhone Notes style */
+/* Enhanced Light theme */
 [data-theme="light"] {
     --bg-primary: #FFFBF5;
     --bg-secondary: #FFF9F0;
     --bg-tertiary: #FFF7EB;
-    --bg-card: #FFFBF5;
-    --bg-elevated: #FFFFFF;
+    --bg-card: rgba(255, 251, 245, 0.8);
+    --bg-elevated: rgba(255, 255, 255, 0.9);
+    --bg-glass: rgba(255, 255, 255, 0.1);
     --text-primary: #1C1C1E;
     --text-secondary: #3A3A3C;
     --text-muted: #8E8E93;
@@ -41,30 +62,37 @@
     --accent-yellow: #FFD60A;
     --accent-yellow-soft: #FFF4CC;
     --accent-primary: #FFD60A;
+    --accent-secondary: #FF9500;
     --gradient-accent: linear-gradient(135deg, #FFD60A 0%, #FFC800 100%);
-    --border: #E5E5E5;
-    --border-hover: #D1D1D6;
+    --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 251, 245, 0.8) 100%);
+    --gradient-hero: linear-gradient(135deg, #FFFBF5 0%, #FFF9F0 50%, #FFF7EB 100%);
+    --border: rgba(229, 229, 229, 0.6);
+    --border-hover: rgba(209, 209, 214, 0.8);
     --border-focus: #C7C7CC;
     --border-accent: #FFD60A;
 }
 
-/* Dark theme variables - complementary to Notes light theme */
+/* Enhanced Dark theme */
 :root:not([data-theme="light"]) {
-    --bg-primary: #1C1C1E;
-    --bg-secondary: #2C2C2E;
-    --bg-tertiary: #3A3A3C;
-    --bg-card: #2C2C2E;
-    --bg-elevated: #3A3A3C;
+    --bg-primary: #0A0A0B;
+    --bg-secondary: #1C1C1E;
+    --bg-tertiary: #2C2C2E;
+    --bg-card: rgba(28, 28, 30, 0.8);
+    --bg-elevated: rgba(44, 44, 46, 0.9);
+    --bg-glass: rgba(255, 255, 255, 0.05);
     --text-primary: #F2F2F7;
     --text-secondary: #E5E5EA;
     --text-muted: #98989D;
     --text-accent: #F2F2F7;
     --accent-yellow: #FFD60A;
-    --accent-yellow-soft: #4A4000;
+    --accent-yellow-soft: rgba(255, 214, 10, 0.15);
     --accent-primary: #FFD60A;
+    --accent-secondary: #FF9500;
     --gradient-accent: linear-gradient(135deg, #FFD60A 0%, #FFC800 100%);
-    --border: #38383A;
-    --border-hover: #48484A;
+    --gradient-card: linear-gradient(135deg, rgba(44, 44, 46, 0.9) 0%, rgba(28, 28, 30, 0.8) 100%);
+    --gradient-hero: linear-gradient(135deg, #0A0A0B 0%, #1C1C1E 50%, #2C2C2E 100%);
+    --border: rgba(56, 56, 58, 0.6);
+    --border-hover: rgba(72, 72, 74, 0.8);
     --border-focus: #58585A;
     --border-accent: #FFD60A;
 }
@@ -80,19 +108,24 @@
     color: var(--text-primary);
 }
 
-/* iPhone Notes App Layout System */
+/* Enhanced Layout System */
 :root {
-    /* Spacing system - generous whitespace like Notes */
-    --container-max-width: 800px;
-    --section-padding: 4rem;
-    --section-padding-sm: 2.5rem;
-    --card-padding: 2rem;
-    --border-radius: 10px;
-    --border-radius-small: 6px;
-    --border-radius-large: 14px;
+    /* Spacing system with more refined proportions */
+    --container-max-width: 1200px;
+    --section-padding: 6rem;
+    --section-padding-sm: 3rem;
+    --card-padding: 2.5rem;
+    --border-radius: 12px;
+    --border-radius-small: 8px;
+    --border-radius-large: 20px;
+    --border-radius-xl: 28px;
     
-    /* Smooth transitions */
-    --transition-normal: all 0.2s ease;
+    /* Enhanced transition system */
+    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-premium: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 /* Simple Base Styles */
@@ -111,7 +144,7 @@ html {
 
 body {
     font-family: var(--font-family);
-    background: var(--bg-primary);
+    background: var(--gradient-hero);
     color: var(--text-primary);
     line-height: 1.6;
     font-size: 16px;
@@ -119,6 +152,23 @@ body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    position: relative;
+}
+
+/* Subtle background texture */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(255, 214, 10, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 149, 0, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
 }
 
 /* iPhone Notes App Typography */
@@ -217,7 +267,7 @@ a:focus {
     padding: 0 1.5rem;
 }
 
-/* iPhone Notes Navigation */
+/* Enhanced Glass Navigation */
 .navbar {
     position: fixed;
     top: 0;
@@ -226,8 +276,23 @@ a:focus {
     background: var(--bg-elevated);
     border-bottom: 1px solid var(--border);
     z-index: 1000;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: var(--blur-md);
+    -webkit-backdrop-filter: var(--blur-md);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-normal);
+}
+
+.navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg-glass);
+    backdrop-filter: var(--blur-lg);
+    -webkit-backdrop-filter: var(--blur-lg);
+    z-index: -1;
 }
 
 .nav-container {
@@ -277,51 +342,124 @@ a:focus {
     font-weight: 400;
     font-size: 0.9375rem;
     transition: var(--transition-normal);
-    padding: 0.5rem 0;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--accent-yellow-soft), transparent);
+    transition: var(--transition-normal);
+    z-index: -1;
 }
 
 .nav-links a:hover {
     color: var(--accent-yellow);
+    background: var(--accent-yellow-soft);
+    transform: translateY(-1px);
 }
 
-/* iPhone Notes theme toggle */
+.nav-links a:hover::before {
+    left: 100%;
+}
+
+/* Enhanced theme toggle */
 .theme-toggle {
-    background: transparent;
+    background: var(--bg-glass);
     border: 1px solid var(--border);
-    border-radius: var(--border-radius-small);
-    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    padding: 0.75rem;
     cursor: pointer;
-    transition: var(--transition-normal);
+    transition: var(--transition-bounce);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
-    width: 36px;
-    height: 36px;
+    font-size: 1.125rem;
+    width: 44px;
+    height: 44px;
     margin-left: 1rem;
+    backdrop-filter: var(--blur-sm);
+    -webkit-backdrop-filter: var(--blur-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-toggle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: var(--accent-yellow-soft);
+    border-radius: 50%;
+    transition: var(--transition-normal);
+    transform: translate(-50%, -50%);
+    z-index: -1;
 }
 
 .theme-toggle:hover {
-    background: var(--bg-tertiary);
-    border-color: var(--border-hover);
+    background: var(--accent-yellow-soft);
+    border-color: var(--accent-yellow);
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: var(--shadow-glow);
+}
+
+.theme-toggle:hover::before {
+    width: 100%;
+    height: 100%;
 }
 
 .theme-toggle span {
     display: block;
-    font-size: 1rem;
+    font-size: 1.125rem;
     line-height: 1;
+    transition: var(--transition-bounce);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
-/* Simple Hero Section */
+.theme-toggle:hover span {
+    transform: scale(1.2);
+}
+
+/* Enhanced Hero Section */
 .hero {
-    min-height: 80vh;
+    min-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    background: var(--bg-primary);
-    padding: 4rem 0 2rem 0;
+    background: var(--gradient-hero);
+    padding: 6rem 0 4rem 0;
     margin-top: 60px;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        radial-gradient(circle at 30% 70%, rgba(255, 214, 10, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 70% 30%, rgba(255, 149, 0, 0.06) 0%, transparent 50%);
+    animation: heroFloat 20s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes heroFloat {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(-2%, -2%) rotate(1deg); }
+    66% { transform: translate(2%, -1%) rotate(-1deg); }
 }
 
 /* Simple Hero Content */
@@ -345,10 +483,39 @@ a:focus {
 }
 
 .hero-text h1 {
-    font-size: 2.5rem;
+    font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 400;
     margin-bottom: 1.5rem;
-    line-height: 1.2;
+    line-height: 1.1;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 50%, var(--accent-yellow) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    letter-spacing: -0.02em;
+}
+
+.hero-text h1::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--gradient-accent);
+    border-radius: 2px;
+    animation: underlineGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes underlineGlow {
+    0% { 
+        width: 60px;
+        box-shadow: 0 0 10px rgba(255, 214, 10, 0.3);
+    }
+    100% { 
+        width: 80px;
+        box-shadow: 0 0 20px rgba(255, 214, 10, 0.6);
+    }
 }
 
 .hero-text .subtitle {
@@ -400,40 +567,64 @@ a:focus {
     margin-bottom: 1rem;
 }
 
-/* iPhone Notes Button System */
+/* Enhanced Button System */
 .btn-primary, .btn-secondary {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--border-radius);
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius-large);
     text-decoration: none;
     font-weight: 500;
-    font-size: 0.9375rem;
+    font-size: 1rem;
     transition: var(--transition-normal);
-    border: 1px solid var(--border);
+    border: 2px solid var(--border);
     cursor: pointer;
     font-family: var(--font-family);
-    background: var(--bg-elevated);
+    background: var(--gradient-card);
     color: var(--text-primary);
     letter-spacing: -0.01em;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: var(--blur-sm);
+    -webkit-backdrop-filter: var(--blur-sm);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary::before, .btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: var(--transition-slow);
 }
 
 .btn-primary:hover, .btn-secondary:hover {
-    background: var(--bg-tertiary);
-    border-color: var(--border-hover);
-    transform: translateY(-1px);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--accent-yellow);
+}
+
+.btn-primary:hover::before, .btn-secondary:hover::before {
+    left: 100%;
 }
 
 .btn-primary {
-    background: var(--accent-yellow);
+    background: var(--gradient-accent);
     border-color: var(--accent-yellow);
-    color: var(--text-primary);
+    color: var(--bg-primary);
+    box-shadow: var(--shadow-glow);
 }
 
 .btn-primary:hover {
-    background: #FFC800;
-    border-color: #FFC800;
+    background: linear-gradient(135deg, #FFC800 0%, #FF9500 100%);
+    box-shadow: 
+        var(--shadow-xl),
+        0 0 40px rgba(255, 214, 10, 0.4);
+    transform: translateY(-4px) scale(1.05);
 }
 
 .btn-secondary {
@@ -463,30 +654,112 @@ a:focus {
 }
 
 /* Futuristic Profile Card */
-/* Simple Profile Card */
+/* Enhanced Glass Profile Card */
 .profile-card {
-    background: var(--bg-elevated);
-    border: 1px solid var(--border);
-    border-radius: var(--border-radius-large);
-    padding: 2rem;
+    background: var(--gradient-card);
+    border: 2px solid var(--border);
+    border-radius: var(--border-radius-xl);
+    padding: 2.5rem;
     text-align: center;
-    width: 300px;
+    width: 320px;
+    transition: var(--transition-premium);
+    backdrop-filter: var(--blur-md);
+    -webkit-backdrop-filter: var(--blur-md);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+    animation: cardFloat 6s ease-in-out infinite;
+}
+
+.profile-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg-glass);
+    z-index: -1;
     transition: var(--transition-normal);
 }
 
+.profile-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 214, 10, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: var(--transition-slow);
+    z-index: -1;
+}
+
 .profile-card:hover {
-    border-color: var(--border-hover);
-    transform: translateY(-2px);
+    border-color: var(--accent-yellow);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        var(--shadow-xl),
+        var(--shadow-glow);
+}
+
+.profile-card:hover::after {
+    opacity: 1;
+    animation: cardGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes cardFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+@keyframes cardGlow {
+    0% { transform: rotate(0deg) scale(1); }
+    100% { transform: rotate(180deg) scale(1.1); }
 }
 
 .profile-image {
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
     object-fit: cover;
-    margin: 0 auto 1rem;
+    margin: 0 auto 1.5rem;
     display: block;
-    border: 2px solid var(--border);
+    border: 3px solid transparent;
+    background: var(--gradient-accent);
+    padding: 3px;
+    transition: var(--transition-premium);
+    position: relative;
+}
+
+.profile-image::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    background: var(--gradient-accent);
+    opacity: 0;
+    transition: var(--transition-normal);
+    z-index: -1;
+    filter: blur(8px);
+}
+
+.profile-card:hover .profile-image {
+    transform: scale(1.05);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.2),
+        0 0 0 4px var(--accent-yellow-soft);
+}
+
+.profile-card:hover .profile-image::before {
+    opacity: 0.6;
+    animation: imageGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes imageGlow {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(1.1); opacity: 0.8; }
 }
 
 .profile-title {
@@ -596,17 +869,39 @@ a:focus {
 }
 
 .timeline-content {
-    background: var(--bg-elevated);
-    border: 1px solid var(--border);
+    background: var(--gradient-card);
+    border: 2px solid var(--border);
     border-radius: var(--border-radius-large);
-    padding: 2rem;
+    padding: 2.5rem;
     position: relative;
+    transition: var(--transition-premium);
+    backdrop-filter: var(--blur-sm);
+    -webkit-backdrop-filter: var(--blur-sm);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-accent);
+    transform: scaleX(0);
+    transform-origin: left;
     transition: var(--transition-normal);
 }
 
 .timeline-content:hover {
-    border-color: var(--border-hover);
-    transform: translateY(-2px);
+    border-color: var(--accent-yellow);
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: var(--shadow-xl);
+}
+
+.timeline-content:hover::before {
+    transform: scaleX(1);
 }
 
 .timeline-dot {
@@ -711,19 +1006,40 @@ a:focus {
 .tech-badge {
     background: var(--bg-tertiary);
     color: var(--text-secondary);
-    padding: 0.5rem 0.875rem;
-    border-radius: var(--border-radius-small);
+    padding: 0.6rem 1rem;
+    border-radius: var(--border-radius);
     font-size: 0.8125rem;
     font-weight: 500;
     border: 1px solid var(--border);
+    transition: var(--transition-bounce);
+    letter-spacing: 0.02em;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.tech-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-accent);
     transition: var(--transition-normal);
-    letter-spacing: 0;
+    z-index: -1;
 }
 
 .tech-badge:hover {
-    background: var(--accent-yellow-soft);
+    background: var(--accent-yellow);
     border-color: var(--accent-yellow);
-    color: var(--text-primary);
+    color: var(--bg-primary);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--shadow-md);
+}
+
+.tech-badge:hover::before {
+    left: 0;
 }
 
 /* Futuristic Projects Grid */
@@ -735,17 +1051,42 @@ a:focus {
 }
 
 .project-card {
-    background: var(--bg-elevated);
-    border: 1px solid var(--border);
+    background: var(--gradient-card);
+    border: 2px solid var(--border);
     border-radius: var(--border-radius-large);
-    padding: 2rem;
-    transition: var(--transition-normal);
+    padding: 2.5rem;
+    transition: var(--transition-premium);
     position: relative;
+    backdrop-filter: var(--blur-sm);
+    -webkit-backdrop-filter: var(--blur-sm);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--gradient-accent);
+    border-radius: var(--border-radius-large);
+    opacity: 0;
+    transition: var(--transition-normal);
+    z-index: -1;
 }
 
 .project-card:hover {
-    border-color: var(--border-hover);
-    transform: translateY(-2px);
+    border-color: var(--accent-yellow);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        var(--shadow-xl),
+        0 0 40px rgba(255, 214, 10, 0.2);
+}
+
+.project-card:hover::before {
+    opacity: 0.1;
 }
 
 .project-header {
@@ -1806,13 +2147,28 @@ a:focus {
     }
 }
 
-/* Simple Footer */
+/* Enhanced Footer */
 .footer {
-    background: var(--bg-primary);
-    border-top: 1px solid var(--border);
-    padding: 3rem 0 2rem;
+    background: var(--gradient-hero);
+    border-top: 2px solid var(--border);
+    padding: 4rem 0 3rem;
     text-align: center;
-    margin-top: 4rem;
+    margin-top: 6rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 30% 20%, rgba(255, 214, 10, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(255, 149, 0, 0.03) 0%, transparent 50%);
+    z-index: -1;
 }
 
 .footer-content {
@@ -1845,11 +2201,11 @@ a:focus {
     color: var(--accent-yellow);
 }
 
-/* Animations */
+/* Enhanced Animations */
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(40px);
     }
     to {
         opacity: 1;
@@ -1857,9 +2213,61 @@ a:focus {
     }
 }
 
-.fade-in {
-    animation: fadeInUp 0.6s ease-out;
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.fade-in {
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-left {
+    animation: fadeInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-right {
+    animation: fadeInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scale-in {
+    animation: scaleIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Stagger animation delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
 
 /* Futuristic Responsive Design */
 @media (max-width: 768px) {
