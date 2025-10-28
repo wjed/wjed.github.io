@@ -267,7 +267,7 @@ a:focus {
     padding: 0 1.5rem;
 }
 
-/* Enhanced Glass Navigation */
+/* Clean Navigation */
 .navbar {
     position: fixed;
     top: 0;
@@ -276,23 +276,10 @@ a:focus {
     background: var(--bg-elevated);
     border-bottom: 1px solid var(--border);
     z-index: 1000;
-    backdrop-filter: var(--blur-md);
-    -webkit-backdrop-filter: var(--blur-md);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     box-shadow: var(--shadow-sm);
     transition: var(--transition-normal);
-}
-
-.navbar::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--bg-glass);
-    backdrop-filter: var(--blur-lg);
-    -webkit-backdrop-filter: var(--blur-lg);
-    z-index: -1;
 }
 
 .nav-container {
@@ -485,37 +472,11 @@ a:focus {
 .hero-text h1 {
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 400;
-    margin-bottom: 1.5rem;
-    line-height: 1.1;
-    background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 50%, var(--accent-yellow) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    margin-bottom: 2rem;
+    line-height: 1.3;
+    color: var(--text-primary);
     position: relative;
     letter-spacing: -0.02em;
-}
-
-.hero-text h1::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background: var(--gradient-accent);
-    border-radius: 2px;
-    animation: underlineGlow 2s ease-in-out infinite alternate;
-}
-
-@keyframes underlineGlow {
-    0% { 
-        width: 60px;
-        box-shadow: 0 0 10px rgba(255, 214, 10, 0.3);
-    }
-    100% { 
-        width: 80px;
-        box-shadow: 0 0 20px rgba(255, 214, 10, 0.6);
-    }
 }
 
 .hero-text .subtitle {
@@ -529,7 +490,8 @@ a:focus {
     font-size: 1rem;
     color: var(--text-primary);
     margin-bottom: 2rem;
-    line-height: 1.5;
+    margin-top: 1rem;
+    line-height: 1.6;
     max-width: 500px;
 }
 
@@ -2328,11 +2290,7 @@ a:focus {
         margin-bottom: 1.5rem;
     }
 
-    .hero-text h1::after {
-        left: 50%;
-        transform: translateX(-50%);
-        width: 120px;
-    }
+
 
     .hero-text .subtitle {
         font-size: 1.5rem;
@@ -2532,10 +2490,7 @@ a:focus {
         margin-bottom: 1rem;
     }
 
-    .hero-text h1::after {
-        width: 80px;
-        height: 3px;
-    }
+
 
     .hero-text .subtitle {
         font-size: 1.25rem;
