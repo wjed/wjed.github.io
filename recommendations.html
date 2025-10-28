@@ -61,7 +61,7 @@
                         <span class="hamburger-line"></span>
                     </button>
                     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
-                        <span id="theme-icon">☀️</span>
+                        <i id="theme-icon" data-lucide="sun"></i>
                     </button>
                 </div>
             </div>
@@ -250,7 +250,10 @@
         
         // Update icon based on current theme
         function updateThemeIcon(theme) {
-            themeIcon.textContent = theme === 'light' ? '🌙' : '☀️';
+            themeIcon.setAttribute('data-lucide', theme === 'light' ? 'moon' : 'sun');
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
         }
         
         // Initialize icon

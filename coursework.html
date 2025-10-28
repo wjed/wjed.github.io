@@ -60,7 +60,7 @@
                         <span class="hamburger-line"></span>
                     </button>
                     <button class="theme-toggle" id="theme-toggle" aria-label="toggle dark/light mode">
-                        <span id="theme-icon">☀️</span>
+                        <i id="theme-icon" data-lucide="sun"></i>
                     </button>
                 </div>
             </div>
@@ -441,7 +441,10 @@
         function updateThemeIcon(theme) {
             themeIcon.style.transform = 'scale(0)';
             setTimeout(() => {
-                themeIcon.textContent = theme === 'light' ? '🌙' : '☀️';
+                themeIcon.setAttribute('data-lucide', theme === 'light' ? 'moon' : 'sun');
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
                 themeIcon.style.transform = 'scale(1)';
             }, 150);
         }

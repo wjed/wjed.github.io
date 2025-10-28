@@ -70,7 +70,7 @@
                         <span class="hamburger-line"></span>
                     </button>
                     <button class="theme-toggle" id="theme-toggle" aria-label="toggle dark/light mode">
-                        <span id="theme-icon">☀️</span>
+                        <i id="theme-icon" data-lucide="sun"></i>
                     </button>
                 </div>
             </div>
@@ -81,7 +81,7 @@
     <div class="mobile-menu-overlay" id="mobile-menu-overlay">
         <div class="mobile-menu-content">
             <ul class="mobile-nav-links">
-                <li><a href="#home" class="mobile-nav-link">home</a></li>
+                <li><a href="index.html" class="mobile-nav-link">home</a></li>
                 <li><a href="experience.html" class="mobile-nav-link">experience</a></li>
                 <li><a href="projects.html" class="mobile-nav-link">projects</a></li>
                 <li><a href="coursework.html" class="mobile-nav-link">coursework</a></li>
@@ -229,7 +229,10 @@
         function updateThemeIcon(theme) {
             themeIcon.style.transform = 'scale(0)';
             setTimeout(() => {
-                themeIcon.textContent = theme === 'light' ? '🌙' : '☀️';
+                themeIcon.setAttribute('data-lucide', theme === 'light' ? 'moon' : 'sun');
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
                 themeIcon.style.transform = 'scale(1)';
             }, 150);
         }
