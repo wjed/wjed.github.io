@@ -991,6 +991,34 @@ a:focus {
     color: var(--accent-yellow);
 }
 
+/* Stock Ticker Styling */
+.stock-ticker {
+    color: #16a34a !important;
+    /* Dark green for light mode */
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-normal);
+    border-bottom: 1px solid transparent;
+}
+
+.stock-ticker:hover {
+    color: #15803d !important;
+    /* Darker green on hover */
+    border-bottom-color: #16a34a;
+}
+
+/* Dark mode stock ticker */
+:root:not([data-theme="light"]) .stock-ticker {
+    color: #4ade80 !important;
+    /* Lighter green for dark mode */
+}
+
+:root:not([data-theme="light"]) .stock-ticker:hover {
+    color: #22c55e !important;
+    /* Slightly darker light green on hover */
+    border-bottom-color: #4ade80;
+}
+
 .profile-title {
     font-size: 1.125rem;
     font-weight: 500;
