@@ -428,12 +428,13 @@ a:focus {
 .btn-primary {
     background: var(--accent-yellow);
     border-color: var(--accent-yellow);
-    color: var(--text-primary);
+    color: #1C1C1E;
 }
 
 .btn-primary:hover {
     background: #FFC800;
     border-color: #FFC800;
+    color: #1C1C1E;
 }
 
 .btn-secondary {
