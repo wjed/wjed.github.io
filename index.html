@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will J. Jedrzejczak • Deployment Strategist at Palantir Technologies</title>
-    <meta name="description" content="Deployment Strategist at Palantir Technologies. Valedictorian-ranked B.S. IT student at James Madison University specializing in cloud infrastructure and federal technology solutions.">
-    <meta name="keywords" content="deployment strategist, palantir technologies, cloud infrastructure, federal technology, cybersecurity, ai/ml solutions">
-    <meta property="og:title" content="Will J. Jedrzejczak • Deployment Strategist at Palantir Technologies">
-    <meta property="og:description" content="Deployment Strategist at Palantir Technologies. Valedictorian-ranked B.S. IT student specializing in cloud infrastructure and federal technology solutions.">
+    <title>will j. jedrzejczak • deployment strategist at palantir technologies</title>
+    <meta name="description" content="valedictorian-ranked b.s. it student at james madison university. aws professional services intern, mantech engineer, and cybersecurity analyst specializing in cloud infrastructure and federal technology.">
+    <meta name="keywords" content="cloud developer, cyber threat analyst, it student, james madison university, federal defense, devsecops, ai/ml">
+    <meta property="og:title" content="will j. jedrzejczak • deployment strategist at palantir technologies">
+    <meta property="og:description" content="valedictorian-ranked b.s. it student. aws professional services intern, mantech engineer, and cybersecurity analyst specializing in cloud infrastructure and federal technology.">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Will J. Jedrzejczak • Deployment Strategist at Palantir Technologies">
-    <meta name="twitter:description" content="Deployment Strategist at Palantir Technologies. Valedictorian-ranked B.S. IT student specializing in cloud infrastructure and federal technology solutions.">
+    <meta name="twitter:title" content="will j. jedrzejczak • deployment strategist at palantir technologies">
+    <meta name="twitter:description" content="valedictorian-ranked b.s. it student. aws professional services intern, mantech engineer, and cybersecurity analyst specializing in cloud infrastructure and federal technology.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     
     <!-- Preload custom font -->
     <link rel="preload" href="fonts/Alliance No.2 Regular.otf" as="font" type="font/otf" crossorigin>
@@ -19,219 +24,188 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css">
     
+    <!-- Performance optimizations -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='60' font-size='45' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='600' fill='%23F5F6F7'>WJ</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='60' font-size='45' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='600' fill='%23fff'>wj</text></svg>">
+    
+    <!-- Prevent FOUC (Flash of Unstyled Content) for theme -->
+    <script>
+        // Load theme immediately to prevent flash
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
+</head>
 <body>
 
-    <!-- Palantir-style Navigation -->
+    
+    <!-- Navigation -->
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="nav-container">
                 <div class="nav-left">
-                    <a href="#home" class="logo">
-                        <div class="logo-icon">WJ</div>
-                        Will Jedrzejczak
-                    </a>
                     <ul class="nav-links" role="menubar">
-                        <li role="none"><a href="#overview" role="menuitem">Overview</a></li>
-                        <li role="none"><a href="experience.html" role="menuitem">Experience</a></li>
-                        <li role="none"><a href="projects.html" role="menuitem">Projects</a></li>
-                        <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
+                        <li role="none"><a href="#home" role="menuitem" aria-label="go to home section">home</a></li>
+                        <li role="none"><a href="experience.html" role="menuitem" aria-label="view experience page">experience</a></li>
+                        <li role="none"><a href="projects.html" role="menuitem" aria-label="view projects">projects</a></li>
+                        <li role="none"><a href="coursework.html" role="menuitem" aria-label="view coursework">coursework</a></li>
+                        <li role="none"><a href="leadership.html" role="menuitem" aria-label="view leadership page">leadership</a></li>
+                        <li role="none"><a href="certifications.html" role="menuitem" aria-label="view certifications">certifications</a></li>
+                        <li role="none"><a href="contact.html" role="menuitem" aria-label="go to contact page">contact</a></li>
                     </ul>
                 </div>
                 <div class="nav-right">
-                    <a href="contact.html" class="nav-cta">Get Started</a>
                     <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="toggle mobile menu">
                         <span class="hamburger-line"></span>
                         <span class="hamburger-line"></span>
                         <span class="hamburger-line"></span>
+                    </button>
+                    <button class="theme-toggle" id="theme-toggle" aria-label="toggle dark/light mode">
+                        <i id="theme-icon" data-lucide="sun"></i>
                     </button>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Palantir-style Mobile Menu Overlay -->
+    <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobile-menu-overlay">
         <div class="mobile-menu-content">
-            <div class="mobile-nav-left">
-                <ul class="mobile-nav-links">
-                    <li><a href="#overview" class="mobile-nav-link">Overview</a></li>
-                    <li><a href="experience.html" class="mobile-nav-link">Experience</a></li>
-                    <li><a href="projects.html" class="mobile-nav-link">Projects</a></li>
-                    <li><a href="coursework.html" class="mobile-nav-link">Coursework</a></li>
-                    <li><a href="leadership.html" class="mobile-nav-link">Leadership</a></li>
-                    <li><a href="certifications.html" class="mobile-nav-link">Certifications</a></li>
-                    <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
-                </ul>
-            </div>
-            <div class="mobile-nav-right">
-                <div class="mobile-nav-section">
-                    <h4>Latest Updates</h4>
-                    <ul>
-                        <li><a href="experience.html">Palantir Deployment Strategist</a></li>
-                        <li><a href="projects.html">AWS Professional Services</a></li>
-                        <li><a href="certifications.html">Security+ Certification</a></li>
-                    </ul>
-                </div>
-                <div class="mobile-nav-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="https://www.jmu.edu/cise/information-technology/people/ambassadors/will.shtml" target="_blank">JMU IT Ambassador</a></li>
-                        <li><a href="https://finance.yahoo.com/quote/PLTR/" target="_blank">Palantir Stock (NYSE: PLTR)</a></li>
-                        <li><a href="contact.html">Resume Download</a></li>
-                    </ul>
-                </div>
-            </div>
+            <ul class="mobile-nav-links">
+                <li><a href="index.html" class="mobile-nav-link">home</a></li>
+                <li><a href="experience.html" class="mobile-nav-link">experience</a></li>
+                <li><a href="projects.html" class="mobile-nav-link">projects</a></li>
+                <li><a href="coursework.html" class="mobile-nav-link">coursework</a></li>
+                <li><a href="leadership.html" class="mobile-nav-link">leadership</a></li>
+                <li><a href="certifications.html" class="mobile-nav-link">certifications</a></li>
+                <li><a href="contact.html" class="mobile-nav-link">contact</a></li>
+            </ul>
         </div>
     </div>
+            </div>
+    </nav>
 
-    <!-- Palantir-style Hero Section -->
-    <section id="home" class="hero" role="banner">
+    <!-- hero section -->
+    <section id="home" class="hero" role="banner" aria-labelledby="hero-title">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="hero-headline">The Software Advantage</h1>
-                    <div class="hero-tagline">AI-enabled technology to deter and defend <span class="link-arrow"></span></div>
-                    <p class="hero-description">
-                        Deployment Strategist at Palantir Technologies (<a href="https://finance.yahoo.com/quote/PLTR/" target="_blank" rel="noopener noreferrer" style="color: #4ade80; text-decoration: none;">NYSE: PLTR</a>). 
-                        Valedictorian-ranked B.S. IT student at James Madison University specializing in cloud infrastructure, 
-                        cybersecurity, and AI/ML solutions for federal defense applications.
+                    <div class="subtitle" role="text">deployment strategist @ palantir (<a href="https://finance.yahoo.com/quote/PLTR/" target="_blank" rel="noopener noreferrer" class="stock-ticker">nyse: $pltr</a>)</div>
+                    <h1 id="hero-title" data-text="will j. jedrzejczak">will j. jedrzejczak</h1>
+                    <p class="description" role="text">
+                        it all started with youtube videos about computer viruses. what began as childhood curiosity 
+                        turned into a self-taught journey through cybersecurity, leading me to jmu where i became 
+                        valedictorian of my major while racking up 5 internships. then palantir called at the start 
+                        of my junior year asking if i'd be willing to drop out after may 2026. naturally, i said yes.
+                        <br><br>
+                        when i'm not building secure ai/ml solutions for the government, you'll find me lifting weights, 
+                        discovering new music, or outperforming the market by a mile on my fidelity account.
                     </p>
-                    <a href="experience.html" class="hero-cta">
-                        Explore Experience <span class="link-arrow"></span>
-                    </a>
+                    <div class="hero-buttons" role="group" aria-label="action buttons">
+                        <a href="contact.html" class="btn-primary" aria-label="go to contact page to get in touch">
+                            <i data-lucide="mail" aria-hidden="true"></i>
+                            get in touch
+                        </a>
+                    </div>
                 </div>
-                <div class="hero-visual">
-                    <div class="wireframe-visual">
-                        <div class="grid-lines"></div>
-                        <div class="wireframe-plane plane-1"></div>
-                        <div class="wireframe-plane plane-2"></div>
-                        <div class="wireframe-plane plane-3"></div>
+                <div class="hero-image">
+                    <div class="profile-card" role="complementary" aria-labelledby="profile-title">
+                        <div class="profile-frame">
+                            <img src="images/250926-HCSL-Jedrzejczak.jpg" alt="professional headshot of will j. jedrzejczak" class="profile-image">
+                        </div>
+                        <div class="profile-title" id="profile-title">will j. jedrzejczak</div>
+                        <div class="profile-subtitle">b.s. it • james madison university</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Palantir-style Mantra Band -->
-    <section class="mantra-band">
-        <div class="container">
-            <div class="mantra-text">Engineering Starts At The Tactical Edge</div>
-            <a href="projects.html" class="mantra-cta">Explore Solutions <span class="link-arrow"></span></a>
-        </div>
-    </section>
-
-    <!-- Palantir-style Discover by Service Section -->
-    <section id="overview" class="section">
-        <div class="container">
-            <div class="section-content">
-                <div class="section-visual">
-                    <div class="wireframe-visual">
-                        <div class="grid-lines"></div>
-                        <div class="wireframe-plane plane-1"></div>
-                        <div class="wireframe-plane plane-2"></div>
-                        <div class="wireframe-plane plane-3"></div>
-                    </div>
-                </div>
-                <div class="section-text">
-                    <h2>Discover by Service</h2>
-                    <p>Palantir provides configurable solutions across defense, intelligence, and commercial sectors. 
-                    My experience spans cloud infrastructure, cybersecurity analysis, and AI/ML implementation for 
-                    mission-critical applications.</p>
-                    <ul class="section-links">
-                        <li><a href="experience.html">Palantir Technologies <span class="link-arrow"></span></a></li>
-                        <li><a href="experience.html">Amazon Web Services <span class="link-arrow"></span></a></li>
-                        <li><a href="experience.html">ManTech International <span class="link-arrow"></span></a></li>
-                        <li><a href="experience.html">U.S. Department of Defense <span class="link-arrow"></span></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Palantir-style Capabilities Section -->
+    <!-- JMU Features Section -->
     <section class="section">
         <div class="container">
-            <div class="section-content">
-                <div class="section-text">
-                    <h2>Core Capabilities</h2>
-                    <p>From cybersecurity analysis to cloud infrastructure deployment, my technical expertise 
-                    enables mission success across multi-domain operations. Specialized in federal technology 
-                    solutions and AI/ML implementation.</p>
-                    <ul class="section-links">
-                        <li><a href="projects.html">Cloud Infrastructure <span class="link-arrow"></span></a></li>
-                        <li><a href="projects.html">Cybersecurity Analysis <span class="link-arrow"></span></a></li>
-                        <li><a href="projects.html">AI/ML Solutions <span class="link-arrow"></span></a></li>
-                        <li><a href="certifications.html">Security Certifications <span class="link-arrow"></span></a></li>
-                    </ul>
-                </div>
-                <div class="section-visual">
-                    <div class="wireframe-visual">
-                        <div class="grid-lines"></div>
-                        <div class="wireframe-plane plane-1"></div>
-                        <div class="wireframe-plane plane-2"></div>
-                        <div class="wireframe-plane plane-3"></div>
+            <h2 class="section-title">featured at jmu</h2>
+            <p class="section-subtitle">highlights from my time at james madison university</p>
+            
+            <div class="jmu-links-grid">
+                <a href="https://www.jmu.edu/cise/information-technology/people/ambassadors/will.shtml" target="_blank" rel="noopener noreferrer" class="jmu-link-card">
+                    <div class="jmu-link-icon">
+                        <i data-lucide="users"></i>
                     </div>
-                </div>
+                    <div class="jmu-link-content">
+                        <h3>IT Ambassador Profile</h3>
+                        <p>founding & lead ambassador for the information technology department</p>
+                    </div>
+                    <div class="jmu-link-arrow">
+                        <i data-lucide="external-link"></i>
+                    </div>
+                </a>
+
+                <a href="https://www.jmu.edu/cise/research/minutes.shtml" target="_blank" rel="noopener noreferrer" class="jmu-link-card">
+                    <div class="jmu-link-icon">
+                        <i data-lucide="briefcase"></i>
+                    </div>
+                    <div class="jmu-link-content">
+                        <h3>ManTech Internship Feature</h3>
+                        <p>research spotlight on my work at mantech for national security</p>
+                    </div>
+                    <div class="jmu-link-arrow">
+                        <i data-lucide="external-link"></i>
+                    </div>
+                </a>
+
+                <a href="https://www.jmu.edu/research/student/fyre/past-projects.shtml" target="_blank" rel="noopener noreferrer" class="jmu-link-card">
+                    <div class="jmu-link-icon">
+                        <i data-lucide="microscope"></i>
+                    </div>
+                    <div class="jmu-link-content">
+                        <h3>FYRE Research Project</h3>
+                        <p>first-year research experience developing musiccpr platform</p>
+                    </div>
+                    <div class="jmu-link-arrow">
+                        <i data-lucide="external-link"></i>
+                    </div>
+                </a>
+
+                <a href="https://www.jmu.edu/news/2025/10/10-honors-college-luncheon.shtml" target="_blank" rel="noopener noreferrer" class="jmu-link-card">
+                    <div class="jmu-link-icon">
+                        <i data-lucide="award"></i>
+                    </div>
+                    <div class="jmu-link-content">
+                        <h3>Honors College Luncheon</h3>
+                        <p>presenting my amazon aws internship experience to honors students</p>
+                    </div>
+                    <div class="jmu-link-arrow">
+                        <i data-lucide="external-link"></i>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Palantir-style Footer -->
+    <!-- footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-column">
-                    <h4>Experience</h4>
-                    <ul>
-                        <li><a href="experience.html">Palantir Technologies</a></li>
-                        <li><a href="experience.html">Amazon Web Services</a></li>
-                        <li><a href="experience.html">ManTech International</a></li>
-                        <li><a href="experience.html">Department of Defense</a></li>
-                    </ul>
+                <div class="footer-links">
+                    <a href="#home">home</a>
+                    <a href="experience.html">experience</a>
+                    <a href="projects.html">projects</a>
+                    <a href="coursework.html">coursework</a>
+                    <a href="leadership.html">leadership</a>
+                    <a href="certifications.html">certifications</a>
+                    <a href="contact.html">contact</a>
                 </div>
-                <div class="footer-column">
-                    <h4>Capabilities</h4>
-                    <ul>
-                        <li><a href="projects.html">Cloud Infrastructure</a></li>
-                        <li><a href="projects.html">Cybersecurity Analysis</a></li>
-                        <li><a href="projects.html">AI/ML Solutions</a></li>
-                        <li><a href="projects.html">Federal Technology</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Education</h4>
-                    <ul>
-                        <li><a href="coursework.html">James Madison University</a></li>
-                        <li><a href="certifications.html">Security+ Certification</a></li>
-                        <li><a href="leadership.html">IT Ambassador Program</a></li>
-                        <li><a href="coursework.html">Academic Coursework</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Documents</h4>
-                    <ul>
-                        <li><a href="contact.html">Resume Download</a></li>
-                        <li><a href="projects.html">Project Portfolio</a></li>
-                        <li><a href="certifications.html">Certifications</a></li>
-                        <li><a href="contact.html">Contact Information</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="footer-legal">
-                    © 2025 Will J. Jedrzejczak. All rights reserved.
-                </div>
-                <div class="footer-region">
-                    <a href="#" class="active">US</a>
-                    <a href="https://www.jmu.edu" target="_blank">JMU</a>
-                    <a href="https://finance.yahoo.com/quote/PLTR/" target="_blank">PLTR</a>
-                </div>
+                <p>&copy; 2025 will j. jedrzejczak. all rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -244,6 +218,51 @@
             lucide.createIcons();
         }
 
+        // Enhanced theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        
+        // Get current theme
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        
+        // Update icon based on current theme with animation
+        function updateThemeIcon(theme) {
+            themeIcon.style.transform = 'scale(0)';
+            setTimeout(() => {
+                themeIcon.setAttribute('data-lucide', theme === 'light' ? 'moon' : 'sun');
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
+                themeIcon.style.transform = 'scale(1)';
+            }, 150);
+        }
+        
+        // Initialize icon
+        updateThemeIcon(currentTheme);
+        
+        // Enhanced theme toggle with smooth transition
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            // Add transition class to body
+            document.body.style.transition = 'all 0.3s ease';
+            
+            // Update DOM
+            document.documentElement.setAttribute('data-theme', newTheme);
+            
+            // Save to localStorage
+            localStorage.setItem('theme', newTheme);
+            
+            // Update icon
+            updateThemeIcon(newTheme);
+            
+            // Remove transition after animation
+            setTimeout(() => {
+                document.body.style.transition = '';
+            }, 300);
+        });
+
         // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -255,6 +274,32 @@
                         block: 'start'
                     });
                 }
+            });
+        });
+
+        // Add scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.hero-content > *, .profile-card');
+            animatedElements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(el);
             });
         });
 
@@ -288,48 +333,14 @@
             });
         }
 
-        // Subtle hover effects for Palantir aesthetic
-        document.querySelectorAll('.hero-cta, .nav-cta, .section-links a').forEach(element => {
-            element.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-1px)';
+        // Enhanced button hover effects
+        document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.02)';
             });
             
-            element.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
-
-        // Animate wireframe elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const wireframes = entry.target.querySelectorAll('.wireframe-plane');
-                    wireframes.forEach((plane, index) => {
-                        setTimeout(() => {
-                            plane.style.opacity = '1';
-                            plane.style.transform = 'translateY(0)';
-                        }, index * 100);
-                    });
-                }
-            });
-        }, observerOptions);
-
-        // Observe wireframe visuals for animation
-        document.addEventListener('DOMContentLoaded', () => {
-            const wireframeVisuals = document.querySelectorAll('.wireframe-visual');
-            wireframeVisuals.forEach(visual => {
-                const planes = visual.querySelectorAll('.wireframe-plane');
-                planes.forEach(plane => {
-                    plane.style.opacity = '0';
-                    plane.style.transform = 'translateY(20px)';
-                    plane.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                });
-                observer.observe(visual);
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
             });
         });
     </script>

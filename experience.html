@@ -3,49 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experience • Will J. Jedrzejczak</title>
-    <meta name="description" content="Professional experience of Will J. Jedrzejczak - Deployment Strategist at Palantir Technologies, cloud infrastructure specialist, and cybersecurity analyst.">
+    <title>experience • will j. jedrzejczak</title>
+    <meta name="description" content="professional experience of will j. jedrzejczak - cloud developer, cyber threat analyst, and it professional.">
     
-    <!-- Preload custom font -->
-    <link rel="preload" href="fonts/Alliance No.2 Regular.otf" as="font" type="font/otf" crossorigin>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Serif+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css">
     
+    <!-- Performance optimizations -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='60' font-size='45' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='600' fill='%23F5F6F7'>WJ</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='60' font-size='45' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='600' fill='%23fff'>wj</text></svg>">
+    
+    <!-- Prevent FOUC (Flash of Unstyled Content) for theme -->
+    <script>
+        // Load theme immediately to prevent flash
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
+</head>
 <body>
-    <!-- Palantir-style Navigation -->
+    <!-- Navigation -->
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="nav-container">
                 <div class="nav-left">
-                    <a href="index.html" class="logo">
-                        <div class="logo-icon">WJ</div>
-                        Will Jedrzejczak
-                    </a>
-                    <ul class="nav-links" role="menubar">
-                        <li role="none"><a href="index.html#overview" role="menuitem">Overview</a></li>
-                        <li role="none"><a href="experience.html" role="menuitem" class="active">Experience</a></li>
-                        <li role="none"><a href="projects.html" role="menuitem">Projects</a></li>
-                        <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="nav-right">
-                    <a href="contact.html" class="nav-cta">Get Started</a>
-                    <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="toggle mobile menu">
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
+                    <ul class="nav-links">
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="experience.html">experience</a></li>
+                    <li><a href="projects.html">projects</a></li>
+                    <li><a href="coursework.html">coursework</a></li>
+                    <li><a href="leadership.html">leadership</a></li>
+                    <li><a href="certifications.html">certifications</a></li>
                     <li><a href="contact.html">contact</a></li>
                 </ul>
                 </div>
