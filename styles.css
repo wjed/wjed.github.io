@@ -9,35 +9,35 @@
 
 /* Enhanced Design System */
 :root {
-    /* Enhanced color palette with more depth */
-    --bg-primary: #FFFBF5;
-    --bg-secondary: #FFF9F0;
-    --bg-tertiary: #FFF7EB;
-    --bg-card: rgba(255, 251, 245, 0.8);
-    --bg-elevated: rgba(255, 255, 255, 0.9);
-    --bg-glass: rgba(255, 255, 255, 0.1);
-    --text-primary: #1C1C1E;
-    --text-secondary: #3A3A3C;
-    --text-muted: #8E8E93;
-    --text-accent: #1C1C1E;
-    --accent-yellow: #FFD60A;
-    --accent-yellow-soft: #FFF4CC;
-    --accent-primary: #FFD60A;
-    --accent-secondary: #FF9500;
-    --gradient-accent: linear-gradient(135deg, #FFD60A 0%, #FFC800 100%);
-    --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 251, 245, 0.8) 100%);
-    --gradient-hero: linear-gradient(135deg, #FFFBF5 0%, #FFF9F0 50%, #FFF7EB 100%);
-    --border: rgba(229, 229, 229, 0.6);
-    --border-hover: rgba(209, 209, 214, 0.8);
-    --border-focus: #C7C7CC;
-    --border-accent: #FFD60A;
+    /* Palantir color palette - dark theme with blue accents */
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #111111;
+    --bg-tertiary: #1a1a1a;
+    --bg-card: rgba(26, 26, 26, 0.9);
+    --bg-elevated: rgba(34, 34, 34, 0.95);
+    --bg-glass: rgba(255, 255, 255, 0.05);
+    --text-primary: #ffffff;
+    --text-secondary: #b8b8b8;
+    --text-muted: #6b6b6b;
+    --text-accent: #ffffff;
+    --accent-blue: #0066cc;
+    --accent-blue-soft: rgba(0, 102, 204, 0.15);
+    --accent-primary: #0066cc;
+    --accent-secondary: #0052a3;
+    --gradient-accent: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+    --gradient-card: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(17, 17, 17, 0.8) 100%);
+    --gradient-hero: linear-gradient(135deg, #0a0a0a 0%, #111111 50%, #1a1a1a 100%);
+    --border: rgba(255, 255, 255, 0.1);
+    --border-hover: rgba(255, 255, 255, 0.2);
+    --border-focus: rgba(0, 102, 204, 0.5);
+    --border-accent: #0066cc;
 
     /* Enhanced shadows and effects */
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
-    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
-    --shadow-xl: 0 16px 64px rgba(0, 0, 0, 0.16);
-    --shadow-glow: 0 0 32px rgba(255, 214, 10, 0.3);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 16px 64px rgba(0, 0, 0, 0.6);
+    --shadow-glow: 0 0 32px rgba(0, 102, 204, 0.3);
     --blur-sm: blur(8px);
     --blur-md: blur(16px);
     --blur-lg: blur(24px);
@@ -47,55 +47,7 @@
     --font-family-mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
 }
 
-/* Enhanced Light theme */
-[data-theme="light"] {
-    --bg-primary: #FFFBF5;
-    --bg-secondary: #FFF9F0;
-    --bg-tertiary: #FFF7EB;
-    --bg-card: rgba(255, 251, 245, 0.8);
-    --bg-elevated: rgba(255, 255, 255, 0.9);
-    --bg-glass: rgba(255, 255, 255, 0.1);
-    --text-primary: #1C1C1E;
-    --text-secondary: #3A3A3C;
-    --text-muted: #8E8E93;
-    --text-accent: #1C1C1E;
-    --accent-yellow: #FFD60A;
-    --accent-yellow-soft: #FFF4CC;
-    --accent-primary: #FFD60A;
-    --accent-secondary: #FF9500;
-    --gradient-accent: linear-gradient(135deg, #FFD60A 0%, #FFC800 100%);
-    --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 251, 245, 0.8) 100%);
-    --gradient-hero: linear-gradient(135deg, #FFFBF5 0%, #FFF9F0 50%, #FFF7EB 100%);
-    --border: rgba(229, 229, 229, 0.6);
-    --border-hover: rgba(209, 209, 214, 0.8);
-    --border-focus: #C7C7CC;
-    --border-accent: #FFD60A;
-}
 
-/* Enhanced Dark theme */
-:root:not([data-theme="light"]) {
-    --bg-primary: #0A0A0B;
-    --bg-secondary: #1C1C1E;
-    --bg-tertiary: #2C2C2E;
-    --bg-card: rgba(28, 28, 30, 0.8);
-    --bg-elevated: rgba(44, 44, 46, 0.9);
-    --bg-glass: rgba(255, 255, 255, 0.05);
-    --text-primary: #F2F2F7;
-    --text-secondary: #E5E5EA;
-    --text-muted: #98989D;
-    --text-accent: #F2F2F7;
-    --accent-yellow: #FFD60A;
-    --accent-yellow-soft: rgba(255, 214, 10, 0.15);
-    --accent-primary: #FFD60A;
-    --accent-secondary: #FF9500;
-    --gradient-accent: linear-gradient(135deg, #FFD60A 0%, #FFC800 100%);
-    --gradient-card: linear-gradient(135deg, rgba(44, 44, 46, 0.9) 0%, rgba(28, 28, 30, 0.8) 100%);
-    --gradient-hero: linear-gradient(135deg, #0A0A0B 0%, #1C1C1E 50%, #2C2C2E 100%);
-    --border: rgba(56, 56, 58, 0.6);
-    --border-hover: rgba(72, 72, 74, 0.8);
-    --border-focus: #58585A;
-    --border-accent: #FFD60A;
-}
 
 /* Text selection styling - Notes app yellow highlight */
 ::selection {
@@ -400,6 +352,11 @@ a:focus {
 
 .theme-toggle:hover span {
     transform: scale(1.2);
+}
+
+/* Hide theme toggle since we're using single Palantir theme */
+.theme-toggle {
+    display: none !important;
 }
 
 /* Mobile Menu Overlay */
@@ -787,7 +744,7 @@ a:focus {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(255, 214, 10, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(0, 102, 204, 0.1) 0%, transparent 70%);
     opacity: 0;
     transition: var(--transition-slow);
     z-index: -1;
