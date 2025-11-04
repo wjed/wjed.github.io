@@ -1031,7 +1031,6 @@ a:focus {
 
 .palantir-affiliation:hover .palantir-logo {
     opacity: 1;
-    transform: scale(1.05);
 }
 
 .palantir-affiliation span {
