@@ -998,6 +998,50 @@ a:focus {
     font-weight: 400;
 }
 
+.palantir-affiliation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border);
+    transition: var(--transition-normal);
+}
+
+.palantir-affiliation:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--border-hover);
+}
+
+.palantir-logo {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+    transition: var(--transition-normal);
+}
+
+.palantir-affiliation:hover .palantir-logo {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.palantir-affiliation span {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: var(--transition-normal);
+}
+
+.palantir-affiliation:hover span {
+    color: var(--text-primary);
+}
+
 /* Professional Main Content Layout */
 .main-content {
     margin-top: 72px;
