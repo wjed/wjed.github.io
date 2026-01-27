@@ -163,3 +163,32 @@ html, body {
         font-size: 11px;
     }
 }
+
+.switch-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #58a6ff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0a0e1a;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(88, 166, 255, 0.3);
+    z-index: 1000;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+.switch-btn:hover {
+    background: #39c5cf;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(88, 166, 255, 0.5);
+}

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>will j. jedrzejczak</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='60' font-size='45' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='600' fill='%23fff'>wj</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            background: #0a0e1a;
+            color: #c9d1d9;
+            line-height: 1.8;
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .switch-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #58a6ff;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0a0e1a;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(88, 166, 255, 0.3);
+        }
+        
+        .switch-btn:hover {
+            background: #39c5cf;
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(88, 166, 255, 0.5);
+        }
+        
+        h1 {
+            color: #58a6ff;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        h2 {
+            color: #39c5cf;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            font-size: 20px;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 5px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        li:before {
+            content: "•";
+            color: #3fb950;
+            position: absolute;
+            left: 0;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .clearance {
+            color: #f85149;
+            font-weight: 500;
+        }
+        
+        .email {
+            color: #58a6ff;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="switch-btn" title="switch to terminal view">t</a>
+    
+    <h1>will j. jedrzejczak</h1>
+    
+    <div class="section">
+        <p>incoming masters student at georgia tech. got into computers as a kid after seeing how malware could take over systems. that curiosity turned into an obsession with tackling problems most people write off as impossible. it led to seven internships, early graduation, and the highest gpa in my major (3.99/4.00, valedictorian). i've worked across sysadmin, cloud, development, and consulting, driven by speed, ownership, and high standards. when i'm not building secure ai/ml solutions for the government, you'll find me lifting weights, discovering new music, or outperforming the market by a mile on my fidelity account. ultimately, i'm just extremely passionate about building things that help other people.</p>
+        <p class="clearance">active top secret clearance</p>
+    </div>
+    
+    <h2>education</h2>
+    <div class="section">
+        <ul>
+            <li><strong>georgia institute of technology</strong> - master of science, computer science, artificial intelligence (jan 2026 - may 2028)</li>
+            <li><strong>james madison university</strong> - bachelor of science, information technology, honors interdisciplinary studies (aug 2023 - may 2026) - gpa: 3.99/4.00 (valedictorian, summa cum laude)</li>
+        </ul>
+    </div>
+    
+    <h2>experience</h2>
+    <div class="section">
+        <ul>
+            <li><strong>palantir technologies</strong> - incoming deployment strategist (usg) - oct 2025 - present · full-time · washington, dc</li>
+            <li><strong>hiddenlayer</strong> - federal solutions architect - dec 2025 - present · internship · washington, dc</li>
+            <li><strong>blue sky innovators</strong> - artificial intelligence engineer - aug 2025 - present · contract · reston, virginia</li>
+            <li><strong>amazon web services (aws)</strong> - national security cloud engineer - may 2025 - aug 2025 · internship · crystal city, virginia</li>
+            <li><strong>mantech</strong> - technical engineer & subject matter expert (ii+) - nov 2024 - may 2025 · part-time · herndon, virginia</li>
+            <li><strong>mantech</strong> - software engineer (ii) - mar 2024 - nov 2024 · internship · herndon, virginia</li>
+            <li><strong>cyber security forum initiative</strong> - cyber threat intelligence analyst - jan 2025 - apr 2025 · internship · washington, dc</li>
+            <li><strong>solvitur systems llc</strong> - cybersecurity analyst - sep 2024 - dec 2024 · contract · leesburg, virginia</li>
+            <li><strong>deloitte</strong> - leadership, allyship & mentorship scholar - mar 2024 - nov 2024 · apprenticeship · washington dc-baltimore area</li>
+            <li><strong>jmu computer science</strong> - first-year researcher & developer - dec 2023 - may 2024 · part-time · harrisonburg, virginia</li>
+        </ul>
+    </div>
+    
+    <h2>projects</h2>
+    <div class="section">
+        <ul>
+            <li><strong>rottd</strong> - jan 2026 - present · led automation-heavy comms project as distinguished engineer; built complex twilio flows via n8n, html templates, and a2p regulatory logic</li>
+            <li><strong>jmu it advising bot</strong> - oct 2025 - dec 2026 · fully built-out jmu it/cs advisor created with aws cdk infrastructure as code, leverages amazon bedrock for ai capabilities</li>
+            <li><strong>musiccpr</strong> - dec 2023 - may 2024 · educational website aimed at enhancing music education, developed as a niche learning management system similar to canvas</li>
+            <li><strong>jmu dukessat (meshsat)</strong> - feb 2024 - mar 2024 · supported the meshsat development, contributed to technical development and implementation of innovative satellite communication system</li>
+        </ul>
+    </div>
+    
+    <h2>certifications</h2>
+    <div class="section">
+        <h3 style="color: #bc8cff; font-size: 16px; margin-top: 20px; margin-bottom: 10px;">aws</h3>
+        <ul>
+            <li>aws certified data engineer - associate (aug 2025 - aug 2028)</li>
+            <li>aws certified developer - associate (jul 2025 - jul 2028)</li>
+            <li>aws certified machine learning engineer - associate (jul 2025 - jul 2028)</li>
+            <li>aws certified sysops administrator - associate (may 2025 - may 2028)</li>
+            <li>aws certified ai practitioner (mar 2025 - mar 2028)</li>
+            <li>aws certified solutions architect - associate (jul 2024 - jul 2027)</li>
+            <li>aws certified cloud practitioner (jun 2024 - jun 2027)</li>
+        </ul>
+        
+        <h3 style="color: #bc8cff; font-size: 16px; margin-top: 20px; margin-bottom: 10px;">comptia</h3>
+        <ul>
+            <li>comptia cybersecurity analyst (cysa+) (feb 2025 - feb 2028)</li>
+            <li>comptia security analytics practitioner (csap) (feb 2025 - feb 2028)</li>
+            <li>comptia secure infrastructure specialist (csis) (jun 2024 - feb 2028)</li>
+            <li>comptia security+ (jun 2024 - feb 2028)</li>
+            <li>comptia it operations specialist (cios) (apr 2024 - feb 2028)</li>
+            <li>comptia network+ (apr 2024 - feb 2028)</li>
+            <li>comptia a+ (feb 2024 - feb 2028)</li>
+            <li>comptia it fundamentals+ (may 2023 - may 2026)</li>
+        </ul>
+        
+        <h3 style="color: #bc8cff; font-size: 16px; margin-top: 20px; margin-bottom: 10px;">palantir</h3>
+        <ul>
+            <li>scoping use cases in foundry & aip (oct 2025)</li>
+            <li>certified palantir foundry aware professional (sep 2025 - sep 2027)</li>
+            <li>foundry & aip builder foundations (sep 2025)</li>
+        </ul>
+    </div>
+    
+    <h2>leadership</h2>
+    <div class="section">
+        <ul>
+            <li>founding & lead it ambassador, information technology department (2023-2026)</li>
+            <li>internal vice president, madison consulting club (2025-2026)</li>
+            <li>executive officer, cyber defense club (2025)</li>
+            <li>teaching assistant, it-201 computational structures and logic (2024-2025)</li>
+            <li>student leader & innovator, stem corps (2024)</li>
+        </ul>
+    </div>
+    
+    <h2>contact</h2>
+    <div class="section">
+        <p class="email">primary email: <a href="mailto:will.jedrzejczak@gmail.com" style="color: #58a6ff;">will.jedrzejczak@gmail.com</a></p>
+        <p style="margin-top: 10px;">other emails:</p>
+        <ul>
+            <li>william@altuvo.info</li>
+            <li>wjedrzejczak@palantir.com</li>
+            <li>wjedrzejczak@hiddenlayer.com</li>
+            <li>wjd@amazon.com</li>
+            <li>william.jedrzejczak@blueskyinnovators.com</li>
+            <li>will.jedrzejczak@mantech.com</li>
+            <li>william.jedrzejczak@solvitursystems.com</li>
+        </ul>
+    </div>
+</body>
+</html>
