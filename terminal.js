@@ -1007,20 +1007,9 @@ PWD=${this.currentPath}`;
                     
                     this.updateCursor(input.closest('.terminal-line'));
                 } else if (matches.length > 1) {
-                    // Show all matches but don't clear - just display them
-                    const currentText = input.value;
+                    // Show all matches but keep current input - don't clear anything
                     this.appendOutput(matches.join('  '), 'output');
-                    // Re-create prompt with current text preserved
-                    const promptLine = input.closest('.terminal-prompt-line');
-                    if (promptLine) {
-                        const newPrompt = this.createPrompt();
-                        const newInput = newPrompt.querySelector('.terminal-input-hidden');
-                        const newDisplay = newPrompt.querySelector('.terminal-input-display');
-                        if (newInput && newDisplay) {
-                            newInput.value = currentText;
-                            newDisplay.textContent = currentText;
-                        }
-                    }
+                    // Don't create new prompt - keep the current one active
                     return;
                 }
             }
