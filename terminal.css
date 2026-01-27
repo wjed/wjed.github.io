@@ -61,8 +61,16 @@ body {
     word-wrap: break-word;
     white-space: pre-wrap;
     font-family: 'JetBrains Mono', 'Courier New', monospace;
-    line-height: 1.6;
+    line-height: 1.6em;
     min-height: 1.6em;
+    display: block;
+    clear: both;
+    position: relative;
+    overflow: visible;
+}
+
+.terminal-line + .terminal-line {
+    margin-top: 0;
 }
 
 .terminal-prompt {
@@ -121,20 +129,31 @@ body {
 .terminal-prompt-line {
     display: flex;
     align-items: baseline;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    width: 100%;
+    position: relative;
+    margin-bottom: 0;
+    min-height: 1.6em;
 }
 
 .terminal-prompt-line .terminal-prompt {
     flex-shrink: 0;
+    white-space: nowrap;
+    display: inline-block;
 }
 
 .terminal-prompt-line .terminal-input {
-    flex: 1;
+    flex: 1 1 auto;
     min-width: 0;
+    white-space: pre;
+    overflow: visible;
+    max-width: 100%;
 }
 
 .terminal-prompt-line .terminal-cursor {
     flex-shrink: 0;
+    display: inline-block;
+    position: relative;
 }
 
 /* Scrollbar styling */

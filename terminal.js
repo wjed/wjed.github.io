@@ -484,11 +484,12 @@ Type 'cat about.txt' to learn more about me.
 
     createPrompt() {
         // Remove any existing prompts with cursors
-        const existingPrompts = this.container.querySelectorAll('.terminal-line:has(.terminal-cursor)');
+        const existingPrompts = this.container.querySelectorAll('.terminal-prompt-line');
         existingPrompts.forEach(p => {
             const input = p.querySelector('.terminal-input');
             if (input && input.contentEditable === 'true') {
                 input.contentEditable = 'false';
+                input.style.caretColor = 'transparent';
                 const cursor = p.querySelector('.terminal-cursor');
                 if (cursor) cursor.style.display = 'none';
             }
@@ -506,8 +507,25 @@ Type 'cat about.txt' to learn more about me.
         terminalOutput.appendChild(prompt);
         
         const input = prompt.querySelector('.terminal-input');
-        // Hide browser's native cursor
+        // Completely hide browser's native cursor
         input.style.caretColor = 'transparent';
+        input.style.color = 'transparent';
+        input.style.textShadow = `0 0 0 ${getComputedStyle(document.documentElement).getPropertyValue('--terminal-text')}`;
+        
+        // Use a wrapper to show the actual text
+        const textDisplay = document.createElement('span');
+        textDisplay.className = 'terminal-input-display';
+        textDisplay.style.color = 'var(--terminal-text)';
+        input.parentNode.insertBefore(textDisplay, input.nextSibling);
+        
+        // Sync text display with input
+        const updateDisplay = () => {
+            textDisplay.textContent = input.textContent;
+        };
+        
+        input.addEventListener('input', updateDisplay);
+        input.addEventListener('keydown', updateDisplay);
+        
         input.focus();
         
         this.setupInputEvents(input, prompt);
@@ -638,10 +656,14 @@ Type 'cat about.txt' to learn more about me.
         const inputEl = promptLine.querySelector('.terminal-input');
         const cursorEl = promptLine.querySelector('.terminal-cursor');
         
-        // Disable input and hide cursor
+        // Disable input and hide cursor completely
         if (inputEl) {
             inputEl.contentEditable = 'false';
             inputEl.style.caretColor = 'transparent';
+            inputEl.style.color = 'var(--terminal-text)';
+            inputEl.style.textShadow = 'none';
+            // Show the actual text now that input is disabled
+            inputEl.style.opacity = '1';
         }
         if (cursorEl) cursorEl.style.display = 'none';
         
