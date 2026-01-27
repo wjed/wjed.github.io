@@ -844,7 +844,19 @@ PWD=${this.currentPath}`;
         `;
         
         const terminalOutput = this.container.querySelector('.terminal-output');
+        
+        // Save current scroll position
+        const scrollTop = this.container.scrollTop;
+        const scrollHeight = this.container.scrollHeight;
+        const clientHeight = this.container.clientHeight;
+        const wasAtBottom = scrollHeight - scrollTop <= clientHeight + 10;
+        
         terminalOutput.appendChild(prompt);
+        
+        // Restore scroll position if user wasn't at bottom
+        if (!wasAtBottom) {
+            this.container.scrollTop = scrollTop;
+        }
         
         const input = prompt.querySelector('.terminal-input-hidden');
         const textDisplay = prompt.querySelector('.terminal-input-display');
@@ -1069,6 +1081,13 @@ PWD=${this.currentPath}`;
 
     appendOutput(text, type = 'output') {
         const terminalOutput = this.container.querySelector('.terminal-output');
+        
+        // Save current scroll position
+        const scrollTop = this.container.scrollTop;
+        const scrollHeight = this.container.scrollHeight;
+        const clientHeight = this.container.clientHeight;
+        const wasAtBottom = scrollHeight - scrollTop <= clientHeight + 10;
+        
         const outputLine = document.createElement('div');
         outputLine.className = `terminal-line terminal-${type}`;
         
@@ -1080,7 +1099,12 @@ PWD=${this.currentPath}`;
         outputLine.textContent = text;
         terminalOutput.appendChild(outputLine);
         
-        // Never auto-scroll - let user control scrolling
+        // Restore scroll position if user wasn't at bottom
+        if (!wasAtBottom) {
+            requestAnimationFrame(() => {
+                this.container.scrollTop = scrollTop;
+            });
+        }
     }
 
     updateCursor(promptLine) {
