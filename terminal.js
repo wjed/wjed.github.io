@@ -10,18 +10,66 @@ document.addEventListener('DOMContentLoaded', () => {
                 'about.txt': {
                     type: 'file',
                     content: `will j. jedrzejczak
-incoming deployment strategist @ palantir technologies (nyse: $pltr)
-master of science in artificial intelligence @ georgia tech (jan 2026 - may 2028)
-active top secret clearance
 
-got into computers as a kid after seeing how malware could take over systems. that curiosity 
-turned into an obsession with tackling problems most people write off as impossible. it led to 
-seven internships, early graduation, and the highest gpa in my major (3.99/4.00, valedictorian).
+incoming masters student at gt. got into computers as a kid after seeing how malware could take 
+over systems. that curiosity turned into an obsession with tackling problems most people write off 
+as impossible. it led to seven internships, early graduation, and the highest gpa in my major 
+(3.99/4.00, valedictorian). i've worked across sysadmin, cloud, development, and consulting, 
+driven by speed, ownership, and high standards. when i'm not building secure ai/ml solutions for 
+the government, you'll find me lifting weights, discovering new music, or outperforming the market 
+by a mile on my fidelity account. ultimately, i'm just extremely passionate about building things 
+that help other people.`
+                },
+                'clearance.txt': {
+                    type: 'file',
+                    content: `active top secret clearance`
+                },
+                'education': {
+                    type: 'directory',
+                    contents: {
+                        'gatech.txt': {
+                            type: 'file',
+                            content: `georgia institute of technology
+master of science - ms, computer science, artificial intelligence
+jan 2026 - may 2028
 
-i've worked across sysadmin, cloud, development, and consulting, driven by speed, ownership, 
-and high standards. when i'm not building secure ai/ml solutions for the government, you'll find 
-me lifting weights, discovering new music, or outperforming the market by a mile on my fidelity 
-account. ultimately, i'm just extremely passionate about building things that help other people.`
+pursuing advanced studies in artificial intelligence and computer science at georgia tech, one of 
+the nation's top programs for ai research and development. focusing on large language models, 
+machine learning, and cutting-edge ai technologies.
+
+skills: computer science, programming, artificial intelligence (ai), large language models (llm), information technology`
+                        },
+                        'jmu.txt': {
+                            type: 'file',
+                            content: `james madison university
+bachelor of science - bs, information technology, honors interdisciplinary studies
+aug 2023 - may 2026 · senior
+
+gpa: 3.99/4.00 (valedictorian of major, summa cum laude)
+ranked #1 in b.s. it program at james madison university. consistently on president's list every 
+semester, demonstrating exceptional academic excellence in information technology and computer science.
+
+activities: founding & lead ambassador, information technology department (2023-2026), internal 
+vice president, madison consulting club (2025-2026), executive officer, cyber defense club (2025-2025), 
+teaching assistant (2024-2025), student leader & innovator, stem corps (2024-2024)
+
+conferences: shmoocon, cyberwarcon, capwic, ieee, nchc
+
+skills: large language models (llm), leadership, programming, problem solving, computer science, 
+cybersecurity, information technology, cyber, artificial intelligence (ai)`
+                        },
+                        'coursework': {
+                            type: 'directory',
+                            contents: {
+                                'core-it.txt': { type: 'file', content: 'core information technology courses:\nit-101 introduction to information technology\nit-203 information security and privacy [honors]\nit-215 introduction to telecommunications, networking and security\nit-240 database administration\nit-301 web technologies\nit-302 societal and ethical issues in it\nit-311 operating systems\nit-313 community projects' },
+                                'networking.txt': { type: 'file', content: 'advanced networking & cybersecurity:\nit-333 advanced telecommunications & networking\nit-460 advanced cybersecurity\nit-480 cloud computing in private networks' },
+                                'data-science.txt': { type: 'file', content: 'data science & artificial intelligence:\nit-340 data science & machine learning\nit-347 human-computer interaction' },
+                                'cs-foundations.txt': { type: 'file', content: 'computer science foundations:\ncs-149 introduction to programming\nit-160e data structures and advanced programming for it\nit-201e computational structures and logic\nit-212 digital electronics' },
+                                'capstone.txt': { type: 'file', content: 'capstone & professional development:\nit-444 capstone design\nit-445 capstone implementation\nit-433 internship in information technology' },
+                                'honors.txt': { type: 'file', content: 'honors interdisciplinary studies:\nisat-160h problem solving in science and technology [honors]' }
+                            }
+                        }
+                    }
                 },
                 'experience': {
                     type: 'directory',
@@ -216,6 +264,16 @@ tech: artificial intelligence (ai), python, information technology, computer sci
                         }
                     }
                 },
+                'leadership': {
+                    type: 'directory',
+                    contents: {
+                        'it-ambassador.txt': { type: 'file', content: 'founding & lead it ambassador\ninformation technology department (2023-2026)\n\nled it major to become one of jmu\'s fastest-growing programs as top-ranked ambassador by hours contributed.' },
+                        'consulting-club.txt': { type: 'file', content: 'internal vice president, madison consulting club\n2025-2026\n\none of the biggest clubs in jmu\'s college of business. driving strategic initiatives and fostering professional development.' },
+                        'cyber-defense.txt': { type: 'file', content: 'executive officer, cyber defense club\n2025\n\nthe cyber defense club achieved first place at the virginia military institute cyber competition, demonstrating exceptional cybersecurity excellence.' },
+                        'teaching-assistant.txt': { type: 'file', content: 'teaching assistant\nit-201 computational structures and logic (2024-2025)\n\nmentored students in discrete mathematics, logic, and computational theory fundamentals.' },
+                        'stem-corps.txt': { type: 'file', content: 'student leader & innovator, stem corps\n2024\n\ncontributed to stem education and outreach initiatives.' }
+                    }
+                },
                 'certifications': {
                     type: 'directory',
                     contents: {
@@ -262,79 +320,16 @@ tech: artificial intelligence (ai), python, information technology, computer sci
                         }
                     }
                 },
-                'education': {
-                    type: 'directory',
-                    contents: {
-                        'gatech.txt': {
-                            type: 'file',
-                            content: `georgia institute of technology
-master of science - ms, computer science, artificial intelligence
-jan 2026 - may 2028
-
-pursuing advanced studies in artificial intelligence and computer science at georgia tech, one of 
-the nation's top programs for ai research and development. focusing on large language models, 
-machine learning, and cutting-edge ai technologies.
-
-skills: computer science, programming, artificial intelligence (ai), large language models (llm), information technology`
-                        },
-                        'jmu.txt': {
-                            type: 'file',
-                            content: `james madison university
-bachelor of science - bs, information technology, honors interdisciplinary studies
-aug 2023 - may 2026 · senior
-
-gpa: 3.99/4.00 (valedictorian of major, summa cum laude)
-ranked #1 in b.s. it program at james madison university. consistently on president's list every 
-semester, demonstrating exceptional academic excellence in information technology and computer science.
-
-activities: founding & lead ambassador, information technology department (2023-2026), internal 
-vice president, madison consulting club (2025-2026), executive officer, cyber defense club (2025-2025), 
-teaching assistant (2024-2025), student leader & innovator, stem corps (2024-2024)
-
-conferences: shmoocon, cyberwarcon, capwic, ieee, nchc
-
-skills: large language models (llm), leadership, programming, problem solving, computer science, 
-cybersecurity, information technology, cyber, artificial intelligence (ai)`
-                        },
-                        'coursework': {
-                            type: 'directory',
-                            contents: {
-                                'core-it.txt': { type: 'file', content: 'core information technology courses:\nit-101 introduction to information technology\nit-203 information security and privacy [honors]\nit-215 introduction to telecommunications, networking and security\nit-240 database administration\nit-301 web technologies\nit-302 societal and ethical issues in it\nit-311 operating systems\nit-313 community projects' },
-                                'networking.txt': { type: 'file', content: 'advanced networking & cybersecurity:\nit-333 advanced telecommunications & networking\nit-460 advanced cybersecurity\nit-480 cloud computing in private networks' },
-                                'data-science.txt': { type: 'file', content: 'data science & artificial intelligence:\nit-340 data science & machine learning\nit-347 human-computer interaction' },
-                                'cs-foundations.txt': { type: 'file', content: 'computer science foundations:\ncs-149 introduction to programming\nit-160e data structures and advanced programming for it\nit-201e computational structures and logic\nit-212 digital electronics' },
-                                'capstone.txt': { type: 'file', content: 'capstone & professional development:\nit-444 capstone design\nit-445 capstone implementation\nit-433 internship in information technology' },
-                                'honors.txt': { type: 'file', content: 'honors interdisciplinary studies:\nisat-160h problem solving in science and technology [honors]' }
-                            }
-                        }
-                    }
-                },
-                'leadership': {
-                    type: 'directory',
-                    contents: {
-                        'it-ambassador.txt': { type: 'file', content: 'founding & lead it ambassador\ninformation technology department (2023-2026)\n\nled it major to become one of jmu\'s fastest-growing programs as top-ranked ambassador by hours contributed.' },
-                        'consulting-club.txt': { type: 'file', content: 'internal vice president, madison consulting club\n2025-2026\n\none of the biggest clubs in jmu\'s college of business. driving strategic initiatives and fostering professional development.' },
-                        'cyber-defense.txt': { type: 'file', content: 'executive officer, cyber defense club\n2025\n\nthe cyber defense club achieved first place at the virginia military institute cyber competition, demonstrating exceptional cybersecurity excellence.' },
-                        'teaching-assistant.txt': { type: 'file', content: 'teaching assistant\nit-201 computational structures and logic (2024-2025)\n\nmentored students in discrete mathematics, logic, and computational theory fundamentals.' },
-                        'stem-corps.txt': { type: 'file', content: 'student leader & innovator, stem corps\n2024\n\ncontributed to stem education and outreach initiatives.' }
-                    }
-                },
-                'clearance.txt': {
-                    type: 'file',
-                    content: `active top secret clearance
-
-currently holding an active top secret security clearance, enabling work on classified 
-government projects and sensitive national security missions.`
-                },
                 'contact.txt': {
                     type: 'file',
                     content: `contact information
 
-primary email: william@altuvo.info
-alternate: will.jedrzejczak@gmail.com
+primary email: will.jedrzejczak@gmail.com
 
 other emails:
+- william@altuvo.info
 - wjedrzejczak@palantir.com
+- wjedrzejczak@hiddenlayer.com
 - wjd@amazon.com
 - william.jedrzejczak@blueskyinnovators.com
 - will.jedrzejczak@mantech.com
