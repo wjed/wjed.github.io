@@ -315,29 +315,39 @@ keyboard shortcuts:
 
     resolvePath(path) {
         if (!path || path === '~' || path === '') return '~';
-        if (path.startsWith('~/')) path = path.substring(2);
+        
+        // If path starts with ~ or /, resolve from home
+        // Otherwise, resolve relative to current directory
+        let basePath = this.currentPath;
+        let baseDir = this.getCurrentDirectory();
+        
+        if (path.startsWith('~/') || path.startsWith('/')) {
+            basePath = '~';
+            baseDir = this.filesystem['~'];
+            if (path.startsWith('~/')) {
+                path = path.substring(2);
+            } else if (path.startsWith('/')) {
+                path = path.substring(1);
+            }
+        }
         
         const parts = path.split('/').filter(p => p);
-        let current = this.filesystem['~'];
-        let currentPath = '~';
+        let current = baseDir;
+        let currentPath = basePath;
         
         for (const part of parts) {
             if (part === '..') {
                 if (currentPath !== '~') {
-                    const pathParts = currentPath.split('/').filter(p => p);
+                    const pathParts = currentPath === '~' ? [] : currentPath.substring(2).split('/').filter(p => p);
                     pathParts.pop();
                     currentPath = pathParts.length > 0 ? '~/' + pathParts.join('/') : '~';
-                    current = this.filesystem['~'];
-                    for (let i = 1; i < pathParts.length; i++) {
-                        if (current.contents && current.contents[pathParts[i]]) {
-                            current = current.contents[pathParts[i]];
-                        }
-                    }
+                    current = this.getDirectoryAtPath(currentPath);
+                    if (!current) return null;
                 }
             } else if (part === '.') {
                 continue;
             } else {
-                if (current.contents && current.contents[part]) {
+                if (current && current.contents && current.contents[part]) {
                     current = current.contents[part];
                     currentPath = currentPath === '~' ? `~/${part}` : `${currentPath}/${part}`;
                 } else {
@@ -421,19 +431,50 @@ keyboard shortcuts:
             return 'cat: missing file operand';
         }
         
-        const filename = args.join(' ');
-        const currentDir = this.getCurrentDirectory();
+        const filepath = args.join(' ');
         
-        if (!currentDir || !currentDir.contents || !currentDir.contents[filename]) {
-            return `cat: ${filename}: No such file or directory`;
+        // Check if it's a relative or absolute path
+        let targetPath = this.currentPath;
+        let filename = filepath;
+        
+        if (filepath.includes('/')) {
+            // It's a path, resolve it
+            const resolvedPath = this.resolvePath(filepath);
+            if (resolvedPath === null) {
+                return `cat: ${filepath}: No such file or directory`;
+            }
+            
+            // Get the directory and filename
+            const pathParts = resolvedPath.split('/');
+            filename = pathParts[pathParts.length - 1];
+            const dirPath = pathParts.slice(0, -1).join('/') || '~';
+            const dir = this.getDirectoryAtPath(dirPath);
+            
+            if (!dir || !dir.contents || !dir.contents[filename]) {
+                return `cat: ${filepath}: No such file or directory`;
+            }
+            
+            const file = dir.contents[filename];
+            if (file.type !== 'file') {
+                return `cat: ${filepath}: Is a directory`;
+            }
+            
+            return file.content;
+        } else {
+            // It's just a filename, check current directory
+            const currentDir = this.getCurrentDirectory();
+            
+            if (!currentDir || !currentDir.contents || !currentDir.contents[filename]) {
+                return `cat: ${filename}: No such file or directory`;
+            }
+            
+            const file = currentDir.contents[filename];
+            if (file.type !== 'file') {
+                return `cat: ${filename}: Is a directory`;
+            }
+            
+            return file.content;
         }
-        
-        const file = currentDir.contents[filename];
-        if (file.type !== 'file') {
-            return `cat: ${filename}: Is a directory`;
-        }
-        
-        return file.content;
     }
 
     pwd() {
@@ -600,14 +641,48 @@ Type 'cat about.txt' to learn more about me.
         const args = parts.slice(1);
         
         if (command === 'cd' || command === 'ls' || command === 'cat') {
-            const currentDir = this.getCurrentDirectory();
-            if (currentDir && currentDir.contents) {
-                const items = Object.keys(currentDir.contents);
-                const lastArg = args.length > 0 ? args[args.length - 1] : '';
+            // Get the directory to search in
+            let searchDir = this.getCurrentDirectory();
+            let lastArg = args.length > 0 ? args[args.length - 1] : '';
+            
+            // If the last arg contains a slash, resolve the path
+            if (lastArg.includes('/')) {
+                const pathParts = lastArg.split('/');
+                const dirPart = pathParts.slice(0, -1).join('/');
+                const filePart = pathParts[pathParts.length - 1];
+                
+                if (dirPart) {
+                    const resolvedPath = this.resolvePath(dirPart);
+                    if (resolvedPath !== null) {
+                        const dir = this.getDirectoryAtPath(resolvedPath);
+                        if (dir && dir.type === 'directory') {
+                            searchDir = dir;
+                            lastArg = filePart;
+                        } else {
+                            return; // Invalid path
+                        }
+                    } else {
+                        return; // Invalid path
+                    }
+                } else {
+                    lastArg = filePart;
+                }
+            }
+            
+            if (searchDir && searchDir.contents) {
+                const items = Object.keys(searchDir.contents);
                 const matches = items.filter(item => item.startsWith(lastArg));
                 
                 if (matches.length === 1) {
-                    args[args.length - 1] = matches[0];
+                    const match = matches[0];
+                    if (args.length > 0 && args[args.length - 1].includes('/')) {
+                        // Reconstruct path with completion
+                        const pathParts = args[args.length - 1].split('/');
+                        pathParts[pathParts.length - 1] = match;
+                        args[args.length - 1] = pathParts.join('/');
+                    } else {
+                        args[args.length - 1] = match;
+                    }
                     const newText = command + (args.length > 0 ? ' ' + args.join(' ') : '');
                     input.textContent = newText;
                     // Move cursor to end
