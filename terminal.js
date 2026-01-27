@@ -9,7 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
             line.className = className;
             line.textContent = text;
             terminalOutput.appendChild(line);
-            terminalOutput.scrollTop = terminalOutput.scrollHeight;
+            // Auto-scroll to bottom
+            const terminal = document.getElementById('terminal');
+            terminal.scrollTop = terminal.scrollHeight;
         }, delay);
     };
     
