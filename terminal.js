@@ -513,14 +513,8 @@ keyboard shortcuts:
     }
 
     printWelcome() {
-        const welcome = `Welcome to will j. jedrzejczak's portfolio terminal
-
-Type 'help' to see available commands.
-Type 'cat help.txt' for detailed help.
-Type 'cat about.txt' to learn more about me.
-
-`;
-        this.appendOutput(welcome, 'system');
+        // No welcome message - just blank terminal
+        return;
     }
 
     createPrompt() {
@@ -549,21 +543,26 @@ Type 'cat about.txt' to learn more about me.
         
         const input = prompt.querySelector('.terminal-input');
         
-        // Create a hidden overlay to capture input while showing text separately
+        // Create a visible text display overlay
         const textDisplay = document.createElement('span');
         textDisplay.className = 'terminal-input-display';
         textDisplay.style.color = 'var(--terminal-text)';
         textDisplay.style.pointerEvents = 'none';
         input.parentNode.insertBefore(textDisplay, input.nextSibling);
         
-        // Completely hide the actual input
+        // Completely hide the actual input - position it absolutely off-screen
         input.style.position = 'absolute';
-        input.style.left = '-9999px';
+        input.style.left = '-99999px';
+        input.style.top = '-99999px';
         input.style.width = '1px';
         input.style.height = '1px';
         input.style.opacity = '0';
         input.style.caretColor = 'transparent';
         input.style.color = 'transparent';
+        input.style.background = 'transparent';
+        input.style.border = 'none';
+        input.style.outline = 'none';
+        input.style.zIndex = '-1';
         
         // Sync display with input
         const updateDisplay = () => {
@@ -574,8 +573,12 @@ Type 'cat about.txt' to learn more about me.
         input.addEventListener('keydown', () => {
             setTimeout(updateDisplay, 0);
         });
+        input.addEventListener('keyup', updateDisplay);
         
-        input.focus();
+        // Focus the hidden input
+        setTimeout(() => {
+            input.focus();
+        }, 10);
         
         this.setupInputEvents(input, prompt, textDisplay);
     }
@@ -664,19 +667,20 @@ Type 'cat about.txt' to learn more about me.
     }
 
     handleTabCompletion(input) {
-        const text = input.textContent.trim();
-        const parts = text.split(' ').filter(p => p);
+        const text = input.textContent;
+        const parts = text.split(' ');
         const command = parts[0];
-        const args = parts.slice(1);
+        const lastPart = parts[parts.length - 1] || '';
         
+        // Only do tab completion for cd, ls, cat commands
         if (command === 'cd' || command === 'ls' || command === 'cat') {
             // Get the directory to search in
             let searchDir = this.getCurrentDirectory();
-            let lastArg = args.length > 0 ? args[args.length - 1] : '';
+            let searchTerm = lastPart;
             
-            // If the last arg contains a slash, resolve the path
-            if (lastArg.includes('/')) {
-                const pathParts = lastArg.split('/');
+            // If the last part contains a slash, resolve the path
+            if (lastPart.includes('/')) {
+                const pathParts = lastPart.split('/');
                 const dirPart = pathParts.slice(0, -1).join('/');
                 const filePart = pathParts[pathParts.length - 1];
                 
@@ -686,7 +690,7 @@ Type 'cat about.txt' to learn more about me.
                         const dir = this.getDirectoryAtPath(resolvedPath);
                         if (dir && dir.type === 'directory') {
                             searchDir = dir;
-                            lastArg = filePart;
+                            searchTerm = filePart;
                         } else {
                             return; // Invalid path
                         }
@@ -694,26 +698,28 @@ Type 'cat about.txt' to learn more about me.
                         return; // Invalid path
                     }
                 } else {
-                    lastArg = filePart;
+                    searchTerm = filePart;
                 }
             }
             
             if (searchDir && searchDir.contents) {
                 const items = Object.keys(searchDir.contents);
-                const matches = items.filter(item => item.startsWith(lastArg));
+                const matches = items.filter(item => item.startsWith(searchTerm));
                 
                 if (matches.length === 1) {
                     const match = matches[0];
-                    if (args.length > 0 && args[args.length - 1].includes('/')) {
-                        // Reconstruct path with completion
-                        const pathParts = args[args.length - 1].split('/');
-                        pathParts[pathParts.length - 1] = match;
-                        args[args.length - 1] = pathParts.join('/');
-                    } else {
-                        args[args.length - 1] = match;
-                    }
-                    const newText = command + (args.length > 0 ? ' ' + args.join(' ') : '');
+                    // Replace the last part with the match
+                    parts[parts.length - 1] = lastPart.includes('/') 
+                        ? lastPart.substring(0, lastPart.lastIndexOf('/') + 1) + match
+                        : match;
+                    
+                    const newText = parts.join(' ');
                     input.textContent = newText;
+                    
+                    // Update display if it exists
+                    const textDisplay = input.parentNode.querySelector('.terminal-input-display');
+                    if (textDisplay) textDisplay.textContent = newText;
+                    
                     // Move cursor to end
                     const range = document.createRange();
                     const sel = window.getSelection();
