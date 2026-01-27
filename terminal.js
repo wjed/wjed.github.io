@@ -272,12 +272,27 @@ other emails:
         const files = items.filter(item => dir.contents[item].type === 'file');
         const dirs = items.filter(item => dir.contents[item].type === 'directory');
         
-        const output = [...dirs.map(d => d + '/'), ...files].join('  ');
-        
         // Create clickable output
         const outputLine = document.createElement('div');
         outputLine.className = 'terminal-line terminal-ls-output';
         outputLine.style.cursor = 'default';
+        
+        // Add ".." option if not at root
+        if (currentPath !== '~') {
+            const backSpan = document.createElement('span');
+            backSpan.className = 'terminal-dir';
+            backSpan.textContent = '../';
+            backSpan.style.cursor = 'pointer';
+            backSpan.style.textDecoration = 'underline';
+            backSpan.style.marginRight = '10px';
+            backSpan.style.color = 'var(--terminal-cyan)';
+            
+            backSpan.addEventListener('click', () => {
+                navigateUp();
+            });
+            
+            outputLine.appendChild(backSpan);
+        }
         
         items.forEach((item, index) => {
             const isDir = dir.contents[item].type === 'directory';
