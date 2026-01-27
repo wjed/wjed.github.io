@@ -10,93 +10,181 @@ document.addEventListener('DOMContentLoaded', () => {
                 'about.txt': {
                     type: 'file',
                     content: `will j. jedrzejczak
-deployment strategist @ palantir technologies (nyse: $pltr)
+incoming deployment strategist @ palantir technologies (nyse: $pltr)
+master of science in artificial intelligence @ georgia tech (jan 2026 - may 2028)
+active top secret clearance
 
-it all started with youtube videos about computer viruses. what began as childhood curiosity 
-turned into a self-taught journey through cybersecurity, leading me to jmu where i became 
-valedictorian of my major while racking up 5 internships. then palantir called at the start 
-of my junior year asking if i'd be willing to drop out after may 2026. naturally, i said yes.
+got into computers as a kid after seeing how malware could take over systems. that curiosity 
+turned into an obsession with tackling problems most people write off as impossible. it led to 
+seven internships, early graduation, and the highest gpa in my major (3.99/4.00, valedictorian).
 
-when i'm not building secure ai/ml solutions for the government, you'll find me lifting weights, 
-discovering new music, or outperforming the market by a mile on my fidelity account. ultimately, 
-i'm just extremely passionate about building things that help other people.`
+i've worked across sysadmin, cloud, development, and consulting, driven by speed, ownership, 
+and high standards. when i'm not building secure ai/ml solutions for the government, you'll find 
+me lifting weights, discovering new music, or outperforming the market by a mile on my fidelity 
+account. ultimately, i'm just extremely passionate about building things that help other people.`
                 },
                 'experience': {
                     type: 'directory',
                     contents: {
                         'palantir.txt': {
                             type: 'file',
-                            content: `deployment strategist (usg)
+                            content: `incoming deployment strategist (usg)
 palantir technologies
-sep 2025 - present
+oct 2025 - present · full-time
+washington, dc · on-site
 
-us government + business development. offered full-time role starting may 2026 before degree conferral. 
-palantir provides configurable solutions to confront the most complex defense challenges, from building 
-ai-enabled ground stations to supporting distributed multi-domain operations at the edge.
+defense programs, fte august 2026. us government + business development. palantir provides 
+configurable solutions to confront the most complex defense challenges, from building one of 
+the first ai-enabled ground stations to supporting distributed multi-domain operations at the edge.
 
-tech: AI/ML, Defense Technology, Government Solutions, Business Development`
+tech: consulting, artificial intelligence (ai), large language models (llm), defense technology, 
+government solutions, business development`
                         },
-                        'aws.txt': {
+                        'hiddenlayer.txt': {
                             type: 'file',
-                            content: `professional services national security cloud engineer
-amazon web services (aws)
-may 2025 - sep 2025
+                            content: `federal solutions architect
+hiddenlayer
+dec 2025 - present · internship
+washington, dc · hybrid
 
-analytics + application development for amazon dedicated cloud. doubled project scope and tripled 
-certification requirements. aws cloud provides secure, scalable solutions for u.s. federal government 
-across civilian agencies, intelligence community, and department of defense.
+agentic security for mission-critical systems. hiddenlayer provides security for ai, protecting 
+models from inference, bypass, extraction attacks, and model theft while analyzing behavior of 
+in-production models with cloud-based software and light-touch consulting.
 
-tech: AWS Lambda, Amazon S3, AWS CloudFormation, Amazon Cognito, Machine Learning, Infrastructure as Code, Large Language Models`
-                        },
-                        'mantech.txt': {
-                            type: 'file',
-                            content: `technical engineer & subject matter expert (ii+)
-mantech
-nov 2024 - may 2025
-
-supporting the cio, worked across iam, ad, and virtualization. received two promotions in less 
-than a year. mantech proudly safeguards the country's most sensitive national security missions.
-
-tech: Identity and Access Management, Active Directory, Virtualization, IT Management, Cybersecurity`
+tech: artificial intelligence (ai), machine learning, cybersecurity`
                         },
                         'bluesky.txt': {
                             type: 'file',
                             content: `artificial intelligence engineer
 blue sky innovators
-sep 2025 - present
+aug 2025 - present · contract
+reston, virginia · hybrid
 
-r&d team; built an ml-driven cybersecurity agent with opensearch queries. blue sky innovators 
-supports government and commercial customers in the definition and delivery of advanced technologies 
-to solve the toughest challenges.
+ai r&d; applied ml and opensearch to detect threats, extended following successful delivery. 
+blue sky innovators supports government and commercial customers in the definition and delivery 
+of advanced technologies to solve the toughest challenges.
 
-tech: Machine Learning, OpenSearch, Cybersecurity, R&D`
+tech: python, artificial intelligence (ai), large language models (llm), opensearch, machine learning, r&d`
                         },
-                        'rockingham.txt': {
+                        'aws.txt': {
                             type: 'file',
-                            content: `network engineer
-rockingham county public schools
-aug 2025 - present
+                            content: `national security cloud engineer
+amazon web services (aws)
+may 2025 - aug 2025 · internship
+crystal city, virginia · on-site
 
-pii, data migration, and infrastructure challenges for 11,500+ students. supporting the division's 
-mission to deliver exceptional learning experiences to students through comprehensive technology solutions.
+data analytics + application development for amazon dedicated cloud. doubled project scope, 
+tripled certification requirements, and received a return offer. aws cloud provides secure, 
+scalable solutions for u.s. federal government across civilian agencies, intelligence community, 
+and department of defense.
 
-tech: Network Infrastructure, Data Migration, PII Management, Educational Technology`
+tech: machine learning, amazon cognito, infrastructure as code (iac), git, aws lambda, consulting, 
+artificial intelligence (ai), large language models (llm), amazon s3, aws cloudformation, amazon web services (aws)`
+                        },
+                        'mantech.txt': {
+                            type: 'file',
+                            content: `technical engineer & subject matter expert (ii+)
+mantech
+nov 2024 - may 2025 · part-time
+herndon, virginia · hybrid
+
+supporting the cio, worked across iam, ad, and virtualization. received two promotions in less 
+than a year. mantech proudly safeguards the country's most sensitive national security missions.
+
+tech: information technology, cyber, communication, it management, cybersecurity, identity and access management (iam)`
+                        },
+                        'mantech-software.txt': {
+                            type: 'file',
+                            content: `software engineer (ii)
+mantech
+mar 2024 - nov 2024 · internship
+herndon, virginia · hybrid
+
+development for an $850m dod contract; only freshman on the team. mantech's innovation and 
+capabilities organization (ico) develops and delivers game-changing technology solutions to 
+address our client's toughest challenges at the speed of mission.
+
+tech: machine learning, react.js, cyber, teamwork, python, leadership, programming`
+                        },
+                        'csfi.txt': {
+                            type: 'file',
+                            content: `cyber threat intelligence analyst
+cyber security forum initiative
+jan 2025 - apr 2025 · internship
+washington, dc · remote
+
+cybercom + intelligence collection. the cyber security forum initiative (csfi) is a non-profit 
+organization with a mission to provide cyber warfare awareness, guidance, and security solutions 
+through collaboration, education, volunteer work, and training.
+
+tech: cyber, cybersecurity`
+                        },
+                        'solvitur.txt': {
+                            type: 'file',
+                            content: `cybersecurity analyst
+solvitur systems llc
+sep 2024 - dec 2024 · contract
+leesburg, virginia · remote
+
+user experience design + web security testing. solvitur systems protects businesses from cyber 
+threats and helps navigate the complex world of technology with expertise in regulatory compliance, 
+security assessments, and cybersecurity modernization.
+
+tech: it projects, cyber`
+                        },
+                        'deloitte.txt': {
+                            type: 'file',
+                            content: `leadership, allyship & mentorship scholar
+deloitte
+mar 2024 - nov 2024 · apprenticeship
+washington dc-baltimore area · remote
+
+selected twice + youngest summer 2024 member for cohort. ai & engineering focus. deloitte works 
+with leaders around the world to help them build better futures, with a workforce made up of the 
+industry's greatest minds.
+
+tech: consulting, leadership, ai & engineering`
+                        },
+                        'jmu-research.txt': {
+                            type: 'file',
+                            content: `first-year researcher & developer
+jmu computer science
+dec 2023 - may 2024 · part-time
+harrisonburg, virginia · on-site
+
+musiccpr (create, perform, respond) project. collaborated in the development of musiccpr, an 
+educational website aimed at enhancing music education, utilizing javascript, react, html, and css.
+
+tech: it projects, scholarly research, computer science, programming`
                         }
                     }
                 },
                 'projects': {
                     type: 'directory',
                     contents: {
+                        'rottd.txt': {
+                            type: 'file',
+                            content: `rottd
+jan 2026 - present
+associated with jmu computer science
+
+led automation-heavy comms project as distinguished engineer; built complex twilio flows via n8n, 
+html templates, and a2p regulatory logic. rottd is the news, but make it chronically online - a 
+daily newsletter that explains what's happening in the world like your terminally online friend 
+would. short. funny. weirdly informative.
+
+tech: automation, html, twilio, n8n`
+                        },
                         'jmu-advising-bot.txt': {
                             type: 'file',
                             content: `jmu it advising bot
 james madison university
 oct 2025 - dec 2026
 
-fully built-out jmu it/cs advisor created with aws cdk infrastructure as code. 
-leverages amazon bedrock for ai capabilities, claude haiku for natural language processing, 
-dynamodb for scalable data storage, and s3 for document management. provides personalized 
-academic advising and course recommendations for information technology and computer science students.
+fully built-out jmu it/cs advisor created with aws cdk infrastructure as code. leverages amazon 
+bedrock for ai capabilities, claude haiku for natural language processing, dynamodb for scalable 
+data storage, and s3 for document management. provides personalized academic advising and course 
+recommendations for information technology and computer science students.
 
 tech: aws cdk, amazon bedrock, claude haiku, dynamodb, amazon s3, infrastructure as code, ai/ml`
                         },
@@ -106,11 +194,13 @@ tech: aws cdk, amazon bedrock, claude haiku, dynamodb, amazon s3, infrastructure
 james madison university
 dec 2023 - may 2024
 
-educational website aimed at enhancing music education, developed as a niche learning management system 
-similar to canvas. collaborated with music teachers to design and implement this web application, 
-which was enthusiastically received by students and teachers during the pandemic.
+collaborated in the development of musiccpr, an educational website aimed at enhancing music 
+education, developed as a niche learning management system similar to canvas. collaborated with 
+music teachers to design and implement this web application, which was enthusiastically received 
+by students and teachers during the pandemic.
 
-tech: javascript, react, html, css, web development`
+tech: artificial intelligence (ai), computer science, html, cascading style sheets (css), react.js, 
+javascript, project planning`
                         },
                         'dukessat.txt': {
                             type: 'file',
@@ -118,24 +208,11 @@ tech: javascript, react, html, css, web development`
 james madison university
 feb 2024 - mar 2024
 
-supported the development of meshsat, a satellite project at james madison university. 
-contributed to the technical development and implementation of this innovative satellite 
-communication system using ai/ml and python technologies.
+supported the meshsat development. the global small satellite market is projected to grow from 
+usd 2.8 billion in 2020 to usd 7.1 billion by 2025. contributed to the technical development and 
+implementation of this innovative satellite communication system.
 
-tech: python, ai/ml, satellite tech, research`
-                        },
-                        'cybersecdb.txt': {
-                            type: 'file',
-                            content: `cybersecdb
-james madison university
-academic project
-
-cybersecurity database built collaboratively with friends to help threat detection. 
-utilized sql for database design and mockaroo for realistic data generation. 
-the database was designed to support cybersecurity operations and was presented 
-to our class as a comprehensive threat detection solution.
-
-tech: sql, mockaroo, database design, cybersecurity, threat detection`
+tech: artificial intelligence (ai), python, information technology, computer science`
                         }
                     }
                 },
@@ -145,34 +222,42 @@ tech: sql, mockaroo, database design, cybersecurity, threat detection`
                         'aws': {
                             type: 'directory',
                             contents: {
-                                'data-engineer.txt': { type: 'file', content: 'aws certified data engineer - associate\namazon web services (aws)\naug 2025 - aug 2028\n\nadvanced certification in data engineering on aws, covering data privacy, data science, databases, and comprehensive aws data services.' },
-                                'developer.txt': { type: 'file', content: 'aws certified developer - associate\namazon web services (aws)\njul 2025 - jul 2028\n\nprofessional certification in developing and maintaining applications on aws platform, covering infrastructure as code, lambda, and api gateways.' },
-                                'ml-engineer.txt': { type: 'file', content: 'aws certified machine learning engineer - associate\namazon web services (aws)\njul 2025 - jul 2028\n\nspecialized certification in machine learning engineering on aws, covering ai, large language models, and advanced ml services.' },
-                                'sysops.txt': { type: 'file', content: 'aws certified sysops administrator - associate\namazon web services (aws)\nmay 2025 - may 2028\n\nsystems operations certification covering deployment, management, and operations of scalable, highly available systems on aws.' },
-                                'ai-practitioner.txt': { type: 'file', content: 'aws certified ai practitioner\namazon web services (aws)\nmar 2025 - mar 2028\n\nfoundational ai certification covering artificial intelligence concepts, large language models, and cloud computing applications.' },
-                                'solutions-architect.txt': { type: 'file', content: 'aws certified solutions architect - associate\namazon web services (aws)\njul 2024 - jul 2027\n\nsolutions architecture certification covering designing distributed systems and applications on aws platform.' },
-                                'cloud-practitioner.txt': { type: 'file', content: 'aws certified cloud practitioner\namazon web services (aws)\njun 2024 - jun 2027\n\nfoundational cloud certification covering aws cloud concepts, services, security, architecture, pricing, and support.' }
+                                'data-engineer.txt': { type: 'file', content: 'aws certified data engineer - associate\namazon web services (aws)\naug 2025 - aug 2028\ncredential id: 4edbd9cb-c225-4590-b076-0fb86d05ba6c\n\nadvanced certification in data engineering on aws, covering data privacy, data science, databases, large language models (llm), and comprehensive aws data services.' },
+                                'developer.txt': { type: 'file', content: 'aws certified developer - associate\namazon web services (aws)\njul 2025 - jul 2028\ncredential id: 018c67ec-9e09-4eff-a31e-6a9e9047367d\n\nprofessional certification in developing and maintaining applications on aws platform, covering infrastructure as code, lambda, api gateways, and amazon web services (aws).' },
+                                'ml-engineer.txt': { type: 'file', content: 'aws certified machine learning engineer - associate\namazon web services (aws)\njul 2025 - jul 2028\ncredential id: 1499bc01-1615-4910-bc9d-ba61afe65344\n\nspecialized certification in machine learning engineering on aws, covering ai, large language models, and advanced ml services.' },
+                                'sysops.txt': { type: 'file', content: 'aws certified sysops administrator - associate\namazon web services (aws)\nmay 2025 - may 2028\ncredential id: c592234d-a959-4e88-96bb-6de8c2fd6767\n\nsystems operations certification covering deployment, management, and operations of scalable, highly available systems on aws, including cloud computing.' },
+                                'ai-practitioner.txt': { type: 'file', content: 'aws certified ai practitioner\namazon web services (aws)\nmar 2025 - mar 2028\ncredential id: 5d7bf28d-e08c-435f-a54d-0cbef1aa8be7\n\nfoundational ai certification covering artificial intelligence concepts, large language models, and cloud computing applications.' },
+                                'solutions-architect.txt': { type: 'file', content: 'aws certified solutions architect - associate\namazon web services (aws)\njul 2024 - jul 2027\ncredential id: 23fc2a7d-54d5-41fd-94ca-2c01a9b92a14\n\nsolutions architecture certification covering designing distributed systems and applications on aws platform, including cloud computing.' },
+                                'cloud-practitioner.txt': { type: 'file', content: 'aws certified cloud practitioner\namazon web services (aws)\njun 2024 - jun 2027\n\nfoundational cloud certification covering aws cloud concepts, services, security, architecture, pricing, and support. includes large language models (llm), cyber, and cloud computing.' }
                             }
                         },
                         'comptia': {
                             type: 'directory',
                             contents: {
-                                'cysa+.txt': { type: 'file', content: 'comptia cybersecurity analyst (cysa+)\ncomptia\nfeb 2025 - feb 2028\n\nadvanced cybersecurity certification covering threat detection, analysis, and response using behavioral analytics and security tools.' },
+                                'cysa+.txt': { type: 'file', content: 'comptia cybersecurity analyst (cysa+)\ncomptia\nfeb 2025 - feb 2028\n\nadvanced cybersecurity certification covering threat detection, analysis, and response using behavioral analytics and security tools. includes data privacy, cyber, and cybersecurity.' },
                                 'csap.txt': { type: 'file', content: 'comptia security analytics practitioner (csap)\ncomptia\nfeb 2025 - feb 2028\n\nspecialized certification in security analytics, covering advanced threat detection and security data analysis techniques.' },
-                                'csis.txt': { type: 'file', content: 'comptia secure infrastructure specialist (csis)\ncomptia\njun 2024 - feb 2028\n\ncomprehensive security infrastructure certification covering network security, system security, and secure infrastructure design.' },
-                                'security+.txt': { type: 'file', content: 'comptia security+\ncomptia\njun 2024 - feb 2028\n\nfoundational cybersecurity certification covering core security functions, risk management, and security operations.' },
-                                'cios.txt': { type: 'file', content: 'comptia it operations specialist (cios)\ncomptia\napr 2024 - feb 2028\n\nit operations certification covering system administration, troubleshooting, and operational security practices.' },
-                                'network+.txt': { type: 'file', content: 'comptia network+\ncomptia\napr 2024 - feb 2028\n\nnetwork administration certification covering network design, implementation, troubleshooting, and security.' },
-                                'a+.txt': { type: 'file', content: 'comptia a+\ncomptia\nfeb 2024 - feb 2028\n\nfoundational it certification covering hardware, software, troubleshooting, and operational procedures.' },
-                                'it-fundamentals+.txt': { type: 'file', content: 'comptia it fundamentals+\ncomptia\nmay 2023 - may 2026\n\nentry-level it certification covering basic it concepts, terminology, and fundamental skills.' }
+                                'csis.txt': { type: 'file', content: 'comptia secure infrastructure specialist (csis)\ncomptia\njun 2024 - feb 2028\n\ncomprehensive security infrastructure certification covering network security, system security, and secure infrastructure design. includes cyber and comptia.' },
+                                'security+.txt': { type: 'file', content: 'comptia security+\ncomptia\njun 2024 - feb 2028\ncredential id: v2wz1x8z31141tkj\n\nfoundational cybersecurity certification covering core security functions, risk management, and security operations. includes cyber and comptia.' },
+                                'cios.txt': { type: 'file', content: 'comptia it operations specialist (cios)\ncomptia\napr 2024 - feb 2028\n\nit operations certification covering system administration, troubleshooting, and operational security practices. includes cyber and comptia.' },
+                                'network+.txt': { type: 'file', content: 'comptia network+\ncomptia\napr 2024 - feb 2028\ncredential id: nyxnpwztdnv1qqcq\n\nnetwork administration certification covering network design, implementation, troubleshooting, and security. includes cyber and comptia.' },
+                                'a+.txt': { type: 'file', content: 'comptia a+\ncomptia\nfeb 2024 - feb 2028\ncredential id: qh4gvk2rbjbq1dw3\n\nfoundational it certification covering hardware, software, troubleshooting, and operational procedures. includes cyber and comptia.' },
+                                'it-fundamentals+.txt': { type: 'file', content: 'comptia it fundamentals+\ncomptia\nmay 2023 - may 2026\ncredential id: nj9w2f1shf4q1p5y\n\nentry-level it certification covering basic it concepts, terminology, and fundamental skills. includes information technology and comptia.' }
                             }
                         },
                         'palantir': {
                             type: 'directory',
                             contents: {
-                                'foundry-aware.txt': { type: 'file', content: 'certified palantir foundry aware professional\npalantir technologies\nsep 2025 - sep 2027\ncredential id: d5t97obr7p42\n\nfoundry certification exam for foundry aware 2025, covering databases, data privacy, and data science in the palantir foundry platform.' },
                                 'scoping.txt': { type: 'file', content: 'scoping use cases in foundry & aip\npalantir technologies\noct 2025\ncredential id: 9dmvmq43i33a\n\nspecialized certification covering scoping use cases in palantir foundry and aip platforms, including data privacy, data science, and database management.' },
+                                'foundry-aware.txt': { type: 'file', content: 'certified palantir foundry aware professional\npalantir technologies\nsep 2025 - sep 2027\ncredential id: d5t97obr7p42\n\nfoundry certification exam for foundry aware 2025, covering databases, data privacy, and data science in the palantir foundry platform.' },
                                 'builder-foundations.txt': { type: 'file', content: 'foundry & aip builder foundations\npalantir technologies\nsep 2025\ncredential id: iunn5grp5bah\n\nfoundational certification covering foundry & aip builder foundations, including databases, data science, and data privacy.' }
+                            }
+                        },
+                        'other': {
+                            type: 'directory',
+                            contents: {
+                                'dod-cyber-awareness.txt': { type: 'file', content: 'cyber awareness challenge 2025\nunited states department of defense\nnov 2024\ncredential id: hdq75a1wlz\n\ncyber awareness challenge certificate covering cyber and u.s. department of defense security protocols.' },
+                                'microsoft-serverless.txt': { type: 'file', content: 'create serverless applications\nmicrosoft\naug 2024\n\nmicrosoft certification covering serverless application development using microsoft azure.' },
+                                'cisco-network.txt': { type: 'file', content: 'network technician career path\ncisco\naug 2024\n\ncisco certification covering networking fundamentals and network technician career path.' }
                             }
                         }
                     }
@@ -180,23 +265,46 @@ tech: sql, mockaroo, database design, cybersecurity, threat detection`
                 'education': {
                     type: 'directory',
                     contents: {
+                        'gatech.txt': {
+                            type: 'file',
+                            content: `georgia institute of technology
+master of science - ms, computer science, artificial intelligence
+jan 2026 - may 2028
+
+pursuing advanced studies in artificial intelligence and computer science at georgia tech, one of 
+the nation's top programs for ai research and development. focusing on large language models, 
+machine learning, and cutting-edge ai technologies.
+
+skills: computer science, programming, artificial intelligence (ai), large language models (llm), information technology`
+                        },
                         'jmu.txt': {
                             type: 'file',
                             content: `james madison university
-b.s. information technology
-valedictorian candidate (3.984/4.000 gpa)
+bachelor of science - bs, information technology, honors interdisciplinary studies
+aug 2023 - may 2026 · senior
 
-ranked #1 in b.s. it program at james madison university. consistently on president's list every semester, 
-demonstrating exceptional academic excellence in information technology and computer science.`
+gpa: 3.99/4.00 (valedictorian of major, summa cum laude)
+ranked #1 in b.s. it program at james madison university. consistently on president's list every 
+semester, demonstrating exceptional academic excellence in information technology and computer science.
+
+activities: founding & lead ambassador, information technology department (2023-2026), internal 
+vice president, madison consulting club (2025-2026), executive officer, cyber defense club (2025-2025), 
+teaching assistant (2024-2025), student leader & innovator, stem corps (2024-2024)
+
+conferences: shmoocon, cyberwarcon, capwic, ieee, nchc
+
+skills: large language models (llm), leadership, programming, problem solving, computer science, 
+cybersecurity, information technology, cyber, artificial intelligence (ai)`
                         },
                         'coursework': {
                             type: 'directory',
                             contents: {
-                                'core-it.txt': { type: 'file', content: 'core information technology courses:\nit-101, it-203, it-215, it-240, it-301, it-302, it-311, it-313' },
-                                'networking.txt': { type: 'file', content: 'advanced networking & cybersecurity:\nit-333, it-460, it-480' },
-                                'data-science.txt': { type: 'file', content: 'data science & artificial intelligence:\nit-340, it-347' },
-                                'cs-foundations.txt': { type: 'file', content: 'computer science foundations:\ncs-149, it-160e, it-201e, it-212' },
-                                'capstone.txt': { type: 'file', content: 'capstone & professional development:\nit-444, it-445, it-433' }
+                                'core-it.txt': { type: 'file', content: 'core information technology courses:\nit-101 introduction to information technology\nit-203 information security and privacy [honors]\nit-215 introduction to telecommunications, networking and security\nit-240 database administration\nit-301 web technologies\nit-302 societal and ethical issues in it\nit-311 operating systems\nit-313 community projects' },
+                                'networking.txt': { type: 'file', content: 'advanced networking & cybersecurity:\nit-333 advanced telecommunications & networking\nit-460 advanced cybersecurity\nit-480 cloud computing in private networks' },
+                                'data-science.txt': { type: 'file', content: 'data science & artificial intelligence:\nit-340 data science & machine learning\nit-347 human-computer interaction' },
+                                'cs-foundations.txt': { type: 'file', content: 'computer science foundations:\ncs-149 introduction to programming\nit-160e data structures and advanced programming for it\nit-201e computational structures and logic\nit-212 digital electronics' },
+                                'capstone.txt': { type: 'file', content: 'capstone & professional development:\nit-444 capstone design\nit-445 capstone implementation\nit-433 internship in information technology' },
+                                'honors.txt': { type: 'file', content: 'honors interdisciplinary studies:\nisat-160h problem solving in science and technology [honors]' }
                             }
                         }
                     }
@@ -204,11 +312,19 @@ demonstrating exceptional academic excellence in information technology and comp
                 'leadership': {
                     type: 'directory',
                     contents: {
-                        'it-ambassador.txt': { type: 'file', content: 'founding & lead it ambassador\ninformation technology department (2023-present)\n\nled it major to become one of jmu\'s fastest-growing programs as top-ranked ambassador by hours contributed.' },
-                        'cyber-defense.txt': { type: 'file', content: 'executive officer, cyber defense club\n2025-present\n\nthe cyber defense club achieved first place at the virginia military institute cyber competition, demonstrating exceptional cybersecurity excellence.' },
-                        'consulting-club.txt': { type: 'file', content: 'internal vice president, madison consulting club\n2025-present\n\none of the biggest clubs in jmu\'s college of business. driving strategic initiatives and fostering professional development.' },
-                        'teaching-assistant.txt': { type: 'file', content: 'teaching assistant\nit-201 computational structures and logic (2024-2025)\n\nmentored students in discrete mathematics, logic, and computational theory fundamentals.' }
+                        'it-ambassador.txt': { type: 'file', content: 'founding & lead it ambassador\ninformation technology department (2023-2026)\n\nled it major to become one of jmu\'s fastest-growing programs as top-ranked ambassador by hours contributed.' },
+                        'consulting-club.txt': { type: 'file', content: 'internal vice president, madison consulting club\n2025-2026\n\none of the biggest clubs in jmu\'s college of business. driving strategic initiatives and fostering professional development.' },
+                        'cyber-defense.txt': { type: 'file', content: 'executive officer, cyber defense club\n2025\n\nthe cyber defense club achieved first place at the virginia military institute cyber competition, demonstrating exceptional cybersecurity excellence.' },
+                        'teaching-assistant.txt': { type: 'file', content: 'teaching assistant\nit-201 computational structures and logic (2024-2025)\n\nmentored students in discrete mathematics, logic, and computational theory fundamentals.' },
+                        'stem-corps.txt': { type: 'file', content: 'student leader & innovator, stem corps\n2024\n\ncontributed to stem education and outreach initiatives.' }
                     }
+                },
+                'clearance.txt': {
+                    type: 'file',
+                    content: `active top secret clearance
+
+currently holding an active top secret security clearance, enabling work on classified 
+government projects and sensitive national security missions.`
                 },
                 'contact.txt': {
                     type: 'file',
@@ -221,7 +337,6 @@ other emails:
 - wjedrzejczak@palantir.com
 - wjd@amazon.com
 - william.jedrzejczak@blueskyinnovators.com
-- wjedrzejc@rockingham.k12.va.us
 - will.jedrzejczak@mantech.com
 - william.jedrzejczak@solvitursystems.com`
                 }
