@@ -343,6 +343,10 @@ other emails:
         showDirectory();
     };
     
+    let lastFileContentLine = null;
+    let lastFilePromptLine = null;
+    let lastFileEmptyLine = null;
+    
     const showFile = (fileName) => {
         const dir = getDirectoryAtPath(currentPath);
         if (!dir || !dir.contents[fileName] || dir.contents[fileName].type !== 'file') {
@@ -350,10 +354,39 @@ other emails:
             return;
         }
         
-        addLine(`${getPromptString()} cat ${fileName}`, 'terminal-line terminal-prompt-line');
-        addLine('');
-        addLine(dir.contents[fileName].content);
-        addLine('');
+        // Remove previous file content if it exists
+        if (lastFileContentLine && lastFileContentLine.parentNode) {
+            lastFileContentLine.parentNode.removeChild(lastFileContentLine);
+        }
+        if (lastFilePromptLine && lastFilePromptLine.parentNode) {
+            lastFilePromptLine.parentNode.removeChild(lastFilePromptLine);
+        }
+        if (lastFileEmptyLine && lastFileEmptyLine.parentNode) {
+            lastFileEmptyLine.parentNode.removeChild(lastFileEmptyLine);
+        }
+        
+        // Add new file content
+        lastFilePromptLine = document.createElement('div');
+        lastFilePromptLine.className = 'terminal-line terminal-prompt-line';
+        lastFilePromptLine.textContent = `${getPromptString()} cat ${fileName}`;
+        terminalOutput.appendChild(lastFilePromptLine);
+        
+        lastFileEmptyLine = document.createElement('div');
+        lastFileEmptyLine.className = 'terminal-line';
+        lastFileEmptyLine.textContent = '';
+        terminalOutput.appendChild(lastFileEmptyLine);
+        
+        lastFileContentLine = document.createElement('div');
+        lastFileContentLine.className = 'terminal-line';
+        lastFileContentLine.textContent = dir.contents[fileName].content;
+        terminalOutput.appendChild(lastFileContentLine);
+        
+        const emptyLineAfter = document.createElement('div');
+        emptyLineAfter.className = 'terminal-line';
+        emptyLineAfter.textContent = '';
+        terminalOutput.appendChild(emptyLineAfter);
+        
+        scrollToBottom();
     };
     
     // Initial display
