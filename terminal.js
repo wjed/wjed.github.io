@@ -267,6 +267,8 @@ other emails:
     
     let lastDirectoryOutput = null;
     let lastDirectoryPath = null;
+    let lastPromptLines = [];
+    let isNavigating = false;
     
     const showDirectory = () => {
         const dir = getDirectoryAtPath(currentPath);
@@ -284,6 +286,14 @@ other emails:
         if (lastDirectoryOutput && lastDirectoryOutput.parentNode) {
             lastDirectoryOutput.parentNode.removeChild(lastDirectoryOutput);
         }
+        
+        // Remove previous prompt lines if they exist
+        lastPromptLines.forEach(line => {
+            if (line && line.parentNode) {
+                line.parentNode.removeChild(line);
+            }
+        });
+        lastPromptLines = [];
         
         const items = Object.keys(dir.contents || {}).sort();
         const files = items.filter(item => dir.contents[item].type === 'file');
@@ -338,11 +348,13 @@ other emails:
     };
     
     const navigateTo = (dirName) => {
-        // Don't navigate if we're already in this directory
+        // Don't navigate if we're already in this directory or if navigation is in progress
         const newPath = currentPath === '~' ? `~/${dirName}` : `${currentPath}/${dirName}`;
-        if (newPath === currentPath) {
+        if (newPath === currentPath || isNavigating) {
             return;
         }
+        
+        isNavigating = true;
         
         // Clear any displayed file content when navigating
         if (lastFileContainer && lastFileContainer.parentNode) {
@@ -351,15 +363,39 @@ other emails:
         }
         
         currentPath = newPath;
-        addLine(`${getPromptString()} cd ${dirName}`, 'terminal-line terminal-prompt-line');
-        addLine('');
-        addLine(`${getPromptString()} ls`, 'terminal-line terminal-prompt-line');
-        addLine('');
+        
+        const prompt1 = document.createElement('div');
+        prompt1.className = 'terminal-line terminal-prompt-line';
+        prompt1.textContent = `${getPromptString()} cd ${dirName}`;
+        terminalOutput.appendChild(prompt1);
+        lastPromptLines.push(prompt1);
+        
+        const empty1 = document.createElement('div');
+        empty1.className = 'terminal-line';
+        empty1.textContent = '';
+        terminalOutput.appendChild(empty1);
+        lastPromptLines.push(empty1);
+        
+        const prompt2 = document.createElement('div');
+        prompt2.className = 'terminal-line terminal-prompt-line';
+        prompt2.textContent = `${getPromptString()} ls`;
+        terminalOutput.appendChild(prompt2);
+        lastPromptLines.push(prompt2);
+        
+        const empty2 = document.createElement('div');
+        empty2.className = 'terminal-line';
+        empty2.textContent = '';
+        terminalOutput.appendChild(empty2);
+        lastPromptLines.push(empty2);
+        
         showDirectory();
+        isNavigating = false;
     };
     
     const navigateUp = () => {
-        if (currentPath === '~') return;
+        if (currentPath === '~' || isNavigating) return;
+        
+        isNavigating = true;
         
         // Clear any displayed file content when navigating up
         if (lastFileContainer && lastFileContainer.parentNode) {
@@ -370,11 +406,33 @@ other emails:
         const parts = currentPath.replace('~/', '').split('/');
         parts.pop();
         currentPath = parts.length === 0 ? '~' : `~/${parts.join('/')}`;
-        addLine(`${getPromptString()} cd ..`, 'terminal-line terminal-prompt-line');
-        addLine('');
-        addLine(`${getPromptString()} ls`, 'terminal-line terminal-prompt-line');
-        addLine('');
+        
+        const prompt1 = document.createElement('div');
+        prompt1.className = 'terminal-line terminal-prompt-line';
+        prompt1.textContent = `${getPromptString()} cd ..`;
+        terminalOutput.appendChild(prompt1);
+        lastPromptLines.push(prompt1);
+        
+        const empty1 = document.createElement('div');
+        empty1.className = 'terminal-line';
+        empty1.textContent = '';
+        terminalOutput.appendChild(empty1);
+        lastPromptLines.push(empty1);
+        
+        const prompt2 = document.createElement('div');
+        prompt2.className = 'terminal-line terminal-prompt-line';
+        prompt2.textContent = `${getPromptString()} ls`;
+        terminalOutput.appendChild(prompt2);
+        lastPromptLines.push(prompt2);
+        
+        const empty2 = document.createElement('div');
+        empty2.className = 'terminal-line';
+        empty2.textContent = '';
+        terminalOutput.appendChild(empty2);
+        lastPromptLines.push(empty2);
+        
         showDirectory();
+        isNavigating = false;
     };
     
     let lastFileContainer = null;
