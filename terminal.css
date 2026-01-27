@@ -21,7 +21,7 @@
 html, body {
     height: 100%;
     width: 100%;
-    overflow: hidden;
+    overflow: auto;
     font-family: 'JetBrains Mono', 'Courier New', monospace;
     background: var(--terminal-bg);
     color: var(--terminal-text);
@@ -29,30 +29,19 @@ html, body {
     padding: 0;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-}
-
 #terminal {
-    flex: 1;
     padding: 20px;
     overflow-y: auto;
     overflow-x: hidden;
     background: var(--terminal-bg);
     font-size: 14px;
     line-height: 1.6;
-    scroll-behavior: auto;
-    display: block;
-    height: 100vh;
-    scroll-snap-type: none;
+    min-height: 100vh;
 }
 
 .terminal-output {
     width: 100%;
     display: block;
-    min-height: fit-content;
 }
 
 .terminal-line {
@@ -64,8 +53,7 @@ body {
     line-height: 1.6em;
     min-height: 1.6em;
     display: block;
-    clear: both;
-    position: relative;
+    color: var(--terminal-text);
     overflow-wrap: break-word;
     word-break: break-word;
 }
@@ -74,141 +62,10 @@ body {
     color: var(--terminal-blue);
     font-weight: 500;
     user-select: none;
-}
-
-.terminal-input-hidden {
-    position: absolute !important;
-    left: 0 !important;
-    top: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    opacity: 0 !important;
-    caret-color: transparent !important;
-    -webkit-appearance: none !important;
-    -moz-appearance: none !important;
-    appearance: none !important;
-    background: transparent !important;
-    border: none !important;
-    outline: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    z-index: 10 !important;
-    pointer-events: auto !important;
-    color: transparent !important;
-    text-shadow: none !important;
-    -webkit-text-fill-color: transparent !important;
-    font-size: inherit !important;
-    line-height: inherit !important;
-    font-family: inherit !important;
-    cursor: text !important;
-}
-
-.terminal-input-hidden:focus {
-    outline: none !important;
-    caret-color: transparent !important;
-    -webkit-text-fill-color: transparent !important;
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    color: transparent !important;
-    opacity: 0 !important;
-}
-
-.terminal-input-hidden:focus-visible {
-    outline: none !important;
-    caret-color: transparent !important;
-    box-shadow: none !important;
-    background: transparent !important;
-    opacity: 0 !important;
-}
-
-.terminal-input-hidden:focus-within {
-    caret-color: transparent !important;
-    opacity: 0 !important;
-}
-
-.terminal-input-hidden::selection {
-    background: transparent !important;
-    color: transparent !important;
-}
-
-.terminal-input-hidden::-moz-selection {
-    background: transparent !important;
-    color: transparent !important;
-}
-
-/* Completely hide any browser caret indicators */
-.terminal-input-hidden::-webkit-input-placeholder {
-    color: transparent !important;
-}
-
-.terminal-input-hidden::placeholder {
-    color: transparent !important;
-}
-
-.terminal-cursor {
-    display: inline-block;
-    background: var(--terminal-text);
-    animation: blink 1s infinite;
-    margin-left: 2px;
-    width: 8px;
-    height: 1.2em;
-    vertical-align: text-bottom;
-    border: none;
-    flex-shrink: 0;
-    position: relative;
-    z-index: 2;
-}
-
-@keyframes blink {
-    0%, 49% { opacity: 1; }
-    50%, 100% { opacity: 0; }
-}
-
-.terminal-output .terminal-line {
-    color: var(--terminal-text);
-}
-
-.terminal-system {
-    color: var(--terminal-cyan);
-}
-
-.terminal-prompt-line {
     display: block;
     width: 100%;
     margin-bottom: 0;
     min-height: 1.6em;
-}
-
-.terminal-prompt-line .terminal-prompt {
-    flex-shrink: 0;
-    white-space: nowrap;
-    display: inline-block;
-}
-
-.terminal-prompt-line .terminal-input {
-    flex: 1 1 auto;
-    min-width: 0;
-    white-space: pre;
-    overflow: visible;
-    max-width: 100%;
-}
-
-.terminal-input-display {
-    color: var(--terminal-text);
-    font-family: inherit;
-    font-size: inherit;
-    white-space: pre;
-    display: inline-block;
-    pointer-events: none;
-    flex: 1 1 auto;
-    min-width: 0;
-}
-
-.terminal-prompt-line .terminal-cursor {
-    flex-shrink: 0;
-    display: inline-block;
-    position: relative;
 }
 
 /* Scrollbar styling */
@@ -246,10 +103,6 @@ body {
         padding: 15px;
         font-size: 12px;
     }
-    
-    .terminal-prompt {
-        font-size: 12px;
-    }
 }
 
 @media (max-width: 480px) {
@@ -258,52 +111,3 @@ body {
         font-size: 11px;
     }
 }
-
-/* Focus styles */
-.terminal-input:focus {
-    outline: none;
-}
-
-/* Prevent text selection on prompt */
-.terminal-prompt {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-/* File and directory colors in ls output */
-.terminal-line:has-text("txt") {
-    color: var(--terminal-blue);
-}
-
-/* Smooth scrolling */
-#terminal {
-    scroll-behavior: smooth;
-}
-
-/* Terminal header (optional) */
-.terminal-header {
-    background: var(--terminal-border);
-    padding: 8px 15px;
-    border-bottom: 1px solid var(--terminal-border);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 12px;
-    color: var(--terminal-text);
-}
-
-.terminal-header::before {
-    content: '●';
-    color: var(--terminal-red);
-    margin-right: 5px;
-}
-
-/* Loading animation */
-@keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-}
-
-/* Command error styling - handled inline in JS */
