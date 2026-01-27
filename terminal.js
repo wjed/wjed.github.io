@@ -265,11 +265,24 @@ other emails:
         }
     };
     
+    let lastDirectoryOutput = null;
+    let lastDirectoryPath = null;
+    
     const showDirectory = () => {
         const dir = getDirectoryAtPath(currentPath);
         if (!dir || dir.type !== 'directory') {
             addLine(`cd: ${currentPath}: No such file or directory`, 'terminal-line');
             return;
+        }
+        
+        // Don't show duplicate directory listing if we're already showing it for this path
+        if (lastDirectoryOutput && lastDirectoryPath === currentPath && lastDirectoryOutput.parentNode) {
+            return;
+        }
+        
+        // Remove previous directory listing if it exists
+        if (lastDirectoryOutput && lastDirectoryOutput.parentNode) {
+            lastDirectoryOutput.parentNode.removeChild(lastDirectoryOutput);
         }
         
         const items = Object.keys(dir.contents || {}).sort();
@@ -319,21 +332,25 @@ other emails:
         });
         
         terminalOutput.appendChild(outputLine);
+        lastDirectoryOutput = outputLine;
+        lastDirectoryPath = currentPath;
         scrollToBottom();
     };
     
     const navigateTo = (dirName) => {
+        // Don't navigate if we're already in this directory
+        const newPath = currentPath === '~' ? `~/${dirName}` : `${currentPath}/${dirName}`;
+        if (newPath === currentPath) {
+            return;
+        }
+        
         // Clear any displayed file content when navigating
         if (lastFileContainer && lastFileContainer.parentNode) {
             lastFileContainer.parentNode.removeChild(lastFileContainer);
             lastFileContainer = null;
         }
         
-        if (currentPath === '~') {
-            currentPath = `~/${dirName}`;
-        } else {
-            currentPath = `${currentPath}/${dirName}`;
-        }
+        currentPath = newPath;
         addLine(`${getPromptString()} cd ${dirName}`, 'terminal-line terminal-prompt-line');
         addLine('');
         addLine(`${getPromptString()} ls`, 'terminal-line terminal-prompt-line');
