@@ -548,13 +548,36 @@ Type 'cat about.txt' to learn more about me.
         terminalOutput.appendChild(prompt);
         
         const input = prompt.querySelector('.terminal-input');
-        // Completely hide browser's native cursor
+        
+        // Create a hidden overlay to capture input while showing text separately
+        const textDisplay = document.createElement('span');
+        textDisplay.className = 'terminal-input-display';
+        textDisplay.style.color = 'var(--terminal-text)';
+        textDisplay.style.pointerEvents = 'none';
+        input.parentNode.insertBefore(textDisplay, input.nextSibling);
+        
+        // Completely hide the actual input
+        input.style.position = 'absolute';
+        input.style.left = '-9999px';
+        input.style.width = '1px';
+        input.style.height = '1px';
+        input.style.opacity = '0';
         input.style.caretColor = 'transparent';
         input.style.color = 'transparent';
-        input.style.textShadow = `0 0 0 var(--terminal-text)`;
+        
+        // Sync display with input
+        const updateDisplay = () => {
+            textDisplay.textContent = input.textContent;
+        };
+        
+        input.addEventListener('input', updateDisplay);
+        input.addEventListener('keydown', () => {
+            setTimeout(updateDisplay, 0);
+        });
+        
         input.focus();
         
-        this.setupInputEvents(input, prompt);
+        this.setupInputEvents(input, prompt, textDisplay);
     }
 
     getPromptString() {
@@ -563,7 +586,7 @@ Type 'cat about.txt' to learn more about me.
         return `${user}:${path}$ `;
     }
 
-    setupInputEvents(input, promptLine) {
+    setupInputEvents(input, promptLine, textDisplay = null) {
         input.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
                 e.preventDefault();
@@ -599,8 +622,10 @@ Type 'cat about.txt' to learn more about me.
             // Keep cursor visible when typing
             const cursor = promptLine.querySelector('.terminal-cursor');
             if (cursor) cursor.style.display = 'inline-block';
-            // Ensure text shadow is applied
-            input.style.textShadow = `0 0 0 var(--terminal-text)`;
+            // Update display if it exists
+            if (textDisplay) {
+                textDisplay.textContent = input.textContent;
+            }
         });
         
         // Prevent paste issues
@@ -624,12 +649,16 @@ Type 'cat about.txt' to learn more about me.
             } else {
                 this.historyIndex = -1;
                 input.textContent = '';
+                const textDisplay = input.parentNode.querySelector('.terminal-input-display');
+                if (textDisplay) textDisplay.textContent = '';
                 return;
             }
         }
         
         if (this.historyIndex >= 0 && this.historyIndex < this.history.length) {
             input.textContent = this.history[this.historyIndex];
+            const textDisplay = input.parentNode.querySelector('.terminal-input-display');
+            if (textDisplay) textDisplay.textContent = this.history[this.historyIndex];
             this.updateCursor(input.closest('.terminal-line'));
         }
     }
@@ -717,13 +746,16 @@ Type 'cat about.txt' to learn more about me.
         
         const inputEl = promptLine.querySelector('.terminal-input');
         const cursorEl = promptLine.querySelector('.terminal-cursor');
+        const textDisplay = promptLine.querySelector('.terminal-input-display');
         
         // Disable input and show the text properly
         if (inputEl) {
             inputEl.contentEditable = 'false';
             inputEl.style.caretColor = 'transparent';
-            inputEl.style.color = 'var(--terminal-text)';
-            inputEl.style.textShadow = 'none';
+        }
+        if (textDisplay) {
+            textDisplay.textContent = inputEl ? inputEl.textContent : '';
+            textDisplay.style.color = 'var(--terminal-text)';
         }
         if (cursorEl) cursorEl.style.display = 'none';
         
