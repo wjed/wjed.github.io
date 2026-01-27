@@ -77,11 +77,11 @@ body {
 }
 
 .terminal-input-hidden {
-    position: fixed !important;
-    left: -99999px !important;
-    top: -99999px !important;
-    width: 1px !important;
-    height: 1px !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
     opacity: 0 !important;
     caret-color: transparent !important;
     -webkit-appearance: none !important;
@@ -92,16 +92,14 @@ body {
     outline: none !important;
     padding: 0 !important;
     margin: 0 !important;
-    z-index: -9999 !important;
+    z-index: 1 !important;
     pointer-events: auto !important;
     color: transparent !important;
     text-shadow: none !important;
     -webkit-text-fill-color: transparent !important;
-    font-size: 0 !important;
-    line-height: 0 !important;
-    visibility: hidden !important;
-    clip: rect(0, 0, 0, 0) !important;
-    clip-path: inset(50%) !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+    font-family: inherit !important;
 }
 
 .terminal-input-hidden:focus {
@@ -183,6 +181,14 @@ body {
     margin-bottom: 0;
     min-height: 1.6em;
     isolation: isolate;
+}
+
+.terminal-prompt-line .terminal-input-hidden {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .terminal-prompt-line .terminal-prompt {
