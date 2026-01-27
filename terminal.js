@@ -790,10 +790,9 @@ PWD=${this.currentPath}`;
     clear() {
         const terminalOutput = this.container.querySelector('.terminal-output');
         terminalOutput.innerHTML = '';
-        // Create a new prompt after clearing
-        setTimeout(() => {
-            this.createPrompt();
-        }, 10);
+        // Create a new prompt after clearing and scroll to top
+        this.createPrompt();
+        this.container.scrollTop = 0;
         return '';
     }
 
@@ -827,10 +826,9 @@ PWD=${this.currentPath}`;
         // Remove any existing prompts with cursors
         const existingPrompts = this.container.querySelectorAll('.terminal-prompt-line');
         existingPrompts.forEach(p => {
-            const input = p.querySelector('.terminal-input');
-            if (input && input.contentEditable === 'true') {
-                input.contentEditable = 'false';
-                input.style.caretColor = 'transparent';
+            const input = p.querySelector('.terminal-input-hidden');
+            if (input && !input.disabled) {
+                input.disabled = true;
                 const cursor = p.querySelector('.terminal-cursor');
                 if (cursor) cursor.style.display = 'none';
             }
@@ -862,12 +860,14 @@ PWD=${this.currentPath}`;
         });
         input.addEventListener('keyup', updateDisplay);
         
-        // Focus the hidden input
-        setTimeout(() => {
+        // Focus the hidden input immediately
+        requestAnimationFrame(() => {
             input.focus();
-        }, 10);
+        });
         
         this.setupInputEvents(input, prompt, textDisplay);
+        
+        return prompt;
     }
 
     getPromptString() {
@@ -1007,9 +1007,21 @@ PWD=${this.currentPath}`;
                     
                     this.updateCursor(input.closest('.terminal-line'));
                 } else if (matches.length > 1) {
-                    // Show all matches
+                    // Show all matches but don't clear - just display them
+                    const currentText = input.value;
                     this.appendOutput(matches.join('  '), 'output');
-                    this.createPrompt();
+                    // Re-create prompt with current text preserved
+                    const promptLine = input.closest('.terminal-prompt-line');
+                    if (promptLine) {
+                        const newPrompt = this.createPrompt();
+                        const newInput = newPrompt.querySelector('.terminal-input-hidden');
+                        const newDisplay = newPrompt.querySelector('.terminal-input-display');
+                        if (newInput && newDisplay) {
+                            newInput.value = currentText;
+                            newDisplay.textContent = currentText;
+                        }
+                    }
+                    return;
                 }
             }
         }
@@ -1094,19 +1106,31 @@ PWD=${this.currentPath}`;
     }
 
     scrollToBottom() {
-        // Don't auto-scroll - let user scroll naturally like a real terminal
-        // Only scroll if user is already at bottom
-        const isAtBottom = this.container.scrollHeight - this.container.scrollTop <= this.container.clientHeight + 50;
-        if (isAtBottom) {
-            requestAnimationFrame(() => {
-                this.container.scrollTop = this.container.scrollHeight;
-            });
-        }
+        // Never auto-scroll - let user control scrolling like a real terminal
+        // Only scroll on explicit clear command
+        return;
     }
 
     setupEventListeners() {
-        this.container.addEventListener('click', () => {
-            const activeInput = this.container.querySelector('.terminal-input[contenteditable="true"]');
+        // Re-focus when clicking on terminal
+        this.container.addEventListener('click', (e) => {
+            // Don't refocus if clicking on a disabled prompt
+            if (e.target.closest('.terminal-prompt-line')) {
+                const input = e.target.closest('.terminal-prompt-line').querySelector('.terminal-input-hidden');
+                if (input && !input.disabled) {
+                    input.focus();
+                }
+            } else {
+                const activeInput = this.container.querySelector('.terminal-input-hidden:not([disabled])');
+                if (activeInput) {
+                    activeInput.focus();
+                }
+            }
+        });
+        
+        // Re-focus when window regains focus
+        window.addEventListener('focus', () => {
+            const activeInput = this.container.querySelector('.terminal-input-hidden:not([disabled])');
             if (activeInput) {
                 activeInput.focus();
             }
