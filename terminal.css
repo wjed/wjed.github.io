@@ -47,6 +47,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    scroll-snap-type: none;
 }
 
 .terminal-output {
@@ -55,7 +56,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0;
-    min-height: 100%;
+    min-height: fit-content;
 }
 
 .terminal-line {

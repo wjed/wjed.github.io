@@ -1062,7 +1062,7 @@ PWD=${this.currentPath}`;
         
         // Only create new prompt if not cleared (clear creates its own)
         if (command !== 'clear') {
-            // Create prompt immediately without auto-scrolling
+            // Create prompt immediately - no scrolling, no delays
             this.createPrompt();
         }
     }
@@ -1080,8 +1080,7 @@ PWD=${this.currentPath}`;
         outputLine.textContent = text;
         terminalOutput.appendChild(outputLine);
         
-        // Scroll immediately after appending
-        this.scrollToBottom();
+        // Never auto-scroll - let user control scrolling
     }
 
     updateCursor(promptLine) {
@@ -1095,8 +1094,8 @@ PWD=${this.currentPath}`;
     }
 
     scrollToBottom() {
-        // Never auto-scroll - let user control scrolling like a real terminal
-        // Only scroll on explicit clear command
+        // Never auto-scroll - user controls scrolling manually
+        // This function is kept for compatibility but does nothing
         return;
     }
 
