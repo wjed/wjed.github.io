@@ -443,6 +443,10 @@ keyboard shortcuts:
     clear() {
         const terminalOutput = this.container.querySelector('.terminal-output');
         terminalOutput.innerHTML = '';
+        // Create a new prompt after clearing
+        setTimeout(() => {
+            this.createPrompt();
+        }, 10);
         return '';
     }
 
@@ -479,18 +483,31 @@ Type 'cat about.txt' to learn more about me.
     }
 
     createPrompt() {
+        // Remove any existing prompts with cursors
+        const existingPrompts = this.container.querySelectorAll('.terminal-line:has(.terminal-cursor)');
+        existingPrompts.forEach(p => {
+            const input = p.querySelector('.terminal-input');
+            if (input && input.contentEditable === 'true') {
+                input.contentEditable = 'false';
+                const cursor = p.querySelector('.terminal-cursor');
+                if (cursor) cursor.style.display = 'none';
+            }
+        });
+        
         const prompt = document.createElement('div');
-        prompt.className = 'terminal-line';
+        prompt.className = 'terminal-line terminal-prompt-line';
         prompt.innerHTML = `
             <span class="terminal-prompt">${this.getPromptString()}</span>
             <span class="terminal-input" contenteditable="true" spellcheck="false"></span>
-            <span class="terminal-cursor">█</span>
+            <span class="terminal-cursor"></span>
         `;
         
         const terminalOutput = this.container.querySelector('.terminal-output');
         terminalOutput.appendChild(prompt);
         
         const input = prompt.querySelector('.terminal-input');
+        // Hide browser's native cursor
+        input.style.caretColor = 'transparent';
         input.focus();
         
         this.setupInputEvents(input, prompt);
@@ -506,21 +523,45 @@ Type 'cat about.txt' to learn more about me.
         input.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
                 e.preventDefault();
+                e.stopPropagation();
                 this.executeCommand(input.textContent.trim(), promptLine);
             } else if (e.key === 'ArrowUp') {
                 e.preventDefault();
+                e.stopPropagation();
                 this.navigateHistory(-1, input);
             } else if (e.key === 'ArrowDown') {
                 e.preventDefault();
+                e.stopPropagation();
                 this.navigateHistory(1, input);
             } else if (e.key === 'Tab') {
                 e.preventDefault();
+                e.stopPropagation();
                 this.handleTabCompletion(input);
+            } else if (e.key === 'Backspace' || e.key === 'Delete') {
+                // Allow normal backspace/delete
+            } else if (e.ctrlKey && e.key === 'c') {
+                // Allow Ctrl+C
+            } else {
+                // Prevent other special keys from causing issues
+                if (e.key.length === 1 || e.key === 'Backspace' || e.key === 'Delete') {
+                    // Allow printable characters
+                } else {
+                    e.preventDefault();
+                }
             }
         });
         
-        input.addEventListener('input', () => {
-            this.updateCursor(promptLine);
+        input.addEventListener('input', (e) => {
+            // Keep cursor visible when typing
+            const cursor = promptLine.querySelector('.terminal-cursor');
+            if (cursor) cursor.style.display = 'inline-block';
+        });
+        
+        // Prevent paste issues
+        input.addEventListener('paste', (e) => {
+            e.preventDefault();
+            const text = (e.clipboardData || window.clipboardData).getData('text');
+            document.execCommand('insertText', false, text);
         });
     }
 
@@ -597,7 +638,11 @@ Type 'cat about.txt' to learn more about me.
         const inputEl = promptLine.querySelector('.terminal-input');
         const cursorEl = promptLine.querySelector('.terminal-cursor');
         
-        if (inputEl) inputEl.contentEditable = 'false';
+        // Disable input and hide cursor
+        if (inputEl) {
+            inputEl.contentEditable = 'false';
+            inputEl.style.caretColor = 'transparent';
+        }
         if (cursorEl) cursorEl.style.display = 'none';
         
         let output = '';
@@ -616,8 +661,11 @@ Type 'cat about.txt' to learn more about me.
             this.appendOutput(output, 'output');
         }
         
+        // Only create new prompt if not cleared (clear creates its own)
         if (command !== 'clear') {
-            this.createPrompt();
+            setTimeout(() => {
+                this.createPrompt();
+            }, 10);
         }
     }
 
@@ -627,13 +675,17 @@ Type 'cat about.txt' to learn more about me.
         outputLine.className = `terminal-line terminal-${type}`;
         
         // Check if output contains error messages
-        if (text.includes('not found') || text.includes('cannot access') || text.includes('error:')) {
+        if (text.includes('not found') || text.includes('cannot access') || text.includes('error:') || text.includes('missing')) {
             outputLine.style.color = 'var(--terminal-red)';
         }
         
         outputLine.textContent = text;
         terminalOutput.appendChild(outputLine);
-        this.scrollToBottom();
+        
+        // Small delay to ensure DOM is updated
+        setTimeout(() => {
+            this.scrollToBottom();
+        }, 10);
     }
 
     updateCursor(promptLine) {
