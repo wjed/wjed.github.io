@@ -80,56 +80,36 @@ body {
     user-select: none;
 }
 
-.terminal-input {
-    outline: none !important;
+.terminal-input-hidden {
+    position: absolute !important;
+    left: -99999px !important;
+    top: -99999px !important;
+    width: 1px !important;
+    height: 1px !important;
+    opacity: 0 !important;
+    caret-color: transparent !important;
+    background: transparent !important;
     border: none !important;
-    background: transparent !important;
-    font-family: inherit;
-    font-size: inherit;
-    min-width: 1ch;
-    display: inline-block;
-    padding: 0;
-    margin: 0;
-    vertical-align: baseline;
-    caret-color: transparent !important;
-    -webkit-text-fill-color: transparent !important;
+    outline: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    z-index: -1 !important;
+    pointer-events: auto !important;
     color: transparent !important;
-    text-shadow: none !important;
-    position: absolute;
-    left: -99999px;
-    top: -99999px;
-    width: 1px;
-    height: 1px;
-    opacity: 0;
-    z-index: -1;
-    pointer-events: auto;
 }
 
-.terminal-input:empty::before {
-    content: '\200b';
-}
-
-.terminal-input:focus {
+.terminal-input-hidden:focus {
     outline: none !important;
     caret-color: transparent !important;
-    -webkit-text-fill-color: transparent !important;
-    color: transparent !important;
-    text-shadow: none !important;
-    box-shadow: none !important;
     background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
-.terminal-input:focus-visible {
+.terminal-input-hidden:focus-visible {
     outline: none !important;
     caret-color: transparent !important;
     box-shadow: none !important;
-    background: transparent !important;
-}
-
-.terminal-input[contenteditable="false"] {
-    color: transparent !important;
-    text-shadow: none !important;
-    -webkit-text-fill-color: transparent !important;
 }
 
 .terminal-cursor {

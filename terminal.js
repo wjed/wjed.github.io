@@ -840,39 +840,20 @@ PWD=${this.currentPath}`;
         prompt.className = 'terminal-line terminal-prompt-line';
         prompt.innerHTML = `
             <span class="terminal-prompt">${this.getPromptString()}</span>
-            <span class="terminal-input" contenteditable="true" spellcheck="false"></span>
+            <span class="terminal-input-display"></span>
             <span class="terminal-cursor"></span>
+            <input type="text" class="terminal-input-hidden" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
         `;
         
         const terminalOutput = this.container.querySelector('.terminal-output');
         terminalOutput.appendChild(prompt);
         
-        const input = prompt.querySelector('.terminal-input');
-        
-        // Create a visible text display overlay
-        const textDisplay = document.createElement('span');
-        textDisplay.className = 'terminal-input-display';
-        textDisplay.style.color = 'var(--terminal-text)';
-        textDisplay.style.pointerEvents = 'none';
-        input.parentNode.insertBefore(textDisplay, input.nextSibling);
-        
-        // Completely hide the actual input - position it absolutely off-screen
-        input.style.position = 'absolute';
-        input.style.left = '-99999px';
-        input.style.top = '-99999px';
-        input.style.width = '1px';
-        input.style.height = '1px';
-        input.style.opacity = '0';
-        input.style.caretColor = 'transparent';
-        input.style.color = 'transparent';
-        input.style.background = 'transparent';
-        input.style.border = 'none';
-        input.style.outline = 'none';
-        input.style.zIndex = '-1';
+        const input = prompt.querySelector('.terminal-input-hidden');
+        const textDisplay = prompt.querySelector('.terminal-input-display');
         
         // Sync display with input
         const updateDisplay = () => {
-            textDisplay.textContent = input.textContent;
+            textDisplay.textContent = input.value;
         };
         
         input.addEventListener('input', updateDisplay);
@@ -900,19 +881,19 @@ PWD=${this.currentPath}`;
             if (e.key === 'Enter') {
                 e.preventDefault();
                 e.stopPropagation();
-                this.executeCommand(input.textContent.trim(), promptLine);
+                this.executeCommand(input.value.trim(), promptLine);
             } else if (e.key === 'ArrowUp') {
                 e.preventDefault();
                 e.stopPropagation();
-                this.navigateHistory(-1, input);
+                this.navigateHistory(-1, input, textDisplay);
             } else if (e.key === 'ArrowDown') {
                 e.preventDefault();
                 e.stopPropagation();
-                this.navigateHistory(1, input);
+                this.navigateHistory(1, input, textDisplay);
             } else if (e.key === 'Tab') {
                 e.preventDefault();
                 e.stopPropagation();
-                this.handleTabCompletion(input);
+                this.handleTabCompletion(input, textDisplay);
             } else if (e.key === 'Backspace' || e.key === 'Delete') {
                 // Allow normal backspace/delete
             } else if (e.ctrlKey && e.key === 'c') {
@@ -933,7 +914,7 @@ PWD=${this.currentPath}`;
             if (cursor) cursor.style.display = 'inline-block';
             // Update display if it exists
             if (textDisplay) {
-                textDisplay.textContent = input.textContent;
+                textDisplay.textContent = input.value;
             }
         });
         
@@ -941,11 +922,12 @@ PWD=${this.currentPath}`;
         input.addEventListener('paste', (e) => {
             e.preventDefault();
             const text = (e.clipboardData || window.clipboardData).getData('text');
-            document.execCommand('insertText', false, text);
+            input.value = text;
+            if (textDisplay) textDisplay.textContent = text;
         });
     }
 
-    navigateHistory(direction, input) {
+    navigateHistory(direction, input, textDisplay) {
         if (direction === -1) {
             if (this.historyIndex === -1) {
                 this.historyIndex = this.history.length - 1;
@@ -957,23 +939,21 @@ PWD=${this.currentPath}`;
                 this.historyIndex++;
             } else {
                 this.historyIndex = -1;
-                input.textContent = '';
-                const textDisplay = input.parentNode.querySelector('.terminal-input-display');
+                input.value = '';
                 if (textDisplay) textDisplay.textContent = '';
                 return;
             }
         }
         
         if (this.historyIndex >= 0 && this.historyIndex < this.history.length) {
-            input.textContent = this.history[this.historyIndex];
-            const textDisplay = input.parentNode.querySelector('.terminal-input-display');
+            input.value = this.history[this.historyIndex];
             if (textDisplay) textDisplay.textContent = this.history[this.historyIndex];
             this.updateCursor(input.closest('.terminal-line'));
         }
     }
 
-    handleTabCompletion(input) {
-        const text = input.textContent;
+    handleTabCompletion(input, textDisplay) {
+        const text = input.value;
         const parts = text.split(' ');
         const command = parts[0];
         const lastPart = parts[parts.length - 1] || '';
@@ -1020,19 +1000,11 @@ PWD=${this.currentPath}`;
                         : match;
                     
                     const newText = parts.join(' ');
-                    input.textContent = newText;
+                    input.value = newText;
                     
                     // Update display if it exists
-                    const textDisplay = input.parentNode.querySelector('.terminal-input-display');
                     if (textDisplay) textDisplay.textContent = newText;
                     
-                    // Move cursor to end
-                    const range = document.createRange();
-                    const sel = window.getSelection();
-                    range.selectNodeContents(input);
-                    range.collapse(false);
-                    sel.removeAllRanges();
-                    sel.addRange(range);
                     this.updateCursor(input.closest('.terminal-line'));
                 } else if (matches.length > 1) {
                     // Show all matches
@@ -1128,10 +1100,14 @@ PWD=${this.currentPath}`;
     }
 
     scrollToBottom() {
-        // Use requestAnimationFrame for smooth scrolling
-        requestAnimationFrame(() => {
-            this.container.scrollTop = this.container.scrollHeight;
-        });
+        // Don't auto-scroll - let user scroll naturally like a real terminal
+        // Only scroll if user is already at bottom
+        const isAtBottom = this.container.scrollHeight - this.container.scrollTop <= this.container.clientHeight + 50;
+        if (isAtBottom) {
+            requestAnimationFrame(() => {
+                this.container.scrollTop = this.container.scrollHeight;
+            });
+        }
     }
 
     setupEventListeners() {
