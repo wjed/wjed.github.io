@@ -860,9 +860,16 @@ PWD=${this.currentPath}`;
         });
         input.addEventListener('keyup', updateDisplay);
         
-        // Focus the input immediately
-        requestAnimationFrame(() => {
+        // Focus the input immediately - try multiple methods
+        setTimeout(() => {
             input.focus();
+        }, 10);
+        
+        // Also try clicking on the prompt line to focus
+        prompt.addEventListener('click', (e) => {
+            if (e.target !== input) {
+                input.focus();
+            }
         });
         
         this.setupInputEvents(input, prompt, textDisplay);

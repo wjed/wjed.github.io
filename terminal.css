@@ -82,7 +82,7 @@ body {
     top: 0 !important;
     width: 100% !important;
     height: 100% !important;
-    opacity: 0.01 !important;
+    opacity: 0 !important;
     caret-color: transparent !important;
     -webkit-appearance: none !important;
     -moz-appearance: none !important;
@@ -111,7 +111,7 @@ body {
     border: none !important;
     box-shadow: none !important;
     color: transparent !important;
-    visibility: hidden !important;
+    opacity: 0 !important;
 }
 
 .terminal-input-hidden:focus-visible {
@@ -119,12 +119,12 @@ body {
     caret-color: transparent !important;
     box-shadow: none !important;
     background: transparent !important;
-    visibility: hidden !important;
+    opacity: 0 !important;
 }
 
 .terminal-input-hidden:focus-within {
     caret-color: transparent !important;
-    visibility: hidden !important;
+    opacity: 0 !important;
 }
 
 .terminal-input-hidden::selection {
