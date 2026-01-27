@@ -323,6 +323,12 @@ other emails:
     };
     
     const navigateTo = (dirName) => {
+        // Clear any displayed file content when navigating
+        if (lastFileContainer && lastFileContainer.parentNode) {
+            lastFileContainer.parentNode.removeChild(lastFileContainer);
+            lastFileContainer = null;
+        }
+        
         if (currentPath === '~') {
             currentPath = `~/${dirName}`;
         } else {
@@ -337,6 +343,13 @@ other emails:
     
     const navigateUp = () => {
         if (currentPath === '~') return;
+        
+        // Clear any displayed file content when navigating up
+        if (lastFileContainer && lastFileContainer.parentNode) {
+            lastFileContainer.parentNode.removeChild(lastFileContainer);
+            lastFileContainer = null;
+        }
+        
         const parts = currentPath.replace('~/', '').split('/');
         parts.pop();
         currentPath = parts.length === 0 ? '~' : `~/${parts.join('/')}`;
