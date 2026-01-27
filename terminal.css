@@ -70,7 +70,7 @@ body {
     word-break: break-word;
 }
 
-.terminal-prompt {
+.terminal-prompt-line {
     color: var(--terminal-blue);
     font-weight: 500;
     user-select: none;
@@ -174,14 +174,10 @@ body {
 }
 
 .terminal-prompt-line {
-    display: flex;
-    align-items: baseline;
-    flex-wrap: nowrap;
+    display: block;
     width: 100%;
-    position: relative;
     margin-bottom: 0;
     min-height: 1.6em;
-    isolation: isolate;
 }
 
 .terminal-prompt-line .terminal-prompt {
