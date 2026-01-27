@@ -387,14 +387,10 @@ other emails:
         
         terminalOutput.appendChild(lastFileContainer);
         
-        // Scroll to show the file content, but don't force to absolute bottom
-        const terminal = document.getElementById('terminal');
-        const containerRect = lastFileContainer.getBoundingClientRect();
-        const terminalRect = terminal.getBoundingClientRect();
-        
-        if (containerRect.bottom > terminalRect.bottom || containerRect.top < terminalRect.top) {
+        // Scroll to show the file content smoothly, but don't force to absolute bottom
+        requestAnimationFrame(() => {
             lastFileContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
+        });
     };
     
     // Initial display
