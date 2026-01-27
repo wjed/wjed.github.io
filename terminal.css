@@ -68,6 +68,32 @@ html, body {
     min-height: 1.6em;
 }
 
+.terminal-ls-output {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.terminal-dir {
+    color: var(--terminal-blue);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.terminal-dir:hover {
+    color: var(--terminal-cyan);
+}
+
+.terminal-file {
+    color: var(--terminal-text);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.terminal-file:hover {
+    color: var(--terminal-green);
+}
+
 /* Scrollbar styling */
 #terminal::-webkit-scrollbar {
     width: 10px;
