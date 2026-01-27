@@ -1028,20 +1028,20 @@ PWD=${this.currentPath}`;
         const command = parts[0].toLowerCase();
         const args = parts.slice(1);
         
-        const inputEl = promptLine.querySelector('.terminal-input');
+        const inputEl = promptLine.querySelector('.terminal-input-hidden');
         const cursorEl = promptLine.querySelector('.terminal-cursor');
         const textDisplay = promptLine.querySelector('.terminal-input-display');
         
         // Disable input and show the text properly
         if (inputEl) {
-            inputEl.contentEditable = 'false';
+            inputEl.disabled = true;
             inputEl.style.caretColor = 'transparent';
         }
+        if (cursorEl) cursorEl.style.display = 'none';
         if (textDisplay) {
-            textDisplay.textContent = inputEl ? inputEl.textContent : '';
+            textDisplay.textContent = inputEl ? inputEl.value : '';
             textDisplay.style.color = 'var(--terminal-text)';
         }
-        if (cursorEl) cursorEl.style.display = 'none';
         
         let output = '';
         
@@ -1061,14 +1061,8 @@ PWD=${this.currentPath}`;
         
         // Only create new prompt if not cleared (clear creates its own)
         if (command !== 'clear') {
-            // Use requestAnimationFrame to ensure DOM is updated before creating prompt
-            requestAnimationFrame(() => {
-                this.createPrompt();
-                // Scroll after prompt is created
-                setTimeout(() => {
-                    this.scrollToBottom();
-                }, 0);
-            });
+            // Create prompt immediately without auto-scrolling
+            this.createPrompt();
         }
     }
 
