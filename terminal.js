@@ -840,7 +840,7 @@ PWD=${this.currentPath}`;
             <span class="terminal-prompt">${this.getPromptString()}</span>
             <span class="terminal-input-display"></span>
             <span class="terminal-cursor"></span>
-            <input type="text" class="terminal-input-hidden" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="-1" />
+            <input type="text" class="terminal-input-hidden" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
         `;
         
         const terminalOutput = this.container.querySelector('.terminal-output');
@@ -849,13 +849,9 @@ PWD=${this.currentPath}`;
         const input = prompt.querySelector('.terminal-input-hidden');
         const textDisplay = prompt.querySelector('.terminal-input-display');
         
-        // Store current input value
-        let currentInput = '';
-        
         // Sync display with input
         const updateDisplay = () => {
-            currentInput = input.value;
-            textDisplay.textContent = currentInput;
+            textDisplay.textContent = input.value;
         };
         
         input.addEventListener('input', updateDisplay);
@@ -864,34 +860,10 @@ PWD=${this.currentPath}`;
         });
         input.addEventListener('keyup', updateDisplay);
         
-        // Make input completely invisible and unfocusable visually
-        input.style.cssText = `
-            position: absolute !important;
-            left: 0 !important;
-            top: 0 !important;
-            width: 100% !important;
-            height: 100% !important;
-            opacity: 0 !important;
-            caret-color: transparent !important;
-            background: transparent !important;
-            border: none !important;
-            outline: none !important;
-            padding: 0 !important;
-            margin: 0 !important;
-            z-index: 1 !important;
-            pointer-events: auto !important;
-            color: transparent !important;
-            text-shadow: none !important;
-            -webkit-text-fill-color: transparent !important;
-            font-size: inherit !important;
-            line-height: inherit !important;
-            font-family: inherit !important;
-        `;
-        
-        // Focus the hidden input immediately
-        setTimeout(() => {
+        // Focus the input immediately
+        requestAnimationFrame(() => {
             input.focus();
-        }, 0);
+        });
         
         this.setupInputEvents(input, prompt, textDisplay);
         
