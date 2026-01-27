@@ -861,9 +861,9 @@ PWD=${this.currentPath}`;
         input.addEventListener('keyup', updateDisplay);
         
         // Focus the hidden input immediately
-        requestAnimationFrame(() => {
+        setTimeout(() => {
             input.focus();
-        });
+        }, 0);
         
         this.setupInputEvents(input, prompt, textDisplay);
         
@@ -1103,6 +1103,8 @@ PWD=${this.currentPath}`;
     setupEventListeners() {
         // Re-focus when clicking on terminal
         this.container.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
             // Don't refocus if clicking on a disabled prompt
             if (e.target.closest('.terminal-prompt-line')) {
                 const input = e.target.closest('.terminal-prompt-line').querySelector('.terminal-input-hidden');
@@ -1115,13 +1117,23 @@ PWD=${this.currentPath}`;
                     activeInput.focus();
                 }
             }
-        });
+        }, true);
         
         // Re-focus when window regains focus
         window.addEventListener('focus', () => {
             const activeInput = this.container.querySelector('.terminal-input-hidden:not([disabled])');
             if (activeInput) {
-                activeInput.focus();
+                setTimeout(() => activeInput.focus(), 0);
+            }
+        });
+        
+        // Re-focus on visibility change
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden) {
+                const activeInput = this.container.querySelector('.terminal-input-hidden:not([disabled])');
+                if (activeInput) {
+                    setTimeout(() => activeInput.focus(), 0);
+                }
             }
         });
     }
