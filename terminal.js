@@ -258,7 +258,11 @@ other emails:
     
     const scrollToBottom = () => {
         const terminal = document.getElementById('terminal');
-        terminal.scrollTop = terminal.scrollHeight;
+        // Only scroll if user is near the bottom (within 100px)
+        const isNearBottom = terminal.scrollHeight - terminal.scrollTop - terminal.clientHeight < 100;
+        if (isNearBottom) {
+            terminal.scrollTop = terminal.scrollHeight;
+        }
     };
     
     const showDirectory = () => {
@@ -343,9 +347,7 @@ other emails:
         showDirectory();
     };
     
-    let lastFileContentLine = null;
-    let lastFilePromptLine = null;
-    let lastFileEmptyLine = null;
+    let lastFileContainer = null;
     
     const showFile = (fileName) => {
         const dir = getDirectoryAtPath(currentPath);
@@ -354,39 +356,45 @@ other emails:
             return;
         }
         
-        // Remove previous file content if it exists
-        if (lastFileContentLine && lastFileContentLine.parentNode) {
-            lastFileContentLine.parentNode.removeChild(lastFileContentLine);
-        }
-        if (lastFilePromptLine && lastFilePromptLine.parentNode) {
-            lastFilePromptLine.parentNode.removeChild(lastFilePromptLine);
-        }
-        if (lastFileEmptyLine && lastFileEmptyLine.parentNode) {
-            lastFileEmptyLine.parentNode.removeChild(lastFileEmptyLine);
+        // Remove previous file content container if it exists
+        if (lastFileContainer && lastFileContainer.parentNode) {
+            lastFileContainer.parentNode.removeChild(lastFileContainer);
         }
         
-        // Add new file content
-        lastFilePromptLine = document.createElement('div');
-        lastFilePromptLine.className = 'terminal-line terminal-prompt-line';
-        lastFilePromptLine.textContent = `${getPromptString()} cat ${fileName}`;
-        terminalOutput.appendChild(lastFilePromptLine);
+        // Create container for file content (prompt + empty line + content + empty line)
+        lastFileContainer = document.createElement('div');
+        lastFileContainer.style.marginBottom = '0';
         
-        lastFileEmptyLine = document.createElement('div');
-        lastFileEmptyLine.className = 'terminal-line';
-        lastFileEmptyLine.textContent = '';
-        terminalOutput.appendChild(lastFileEmptyLine);
+        const promptLine = document.createElement('div');
+        promptLine.className = 'terminal-line terminal-prompt-line';
+        promptLine.textContent = `${getPromptString()} cat ${fileName}`;
+        lastFileContainer.appendChild(promptLine);
         
-        lastFileContentLine = document.createElement('div');
-        lastFileContentLine.className = 'terminal-line';
-        lastFileContentLine.textContent = dir.contents[fileName].content;
-        terminalOutput.appendChild(lastFileContentLine);
+        const emptyLine1 = document.createElement('div');
+        emptyLine1.className = 'terminal-line';
+        emptyLine1.textContent = '';
+        lastFileContainer.appendChild(emptyLine1);
         
-        const emptyLineAfter = document.createElement('div');
-        emptyLineAfter.className = 'terminal-line';
-        emptyLineAfter.textContent = '';
-        terminalOutput.appendChild(emptyLineAfter);
+        const contentLine = document.createElement('div');
+        contentLine.className = 'terminal-line';
+        contentLine.textContent = dir.contents[fileName].content;
+        lastFileContainer.appendChild(contentLine);
         
-        scrollToBottom();
+        const emptyLine2 = document.createElement('div');
+        emptyLine2.className = 'terminal-line';
+        emptyLine2.textContent = '';
+        lastFileContainer.appendChild(emptyLine2);
+        
+        terminalOutput.appendChild(lastFileContainer);
+        
+        // Scroll to show the file content, but don't force to absolute bottom
+        const terminal = document.getElementById('terminal');
+        const containerRect = lastFileContainer.getBoundingClientRect();
+        const terminalRect = terminal.getBoundingClientRect();
+        
+        if (containerRect.bottom > terminalRect.bottom || containerRect.top < terminalRect.top) {
+            lastFileContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
     };
     
     // Initial display
