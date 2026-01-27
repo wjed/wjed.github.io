@@ -71,7 +71,7 @@ body {
 }
 
 .terminal-prompt {
-    color: var(--terminal-green);
+    color: var(--terminal-blue);
     font-weight: 500;
     user-select: none;
 }
@@ -99,6 +99,9 @@ body {
     -webkit-text-fill-color: transparent !important;
     font-size: 0 !important;
     line-height: 0 !important;
+    visibility: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    clip-path: inset(50%) !important;
 }
 
 .terminal-input-hidden:focus {
@@ -109,6 +112,7 @@ body {
     border: none !important;
     box-shadow: none !important;
     color: transparent !important;
+    visibility: hidden !important;
 }
 
 .terminal-input-hidden:focus-visible {
@@ -116,6 +120,12 @@ body {
     caret-color: transparent !important;
     box-shadow: none !important;
     background: transparent !important;
+    visibility: hidden !important;
+}
+
+.terminal-input-hidden:focus-within {
+    caret-color: transparent !important;
+    visibility: hidden !important;
 }
 
 .terminal-input-hidden::selection {
@@ -125,6 +135,15 @@ body {
 
 .terminal-input-hidden::-moz-selection {
     background: transparent !important;
+    color: transparent !important;
+}
+
+/* Completely hide any browser caret indicators */
+.terminal-input-hidden::-webkit-input-placeholder {
+    color: transparent !important;
+}
+
+.terminal-input-hidden::placeholder {
     color: transparent !important;
 }
 
