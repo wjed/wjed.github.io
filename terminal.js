@@ -286,7 +286,24 @@ keyboard shortcuts:
             'history': () => this.showHistory(),
             'exit': () => this.exit(),
             'echo': (args) => this.echo(args),
-            'date': () => this.date()
+            'date': () => this.date(),
+            'grep': (args) => this.grep(args),
+            'find': (args) => this.find(args),
+            'head': (args) => this.head(args),
+            'tail': (args) => this.tail(args),
+            'wc': (args) => this.wc(args),
+            'mkdir': (args) => this.mkdir(args),
+            'touch': (args) => this.touch(args),
+            'rm': (args) => this.rm(args),
+            'mv': (args) => this.mv(args),
+            'cp': (args) => this.cp(args),
+            'uname': (args) => this.uname(args),
+            'uptime': () => this.uptime(),
+            'who': () => this.who(),
+            'id': () => this.id(),
+            'env': () => this.env(),
+            'which': (args) => this.which(args),
+            'type': (args) => this.type(args)
         };
     }
     
@@ -296,6 +313,295 @@ keyboard shortcuts:
     
     date() {
         return new Date().toString();
+    }
+    
+    grep(args) {
+        if (args.length < 2) {
+            return 'grep: missing pattern or file';
+        }
+        
+        const pattern = args[0];
+        const filename = args.slice(1).join(' ');
+        
+        // Get file content
+        let content = '';
+        if (filename.includes('/')) {
+            const resolvedPath = this.resolvePath(filename);
+            if (resolvedPath === null) {
+                return `grep: ${filename}: No such file or directory`;
+            }
+            const pathParts = resolvedPath.split('/');
+            const file = pathParts[pathParts.length - 1];
+            const dirPath = pathParts.slice(0, -1).join('/') || '~';
+            const dir = this.getDirectoryAtPath(dirPath);
+            if (!dir || !dir.contents || !dir.contents[file]) {
+                return `grep: ${filename}: No such file or directory`;
+            }
+            const fileObj = dir.contents[file];
+            if (fileObj.type !== 'file') {
+                return `grep: ${filename}: Is a directory`;
+            }
+            content = fileObj.content;
+        } else {
+            const currentDir = this.getCurrentDirectory();
+            if (!currentDir || !currentDir.contents || !currentDir.contents[filename]) {
+                return `grep: ${filename}: No such file or directory`;
+            }
+            const file = currentDir.contents[filename];
+            if (file.type !== 'file') {
+                return `grep: ${filename}: Is a directory`;
+            }
+            content = file.content;
+        }
+        
+        // Search for pattern (case-insensitive)
+        const regex = new RegExp(pattern, 'gi');
+        const lines = content.split('\n');
+        const matches = lines.filter(line => regex.test(line));
+        
+        return matches.length > 0 ? matches.join('\n') : '';
+    }
+    
+    find(args) {
+        if (args.length === 0) {
+            return 'find: missing path';
+        }
+        
+        const searchPath = args[0];
+        const namePattern = args.length > 1 ? args[args.length - 1] : null;
+        
+        const resolvedPath = this.resolvePath(searchPath);
+        if (resolvedPath === null) {
+            return `find: ${searchPath}: No such file or directory`;
+        }
+        
+        const results = [];
+        this.findRecursive(this.getDirectoryAtPath(resolvedPath), resolvedPath, namePattern, results);
+        
+        return results.length > 0 ? results.join('\n') : '';
+    }
+    
+    findRecursive(dir, currentPath, pattern, results) {
+        if (!dir || !dir.contents) return;
+        
+        for (const [name, obj] of Object.entries(dir.contents)) {
+            const fullPath = currentPath === '~' ? `~/${name}` : `${currentPath}/${name}`;
+            
+            if (!pattern || name.includes(pattern)) {
+                results.push(fullPath);
+            }
+            
+            if (obj.type === 'directory') {
+                this.findRecursive(obj, fullPath, pattern, results);
+            }
+        }
+    }
+    
+    head(args) {
+        if (args.length === 0) {
+            return 'head: missing file operand';
+        }
+        
+        const filename = args[args.length - 1];
+        const lines = args.length > 1 && args[0] === '-n' ? parseInt(args[1]) : 10;
+        
+        let content = '';
+        if (filename.includes('/')) {
+            const resolvedPath = this.resolvePath(filename);
+            if (resolvedPath === null) {
+                return `head: ${filename}: No such file or directory`;
+            }
+            const pathParts = resolvedPath.split('/');
+            const file = pathParts[pathParts.length - 1];
+            const dirPath = pathParts.slice(0, -1).join('/') || '~';
+            const dir = this.getDirectoryAtPath(dirPath);
+            if (!dir || !dir.contents || !dir.contents[file]) {
+                return `head: ${filename}: No such file or directory`;
+            }
+            const fileObj = dir.contents[file];
+            if (fileObj.type !== 'file') {
+                return `head: ${filename}: Is a directory`;
+            }
+            content = fileObj.content;
+        } else {
+            const currentDir = this.getCurrentDirectory();
+            if (!currentDir || !currentDir.contents || !currentDir.contents[filename]) {
+                return `head: ${filename}: No such file or directory`;
+            }
+            const file = currentDir.contents[filename];
+            if (file.type !== 'file') {
+                return `head: ${filename}: Is a directory`;
+            }
+            content = file.content;
+        }
+        
+        const contentLines = content.split('\n');
+        return contentLines.slice(0, lines).join('\n');
+    }
+    
+    tail(args) {
+        if (args.length === 0) {
+            return 'tail: missing file operand';
+        }
+        
+        const filename = args[args.length - 1];
+        const lines = args.length > 1 && args[0] === '-n' ? parseInt(args[1]) : 10;
+        
+        let content = '';
+        if (filename.includes('/')) {
+            const resolvedPath = this.resolvePath(filename);
+            if (resolvedPath === null) {
+                return `tail: ${filename}: No such file or directory`;
+            }
+            const pathParts = resolvedPath.split('/');
+            const file = pathParts[pathParts.length - 1];
+            const dirPath = pathParts.slice(0, -1).join('/') || '~';
+            const dir = this.getDirectoryAtPath(dirPath);
+            if (!dir || !dir.contents || !dir.contents[file]) {
+                return `tail: ${filename}: No such file or directory`;
+            }
+            const fileObj = dir.contents[file];
+            if (fileObj.type !== 'file') {
+                return `tail: ${filename}: Is a directory`;
+            }
+            content = fileObj.content;
+        } else {
+            const currentDir = this.getCurrentDirectory();
+            if (!currentDir || !currentDir.contents || !currentDir.contents[filename]) {
+                return `tail: ${filename}: No such file or directory`;
+            }
+            const file = currentDir.contents[filename];
+            if (file.type !== 'file') {
+                return `tail: ${filename}: Is a directory`;
+            }
+            content = file.content;
+        }
+        
+        const contentLines = content.split('\n');
+        return contentLines.slice(-lines).join('\n');
+    }
+    
+    wc(args) {
+        if (args.length === 0) {
+            return 'wc: missing file operand';
+        }
+        
+        const filename = args[0];
+        let content = '';
+        
+        if (filename.includes('/')) {
+            const resolvedPath = this.resolvePath(filename);
+            if (resolvedPath === null) {
+                return `wc: ${filename}: No such file or directory`;
+            }
+            const pathParts = resolvedPath.split('/');
+            const file = pathParts[pathParts.length - 1];
+            const dirPath = pathParts.slice(0, -1).join('/') || '~';
+            const dir = this.getDirectoryAtPath(dirPath);
+            if (!dir || !dir.contents || !dir.contents[file]) {
+                return `wc: ${filename}: No such file or directory`;
+            }
+            const fileObj = dir.contents[file];
+            if (fileObj.type !== 'file') {
+                return `wc: ${filename}: Is a directory`;
+            }
+            content = fileObj.content;
+        } else {
+            const currentDir = this.getCurrentDirectory();
+            if (!currentDir || !currentDir.contents || !currentDir.contents[filename]) {
+                return `wc: ${filename}: No such file or directory`;
+            }
+            const file = currentDir.contents[filename];
+            if (file.type !== 'file') {
+                return `wc: ${filename}: Is a directory`;
+            }
+            content = file.content;
+        }
+        
+        const lines = content.split('\n').length;
+        const words = content.split(/\s+/).filter(w => w).length;
+        const chars = content.length;
+        
+        return `${lines}  ${words}  ${chars} ${filename}`;
+    }
+    
+    mkdir(args) {
+        return 'mkdir: read-only filesystem';
+    }
+    
+    touch(args) {
+        return 'touch: read-only filesystem';
+    }
+    
+    rm(args) {
+        return 'rm: read-only filesystem';
+    }
+    
+    mv(args) {
+        return 'mv: read-only filesystem';
+    }
+    
+    cp(args) {
+        return 'cp: read-only filesystem';
+    }
+    
+    uname(args) {
+        const flag = args.length > 0 ? args[0] : '';
+        if (flag === '-a') {
+            return 'Linux portfolio 5.15.0 portfolio-terminal #1 SMP portfolio x86_64 GNU/Linux';
+        } else if (flag === '-s') {
+            return 'Linux';
+        } else if (flag === '-n') {
+            return 'portfolio';
+        } else if (flag === '-r') {
+            return '5.15.0';
+        } else if (flag === '-m') {
+            return 'x86_64';
+        }
+        return 'Linux';
+    }
+    
+    uptime() {
+        return 'portfolio terminal - always running';
+    }
+    
+    who() {
+        return 'will    tty1        2025-01-01 00:00 (terminal)';
+    }
+    
+    id() {
+        return 'uid=1000(will) gid=1000(will) groups=1000(will)';
+    }
+    
+    env() {
+        return `HOME=~
+USER=will
+SHELL=/bin/bash
+TERM=xterm-256color
+PATH=/usr/local/bin:/usr/bin:/bin
+PWD=${this.currentPath}`;
+    }
+    
+    which(args) {
+        if (args.length === 0) {
+            return 'which: missing command name';
+        }
+        const cmd = args[0];
+        if (this.commands[cmd]) {
+            return `/usr/bin/${cmd}`;
+        }
+        return `which: no ${cmd} in (/usr/local/bin:/usr/bin:/bin)`;
+    }
+    
+    type(args) {
+        if (args.length === 0) {
+            return 'type: missing command name';
+        }
+        const cmd = args[0];
+        if (this.commands[cmd]) {
+            return `${cmd} is a shell builtin`;
+        }
+        return `type: ${cmd}: not found`;
     }
 
     getCurrentDirectory() {
@@ -783,9 +1089,14 @@ keyboard shortcuts:
         
         // Only create new prompt if not cleared (clear creates its own)
         if (command !== 'clear') {
-            setTimeout(() => {
+            // Use requestAnimationFrame to ensure DOM is updated before creating prompt
+            requestAnimationFrame(() => {
                 this.createPrompt();
-            }, 10);
+                // Scroll after prompt is created
+                setTimeout(() => {
+                    this.scrollToBottom();
+                }, 0);
+            });
         }
     }
 
@@ -802,10 +1113,8 @@ keyboard shortcuts:
         outputLine.textContent = text;
         terminalOutput.appendChild(outputLine);
         
-        // Small delay to ensure DOM is updated
-        setTimeout(() => {
-            this.scrollToBottom();
-        }, 10);
+        // Scroll immediately after appending
+        this.scrollToBottom();
     }
 
     updateCursor(promptLine) {
@@ -819,7 +1128,10 @@ keyboard shortcuts:
     }
 
     scrollToBottom() {
-        this.container.scrollTop = this.container.scrollHeight;
+        // Use requestAnimationFrame for smooth scrolling
+        requestAnimationFrame(() => {
+            this.container.scrollTop = this.container.scrollHeight;
+        });
     }
 
     setupEventListeners() {
