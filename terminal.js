@@ -334,6 +334,11 @@ other emails:
 - william.jedrzejczak@blueskyinnovators.com
 - will.jedrzejczak@mantech.com
 - william.jedrzejczak@solvitursystems.com`
+                },
+                'imnottechnical.txt': {
+                    type: 'file',
+                    redirect: 'simple.html',
+                    content: ''
                 }
             }
         }
@@ -551,6 +556,11 @@ other emails:
         const dir = getDirectoryAtPath(currentPath);
         if (!dir || !dir.contents[fileName] || dir.contents[fileName].type !== 'file') {
             addLine(`cat: ${fileName}: No such file or directory`, 'terminal-line');
+            return;
+        }
+        const entry = dir.contents[fileName];
+        if (entry.redirect) {
+            window.location.href = entry.redirect;
             return;
         }
         
