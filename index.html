@@ -147,22 +147,52 @@
 // ─── INTRO ANIMATION ──────────────────────────────────────────────────────────
 (function() {
   const intro = document.getElementById('intro');
-  const el = document.getElementById('intro-text');
-  const text = 'will jedrzejczak.';
-  let i = 0;
-  function type() {
-    if (i < text.length) {
-      el.textContent += text[i++];
-      setTimeout(type, 72);
-    } else {
-      el.classList.add('done'); // hides cursor
+  const container = document.getElementById('intro-text');
+  const lines = [
+    'hi, welcome to my website.',
+    "i've done a lot over the years",
+    'and i needed some way to put it together',
+    'besides a resume, because those are boring...',
+  ];
+  const CHAR_MS = 42;
+  const LINE_PAUSE = 320; // pause between lines
+
+  let lineIdx = 0;
+  let activeEl = null;
+
+  function nextLine() {
+    if (lineIdx >= lines.length) {
+      // all done — hide cursor then fade out
+      if (activeEl) activeEl.classList.add('done');
       setTimeout(() => {
         intro.classList.add('fade-out');
         setTimeout(() => intro.remove(), 800);
-      }, 650);
+      }, 700);
+      return;
     }
+
+    // hide cursor on previous line
+    if (activeEl) activeEl.classList.add('done');
+
+    const span = document.createElement('span');
+    span.className = 'intro-line';
+    container.appendChild(span);
+    activeEl = span;
+
+    const text = lines[lineIdx++];
+    let i = 0;
+    function typeChar() {
+      if (i < text.length) {
+        span.textContent += text[i++];
+        setTimeout(typeChar, CHAR_MS);
+      } else {
+        setTimeout(nextLine, LINE_PAUSE);
+      }
+    }
+    typeChar();
   }
-  type();
+
+  nextLine();
 })();
 
 // ─── Q&A DATABASE ─────────────────────────────────────────────────────────────
