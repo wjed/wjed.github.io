@@ -449,31 +449,93 @@ function md(text) {
   return final.join('\n');
 }
 
-// ─── BLOCK-LEVEL STREAM ANIMATION ─────────────────────────────────────────────
-// Each block (p, h3, hr, ul) fades in sequentially — no layout glitches
+// ─── WORD-BY-WORD TYPING ANIMATION ────────────────────────────────────────────
+// Types each block sequentially, word by word, with inline blinking cursor.
 function streamHTML(element, htmlContent, onDone) {
-  element.innerHTML = htmlContent;
+  const WORD_DELAY = 36; // ms per word
+  const CURSOR_HTML = '<span class="cursor"></span>';
 
-  const MS_PER_WORD = 30;
-  const MIN_MS = 100;
-  let delay = 0;
+  const temp = document.createElement('div');
+  temp.innerHTML = htmlContent;
+  const blocks = Array.from(temp.children);
+  element.innerHTML = '';
 
-  Array.from(element.children).forEach(child => {
-    child.style.opacity = '0';
-    child.style.animation = `blockIn 0.22s ease ${delay}ms forwards`;
-    const words = child.textContent.trim().split(/\s+/).filter(Boolean).length || 1;
-    delay += Math.max(MIN_MS, words * MS_PER_WORD);
-  });
+  let blockIdx = 0;
 
-  // Blinking cursor
-  const cursor = document.createElement('span');
-  cursor.className = 'cursor';
-  element.appendChild(cursor);
+  function nextBlock() {
+    if (blockIdx >= blocks.length) {
+      onDone && onDone();
+      return;
+    }
+    const src = blocks[blockIdx++];
+    const tag = src.tagName.toLowerCase();
 
-  setTimeout(() => {
-    cursor.remove();
-    onDone && onDone();
-  }, delay + 200);
+    if (tag === 'hr') {
+      const hr = document.createElement('hr');
+      if (src.className) hr.className = src.className;
+      element.appendChild(hr);
+      scrollToBottom();
+      nextBlock();
+      return;
+    }
+
+    if (tag === 'ul' || tag === 'ol') {
+      const listEl = document.createElement(tag);
+      if (src.className) listEl.className = src.className;
+      element.appendChild(listEl);
+      const liSrcs = Array.from(src.children);
+      let liIdx = 0;
+      function nextLi() {
+        if (liIdx >= liSrcs.length) { nextBlock(); return; }
+        const liEl = document.createElement('li');
+        listEl.appendChild(liEl);
+        typeTokens(liEl, liSrcs[liIdx++].innerHTML, nextLi);
+      }
+      nextLi();
+      return;
+    }
+
+    const el = document.createElement(tag);
+    if (src.className) el.className = src.className;
+    element.appendChild(el);
+    typeTokens(el, src.innerHTML, nextBlock);
+  }
+
+  // Split HTML into tag-tokens and word-tokens
+  function tokenize(html) {
+    const tokens = [];
+    const re = /(<[^>]+>)|(\S+)/g;
+    let last = 0, m;
+    while ((m = re.exec(html)) !== null) {
+      if (m.index > last) tokens.push({ type: 'space', value: html.slice(last, m.index) });
+      tokens.push({ type: m[1] ? 'tag' : 'word', value: m[0] });
+      last = m.index + m[0].length;
+    }
+    if (last < html.length) tokens.push({ type: 'space', value: html.slice(last) });
+    return tokens;
+  }
+
+  function typeTokens(el, html, onComplete) {
+    const tokens = tokenize(html);
+    let i = 0, built = '';
+    function step() {
+      if (i >= tokens.length) {
+        el.innerHTML = html; // clean final render (no cursor)
+        scrollToBottom();
+        onComplete();
+        return;
+      }
+      const tok = tokens[i++];
+      built += tok.value;
+      el.innerHTML = built + CURSOR_HTML;
+      scrollToBottom();
+      if (tok.type === 'word') setTimeout(step, WORD_DELAY);
+      else step(); // tags and spaces are instant
+    }
+    step();
+  }
+
+  nextBlock();
 }
 
 // ─── CHAT LOGIC ───────────────────────────────────────────────────────────────
