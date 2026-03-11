@@ -18,6 +18,12 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+<!-- ── INTRO OVERLAY ── -->
+<div id="intro">
+  <span id="intro-text"></span>
+</div>
+
 <div class="app">
 
   <!-- ── SIDEBAR ── -->
@@ -138,6 +144,27 @@
 </div><!-- .app -->
 
 <script>
+// ─── INTRO ANIMATION ──────────────────────────────────────────────────────────
+(function() {
+  const intro = document.getElementById('intro');
+  const el = document.getElementById('intro-text');
+  const text = 'will jedrzejczak.';
+  let i = 0;
+  function type() {
+    if (i < text.length) {
+      el.textContent += text[i++];
+      setTimeout(type, 72);
+    } else {
+      el.classList.add('done'); // hides cursor
+      setTimeout(() => {
+        intro.classList.add('fade-out');
+        setTimeout(() => intro.remove(), 800);
+      }, 650);
+    }
+  }
+  type();
+})();
+
 // ─── Q&A DATABASE ─────────────────────────────────────────────────────────────
 const QA = {
   about: {

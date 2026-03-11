@@ -553,6 +553,42 @@ body {
   color: var(--accent-hover);
 }
 
+/* ── INTRO OVERLAY ───────────────────────────────────────────── */
+#intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s ease;
+}
+#intro.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+#intro-text {
+  font-family: 'Lora', Georgia, serif;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-weight: 400;
+  color: var(--text-1);
+  letter-spacing: 0.01em;
+}
+#intro-text::after {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  background: var(--accent);
+  margin-left: 3px;
+  vertical-align: text-bottom;
+  animation: blink 1.1s ease-in-out infinite;
+}
+#intro-text.done::after {
+  display: none;
+}
+
 /* ── BLOCK STREAM ANIMATION ─────────────────────────────────── */
 /* Each block (p, h3, hr, ul) fades + slides in sequentially.   */
 /* This avoids blank-line artifacts from invisible text nodes.   */
