@@ -61,6 +61,7 @@
 
 html, body {
   height: 100%;
+  height: 100dvh;
   overflow: hidden;
 }
 
@@ -78,6 +79,7 @@ body {
 .app {
   display: flex;
   height: 100vh;
+  height: 100dvh;
   width: 100vw;
   overflow: hidden;
 }
@@ -91,6 +93,7 @@ body {
   flex-direction: column;
   flex-shrink: 0;
   height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   transition: transform 0.25s ease;
   z-index: 200;
@@ -267,6 +270,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   background: var(--bg);
 }
@@ -407,6 +411,7 @@ body {
 .messages {
   flex: 1;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   padding: 24px 20px 10px;
   scroll-behavior: smooth;
   scrollbar-width: thin;
@@ -822,6 +827,17 @@ figure.event-img img {
     display: flex;
   }
 
+  /* Bigger tap targets on mobile */
+  .icon-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .nav-btn {
+    padding: 10px 10px;
+    font-size: 14px;
+  }
+
   .welcome {
     padding: 24px 16px;
     align-items: flex-start;
@@ -853,22 +869,35 @@ figure.event-img img {
   }
 
   .msg-bubble {
-    max-width: 88%;
+    max-width: 92%;
   }
 
+  /* Safe area inset for iPhone home bar */
   .input-area {
-    padding: 0 12px 14px;
+    padding: 0 12px calc(14px + env(safe-area-inset-bottom));
   }
 
   .suggestion-chip {
     font-size: 12px;
-    padding: 4px 10px;
+    padding: 6px 12px;
+  }
+
+  /* Slightly larger send/stop buttons for touch */
+  .send-btn, .stop-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  /* Event images full width on mobile */
+  figure.event-img {
+    max-width: 100%;
   }
 }
 
 @media (max-width: 420px) {
   .welcome-h1 { font-size: 22px; }
   .prompt-card { padding: 12px 14px; }
+  .msg-content { font-size: 15px; }
 }
 
 /* ── GLOBAL SCROLLBAR (webkit) ──────────────────────────────── */
