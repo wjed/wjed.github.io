@@ -288,11 +288,18 @@ body {
   color: var(--text);
 }
 
+/* ── CHAT MODE TOGGLE ───────────────────────────────────────── */
+/* Welcome shown by default, messages hidden.                    */
+/* .chat-mode swaps them.                                        */
+.main .welcome   { display: flex; }
+.main .messages  { display: none; }
+.main.chat-mode .welcome  { display: none; }
+.main.chat-mode .messages { display: block; }
+
 /* ── WELCOME SCREEN ─────────────────────────────────────────── */
 .welcome {
   flex: 1;
   overflow-y: auto;
-  display: flex;
   align-items: center;
   justify-content: center;
   padding: 32px 20px;
@@ -539,15 +546,12 @@ body {
   color: var(--accent-hover);
 }
 
-/* ── WORD STREAM ANIMATION ──────────────────────────────────── */
-@keyframes wordFade {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-span.w {
-  opacity: 0;
-  animation: wordFade 0.08s ease forwards;
+/* ── BLOCK STREAM ANIMATION ─────────────────────────────────── */
+/* Each block (p, h3, hr, ul) fades + slides in sequentially.   */
+/* This avoids blank-line artifacts from invisible text nodes.   */
+@keyframes blockIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* Blinking cursor */
