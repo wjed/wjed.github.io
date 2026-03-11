@@ -448,10 +448,10 @@ function md(text) {
   return final.join('\n');
 }
 
-// ─── WORD-BY-WORD TYPING ANIMATION ────────────────────────────────────────────
-// Types each block sequentially, word by word, with inline blinking cursor.
+// ─── CHARACTER-BY-CHARACTER TYPING ANIMATION ──────────────────────────────────
+// Types each block sequentially, char by char, with inline blinking cursor.
 function streamHTML(element, htmlContent, onDone) {
-  const WORD_DELAY = 55; // ms per word
+  const CHAR_DELAY = 18; // ms per character
   const CURSOR_HTML = '<span class="cursor"></span>';
 
   const temp = document.createElement('div');
@@ -500,17 +500,14 @@ function streamHTML(element, htmlContent, onDone) {
     typeTokens(el, src.innerHTML, nextBlock);
   }
 
-  // Split HTML into tag-tokens and word-tokens
+  // Split HTML into tag-tokens and individual char-tokens
   function tokenize(html) {
     const tokens = [];
-    const re = /(<[^>]+>)|(\S+)/g;
-    let last = 0, m;
+    const re = /(<[^>]+>)|([^<])/g;
+    let m;
     while ((m = re.exec(html)) !== null) {
-      if (m.index > last) tokens.push({ type: 'space', value: html.slice(last, m.index) });
-      tokens.push({ type: m[1] ? 'tag' : 'word', value: m[0] });
-      last = m.index + m[0].length;
+      tokens.push({ type: m[1] ? 'tag' : 'char', value: m[0] });
     }
-    if (last < html.length) tokens.push({ type: 'space', value: html.slice(last) });
     return tokens;
   }
 
@@ -527,11 +524,11 @@ function streamHTML(element, htmlContent, onDone) {
       const tok = tokens[i++];
       built += tok.value;
       el.innerHTML = built + CURSOR_HTML;
-      if (tok.type === 'word') {
-        scrollToBottom();
-        setTimeout(step, WORD_DELAY);
+      if (tok.type === 'char') {
+        if (i % 8 === 0) scrollToBottom(); // scroll every 8 chars to avoid jank
+        setTimeout(step, CHAR_DELAY);
       } else {
-        setTimeout(step, 0); // tags/spaces: instant but deferred to avoid reflow spazzing
+        setTimeout(step, 0); // tags: instant, deferred to next tick
       }
     }
     step();
