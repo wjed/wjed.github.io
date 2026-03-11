@@ -358,7 +358,6 @@ Full recommendations available on LinkedIn at linkedin.com/in/defend.`,
     answer: `Best way to reach me:
 
 **Personal**
-- william@altuvo.info
 - will.jedrzejczak@gmail.com
 
 **LinkedIn**
@@ -452,7 +451,7 @@ function md(text) {
 // ─── WORD-BY-WORD TYPING ANIMATION ────────────────────────────────────────────
 // Types each block sequentially, word by word, with inline blinking cursor.
 function streamHTML(element, htmlContent, onDone) {
-  const WORD_DELAY = 36; // ms per word
+  const WORD_DELAY = 55; // ms per word
   const CURSOR_HTML = '<span class="cursor"></span>';
 
   const temp = document.createElement('div');
@@ -528,9 +527,12 @@ function streamHTML(element, htmlContent, onDone) {
       const tok = tokens[i++];
       built += tok.value;
       el.innerHTML = built + CURSOR_HTML;
-      scrollToBottom();
-      if (tok.type === 'word') setTimeout(step, WORD_DELAY);
-      else step(); // tags and spaces are instant
+      if (tok.type === 'word') {
+        scrollToBottom();
+        setTimeout(step, WORD_DELAY);
+      } else {
+        setTimeout(step, 0); // tags/spaces: instant but deferred to avoid reflow spazzing
+      }
     }
     step();
   }
@@ -576,7 +578,7 @@ function addThinkingIndicator() {
   const div = document.createElement('div');
   div.className = 'msg msg-bot';
   div.id = 'thinking';
-  div.innerHTML = `<div class="bot-avatar"><span>W</span></div><div class="msg-body"><div class="thinking-dots"><span></span><span></span><span></span></div></div>`;
+  div.innerHTML = `<div class="bot-avatar"><img src="images/250926-HCSL-Jedrzejczak.jpg" alt="Will"></div><div class="msg-body"><div class="thinking-dots"><span></span><span></span><span></span></div></div>`;
   msgs.appendChild(div);
   scrollToBottom();
   return div;
@@ -611,7 +613,7 @@ function deliverAnswer(qaId) {
     const msgs = document.getElementById('messages');
     const div = document.createElement('div');
     div.className = 'msg msg-bot';
-    div.innerHTML = `<div class="bot-avatar"><span>W</span></div><div class="msg-body msg-content"></div>`;
+    div.innerHTML = `<div class="bot-avatar"><img src="images/250926-HCSL-Jedrzejczak.jpg" alt="Will"></div><div class="msg-body msg-content"></div>`;
     msgs.appendChild(div);
     const contentEl = div.querySelector('.msg-content');
     streamHTML(contentEl, md(qa.answer), () => {
@@ -677,7 +679,7 @@ function handleSend() {
       const msgs = document.getElementById('messages');
       const div = document.createElement('div');
       div.className = 'msg msg-bot';
-      div.innerHTML = `<div class="bot-avatar"><span>W</span></div><div class="msg-body msg-content"></div>`;
+      div.innerHTML = `<div class="bot-avatar"><img src="images/250926-HCSL-Jedrzejczak.jpg" alt="Will"></div><div class="msg-body msg-content"></div>`;
       msgs.appendChild(div);
       const fallback = `I can answer questions about Will's **experience**, **projects**, **certifications**, **education**, **leadership**, **skills**, **recommendations**, or how to **contact** him. Try one of the suggestions below, or ask something more specific!`;
       streamHTML(div.querySelector('.msg-content'), md(fallback), () => {
