@@ -476,6 +476,13 @@ body {
 }
 
 /* ── MESSAGE MARKDOWN STYLES ────────────────────────────────── */
+/* Serif font for bot response text — matches Claude's Copernicus feel */
+.msg-content {
+  font-family: 'Lora', Georgia, 'Times New Roman', serif;
+  font-size: 15.5px;
+  line-height: 1.75;
+}
+
 .msg-content p {
   margin-bottom: 0.85em;
 }
