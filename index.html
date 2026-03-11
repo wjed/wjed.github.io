@@ -1,353 +1,817 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>will j. jedrzejczak • deployment strategist at palantir technologies</title>
-    <meta name="description" content="valedictorian-ranked b.s. it student at james madison university. aws professional services intern, mantech engineer, and cybersecurity analyst specializing in cloud infrastructure and federal technology.">
-    <meta name="keywords" content="cloud developer, cyber threat analyst, it student, james madison university, federal defense, devsecops, ai/ml">
-    <meta property="og:title" content="will j. jedrzejczak • deployment strategist at palantir technologies">
-    <meta property="og:description" content="valedictorian-ranked b.s. it student. aws professional services intern, mantech engineer, and cybersecurity analyst specializing in cloud infrastructure and federal technology.">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="will j. jedrzejczak • deployment strategist at palantir technologies">
-    <meta name="twitter:description" content="valedictorian-ranked b.s. it student. aws professional services intern, mantech engineer, and cybersecurity analyst specializing in cloud infrastructure and federal technology.">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
-    <!-- Preload custom font -->
-    <link rel="preload" href="fonts/Alliance No.2 Regular.otf" as="font" type="font/otf" crossorigin>
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css">
-    
-    <!-- Performance optimizations -->
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='60' font-size='45' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='600' fill='%23fff'>wj</text></svg>">
-    
-    <!-- Prevent FOUC (Flash of Unstyled Content) for theme -->
-    <script>
-        // Load theme immediately to prevent flash
-        (function() {
-            const theme = localStorage.getItem('theme') || 'dark';
-            document.documentElement.setAttribute('data-theme', theme);
-        })();
-    </script>
-
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css">
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will Jedrzejczak</title>
+  <meta name="description" content="Ask Will Jedrzejczak anything about his background, experience, and projects.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23d97757'/><text x='50' y='67' font-size='52' text-anchor='middle' font-family='Inter,system-ui,sans-serif' font-weight='600' fill='white'>W</text></svg>">
+  <script>
+    (function() {
+      var t = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="app">
 
-    
-    <!-- Navigation -->
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="container">
-            <div class="nav-container">
-                <div class="nav-left">
-                    <ul class="nav-links" role="menubar">
-                        <li role="none"><a href="#home" role="menuitem" aria-label="go to home section">home</a></li>
-                        <li role="none"><a href="experience.html" role="menuitem" aria-label="view experience page">experience</a></li>
-                        <li role="none"><a href="projects.html" role="menuitem" aria-label="view projects">projects</a></li>
-                        <li role="none"><a href="coursework.html" role="menuitem" aria-label="view coursework">coursework</a></li>
-                        <li role="none"><a href="leadership.html" role="menuitem" aria-label="view leadership page">leadership</a></li>
-                        <li role="none"><a href="certifications.html" role="menuitem" aria-label="view certifications">certifications</a></li>
-                        <li role="none"><a href="contact.html" role="menuitem" aria-label="go to contact page">contact</a></li>
-                    </ul>
-                </div>
-                <div class="nav-right">
-                    <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="toggle mobile menu">
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                    </button>
-                    <button class="theme-toggle" id="theme-toggle" aria-label="toggle dark/light mode">
-                        <i id="theme-icon" data-lucide="sun"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
-        <div class="mobile-menu-content">
-            <ul class="mobile-nav-links">
-                <li><a href="index.html" class="mobile-nav-link">home</a></li>
-                <li><a href="experience.html" class="mobile-nav-link">experience</a></li>
-                <li><a href="projects.html" class="mobile-nav-link">projects</a></li>
-                <li><a href="coursework.html" class="mobile-nav-link">coursework</a></li>
-                <li><a href="leadership.html" class="mobile-nav-link">leadership</a></li>
-                <li><a href="certifications.html" class="mobile-nav-link">certifications</a></li>
-                <li><a href="contact.html" class="mobile-nav-link">contact</a></li>
-            </ul>
-        </div>
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-top">
+      <div class="brand">
+        <div class="brand-icon">W</div>
+        <span class="brand-name">will.work.gd</span>
+      </div>
+      <button class="icon-btn" id="newChatBtn" title="New chat" aria-label="New chat">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      </button>
     </div>
-            </div>
-    </nav>
 
-    <!-- hero section -->
-    <section id="home" class="hero" role="banner" aria-labelledby="hero-title">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <div class="subtitle" role="text">deployment strategist @ palantir (<a href="https://finance.yahoo.com/quote/PLTR/" target="_blank" rel="noopener noreferrer" class="stock-ticker">nyse: $pltr</a>)</div>
-                    <h1 id="hero-title" data-text="will j. jedrzejczak">will j. jedrzejczak</h1>
-                    <p class="description" role="text">
-                        it all started with youtube videos about computer viruses. what began as childhood curiosity 
-                        turned into a self-taught journey through cybersecurity, leading me to jmu where i became 
-                        valedictorian of my major while racking up 5 internships. then palantir called at the start 
-                        of my junior year asking if i'd be willing to drop out after may 2026. naturally, i said yes.
-                        <br><br>
-                        when i'm not building secure ai/ml solutions for the government, you'll find me lifting weights, 
-                        discovering new music, or outperforming the market by a mile on my fidelity account. ultimately, 
-                        i'm just extremely passionate about building things that help other people.
-                    </p>
-                    <div class="hero-buttons" role="group" aria-label="action buttons">
-                        <a href="contact.html" class="btn-primary" aria-label="go to contact page to get in touch">
-                            <i data-lucide="mail" aria-hidden="true"></i>
-                            get in touch
-                        </a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <div class="profile-card" role="complementary" aria-labelledby="profile-title">
-                        <div class="profile-frame">
-                            <img src="images/250926-HCSL-Jedrzejczak.jpg" alt="professional headshot of will j. jedrzejczak" class="profile-image">
-                        </div>
-                        <div class="profile-title" id="profile-title">will j. jedrzejczak</div>
-                        <div class="profile-subtitle">b.s. it • james madison university</div>
-                        <div class="palantir-affiliation">
-                            <img src="images/PLTR_LOGO.png" alt="palantir technologies logo" class="palantir-logo">
-                            <span>deployment strategist</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="sidebar-body">
+      <div class="sidebar-label">Topics</div>
+      <nav class="sidebar-nav" id="sidebarNav">
+        <button class="nav-btn" data-qa="about">About Will</button>
+        <button class="nav-btn" data-qa="experience">Work Experience</button>
+        <button class="nav-btn" data-qa="projects">Projects</button>
+        <button class="nav-btn" data-qa="certifications">Certifications</button>
+        <button class="nav-btn" data-qa="education">Education</button>
+        <button class="nav-btn" data-qa="leadership">Leadership</button>
+        <button class="nav-btn" data-qa="skills">Skills</button>
+        <button class="nav-btn" data-qa="recommendations">Recommendations</button>
+        <button class="nav-btn" data-qa="contact">Contact</button>
+      </nav>
+    </div>
+
+    <div class="sidebar-footer">
+      <a href="https://linkedin.com/in/defend" target="_blank" rel="noopener" class="sidebar-social">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <button class="icon-btn theme-toggle" id="themeBtn" title="Toggle theme" aria-label="Toggle theme">
+        <svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Mobile overlay -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- ── MAIN ── -->
+  <div class="main">
+
+    <!-- Mobile header -->
+    <header class="mobile-hdr">
+      <button class="icon-btn" id="mobileSidebarBtn" aria-label="Open sidebar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <span class="mobile-title">Will Jedrzejczak</span>
+      <button class="icon-btn theme-toggle" id="mobileThemeBtn" aria-label="Toggle theme">
+        <svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </header>
+
+    <!-- Welcome screen -->
+    <div class="welcome" id="welcome">
+      <div class="welcome-inner">
+        <div class="will-avatar">
+          <img src="images/250926-HCSL-Jedrzejczak.jpg" alt="Will Jedrzejczak" onerror="this.style.display='none';this.parentElement.classList.add('avatar-fallback')">
         </div>
-    </section>
-
-    <!-- JMU Features Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">featured at jmu</h2>
-            <p class="section-subtitle">highlights from my time at james madison university</p>
-            
-            <div class="jmu-links-grid">
-                <a href="https://www.jmu.edu/cise/information-technology/people/ambassadors/will.shtml" target="_blank" rel="noopener noreferrer" class="jmu-link-card">
-                    <div class="jmu-link-icon">
-                        <i data-lucide="users"></i>
-                    </div>
-                    <div class="jmu-link-content">
-                        <h3>IT Ambassador Profile</h3>
-                        <p>founding & lead ambassador for the information technology department</p>
-                    </div>
-                    <div class="jmu-link-arrow">
-                        <i data-lucide="external-link"></i>
-                    </div>
-                </a>
-
-                <a href="https://www.jmu.edu/cise/research/minutes.shtml" target="_blank" rel="noopener noreferrer" class="jmu-link-card">
-                    <div class="jmu-link-icon">
-                        <i data-lucide="briefcase"></i>
-                    </div>
-                    <div class="jmu-link-content">
-                        <h3>ManTech Internship Feature</h3>
-                        <p>research spotlight on my work at mantech for national security</p>
-                    </div>
-                    <div class="jmu-link-arrow">
-                        <i data-lucide="external-link"></i>
-                    </div>
-                </a>
-
-                <a href="https://www.jmu.edu/research/student/fyre/past-projects.shtml" target="_blank" rel="noopener noreferrer" class="jmu-link-card">
-                    <div class="jmu-link-icon">
-                        <i data-lucide="microscope"></i>
-                    </div>
-                    <div class="jmu-link-content">
-                        <h3>FYRE Research Project</h3>
-                        <p>first-year research experience developing musiccpr platform</p>
-                    </div>
-                    <div class="jmu-link-arrow">
-                        <i data-lucide="external-link"></i>
-                    </div>
-                </a>
-
-                <a href="https://www.jmu.edu/news/2025/10/10-honors-college-luncheon.shtml" target="_blank" rel="noopener noreferrer" class="jmu-link-card">
-                    <div class="jmu-link-icon">
-                        <i data-lucide="award"></i>
-                    </div>
-                    <div class="jmu-link-content">
-                        <h3>Honors College Luncheon</h3>
-                        <p>presenting my amazon aws internship experience to honors students</p>
-                    </div>
-                    <div class="jmu-link-arrow">
-                        <i data-lucide="external-link"></i>
-                    </div>
-                </a>
-            </div>
+        <h1 class="welcome-h1">Hi, I'm Will.</h1>
+        <p class="welcome-tagline">Deployment Strategist &middot; Palantir &middot; AWS &middot; JMU</p>
+        <p class="welcome-desc">Ask me anything about my background, experience, or what I'm working on.</p>
+        <div class="prompt-grid">
+          <button class="prompt-card" data-qa="about">
+            <div class="prompt-card-title">Who is Will?</div>
+            <div class="prompt-card-desc">An overview of my background and story</div>
+          </button>
+          <button class="prompt-card" data-qa="experience">
+            <div class="prompt-card-title">Work experience</div>
+            <div class="prompt-card-desc">Palantir, AWS, ManTech, and more</div>
+          </button>
+          <button class="prompt-card" data-qa="projects">
+            <div class="prompt-card-title">Projects I've built</div>
+            <div class="prompt-card-desc">AI advisors, satellite tech, cybersecurity tools</div>
+          </button>
+          <button class="prompt-card" data-qa="certifications">
+            <div class="prompt-card-title">Certifications</div>
+            <div class="prompt-card-desc">20+ credentials in AWS, CompTIA, and Palantir</div>
+          </button>
+          <button class="prompt-card" data-qa="leadership">
+            <div class="prompt-card-title">Leadership &amp; academics</div>
+            <div class="prompt-card-desc">#1 in my program, clubs, and teaching</div>
+          </button>
+          <button class="prompt-card" data-qa="recommendations">
+            <div class="prompt-card-title">What colleagues say</div>
+            <div class="prompt-card-desc">Recommendations from AWS, USAF, and more</div>
+          </button>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <!-- footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-links">
-                    <a href="#home">home</a>
-                    <a href="experience.html">experience</a>
-                    <a href="projects.html">projects</a>
-                    <a href="coursework.html">coursework</a>
-                    <a href="leadership.html">leadership</a>
-                    <a href="certifications.html">certifications</a>
-                    <a href="contact.html">contact</a>
-                </div>
-                <p>&copy; 2025 will j. jedrzejczak. all rights reserved.</p>
-            </div>
+    <!-- Messages -->
+    <div class="messages" id="messages" hidden></div>
+
+    <!-- Input area -->
+    <div class="input-area" id="inputArea">
+      <div class="suggestions" id="suggestions"></div>
+      <div class="input-wrap">
+        <div class="input-box">
+          <textarea
+            id="inputText"
+            placeholder="Ask about Will..."
+            rows="1"
+            aria-label="Ask a question about Will"
+          ></textarea>
+          <button class="send-btn" id="sendBtn" disabled aria-label="Send">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+          </button>
         </div>
-    </footer>
+      </div>
+      <p class="disclaimer">Simulated responses about Will Jedrzejczak &mdash; not a live AI</p>
+    </div>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        // Initialize Lucide icons if available
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
-        }
+  </div><!-- .main -->
+</div><!-- .app -->
 
-        // Enhanced theme toggle functionality
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        
-        // Get current theme
-        const currentTheme = localStorage.getItem('theme') || 'dark';
-        
-        // Update icon based on current theme with animation
-        function updateThemeIcon(theme) {
-            themeIcon.style.transform = 'scale(0)';
-            setTimeout(() => {
-                themeIcon.setAttribute('data-lucide', theme === 'light' ? 'moon' : 'sun');
-                if (typeof lucide !== 'undefined') {
-                    lucide.createIcons();
-                }
-                themeIcon.style.transform = 'scale(1)';
-            }, 150);
-        }
-        
-        // Initialize icon
-        updateThemeIcon(currentTheme);
-        
-        // Enhanced theme toggle with smooth transition
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            
-            // Add transition class to body
-            document.body.style.transition = 'all 0.3s ease';
-            
-            // Update DOM
-            document.documentElement.setAttribute('data-theme', newTheme);
-            
-            // Save to localStorage
-            localStorage.setItem('theme', newTheme);
-            
-            // Update icon
-            updateThemeIcon(newTheme);
-            
-            // Remove transition after animation
-            setTimeout(() => {
-                document.body.style.transition = '';
-            }, 300);
+<script>
+// ─── Q&A DATABASE ─────────────────────────────────────────────────────────────
+const QA = {
+  about: {
+    question: "Who is Will Jedrzejczak?",
+    answer: `Hi there! I'm **Will Jedrzejczak** — a technologist, strategist, and builder operating at the intersection of AI, cloud infrastructure, and national security.
+
+Currently, I'm a **Deployment Strategist at Palantir Technologies (USG)**, deploying AI-enabled solutions for the most complex defense challenges in the world — from AI-enabled ground stations to supporting distributed multi-domain operations at the edge.
+
+I was offered a full-time role at Palantir *before* completing my degree — one of the earliest placements in my program's history.
+
+**A few quick facts:**
+- **B.S. Information Technology** at James Madison University — ranked **#1 in my program** with a 3.984 GPA
+- Currently hold **3 simultaneous roles**: Palantir, Blue Sky Innovators, and Rockingham County Public Schools
+- **20+ professional certifications** across AWS, CompTIA, and Palantir
+- Background spans cloud engineering, cybersecurity, AI/ML, and federal defense tech
+
+I started my career early — my freshman year at JMU, I was the only freshman on a software engineering team working an **$850M DoD contract** at ManTech. That set the tone for everything since.`,
+    suggestions: ["experience", "certifications", "education"]
+  },
+
+  experience: {
+    question: "Walk me through your work experience",
+    answer: `Here's a timeline of my professional journey:
+
+## Palantir Technologies · Deployment Strategist (USG) · Sep 2025 – Present
+
+US Government and business development. Palantir provides configurable AI solutions for the most complex defense challenges — AI-enabled ground stations, distributed multi-domain operations, and more. Offered full-time before degree conferral.
+
+*AI/ML · Defense Technology · Government Solutions · Business Development*
+
+---
+
+## Blue Sky Innovators · AI Engineer · Sep 2025 – Present
+
+R&D team building an ML-driven cybersecurity agent using OpenSearch queries. Supporting government and commercial customers with advanced technology solutions.
+
+*Machine Learning · OpenSearch · Cybersecurity · R&D*
+
+---
+
+## Rockingham County Public Schools · Network Engineer · Aug 2025 – Present
+
+Managing PII, data migration, and network infrastructure challenges for **11,500+ students** across the division.
+
+---
+
+## Amazon Web Services · National Security Cloud Engineer · May – Sep 2025
+
+Analytics and application development for Amazon Dedicated Cloud. **Doubled project scope** and **tripled certification requirements**. Served the U.S. federal government across civilian, intelligence community, and DoD.
+
+*AWS Lambda · S3 · CloudFormation · Amazon Cognito · LLMs · Infrastructure as Code*
+
+---
+
+## ManTech · Technical Engineer & SME (II+) · Nov 2024 – May 2025
+
+Supporting the CIO across IAM, Active Directory, and virtualization. Received **two promotions in less than a year**.
+
+---
+
+## ManTech · Software Engineer (II) · Mar – Nov 2024
+
+Development on an **$850M DoD contract** — the only freshman on the team.
+
+*Python · React.js · Machine Learning · Cybersecurity*
+
+---
+
+## CSFI · Cyber Threat Intelligence Analyst · Jan – Apr 2025
+
+CYBERCOM and intelligence collection supporting the U.S. government, military, and international partners.
+
+---
+
+## Solvitur Systems · Cybersecurity Analyst · Sep – Dec 2024
+
+UX design and web security testing for cybersecurity and regulatory compliance.
+
+---
+
+## Deloitte · DLAMP Scholar · Mar – Nov 2024
+
+Selected **twice** and youngest Summer 2024 member for the JMU cohort. AI and engineering focus.
+
+---
+
+## JMU Computer Science · First-Year Researcher · Dec 2023 – May 2024
+
+Developed **MusicCPR** — a niche learning management system for music education.`,
+    suggestions: ["projects", "skills", "about"]
+  },
+
+  projects: {
+    question: "What projects have you built?",
+    answer: `Here are the key projects I've worked on:
+
+## JMU IT Advising Bot · Oct 2025 – Present
+
+A fully built-out AI advisor for JMU IT/CS students. Built with **AWS CDK** infrastructure as code, leveraging **Amazon Bedrock** and **Claude Haiku** for natural language processing, **DynamoDB** for scalable storage, and **S3** for document management. Provides personalized academic advising and course recommendations.
+
+*AWS CDK · Amazon Bedrock · Claude Haiku · DynamoDB · Amazon S3*
+
+---
+
+## MusicCPR · Dec 2023 – May 2024
+
+An educational website functioning as a niche LMS (similar to Canvas) for music education. Collaborated with music teachers to design and implement the platform, enthusiastically received by students and teachers during the pandemic.
+
+*JavaScript · React · HTML · CSS*
+
+---
+
+## JMU DukeSat (MeshSat) · Feb – Mar 2024
+
+Contributed to the development of **MeshSat** — a satellite communication system project at JMU using AI/ML and Python.
+
+*Python · AI/ML · Satellite Technology*
+
+---
+
+## CybersecDB · Academic Project
+
+A cybersecurity database built collaboratively to support threat detection. Used **SQL** for database design and **Mockaroo** for realistic data generation. Presented as a comprehensive threat detection solution.
+
+*SQL · Mockaroo · Database Design*`,
+    suggestions: ["experience", "skills", "certifications"]
+  },
+
+  certifications: {
+    question: "What certifications do you hold?",
+    answer: `I hold **20+ professional certifications** across cloud, cybersecurity, and AI:
+
+## Amazon Web Services (AWS) — 7 Certifications
+
+- **AWS Certified Data Engineer – Associate** (Aug 2025 – Aug 2028)
+- **AWS Certified Developer – Associate** (Jul 2025 – Jul 2028)
+- **AWS Certified Machine Learning Engineer – Associate** (Jul 2025 – Jul 2028)
+- **AWS Certified SysOps Administrator – Associate** (May 2025 – May 2028)
+- **AWS Certified AI Practitioner** (Mar 2025 – Mar 2028)
+- **AWS Certified Solutions Architect – Associate** (Jul 2024 – Jul 2027)
+- **AWS Certified Cloud Practitioner** (Jun 2024 – Jun 2027)
+
+## CompTIA — 8 Certifications
+
+- **CySA+ (Cybersecurity Analyst)** (Feb 2025 – Feb 2028)
+- **CSAP (Security Analytics Practitioner)** (Feb 2025 – Feb 2028)
+- **CSIS (Secure Infrastructure Specialist)** (Jun 2024 – Feb 2028)
+- **Security+** (Jun 2024 – Feb 2028)
+- **CIOS (IT Operations Specialist)** (Apr 2024 – Feb 2028)
+- **Network+** (Apr 2024 – Feb 2028)
+- **A+** (Feb 2024 – Feb 2028)
+- **IT Fundamentals+** (May 2023 – May 2026)
+
+## Palantir Technologies — 3 Certifications
+
+- **Certified Palantir Foundry Aware Professional** (Sep 2025 – Sep 2027)
+- **Scoping Use Cases in Foundry & AIP** (Oct 2025)
+- **Foundry & AIP Builder Foundations** (Sep 2025)
+
+## Additional
+
+- **Deloitte DLAMP Scholar** (Mar 2024 – Nov 2024)
+- **DoD Cyber Awareness Challenge 2025** (Nov 2024)
+- **Microsoft Azure – Create Serverless Applications** (Aug 2024)
+- **Cisco Network Technician Career Path** (Aug 2024)
+
+All credentials are verifiable on LinkedIn.`,
+    suggestions: ["skills", "experience", "about"]
+  },
+
+  education: {
+    question: "Tell me about your education",
+    answer: `I'm completing my **B.S. in Information Technology** at **James Madison University** (JMU) in Harrisonburg, Virginia.
+
+## Academic Highlights
+
+- **GPA: 3.984 / 4.000** — ranked **#1 in the B.S. IT program**
+- **President's List** every single semester
+- **Valedictorian candidate** for my graduating class
+- Offered a full-time role at **Palantir Technologies** before degree conferral — one of the earliest placements in the program's history
+
+## Teaching & Research
+
+- **Teaching Assistant** for IT-201 (Computational Structures and Logic) — mentored students in discrete mathematics, logic, and computational theory
+- **First-Year Researcher** at JMU Computer Science — developed the MusicCPR web application
+
+## Coursework Spans
+
+Cloud computing, cybersecurity, network security, database systems, software engineering, artificial intelligence, machine learning, systems administration, and discrete mathematics.`,
+    suggestions: ["leadership", "about", "certifications"]
+  },
+
+  leadership: {
+    question: "What leadership roles have you held?",
+    answer: `Beyond technical work, I've taken on significant leadership roles at JMU:
+
+## Valedictorian Candidate
+
+Ranked **#1 in the B.S. IT program** with a 3.984 GPA. On the President's List every semester since enrollment.
+
+---
+
+## Founding & Lead IT Ambassador · 2023 – Present
+
+Founded and led the IT Department Ambassador program, helping grow IT into one of JMU's **fastest-growing majors**. Ranked top ambassador by hours contributed.
+
+---
+
+## Executive Officer, Cyber Defense Club · 2025 – Present
+
+Led the club to **1st place** at the Virginia Military Institute (VMI) Cyber Competition.
+
+---
+
+## Internal Vice President, Madison Consulting Club · 2025 – Present
+
+VP of one of the largest clubs in JMU's College of Business — driving strategic initiatives and professional development.
+
+---
+
+## Teaching Assistant, IT-201 · 2024 – 2025
+
+Mentored students in computational structures, discrete mathematics, and formal logic.
+
+---
+
+## Student Leader & Innovator, STEM Corps · 2024
+
+Volunteered to teach elementary school children STEM concepts, fostering early interest in technology and science.`,
+    suggestions: ["education", "recommendations", "about"]
+  },
+
+  skills: {
+    question: "What does your technical skill set look like?",
+    answer: `Here's a snapshot of my technical expertise:
+
+## Cloud Platforms
+
+**AWS** (7 certifications) — Lambda, S3, CloudFormation, Amazon Bedrock, Cognito, EC2, RDS, DynamoDB, API Gateway, CDK
+
+**Microsoft Azure** — Serverless functions, cloud architecture
+
+## Cybersecurity
+
+CompTIA CySA+, Security+, Network+ certified. Threat intelligence, IAM, Active Directory, vulnerability assessment, web security testing, CYBERCOM support.
+
+## AI & Machine Learning
+
+AWS Certified ML Engineer. LLMs, Amazon Bedrock, Claude, OpenSearch. ML-driven cybersecurity agents, AI advising systems built with CDK and Bedrock.
+
+## Programming & Development
+
+Python · JavaScript · React.js · SQL · HTML/CSS · AWS CDK (Infrastructure as Code)
+
+## Platforms & Tools
+
+Palantir Foundry · Palantir AIP · Palantir Gotham · OpenSearch · DynamoDB · AWS CloudFormation · Active Directory · Cisco networking
+
+## Domain Expertise
+
+Federal defense technology · National security · Government cloud (AWS Dedicated Cloud) · Network infrastructure · PII management · Data migration`,
+    suggestions: ["certifications", "experience", "projects"]
+  },
+
+  recommendations: {
+    question: "What do your colleagues say about you?",
+    answer: `Here's what some colleagues and mentors have said:
+
+---
+
+## Adam Bluhm — Sr. Solutions Architect & GenAI Lead, AWS
+
+*"William's trajectory is going to the moon... he never asks for shortcuts, only for context that accelerates his own learning so he can serve customers better. That combination of initiative and humility is rare even among seasoned consultants."*
+
+---
+
+## Troy Edwards Jr. — Direct Manager, AWS (US Navy veteran · NASA · Georgetown MBA candidate)
+
+*"William is, without question, one of the most promising young professionals I've come across. He doesn't just execute. He engages. He listens, absorbs, and applies feedback with intention... He's not chasing titles. He's doing the work."*
+
+---
+
+## Shishira Nakka — Marketing & English Student, JMU
+
+*"Imagine the greatest, brightest, smartest person you know. Will is that person to the millionth power... brilliance has a name, and his name is William Jedrzejczak."*
+
+---
+
+## Dilpreet Gill — Networking at Verizon
+
+*"William is a rare blend of brilliance, motivation, and kindness... his unparalleled drive and profound intellect were evident from just our freshman year, exemplified by securing a coveted internship at ManTech."*
+
+---
+
+## Thomas Montgomery — Intelligence Analyst, USAF (Active TS/SCI)
+
+*"Will is an exceptionally talented professional whose work in the government sector has been transformative. His technical expertise consistently delivers outstanding results."*
+
+---
+
+## Colin Davis — Roommate & Study Partner, JMU
+
+*"Balancing demanding academics with impactful initiatives, he stands out in IT. Will is undoubtedly an asset to any team, with unbelievable tech skills and genuine passion."*
+
+All full recommendations are available on LinkedIn.`,
+    suggestions: ["about", "experience", "contact"]
+  },
+
+  contact: {
+    question: "How do I get in touch with Will?",
+    answer: `I'd love to connect! Here's the best way to reach me:
+
+## Personal
+
+- **william@altuvo.info**
+- **will.jedrzejczak@gmail.com**
+
+## LinkedIn
+
+**linkedin.com/in/defend**
+
+---
+
+## Work Emails
+
+I've worn a lot of hats — here are my current professional emails:
+
+- wjedrzejczak@palantir.com
+- wjd@amazon.com
+- william.jedrzejczak@blueskyinnovators.com
+- wjedrzejc@rockingham.k12.va.us
+- will.jedrzejczak@mantech.com
+
+---
+
+Feel free to reach out about **career opportunities**, **collaborations**, **research**, or just to connect. Always happy to chat.`,
+    suggestions: ["about", "experience", "recommendations"]
+  }
+};
+
+// Keyword matching for free-text input
+const KEYWORD_MAP = [
+  { keys: ['who', 'about', 'yourself', 'introduce', 'background', 'overview', 'summary', 'story', 'hi', 'hello', 'hey'], id: 'about' },
+  { keys: ['experience', 'work', 'job', 'career', 'palantir', 'aws', 'mantech', 'history', 'employment', 'role', 'company'], id: 'experience' },
+  { keys: ['project', 'built', 'build', 'created', 'musiccpr', 'dukessat', 'advising', 'bot', 'satellite', 'cybersecdb'], id: 'projects' },
+  { keys: ['cert', 'certification', 'comptia', 'security+', 'network+', 'credential', 'badge', 'qualified'], id: 'certifications' },
+  { keys: ['education', 'school', 'jmu', 'university', 'gpa', 'degree', 'college', 'grade', 'study', 'student', 'major'], id: 'education' },
+  { keys: ['leadership', 'ambassador', 'club', 'officer', 'president', 'vp', 'vice', 'mentor', 'ta', 'teaching', 'stem'], id: 'leadership' },
+  { keys: ['skill', 'technical', 'language', 'programming', 'python', 'react', 'tools', 'stack', 'tech'], id: 'skills' },
+  { keys: ['recommend', 'testimonial', 'colleague', 'say about', 'opinion', 'reference', 'review', 'think of'], id: 'recommendations' },
+  { keys: ['contact', 'email', 'reach', 'connect', 'linkedin', 'message', 'hire', 'touch', 'talk'], id: 'contact' }
+];
+
+// ─── STATE ────────────────────────────────────────────────────────────────────
+let chatActive = false;
+let isStreaming = false;
+let activeNavBtn = null;
+
+// ─── MARKDOWN PARSER ──────────────────────────────────────────────────────────
+function md(text) {
+  let out = text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+
+  out = out.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  out = out.replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+  const lines = out.split('\n');
+  const result = [];
+  let i = 0;
+
+  while (i < lines.length) {
+    const line = lines[i];
+    if (line.startsWith('## ')) {
+      result.push({ type: 'block', html: `<h3 class="mh">${line.slice(3)}</h3>` });
+      i++; continue;
+    }
+    if (line.startsWith('### ')) {
+      result.push({ type: 'block', html: `<h4 class="mh4">${line.slice(4)}</h4>` });
+      i++; continue;
+    }
+    if (line.trim() === '---') {
+      result.push({ type: 'block', html: '<hr class="mhr">' });
+      i++; continue;
+    }
+    if (line.startsWith('- ')) {
+      const items = [];
+      while (i < lines.length && lines[i].startsWith('- ')) {
+        items.push(`<li>${lines[i].slice(2)}</li>`);
+        i++;
+      }
+      result.push({ type: 'block', html: `<ul class="mul">${items.join('')}</ul>` });
+      continue;
+    }
+    if (line.trim() === '') {
+      result.push({ type: 'break' });
+      i++; continue;
+    }
+    result.push({ type: 'text', content: line });
+    i++;
+  }
+
+  // Group text lines into paragraphs
+  const final = [];
+  let pBuf = [];
+  for (const r of result) {
+    if (r.type === 'text') {
+      pBuf.push(r.content);
+    } else {
+      if (pBuf.length) { final.push(`<p>${pBuf.join('<br>')}</p>`); pBuf = []; }
+      if (r.type === 'block') final.push(r.html);
+    }
+  }
+  if (pBuf.length) final.push(`<p>${pBuf.join('<br>')}</p>`);
+  return final.join('\n');
+}
+
+// ─── STREAMING WORD ANIMATION ─────────────────────────────────────────────────
+function streamHTML(element, htmlContent, onDone) {
+  element.innerHTML = htmlContent;
+
+  const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+  const textNodes = [];
+  let node;
+  while ((node = walker.nextNode())) {
+    if (node.textContent.trim()) textNodes.push(node);
+  }
+
+  let delay = 0;
+  const SPEED_MS = 20;
+
+  textNodes.forEach(tn => {
+    const words = tn.textContent.split(/(\s+)/);
+    const frag = document.createDocumentFragment();
+    words.forEach(word => {
+      if (!word.trim()) {
+        frag.appendChild(document.createTextNode(word));
+        return;
+      }
+      const span = document.createElement('span');
+      span.className = 'w';
+      span.textContent = word;
+      span.style.animationDelay = `${delay}ms`;
+      delay += SPEED_MS;
+      frag.appendChild(span);
+    });
+    tn.parentNode.replaceChild(frag, tn);
+  });
+
+  const cursor = document.createElement('span');
+  cursor.className = 'cursor';
+  element.appendChild(cursor);
+
+  const totalDuration = delay + 300;
+  setTimeout(() => {
+    cursor.remove();
+    onDone && onDone();
+  }, totalDuration);
+}
+
+// ─── CHAT LOGIC ───────────────────────────────────────────────────────────────
+function showChat() {
+  if (!chatActive) {
+    chatActive = true;
+    document.getElementById('welcome').hidden = true;
+    const msgs = document.getElementById('messages');
+    msgs.hidden = false;
+  }
+}
+
+function scrollToBottom() {
+  const msgs = document.getElementById('messages');
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function addUserMessage(text) {
+  const msgs = document.getElementById('messages');
+  const div = document.createElement('div');
+  div.className = 'msg msg-user';
+  div.innerHTML = `<div class="msg-bubble">${text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>`;
+  msgs.appendChild(div);
+  scrollToBottom();
+}
+
+function addThinkingIndicator() {
+  const msgs = document.getElementById('messages');
+  const div = document.createElement('div');
+  div.className = 'msg msg-bot';
+  div.id = 'thinking';
+  div.innerHTML = `
+    <div class="bot-avatar"><span>W</span></div>
+    <div class="msg-body">
+      <div class="thinking-dots"><span></span><span></span><span></span></div>
+    </div>`;
+  msgs.appendChild(div);
+  scrollToBottom();
+  return div;
+}
+
+function renderSuggestions(ids) {
+  const el = document.getElementById('suggestions');
+  el.innerHTML = '';
+  ids.forEach(id => {
+    if (!QA[id]) return;
+    const btn = document.createElement('button');
+    btn.className = 'suggestion-chip';
+    btn.textContent = QA[id].question;
+    btn.addEventListener('click', () => triggerQuestion(id));
+    el.appendChild(btn);
+  });
+}
+
+function setActiveNav(id) {
+  if (activeNavBtn) activeNavBtn.classList.remove('active');
+  const btn = document.querySelector(`.nav-btn[data-qa="${id}"]`);
+  if (btn) { btn.classList.add('active'); activeNavBtn = btn; }
+}
+
+function deliverAnswer(qaId) {
+  const qa = QA[qaId];
+  const thinking = addThinkingIndicator();
+  const delay = 800 + Math.random() * 500;
+
+  setTimeout(() => {
+    thinking.remove();
+    const msgs = document.getElementById('messages');
+    const div = document.createElement('div');
+    div.className = 'msg msg-bot';
+    div.innerHTML = `<div class="bot-avatar"><span>W</span></div><div class="msg-body msg-content"></div>`;
+    msgs.appendChild(div);
+    const contentEl = div.querySelector('.msg-content');
+    streamHTML(contentEl, md(qa.answer), () => {
+      isStreaming = false;
+      renderSuggestions(qa.suggestions);
+      scrollToBottom();
+    });
+    scrollToBottom();
+  }, delay);
+}
+
+function triggerQuestion(id) {
+  if (isStreaming) return;
+  const qa = QA[id];
+  if (!qa) return;
+
+  isStreaming = true;
+  showChat();
+  setActiveNav(id);
+  renderSuggestions([]);
+
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sidebarOverlay').classList.remove('show');
+
+  addUserMessage(qa.question);
+  setTimeout(() => deliverAnswer(id), 50);
+}
+
+function matchQuestion(input) {
+  const lower = input.toLowerCase();
+  let best = null, bestScore = 0;
+  KEYWORD_MAP.forEach(({ keys, id }) => {
+    let score = 0;
+    keys.forEach(k => { if (lower.includes(k)) score++; });
+    if (score > bestScore) { bestScore = score; best = id; }
+  });
+  return bestScore > 0 ? best : null;
+}
+
+function handleSend() {
+  const input = document.getElementById('inputText');
+  const text = input.value.trim();
+  if (!text || isStreaming) return;
+
+  input.value = '';
+  input.style.height = '';
+  document.getElementById('sendBtn').disabled = true;
+
+  const matched = matchQuestion(text);
+  isStreaming = true;
+  showChat();
+  renderSuggestions([]);
+  addUserMessage(text);
+
+  if (matched) {
+    setActiveNav(matched);
+    setTimeout(() => deliverAnswer(matched), 50);
+  } else {
+    setTimeout(() => {
+      const thinking = addThinkingIndicator();
+      setTimeout(() => {
+        thinking.remove();
+        const msgs = document.getElementById('messages');
+        const div = document.createElement('div');
+        div.className = 'msg msg-bot';
+        div.innerHTML = `<div class="bot-avatar"><span>W</span></div><div class="msg-body msg-content"></div>`;
+        msgs.appendChild(div);
+        const fallback = `I can answer questions about Will's **experience**, **projects**, **certifications**, **education**, **leadership**, **skills**, **recommendations**, or how to **contact** him. Try one of the suggestions below!`;
+        streamHTML(div.querySelector('.msg-content'), md(fallback), () => {
+          isStreaming = false;
+          renderSuggestions(['about', 'experience', 'contact']);
+          scrollToBottom();
         });
+        scrollToBottom();
+      }, 700);
+    }, 50);
+  }
+}
 
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+function resetChat() {
+  chatActive = false;
+  isStreaming = false;
+  document.getElementById('messages').innerHTML = '';
+  document.getElementById('messages').hidden = true;
+  document.getElementById('welcome').hidden = false;
+  document.getElementById('suggestions').innerHTML = '';
+  document.getElementById('inputText').value = '';
+  document.getElementById('sendBtn').disabled = true;
+  if (activeNavBtn) { activeNavBtn.classList.remove('active'); activeNavBtn = null; }
+}
 
-        // Add scroll-triggered animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+// ─── THEME ────────────────────────────────────────────────────────────────────
+function applyTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  localStorage.setItem('theme', t);
+}
+function toggleTheme() {
+  const cur = document.documentElement.getAttribute('data-theme');
+  applyTheme(cur === 'dark' ? 'light' : 'dark');
+}
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+// ─── SIDEBAR (MOBILE) ─────────────────────────────────────────────────────────
+function openSidebar() {
+  document.getElementById('sidebar').classList.add('open');
+  document.getElementById('sidebarOverlay').classList.add('show');
+}
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sidebarOverlay').classList.remove('show');
+}
 
-        // Observe elements for animation
-        document.addEventListener('DOMContentLoaded', () => {
-            const animatedElements = document.querySelectorAll('.hero-content > *, .profile-card');
-            animatedElements.forEach((el, index) => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(30px)';
-                el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-                observer.observe(el);
-            });
-        });
+// ─── INIT ─────────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.prompt-card').forEach(btn => {
+    btn.addEventListener('click', () => triggerQuestion(btn.dataset.qa));
+  });
+  document.querySelectorAll('.nav-btn').forEach(btn => {
+    btn.addEventListener('click', () => triggerQuestion(btn.dataset.qa));
+  });
+  document.getElementById('newChatBtn').addEventListener('click', resetChat);
+  document.getElementById('themeBtn').addEventListener('click', toggleTheme);
+  document.getElementById('mobileThemeBtn').addEventListener('click', toggleTheme);
+  document.getElementById('mobileSidebarBtn').addEventListener('click', openSidebar);
+  document.getElementById('sidebarOverlay').addEventListener('click', closeSidebar);
 
-        // Mobile menu functionality
-        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-        
-        if (mobileMenuToggle && mobileMenuOverlay) {
-            mobileMenuToggle.addEventListener('click', () => {
-                mobileMenuToggle.classList.toggle('active');
-                mobileMenuOverlay.classList.toggle('active');
-                document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
-            });
+  const inputText = document.getElementById('inputText');
+  const sendBtn = document.getElementById('sendBtn');
 
-            // Close mobile menu when clicking on a link
-            document.querySelectorAll('.mobile-nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenuToggle.classList.remove('active');
-                    mobileMenuOverlay.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
-            });
-
-            // Close mobile menu when clicking overlay
-            mobileMenuOverlay.addEventListener('click', (e) => {
-                if (e.target === mobileMenuOverlay) {
-                    mobileMenuToggle.classList.remove('active');
-                    mobileMenuOverlay.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
-        }
-
-        // Enhanced button hover effects
-        document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
-            btn.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-3px) scale(1.02)';
-            });
-            
-            btn.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-    </script>
+  inputText.addEventListener('input', () => {
+    inputText.style.height = 'auto';
+    inputText.style.height = Math.min(inputText.scrollHeight, 160) + 'px';
+    sendBtn.disabled = !inputText.value.trim();
+  });
+  inputText.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      if (!sendBtn.disabled) handleSend();
+    }
+  });
+  sendBtn.addEventListener('click', handleSend);
+});
+</script>
 </body>
 </html>
