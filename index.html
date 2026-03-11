@@ -50,6 +50,7 @@
         <button class="nav-btn" data-qa="leadership">Leadership</button>
         <button class="nav-btn" data-qa="skills">Skills</button>
         <button class="nav-btn" data-qa="recommendations">Recommendations</button>
+        <button class="nav-btn" data-qa="undergrad">Undergrad Life</button>
         <button class="nav-btn" data-qa="contact">Contact</button>
       </nav>
     </div>
@@ -414,6 +415,32 @@ Full recommendations available on LinkedIn at linkedin.com/in/defend.`,
     suggestions: ["about", "experience", "contact"]
   },
 
+  undergrad: {
+    question: "What were you up to in undergrad?",
+    answer: `well, i did a lot - but a couple of notable things stand out.
+
+**IT Ambassadors**
+when i was a freshman i joined the IT ambassadors and was part of the founding crew. we did a ton to promote the major and it ended up becoming objectively the fastest-growing major at JMU - they eventually had to put a cap on how many students they admitted lol. it really grew my public speaking skills and taught me how to sell something i genuinely believed in.
+
+![IT Ambassadors](images/events/WILLIAM JEDRZEJCZAK AMBASSADORS.jpeg)
+
+**Madison Tech Society (MTS)**
+one of the things i did in my spare time - which i didn't have much of lol - was co-found MTS alongside one of my colleagues [Brian Stokc](https://www.linkedin.com/in/mitigate/). i grew it into the biggest club in our entire department. my whole goal was teaching the skills that school doesn't - i recognized a gap in the job market and aimed to fill it. [learn more at our website](https://mts.publicvm.com/)
+
+![MTS](images/events/WILLIAM JEDRZEJCZAK MTS.jpeg)
+
+**Stewardship Luncheon**
+i got to speak alongside the president of the university and a few other folks as the only solo student speaker. JMU announced its $200M endowment and a few other things - largest audience i spoke to in my undergrad, both in terms of people and probably net worth lol. [watch my speech here](https://www.youtube.com/watch?v=xG6l3lZcciA)
+
+![Stewardship Luncheon](images/events/WILLIAM JEDRZEJCZAK STEWARDSHIP LUNCHEON.jpeg)
+
+**JMU Profile Interview**
+Bill Gentry, one of the guys who leads JMU's marketing, saw me talk about my volunteering work at Rockingham County and instantly wanted me interviewed to represent the school - talked about my early graduation, my path, how JMU helped, all the corporate mumbo jumbo. [check out the interview here](https://www.jmu.edu/admissions/explore/profiles/jedrzejczak-will-26.shtml)
+
+![JMU Interview](images/events/WILLIAM JEDRZEJCZAK SCHOOL INTERVIEW.jpeg)`,
+    suggestions: ["experience", "leadership", "education"]
+  },
+
   contact: {
     question: "How do I get in touch with Will?",
     answer: `Best way to reach me:
@@ -444,7 +471,8 @@ const KEYWORD_MAP = [
   { keys: ['leadership', 'ambassador', 'club', 'officer', 'president', 'vp', 'vice', 'mentor', 'ta', 'teaching', 'stem'], id: 'leadership' },
   { keys: ['skill', 'technical', 'language', 'programming', 'python', 'react', 'tools', 'stack', 'tech', 'clearance'], id: 'skills' },
   { keys: ['recommend', 'testimonial', 'colleague', 'say about', 'opinion', 'reference', 'review', 'think of you'], id: 'recommendations' },
-  { keys: ['contact', 'email', 'reach', 'connect', 'linkedin', 'message', 'hire', 'touch', 'talk'], id: 'contact' }
+  { keys: ['contact', 'email', 'reach', 'connect', 'linkedin', 'message', 'hire', 'touch', 'talk'], id: 'contact' },
+  { keys: ['undergrad', 'college', 'university', 'jmu', 'campus', 'student', 'ambassador', 'mts', 'speech', 'luncheon', 'interview', 'club', 'extracurricular', 'activities'], id: 'undergrad' }
 ];
 
 // ─── STATE ────────────────────────────────────────────────────────────────────
@@ -459,9 +487,10 @@ function md(text) {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;');
 
-  // Inline: bold and italic
+  // Inline: bold, italic, links
   out = out.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
   out = out.replace(/\*(.*?)\*/g, '<em>$1</em>');
+  out = out.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
 
   const lines = out.split('\n');
   const result = [];
@@ -475,6 +504,12 @@ function md(text) {
     }
     if (line.trim() === '---') {
       result.push({ type: 'block', html: '<hr class="mhr">' });
+      i++; continue;
+    }
+    // Image: ![alt](src) on its own line
+    const imgMatch = line.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+    if (imgMatch) {
+      result.push({ type: 'block', html: `<figure class="event-img"><img src="${imgMatch[2]}" alt="${imgMatch[1]}" loading="lazy"></figure>` });
       i++; continue;
     }
     if (line.startsWith('- ')) {
@@ -530,10 +565,8 @@ function streamHTML(element, htmlContent, onDone) {
     const src = blocks[blockIdx++];
     const tag = src.tagName.toLowerCase();
 
-    if (tag === 'hr') {
-      const hr = document.createElement('hr');
-      if (src.className) hr.className = src.className;
-      element.appendChild(hr);
+    if (tag === 'hr' || tag === 'figure') {
+      element.appendChild(src.cloneNode(true));
       scrollToBottom();
       nextBlock();
       return;

@@ -626,6 +626,20 @@ body {
   45%, 55% { opacity: 0; }
 }
 
+/* ── EVENT IMAGES ────────────────────────────────────────────── */
+figure.event-img {
+  margin: 6px 0 2px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  max-width: 480px;
+}
+figure.event-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-md);
+}
+
 /* ── THINKING INDICATOR ─────────────────────────────────────── */
 .thinking-dots {
   display: flex;
