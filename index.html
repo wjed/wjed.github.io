@@ -140,6 +140,9 @@
           <button class="send-btn" id="sendBtn" disabled aria-label="Send">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
           </button>
+          <button class="stop-btn" id="stopBtn" aria-label="Stop" style="display:none">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
+          </button>
         </div>
       </div>
       <p class="disclaimer">i'm not actually doing a raw llm call im not rich lol</p>
@@ -430,25 +433,25 @@ Full recommendations available on LinkedIn at linkedin.com/in/defend.`,
 
   undergrad: {
     question: "What were you up to in undergrad?",
-    answer: `well, i did a lot - but a couple of notable things stand out.
+    answer: `Here's a few things that stood out from my time at JMU:
 
 **IT Ambassadors**
-when i was a freshman i joined the IT ambassadors and was part of the founding crew. we did a ton to promote the major and it ended up becoming objectively the fastest-growing major at JMU - they eventually had to put a cap on how many students they admitted lol. it really grew my public speaking skills and taught me how to sell something i genuinely believed in.
+When I was a freshman I joined the IT ambassadors and was part of the founding crew. We did a ton to promote the major and it ended up becoming objectively the fastest-growing major at JMU, they eventually had to put a cap on how many students they admitted lol. It really grew my public speaking skills and taught me how to sell something I genuinely believed in.
 
 ![IT Ambassadors](images/events/ambassadors.jpeg)
 
 **Madison Tech Society ([MTS](https://mts.publicvm.com/))**
-one of the things i did in my spare time - which i didn't have much of lol - was found [MTS](https://mts.publicvm.com/), with [Brian Stock](https://www.linkedin.com/in/mitigate/) tacking on later. i grew it into the biggest club in our entire department. my whole goal was teaching the skills that school doesn't - i recognized a gap in the job market and aimed to fill it.
+One of the things I did in my spare time, which I didn't have much of lol, was found [MTS](https://mts.publicvm.com/), with [Brian Stock](https://www.linkedin.com/in/mitigate/) tacking on later. I grew it into the biggest club in our entire department. My whole goal was teaching the skills that school doesn't, I recognized a gap in the job market and aimed to fill it.
 
 ![MTS](images/events/mts.jpeg)
 
 **Stewardship Luncheon**
-i got to speak alongside the president of the university and a few other folks as the only solo student speaker. JMU announced its $200M endowment and a few other things - largest audience i spoke to in my undergrad, both in terms of people and probably net worth lol. [watch my speech here](https://www.youtube.com/watch?v=xG6l3lZcciA)
+I got to speak alongside the president of the university and a few other folks as the only solo student speaker. JMU announced its $200M endowment and a few other things, largest audience I spoke to in my undergrad, both in terms of people and probably net worth lol. [Watch my speech here.](https://www.youtube.com/watch?v=xG6l3lZcciA)
 
 ![Stewardship Luncheon](images/events/stewardship-luncheon.jpeg)
 
 **JMU Profile Interview**
-Bill Gentry, one of the guys who leads JMU's marketing, saw me talk about my volunteering work at Rockingham County and instantly wanted me interviewed to represent the school - talked about my early graduation, my path, how JMU helped, all the corporate mumbo jumbo. [check out the interview here](https://www.jmu.edu/admissions/explore/profiles/jedrzejczak-will-26.shtml)
+Bill Gentry, one of the guys who leads JMU's marketing, saw me talk about my volunteering work at Rockingham County and instantly wanted me interviewed to represent the school. Talked about my early graduation, my path, how JMU helped, all the corporate mumbo jumbo. [Check out the interview here.](https://www.jmu.edu/admissions/explore/profiles/jedrzejczak-will-26.shtml)
 
 ![JMU Interview](images/events/school-interview.jpeg)`,
     suggestions: ["experience", "leadership", "education"]
@@ -490,8 +493,17 @@ const KEYWORD_MAP = [
 
 // ─── STATE ────────────────────────────────────────────────────────────────────
 let chatActive = false;
-let isStreaming = false;
+let setStreaming(false);
+let stopRequested = false;
 let activeNavBtn = null;
+
+function setStreaming(val) {
+  isStreaming = val;
+  const stopBtn = document.getElementById('stopBtn');
+  const sendBtn = document.getElementById('sendBtn');
+  if (stopBtn) stopBtn.style.display = val ? 'flex' : 'none';
+  if (sendBtn) sendBtn.style.display = val ? 'none' : 'flex';
+}
 
 // ─── MARKDOWN PARSER ──────────────────────────────────────────────────────────
 function md(text) {
@@ -503,7 +515,7 @@ function md(text) {
   // Inline: bold, italic, links
   out = out.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
   out = out.replace(/\*(.*?)\*/g, '<em>$1</em>');
-  out = out.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  out = out.replace(/(?<!!)\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
 
   const lines = out.split('\n');
   const result = [];
@@ -622,6 +634,11 @@ function streamHTML(element, htmlContent, onDone) {
     const tokens = tokenize(html);
     let i = 0, built = '';
     function step() {
+      if (stopRequested) {
+        el.innerHTML = html; // dump remaining instantly on stop
+        onComplete();
+        return;
+      }
       if (i >= tokens.length) {
         el.innerHTML = html; // clean final render (no cursor)
         scrollToBottom();
@@ -654,7 +671,7 @@ function showChat() {
 
 function resetChat() {
   chatActive = false;
-  isStreaming = false;
+  setStreaming(false);
   document.getElementById('mainArea').classList.remove('chat-mode');
   document.getElementById('messages').innerHTML = '';
   document.getElementById('suggestions').innerHTML = '';
@@ -721,7 +738,7 @@ function deliverAnswer(qaId) {
     msgs.appendChild(div);
     const contentEl = div.querySelector('.msg-content');
     streamHTML(contentEl, md(qa.answer), () => {
-      isStreaming = false;
+      setStreaming(false);
       renderSuggestions(qa.suggestions);
       scrollToBottom();
     });
@@ -734,7 +751,7 @@ function triggerQuestion(id) {
   const qa = QA[id];
   if (!qa) return;
 
-  isStreaming = true;
+  setStreaming(true); stopRequested = false;
   showChat();
   setActiveNav(id);
   renderSuggestions([]);
@@ -767,7 +784,7 @@ function handleSend() {
   document.getElementById('sendBtn').disabled = true;
 
   const matched = matchQuestion(text);
-  isStreaming = true;
+  setStreaming(true); stopRequested = false;
   showChat();
   renderSuggestions([]);
   addUserMessage(text);
@@ -787,7 +804,7 @@ function handleSend() {
       msgs.appendChild(div);
       const fallback = `I can answer questions about Will's **experience**, **projects**, **certifications**, **education**, **leadership**, **skills**, **recommendations**, or how to **contact** him. Try one of the suggestions below, or ask something more specific!`;
       streamHTML(div.querySelector('.msg-content'), md(fallback), () => {
-        isStreaming = false;
+        setStreaming(false);
         renderSuggestions(['about', 'experience', 'contact']);
         scrollToBottom();
       });
@@ -842,6 +859,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   sendBtn.addEventListener('click', handleSend);
+
+  document.getElementById('stopBtn').addEventListener('click', () => {
+    stopRequested = true;
+  });
 });
 </script>
 </body>
