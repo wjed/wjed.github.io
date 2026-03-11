@@ -509,7 +509,7 @@ function md(text) {
     // Image: ![alt](src) on its own line
     const imgMatch = line.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
     if (imgMatch) {
-      result.push({ type: 'block', html: `<figure class="event-img"><img src="${imgMatch[2]}" alt="${imgMatch[1]}" loading="lazy"></figure>` });
+      result.push({ type: 'block', html: `<figure class="event-img"><img src="${imgMatch[2].replace(/ /g, '%20')}" alt="${imgMatch[1]}" loading="lazy"></figure>` });
       i++; continue;
     }
     if (line.startsWith('- ')) {
