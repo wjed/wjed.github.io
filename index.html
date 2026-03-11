@@ -149,6 +149,21 @@
 </div><!-- .app -->
 
 <script>
+// ─── BACKGROUND-SAFE TIMER ────────────────────────────────────────────────────
+// Uses a Web Worker so setTimeout isn't throttled in background tabs.
+const _tw = new Worker(URL.createObjectURL(new Blob(
+  ['self.onmessage=function(e){setTimeout(function(){self.postMessage(e.data)},e.data.d)}'],
+  {type:'application/javascript'}
+)));
+const _tcb = {};
+let _tid = 0;
+_tw.onmessage = function(e) { const f=_tcb[e.data.id]; if(f){delete _tcb[e.data.id];f();} };
+function wTimeout(fn, delay) {
+  const id = ++_tid;
+  _tcb[id] = fn;
+  _tw.postMessage({id, d: delay});
+}
+
 // ─── INTRO ANIMATION ──────────────────────────────────────────────────────────
 (function() {
   const intro = document.getElementById('intro');
@@ -160,23 +175,21 @@
     'besides a resume, because those are boring...',
   ];
   const CHAR_MS = 42;
-  const LINE_PAUSE = 320; // pause between lines
+  const LINE_PAUSE = 320;
 
   let lineIdx = 0;
   let activeEl = null;
 
   function nextLine() {
     if (lineIdx >= lines.length) {
-      // all done — hide cursor then fade out
       if (activeEl) activeEl.classList.add('done');
-      setTimeout(() => {
+      wTimeout(() => {
         intro.classList.add('fade-out');
-        setTimeout(() => intro.remove(), 800);
+        wTimeout(() => intro.remove(), 800);
       }, 700);
       return;
     }
 
-    // hide cursor on previous line
     if (activeEl) activeEl.classList.add('done');
 
     const span = document.createElement('span');
@@ -189,9 +202,9 @@
     function typeChar() {
       if (i < text.length) {
         span.textContent += text[i++];
-        setTimeout(typeChar, CHAR_MS);
+        wTimeout(typeChar, CHAR_MS);
       } else {
-        setTimeout(nextLine, LINE_PAUSE);
+        wTimeout(nextLine, LINE_PAUSE);
       }
     }
     typeChar();
@@ -547,7 +560,7 @@ function md(text) {
 // ─── CHARACTER-BY-CHARACTER TYPING ANIMATION ──────────────────────────────────
 // Types each block sequentially, char by char, with inline blinking cursor.
 function streamHTML(element, htmlContent, onDone) {
-  const CHAR_DELAY = 11; // ms per character
+  const CHAR_DELAY = 8; // ms per character
   const CURSOR_HTML = '<span class="cursor"></span>';
 
   const temp = document.createElement('div');
@@ -620,9 +633,9 @@ function streamHTML(element, htmlContent, onDone) {
       el.innerHTML = built + CURSOR_HTML;
       if (tok.type === 'char') {
         if (i % 8 === 0) scrollToBottom(); // scroll every 8 chars to avoid jank
-        setTimeout(step, CHAR_DELAY);
+        wTimeout(step, CHAR_DELAY);
       } else {
-        setTimeout(step, 0); // tags: instant, deferred to next tick
+        wTimeout(step, 0); // tags: instant, deferred to next tick
       }
     }
     step();
