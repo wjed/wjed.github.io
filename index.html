@@ -153,18 +153,23 @@
 
 <script>
 // ─── BACKGROUND-SAFE TIMER ────────────────────────────────────────────────────
-// Uses a Web Worker so setTimeout isn't throttled in background tabs.
-const _tw = new Worker(URL.createObjectURL(new Blob(
-  ['self.onmessage=function(e){setTimeout(function(){self.postMessage(e.data)},e.data.d)}'],
-  {type:'application/javascript'}
-)));
-const _tcb = {};
-let _tid = 0;
-_tw.onmessage = function(e) { const f=_tcb[e.data.id]; if(f){delete _tcb[e.data.id];f();} };
-function wTimeout(fn, delay) {
-  const id = ++_tid;
-  _tcb[id] = fn;
-  _tw.postMessage({id, d: delay});
+// Tries a Web Worker (not throttled in background tabs); falls back to setTimeout.
+let wTimeout;
+try {
+  const _tw = new Worker(URL.createObjectURL(new Blob(
+    ['self.onmessage=function(e){setTimeout(function(){self.postMessage(e.data)},e.data.d)}'],
+    {type:'application/javascript'}
+  )));
+  const _tcb = {};
+  let _tid = 0;
+  _tw.onmessage = function(e) { const f=_tcb[e.data.id]; if(f){delete _tcb[e.data.id];f();} };
+  wTimeout = function(fn, delay) {
+    const id = ++_tid;
+    _tcb[id] = fn;
+    _tw.postMessage({id, d: delay});
+  };
+} catch(e) {
+  wTimeout = function(fn, delay) { setTimeout(fn, delay); };
 }
 
 // ─── INTRO ANIMATION ──────────────────────────────────────────────────────────
