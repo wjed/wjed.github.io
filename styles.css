@@ -1,7 +1,16 @@
 /* ============================================================
    WILL JEDRZEJCZAK — CHATBOT PORTFOLIO
-   Claude-inspired design system
    ============================================================ */
+
+/* ── FONTS ──────────────────────────────────────────────────── */
+@font-face { font-family: 'Aeonik'; src: url('fonts/Aeonik-Light.ttf') format('truetype'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Aeonik'; src: url('fonts/Aeonik-LightItalic.ttf') format('truetype'); font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Aeonik'; src: url('fonts/Aeonik-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Aeonik'; src: url('fonts/Aeonik-RegularItalic.ttf') format('truetype'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Aeonik'; src: url('fonts/Aeonik-Medium.ttf') format('truetype'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Aeonik'; src: url('fonts/Aeonik-MediumItalic.ttf') format('truetype'); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Aeonik'; src: url('fonts/Aeonik-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Aeonik'; src: url('fonts/Aeonik-BoldItalic.ttf') format('truetype'); font-weight: 700; font-style: italic; font-display: swap; }
 
 /* ── VARIABLES ──────────────────────────────────────────────── */
 :root {
@@ -29,7 +38,7 @@
   --radius-md:     12px;
   --radius-lg:     18px;
   --sidebar-w:     260px;
-  --font:          'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font:          'Aeonik', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 [data-theme="dark"] {
@@ -131,7 +140,7 @@ body {
 
 .brand-name {
   font-size: 13.5px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text);
   letter-spacing: -0.01em;
   white-space: nowrap;
@@ -152,7 +161,7 @@ body {
 
 .sidebar-label {
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-3);
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -345,14 +354,15 @@ body {
   font-size: 28px;
   font-weight: 700;
   color: var(--text);
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   margin-bottom: 6px;
   line-height: 1.2;
 }
 
 .welcome-tagline {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 300;
+  letter-spacing: 0.01em;
   margin-bottom: 10px;
   background: var(--gradient);
   -webkit-background-clip: text;
@@ -405,7 +415,7 @@ body {
 
 .prompt-card-title {
   font-size: 13.5px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text);
   margin-bottom: 3px;
   line-height: 1.35;
@@ -413,6 +423,7 @@ body {
 
 .prompt-card-desc {
   font-size: 12.5px;
+  font-weight: 300;
   color: var(--text-3);
   line-height: 1.4;
 }
@@ -491,9 +502,9 @@ body {
 }
 
 /* ── MESSAGE MARKDOWN STYLES ────────────────────────────────── */
-/* Serif font for bot response text — matches Claude's Copernicus feel */
 .msg-content {
-  font-family: 'Lora', Georgia, 'Times New Roman', serif;
+  font-family: var(--font);
+  font-weight: 300;
   font-size: 15.5px;
   line-height: 1.75;
 }
@@ -507,22 +518,23 @@ body {
 }
 
 .msg-content strong {
-  font-weight: 620;
+  font-weight: 700;
   color: var(--text);
 }
 
 .msg-content em {
   font-style: italic;
+  font-weight: 300;
   color: var(--text-2);
   font-size: 13.5px;
 }
 
 .msg-content .mh {
   font-size: 15px;
-  font-weight: 650;
+  font-weight: 700;
   color: var(--text);
   margin: 1.3em 0 0.45em;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.01em;
   line-height: 1.3;
 }
 
@@ -591,15 +603,15 @@ body {
   padding: 0 1.5rem;
 }
 .intro-line {
-  font-family: 'Lora', Georgia, serif;
+  font-family: var(--font);
   font-size: clamp(1rem, 2.2vw, 1.45rem);
-  font-weight: 400;
+  font-weight: 300;
   color: var(--text-2);
   letter-spacing: 0.01em;
 }
 .intro-line:first-child {
   font-size: clamp(1.25rem, 2.8vw, 1.9rem);
-  font-weight: 500;
+  font-weight: 400;
   color: var(--text-1);
 }
 .intro-line::after {
