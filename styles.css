@@ -122,15 +122,11 @@ body {
   width: 28px;
   height: 28px;
   border-radius: 7px;
-  background: var(--gradient);
-  color: #fff;
-  font-size: 14px;
-  font-weight: 700;
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  letter-spacing: -0.5px;
 }
 
 .brand-name {
@@ -362,6 +358,15 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.scale-wordmark {
+  margin-bottom: 14px;
+}
+.scale-wordmark img {
+  height: 28px;
+  width: auto;
+  opacity: 0.9;
 }
 
 .welcome-desc {

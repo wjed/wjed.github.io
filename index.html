@@ -30,7 +30,7 @@
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-top">
       <div class="brand">
-        <div class="brand-icon">W</div>
+        <div class="brand-icon"><img src="images/scale/scale-triangle.png" alt="Scale AI" style="width:18px;height:18px;object-fit:contain;display:block;"></div>
         <span class="brand-name">wjed.github.io</span>
       </div>
       <button class="icon-btn theme-toggle sidebar-theme" id="themeBtn" title="Toggle theme" aria-label="Toggle theme">
@@ -93,6 +93,7 @@
         </div>
         <h1 class="welcome-h1">Hi, I'm Will.</h1>
         <p class="welcome-tagline">Incoming @ Scale AI + DOJ &middot; Prev. @ Amazon &middot; Active TS &middot; GT MSCS &rsquo;28</p>
+        <div class="scale-wordmark"><img src="images/scale/scale-word.png" alt="Scale AI"></div>
         <p class="welcome-desc">Ask me anything about my background, experience, or what I'm working on.</p>
         <div class="prompt-grid">
           <button class="prompt-card" data-qa="about">
@@ -700,7 +701,7 @@ function addThinkingIndicator() {
   const div = document.createElement('div');
   div.className = 'msg msg-bot';
   div.id = 'thinking';
-  div.innerHTML = `<div class="bot-avatar"><img src="images/Will-Elodie-Image.png" alt="Will"></div><div class="msg-body"><div class="thinking-dots"><span></span><span></span><span></span></div></div>`;
+  div.innerHTML = `<div class="bot-avatar"><img src="images/scale/scale-triangle.png" alt="Scale AI"></div><div class="msg-body"><div class="thinking-dots"><span></span><span></span><span></span></div></div>`;
   msgs.appendChild(div);
   scrollToBottom();
   return div;
@@ -735,7 +736,7 @@ function deliverAnswer(qaId) {
     const msgs = document.getElementById('messages');
     const div = document.createElement('div');
     div.className = 'msg msg-bot';
-    div.innerHTML = `<div class="bot-avatar"><img src="images/Will-Elodie-Image.png" alt="Will"></div><div class="msg-body msg-content"></div>`;
+    div.innerHTML = `<div class="bot-avatar"><img src="images/scale/scale-triangle.png" alt="Scale AI"></div><div class="msg-body msg-content"></div>`;
     msgs.appendChild(div);
     const contentEl = div.querySelector('.msg-content');
     streamHTML(contentEl, md(qa.answer), () => {
@@ -801,7 +802,7 @@ function handleSend() {
       const msgs = document.getElementById('messages');
       const div = document.createElement('div');
       div.className = 'msg msg-bot';
-      div.innerHTML = `<div class="bot-avatar"><img src="images/Will-Elodie-Image.png" alt="Will"></div><div class="msg-body msg-content"></div>`;
+      div.innerHTML = `<div class="bot-avatar"><img src="images/scale/scale-triangle.png" alt="Scale AI"></div><div class="msg-body msg-content"></div>`;
       msgs.appendChild(div);
       const fallback = `I can answer questions about Will's **experience**, **projects**, **certifications**, **education**, **leadership**, **skills**, **recommendations**, or how to **contact** him. Try one of the suggestions below, or ask something more specific!`;
       streamHTML(div.querySelector('.msg-content'), md(fallback), () => {
