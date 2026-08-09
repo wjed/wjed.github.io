@@ -47,6 +47,7 @@
         <button class="nav-btn" data-qa="leadership">Leadership</button>
         <button class="nav-btn" data-qa="skills">Skills</button>
         <button class="nav-btn" data-qa="recommendations">Recommendations</button>
+        <button class="nav-btn" data-qa="media">Press &amp; Media</button>
         <button class="nav-btn" data-qa="undergrad">Undergrad Life</button>
         <button class="nav-btn" data-qa="contact">Contact</button>
       </nav>
@@ -85,17 +86,17 @@
           <img src="images/Will-Elodie-Image.png" alt="Will Jedrzejczak" onerror="this.style.display='none';this.parentElement.classList.add('avatar-fallback')">
         </div>
         <h1 class="welcome-h1">Hi, I'm Will.</h1>
-        <p class="welcome-tagline">Cyber @ DOJ &middot; Incoming @ Scale AI &middot; Prev. @ Amazon &middot; Active TS/SCI w/ FSP &middot; GT MSCS &rsquo;28</p>
+        <p class="welcome-tagline">National Security @ Scale AI &middot; Prev. @ FBI, AWS, HiddenLayer &middot; Active TS w/ Full Scope Poly &middot; GT MSCS &rsquo;28</p>
         <div class="scale-wordmark"><img src="images/scale/scale-word.png" alt="Scale AI"></div>
         <p class="welcome-desc">Ask me anything about my background, experience, or what I'm working on.</p>
         <div class="prompt-grid">
           <button class="prompt-card" data-qa="about">
             <div class="prompt-card-title">Who is Will?</div>
-            <div class="prompt-card-desc">Overview, background, and what's next</div>
+            <div class="prompt-card-desc">Overview, background, and what I'm building</div>
           </button>
           <button class="prompt-card" data-qa="experience">
             <div class="prompt-card-title">Work experience</div>
-            <div class="prompt-card-desc">Scale AI, DOJ, AWS, ManTech, and more</div>
+            <div class="prompt-card-desc">Scale AI, FBI, AWS, HiddenLayer, and more</div>
           </button>
           <button class="prompt-card" data-qa="projects">
             <div class="prompt-card-title">Projects I've built</div>
@@ -103,11 +104,11 @@
           </button>
           <button class="prompt-card" data-qa="certifications">
             <div class="prompt-card-title">Certifications</div>
-            <div class="prompt-card-desc">20+ credentials in AWS, CompTIA, and more</div>
+            <div class="prompt-card-desc">40+ credentials in AWS, CompTIA, and AI</div>
           </button>
           <button class="prompt-card" data-qa="education">
             <div class="prompt-card-title">Education</div>
-            <div class="prompt-card-desc">JMU valedictorian + Georgia Tech MSCS</div>
+            <div class="prompt-card-desc">JMU a year early + Georgia Tech MSCS</div>
           </button>
           <button class="prompt-card" data-qa="recommendations">
             <div class="prompt-card-title">What colleagues say</div>
@@ -219,17 +220,15 @@ try {
 const QA = {
   about: {
     question: "Who is Will Jedrzejczak?",
-    answer: `Hey! I'm Will Jedrzejczak, 20 years old, graduating from James Madison University a year early as the valedictorian of my major, with a 3.99 GPA.
+    answer: `Hey! I'm Will Jedrzejczak, a **National Security Technical Program Manager on the Public Sector team at Scale AI** in Washington, DC.
 
-The short version: I've spent the last two years working across AWS, defense contractors, and startups, mostly in DC doing national security and AI work. I hold an **active TS/SCI with Full Scope Polygraph**.
+I work on agentic workflows and reliable AI systems for some of the most important decisions out there.
 
-Right now I'm working Cyber at the **U.S. Department of Justice** in Washington, DC.
+Before Scale, I spent time across the **FBI**, **AWS**, and defense-tech companies like **HiddenLayer**, **Blue Sky Innovators**, and **ManTech** — architecting cloud and AI solutions, contributing to DoD-funded R&D, and supporting federal programs worth hundreds of millions to billions in scope. Six internships in three years, every one of them intentional.
 
-**What's next:**
-- **Scale AI** full-time, August 2026, Technical Program Manager for Public Sector in DC
-- **M.S. Computer Science at Georgia Tech**, starting Fall 2026
+I graduated from **James Madison University** a year early with a 3.99 GPA and the top GPA in my major, and I'm now doing an **M.S. in Computer Science at Georgia Tech**. I hold 40+ certifications across AWS and CompTIA, and an **active TS clearance with Full Scope Polygraph**.
 
-Outside of work I read a lot, write, invest, and play basketball.`,
+Other interests: lifting, Jack Johnson, and personal finance.`,
     suggestions: ["experience", "education", "contact"]
   },
 
@@ -237,23 +236,26 @@ Outside of work I read a lot, write, invest, and play basketball.`,
     question: "Walk me through your work experience",
     answer: `Here's how my career has looked so far:
 
-**U.S. Department of Justice** · Cyber · 2026 *(current)*
-Working in cybersecurity at DOJ in Washington, DC.
+**Scale AI** · National Security Technical Program Manager · 2026–Present *(current)*
+Full-time in Washington, DC. Public Sector team, focused on agentic workflows — building reliable AI systems for defense, intelligence, and federal civilian customers.
 
-**Scale AI** · Technical Program Manager, Public Sector · August 2026 *(incoming full-time)*
-Joining Scale AI's Public Sector team in DC after graduation, working on AI data and infrastructure programs for government and defense clients.
+**Federal Bureau of Investigation** · Member of Technical Staff · 2026
+Quantico, VA. Built Python/Scapy scripts and Splunk dashboards, managed networking, architected AWS solutions, and presented to the CAIO.
 
-**Amazon Web Services** · NatSec Cloud Engineer · May–Aug 2025
-Data analytics and application development for Amazon Dedicated Cloud (federal). Doubled project scope, tripled cert requirements, and received a return offer.
+**Blue Sky Innovators** · Artificial Intelligence Engineer · Aug 2025–Mar 2026
+Reston, VA. DoD-funded R&D team. Built a multi-agent code security pipeline that auto-tickets 50+ vulnerabilities, and presented it to GitHub's CISO and 200+ stakeholders.
+
+**HiddenLayer** · National Security Solutions Architect *(Part-time)* · 2025–2026
+Washington, DC. Built Intelligence Community demos with Python and AWS, and supported federal sales and RFIs on a $151B IDIQ.
+
+**Amazon Web Services** · National Security Cloud Engineer · May–Aug 2025
+Crystal City, VA. Amazon Dedicated Cloud (federal). Exceeded scope by 200% and delivered in half the time using 40+ AWS services. Hosted a company-wide GenAI workshop and received a return offer.
 
 **ManTech** · Technical Engineer & SME (II+) · Nov 2024–May 2025
 **ManTech** · Software Engineer II · Mar–Nov 2024
-Started as the only freshman on an $850M DoD contract. Got two promotions in under a year working across IAM, Active Directory, and virtualization for the CIO.
+Started as the only freshman on an $850M DoD contract and presented my work directly to the CEO. Got two promotions in under a year working across IAM, Active Directory, and virtualization for the CIO.
 
-**Blue Sky Innovators** · AI Engineer · Aug 2025–Mar 2026
-DevSecOps R&D, built a multi-agent code security pipeline that auto-tickets 50+ vulnerabilities.
-
-**Rockingham County Public Schools** · Network Engineer *(Volunteer)* · Aug 2025–Present
+**Rockingham County Public Schools** · Network Engineer *(Volunteer)* · 2025–2026
 Installed and configured switches/routers across several schools for 11,500+ students. Analyzed data with Python and Pandas, produced reports presented to the Governor of Virginia.
 
 **CSFI** · Cyber Threat Intelligence Analyst · Jan–Apr 2025
@@ -296,7 +298,7 @@ A collaborative cybersecurity threat detection database built with SQL and Mocka
 
   certifications: {
     question: "What certifications do you hold?",
-    answer: `20+ certifications across cloud, cybersecurity, and AI:
+    answer: `40+ certifications across cloud, cybersecurity, and AI. The highlights:
 
 **Amazon Web Services (7 certifications)**
 - AWS Certified Data Engineer – Associate (Aug 2025)
@@ -331,15 +333,17 @@ All credentials are verifiable on LinkedIn.`,
 
   education: {
     question: "Tell me about your education",
-    answer: `I'm finishing a **B.S. in Information Technology** at **James Madison University**, graduating in August 2026, a year early, at 20 years old.
+    answer: `**B.S. in Information Technology** · **James Madison University** · graduated May 2026, a year early.
 
 **Academic stats:**
 - GPA: **3.99/4.00**
-- **Valedictorian** of my major, ranked #1 in the B.S. IT program
-- **Summa cum laude**
-- President's List every single semester
+- **Outstanding Academics in IT Award** — ranked first in GPA within my major
+- **Outstanding Student in Honors Award** — presented to the university president, taught Honors coursework, earned a $5,000 scholarship
+- **Summa cum laude**, President's List every single semester
 
-After JMU, I'm heading to **Georgia Tech** for an **M.S. in Computer Science**, starting Fall 2026. Concentrating in machine learning and systems.
+*(Footnote: I was told I wasn't eligible for valedictorian or departmental awards because I graduated a year early. That stung for about five minutes.)*
+
+**M.S. in Computer Science** · **Georgia Tech** · started Fall 2026, expected 2028. Concentrating in machine learning and systems. 23 courses across both programs so far, including CS-6603 (AI, Ethics, and Society) and IT-460 (Advanced Cybersecurity).
 
 **Research and teaching at JMU:**
 - Teaching Assistant for IT-201 (Computational Structures & Logic)
@@ -347,7 +351,7 @@ After JMU, I'm heading to **Georgia Tech** for an **M.S. in Computer Science**, 
 - Published: *Teaching to a Better Test, One Year Later*, quantitative assessment study for Rockingham County Public Schools (Nov 2025)
 - First-Year Researcher, MusicCPR web application
 
-**Conferences attended:** ShmoonCon, CYBERWARCON, CAPWIC, IEEE, NCHC`,
+**Conferences attended:** ShmooCon, CYBERWARCON, CAPWIC, IEEE, NCHC`,
     suggestions: ["leadership", "certifications", "about"]
   },
 
@@ -368,7 +372,7 @@ Mentored students in computational structures, discrete math, and formal logic.
 **STEM Corps Student Leader** · 2024
 Taught elementary school kids STEM concepts, fostering early interest in tech and science.
 
-**Valedictorian candidate** · 3.99 GPA, President's List every semester, graduating a year early at 20.
+**Outstanding Academics in IT Award** · First in GPA within my major — 3.99, President's List every semester, graduated a year early.
 
 JMU also featured me as part of their student spotlight: *"Curiosity drives the best problem-solvers. Will took what he learned at JMU and put it straight to work."*`,
     suggestions: ["education", "recommendations", "about"]
@@ -383,22 +387,31 @@ AWS (7 certifications): Bedrock, Lambda, S3, CDK, CloudFormation, Cognito, Dynam
 LLMs, Amazon Bedrock, Claude, OpenSearch, multi-agent pipelines. Agentic AI security, ML-based wireless attack detection, adversarial AI research (HiddenLayer).
 
 **Cybersecurity**
-Active TS/SCI w/ Full Scope Polygraph. CompTIA CySA+, Security+, Network+ certified. Threat intelligence, IAM, Active Directory, web security testing, CYBERCOM support. AI supply chain security and runtime security (HiddenLayer).
+Active TS clearance w/ Full Scope Polygraph. CompTIA CySA+, Security+, Network+ certified. Threat intelligence, IAM, Active Directory, web security testing, Splunk, Python/Scapy, CYBERCOM support. AI supply chain security and runtime security (HiddenLayer).
 
 **Programming**
 Python · JavaScript · React.js · SQL · n8n (automation) · HTML/CSS · AWS CDK
 
 **Platforms**
-OpenSearch · Twilio · Cisco · Active Directory
+OpenSearch · Splunk · Twilio · Cisco · Active Directory
 
 **Domain expertise**
-Federal defense and national security · Intelligence community · Government cloud (AWS Dedicated) · AI security · Data infrastructure · Network engineering`,
+Federal defense and national security · Intelligence community · Government cloud (AWS Dedicated) · AI security · Data infrastructure · Network engineering · IT program management
+
+**Languages**
+English (native) · Spanish (elementary)`,
     suggestions: ["certifications", "experience", "projects"]
   },
 
   recommendations: {
     question: "What do your colleagues say about you?",
-    answer: `Here's what some people have said:
+    answer: `13 recommendations so far. Here's what some people have said:
+
+**Cole W.**, Business Owner & Cybersecurity Researcher (M.S. Cybersecurity @ JMU)
+*"Will is a rare breed. He's the first one in and the last one to leave, not because he's trying to clock hours, but because he's genuinely obsessed with the pursuit of excellence... You don't just hire Will for his skills, you hire him for the culture of excellence he brings with him the moment he walks through the door."*
+
+**Sam Briggs**, CS @ JMU · Founder, Contractive
+*"He's a natural leader, incredibly self-motivated, and shows a genuine commitment to helping others grow. Will delivers sharp technical insight and high energy to each and every project he is a part of, executing at a high level without needing oversight."*
 
 **Adam Bluhm**, Sr. Solutions Architect & GenAI Lead, AWS
 *"William's trajectory is going to the moon... he never asks for shortcuts, only for context that accelerates his own learning so he can serve customers better. That combination of initiative and humility is rare even among seasoned consultants."*
@@ -419,7 +432,32 @@ Federal defense and national security · Intelligence community · Government cl
 *"Will is an exceptionally talented professional whose work in the government sector has been transformative."*
 
 Full recommendations available on LinkedIn at linkedin.com/in/defend.`,
-    suggestions: ["about", "experience", "contact"]
+    suggestions: ["media", "experience", "contact"]
+  },
+
+  media: {
+    question: "Where has your work been featured?",
+    answer: `A few places my work has shown up:
+
+**Podcast** — *How I Cracked AWS, FBI, Scale AI as a Fresher*
+*Cloud with Raj* · July 2026
+Sat down with [Rajdeep Saha](https://www.linkedin.com/in/cloudwithraj/) to talk about breaking in early: why starting before you're ready beats being the smartest person in the room, why execution beats hunting for the perfect idea, and why nobody teaches you how decisions actually get made. It's the conversation I wish I'd had at 18.
+
+**Press** — *JMU student helps keep Rockingham County schools connected and secure*
+*RockTown Now* · March 2026
+Coverage of my volunteer network engineering work across Rockingham County Public Schools, keeping classrooms online and secure for 11,500+ students. [Read it here.](https://rocktownnow.com/news/218812-jmu-student-helps-keep-rockingham-county-schools-connected-and-secure/)
+
+**JMU Admissions Profile**
+JMU's marketing team interviewed me about graduating early and the path that got me there. [Read it here.](https://www.jmu.edu/admissions/explore/profiles/jedrzejczak-will-26.shtml)
+
+**Stewardship Luncheon keynote**
+Spoke alongside the university president as the only solo student speaker, when JMU announced its $200M endowment. [Watch the speech.](https://www.youtube.com/watch?v=xG6l3lZcciA)
+
+**Commonwealth Cyber Initiative conference**
+Presented original research to 200+ people while still an undergrad. Thanks to Kendall Beebe and the CCI team for opening that door.
+
+I also write on LinkedIn pretty regularly at [linkedin.com/in/defend](https://www.linkedin.com/in/defend/) — mostly early-career strategy, national security tech, and what actually moves the needle.`,
+    suggestions: ["undergrad", "leadership", "contact"]
   },
 
   undergrad: {
@@ -471,13 +509,14 @@ Feel free to reach out about opportunities, research, or just to connect. Always
 // Keyword matching
 const KEYWORD_MAP = [
   { keys: ['who', 'about', 'yourself', 'introduce', 'background', 'overview', 'story', 'hi', 'hello', 'hey', 'tell me about will'], id: 'about' },
-  { keys: ['experience', 'work', 'job', 'career', 'scale', 'scale ai', 'aws', 'mantech', 'hiddenlayer', 'doj', 'history', 'employment', 'role'], id: 'experience' },
+  { keys: ['experience', 'work', 'job', 'career', 'scale', 'scale ai', 'aws', 'mantech', 'hiddenlayer', 'fbi', 'doj', 'blue sky', 'quantico', 'history', 'employment', 'role'], id: 'experience' },
   { keys: ['project', 'built', 'build', 'created', 'musiccpr', 'rottd', 'uav', 'advising', 'bot', 'satellite', 'meshsat'], id: 'projects' },
   { keys: ['cert', 'certification', 'comptia', 'security+', 'network+', 'credential', 'badge', 'qualified', 'license'], id: 'certifications' },
   { keys: ['education', 'school', 'jmu', 'university', 'gpa', 'degree', 'college', 'georgia tech', 'graduate', 'masters', 'ms', 'valedictorian'], id: 'education' },
   { keys: ['leadership', 'ambassador', 'club', 'officer', 'president', 'vp', 'vice', 'mentor', 'ta', 'teaching', 'stem'], id: 'leadership' },
   { keys: ['skill', 'technical', 'language', 'programming', 'python', 'react', 'tools', 'stack', 'tech', 'clearance'], id: 'skills' },
   { keys: ['recommend', 'testimonial', 'colleague', 'say about', 'opinion', 'reference', 'review', 'think of you'], id: 'recommendations' },
+  { keys: ['press', 'media', 'featured', 'feature', 'podcast', 'publication', 'published', 'article', 'news', 'coverage', 'writing', 'blog', 'posts'], id: 'media' },
   { keys: ['contact', 'email', 'reach', 'connect', 'linkedin', 'message', 'hire', 'touch', 'talk'], id: 'contact' },
   { keys: ['undergrad', 'college', 'university', 'jmu', 'campus', 'student', 'ambassador', 'mts', 'speech', 'luncheon', 'interview', 'club', 'extracurricular', 'activities'], id: 'undergrad' }
 ];
@@ -754,12 +793,23 @@ function triggerQuestion(id) {
   setTimeout(() => deliverAnswer(id), 40);
 }
 
+// Short keys must match a whole word, or 'hi' fires on "hiddenlayer" and
+// 'ms' on "systems". Longer keys match from a word start, so 'cert' still
+// catches "certifications".
+const EXACT_KEYS = ['hi', 'hey', 'ms', 'ta', 'vp', 'who'];
+
+function keyHits(text, key) {
+  const esc = key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const tail = EXACT_KEYS.includes(key) ? 's?(?![a-z0-9])' : '';
+  return new RegExp('(?:^|[^a-z0-9])' + esc + tail).test(text);
+}
+
 function matchQuestion(input) {
   const lower = input.toLowerCase();
   let best = null, bestScore = 0;
   KEYWORD_MAP.forEach(({ keys, id }) => {
     let score = 0;
-    keys.forEach(k => { if (lower.includes(k)) score++; });
+    keys.forEach(k => { if (keyHits(lower, k)) score++; });
     if (score > bestScore) { bestScore = score; best = id; }
   });
   return bestScore > 0 ? best : null;
@@ -793,7 +843,7 @@ function handleSend() {
       div.className = 'msg msg-bot';
       div.innerHTML = `<div class="bot-avatar"><img src="images/scale/scale-triangle.png" alt="Scale AI"></div><div class="msg-body msg-content"></div>`;
       msgs.appendChild(div);
-      const fallback = `I can answer questions about Will's **experience**, **projects**, **certifications**, **education**, **leadership**, **skills**, **recommendations**, or how to **contact** him. Try one of the suggestions below, or ask something more specific!`;
+      const fallback = `I can answer questions about Will's **experience**, **projects**, **certifications**, **education**, **leadership**, **skills**, **recommendations**, **press & media**, or how to **contact** him. Try one of the suggestions below, or ask something more specific!`;
       streamHTML(div.querySelector('.msg-content'), md(fallback), () => {
         setStreaming(false);
         renderSuggestions(['about', 'experience', 'contact']);
