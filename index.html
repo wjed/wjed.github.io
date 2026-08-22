@@ -45,6 +45,7 @@
         <button class="nav-btn" data-qa="certifications">Certifications</button>
         <button class="nav-btn" data-qa="education">Education</button>
         <button class="nav-btn" data-qa="leadership">Leadership</button>
+        <button class="nav-btn" data-qa="awards">Honors &amp; Awards</button>
         <button class="nav-btn" data-qa="skills">Skills</button>
         <button class="nav-btn" data-qa="recommendations">Recommendations</button>
         <button class="nav-btn" data-qa="media">Press &amp; Media</button>
@@ -251,17 +252,17 @@ Washington, DC. Built Intelligence Community demos with Python and AWS, and supp
 **Amazon Web Services** · National Security Cloud Engineer · May–Aug 2025
 Crystal City, VA. Amazon Dedicated Cloud (federal). Exceeded scope by 200% and delivered in half the time using 40+ AWS services. Hosted a company-wide GenAI workshop and received a return offer.
 
-**ManTech** · Technical Engineer & SME (II+) · Nov 2024–May 2025
-**ManTech** · Software Engineer II · Mar–Nov 2024
-Started as the only freshman on an $850M DoD contract and presented my work directly to the CEO. Got two promotions in under a year working across IAM, Active Directory, and virtualization for the CIO.
+**ManTech** · Technical Engineer III · 2024–2025
+**ManTech** · Software Engineer II · 2024
+Herndon, VA. My first job, and the only freshman on the team. Built inventory asset tracking for the Army under the $850M ALECS program and presented it directly to the CEO and C-suite. Then pivoted to SysAdmin work supporting 10,000+ users alongside the CIO, and built the company's first campus outreach program. Promoted twice in under a year.
 
 **Rockingham County Public Schools** · Network Engineer *(Volunteer)* · Aug 2025–May 2026
 Installed and configured switches/routers across several schools for 11,500+ students. Analyzed data with Python and Pandas, produced reports presented to the Governor of Virginia.
 
-**CSFI** · Cyber Threat Intelligence Analyst · Jan–Apr 2025
+**CSFI** · Cyber Threat Analyst · Jan–May 2025
 CYBERCOM and intelligence collection.
 
-**Solvitur Systems** · Cybersecurity Analyst · Sep–Dec 2024
+**Solvitur Systems** · Engineer · Aug–Dec 2024
 Web security testing and UX design.
 
 **Deloitte DLAMP** · Scholar · Mar–Nov 2024
@@ -284,9 +285,6 @@ Led an automation-heavy comms project as Distinguished Engineer. Built complex T
 
 **Friend(s)** · Dec 2025–Mar 2026
 Principal Software Developer. Led cloud architecture, mobile development, and long-term technical strategy for a scalable, distributed social platform — working across infrastructure, backend services, and client applications.
-
-**JMU IT Advising Bot** · Oct 2025–Present
-Fully built-out AI advisor for JMU IT/CS students. Stack: AWS CDK, Amazon Bedrock, Claude Haiku, DynamoDB, S3. Provides personalized academic advising and course recommendations.
 
 **MusicCPR** · Dec 2023–May 2024
 A niche LMS for music education, similar to Canvas. Built with JavaScript and React, collaborated with music teachers. Well received by students and teachers during the pandemic.
@@ -324,6 +322,10 @@ A collaborative cybersecurity threat detection database built with SQL and Mocka
 - A+ (Feb 2024)
 - IT Fundamentals+ (May 2023)
 
+
+**Anthropic**
+- Building with the Claude API (Mar 2026)
+- Claude Code in Action (Mar 2026)
 
 **Additional**
 - Google AI Professional Certificate (Feb 2026)
@@ -365,14 +367,22 @@ All credentials are verifiable on LinkedIn.`,
     answer: `**Founding & Lead IT Ambassador** · 2023–2026
 Built the IT ambassador program from the ground up. Helped IT become one of JMU's fastest-growing majors. Ranked top ambassador by hours contributed.
 
-**Internal VP, Madison Consulting Club** · 2025–2026
+**Internal VP, Madison Consulting Club** · Aug 2025–May 2026
 VP of one of the biggest clubs in JMU's College of Business. Hosted a tech industry panel bringing in JMU alumni from AWS, Google, Scale AI, and Stripe. Packed the room.
 
-**Executive Officer, Cyber Defense Club** · 2025
+**Executive Officer, Cyber Defense Club** · Aug–Dec 2025
 Led the club to **1st place** at the Virginia Military Institute (VMI) Cyber Competition.
 
-**Teaching Assistant, IT-201** · 2024–2025
-Mentored students in computational structures, discrete math, and formal logic.
+**Teaching Assistant, IT-201** · Aug 2024–Aug 2025
+Supported 300+ students across labs and coursework in computational structures, discrete math, and formal logic.
+
+**JMU SafeRides** · Aug 2024–Dec 2025
+Free late-night rides for students through one of JMU's largest student-run safety organizations.
+
+**Notetaker for Students with Disabilities** · Aug 2023–May 2025
+Uploaded organized lecture notes and materials for students unable to take notes in class.
+
+**Alpha Lambda Delta Academic Honor Society** · Mar 2024–May 2026
 
 **STEM Corps Student Leader** · 2024
 Taught elementary school kids STEM concepts, fostering early interest in tech and science.
@@ -381,6 +391,28 @@ Taught elementary school kids STEM concepts, fostering early interest in tech an
 
 JMU also featured me as part of their student spotlight: *"Curiosity drives the best problem-solvers. Will took what he learned at JMU and put it straight to work."*`,
     suggestions: ["education", "recommendations", "about"]
+  },
+
+  awards: {
+    question: "What honors and awards have you received?",
+    answer: `A few things I've been recognized for:
+
+**Certificate of Appreciation** · Federal Bureau of Investigation · Aug 2026
+For valued contributions, initiative, collaboration, and partnership making a significant impact on the FBI's Cyber Division.
+
+**Distinguished Graduate** · James Madison University · Apr 2026
+
+**Outstanding Academics in IT Award** · JMU · May 2026
+Ranked first in GPA within my major while graduating a year early. Summa cum laude, above a 3.90 every single semester.
+
+**Outstanding Student in Honors Award** · JMU · May 2026
+Presented to the university president, taught Honors coursework, and earned a $5,000 scholarship.
+
+**Service and Outreach Award** · JMU · May 2026
+Founded the IT Ambassador program as a freshman and served on the founding team through graduation, contributing to the rapid growth of the major across the university. Also helped design some of the classes within it.
+
+**Presidential Recognition** · JMU · May 2026`,
+    suggestions: ["leadership", "education", "media"]
   },
 
   skills: {
@@ -412,16 +444,22 @@ English (native) · Spanish (elementary)`,
     question: "What do your colleagues say about you?",
     answer: `13 recommendations so far. Here's what some people have said:
 
+**Brian Stock**, Operations Research @ DoW
+*"Will is the definition of someone with a strong internal locus of control... regardless of the challenge, one underlying theme always stands out: grit. He leads by example, never asking a team member to do something he would not do himself."*
+
 **Cole W.**, Business Owner & Cybersecurity Researcher (M.S. Cybersecurity @ JMU)
 *"Will is a rare breed. He's the first one in and the last one to leave, not because he's trying to clock hours, but because he's genuinely obsessed with the pursuit of excellence... You don't just hire Will for his skills, you hire him for the culture of excellence he brings with him the moment he walks through the door."*
 
 **Sam Briggs**, CS @ JMU · Founder, Contractive
 *"He's a natural leader, incredibly self-motivated, and shows a genuine commitment to helping others grow. Will delivers sharp technical insight and high energy to each and every project he is a part of, executing at a high level without needing oversight."*
 
-**Adam Bluhm**, Sr. Solutions Architect & GenAI Lead, AWS
+**Mason Scofield**, CTO & Co-Founder @ ashlr.ai
+*"His work ethic is unmatched and I genuinely don't think I've ever seen him not working toward his next goal... I can't think of a professional situation where I wouldn't want Will on my team."*
+
+**Adam Bluhm**, Principal AI Security Architect @ HiddenLayer (ex-AWS) · was my mentor at AWS
 *"William's trajectory is going to the moon... he never asks for shortcuts, only for context that accelerates his own learning so he can serve customers better. That combination of initiative and humility is rare even among seasoned consultants."*
 
-**Troy Edwards Jr.**, Direct manager at AWS (US Navy · NASA · Georgetown MBA candidate)
+**Troy L. Edwards Jr.**, Engagement Manager @ AWS (CISM · PMP · NASA alum · US Navy veteran) · managed me directly
 *"William is, without question, one of the most promising young professionals I've come across. He doesn't just execute. He engages... He's not chasing titles. He's doing the work."*
 
 **Mason Scofield**, CTO & Co-Founder, ashlr.ai
@@ -519,6 +557,7 @@ const KEYWORD_MAP = [
   { keys: ['cert', 'certification', 'comptia', 'security+', 'network+', 'credential', 'badge', 'qualified', 'license'], id: 'certifications' },
   { keys: ['education', 'school', 'jmu', 'university', 'gpa', 'degree', 'college', 'georgia tech', 'graduate', 'masters', 'ms', 'valedictorian'], id: 'education' },
   { keys: ['leadership', 'ambassador', 'club', 'officer', 'president', 'vp', 'vice', 'mentor', 'ta', 'teaching', 'stem'], id: 'leadership' },
+  { keys: ['award', 'awards', 'honor', 'honors', 'recognition', 'recognized', 'distinguished', 'accolade', 'scholarship'], id: 'awards' },
   { keys: ['skill', 'technical', 'language', 'programming', 'python', 'react', 'tools', 'stack', 'tech', 'clearance'], id: 'skills' },
   { keys: ['recommend', 'testimonial', 'colleague', 'say about', 'opinion', 'reference', 'review', 'think of you'], id: 'recommendations' },
   { keys: ['press', 'media', 'featured', 'feature', 'podcast', 'publication', 'published', 'article', 'news', 'coverage', 'writing', 'blog', 'posts'], id: 'media' },
@@ -848,7 +887,7 @@ function handleSend() {
       div.className = 'msg msg-bot';
       div.innerHTML = `<div class="bot-avatar"><img src="images/scale/scale-triangle.png" alt="Scale AI"></div><div class="msg-body msg-content"></div>`;
       msgs.appendChild(div);
-      const fallback = `I can answer questions about Will's **experience**, **projects**, **certifications**, **education**, **leadership**, **skills**, **recommendations**, **press & media**, or how to **contact** him. Try one of the suggestions below, or ask something more specific!`;
+      const fallback = `I can answer questions about Will's **experience**, **projects**, **certifications**, **education**, **leadership**, **awards**, **skills**, **recommendations**, **press & media**, or how to **contact** him. Try one of the suggestions below, or ask something more specific!`;
       streamHTML(div.querySelector('.msg-content'), md(fallback), () => {
         setStreaming(false);
         renderSuggestions(['about', 'experience', 'contact']);
