@@ -175,6 +175,21 @@ cite { font-size:14px; font-style:normal; color:var(--fg-2); }
 .photos img.tall, .pair img.tall { object-position:center 20%; }
 figcaption { font-size:14px; color:var(--fg-2); padding-top:8px; }
 
+/* ── LOGOS ─────────────────────────────────────────────────── */
+/* Heights are set per mark, not shared. A round seal and a long
+   wordmark matched on height look wrong; these are matched by eye. */
+.logos {
+  display:flex; flex-wrap:wrap; align-items:center;
+  gap:20px 40px; margin:0 0 38px; max-width:none;
+}
+.logos img { display:block; width:auto; }
+.logos img.lg-scale { height:30px; }
+.logos img.lg-fbi   { height:46px; }
+.logos img.lg-hid   { height:26px; }
+.logos img.lg-bsi   { height:30px; }
+.logos img.lg-aws   { height:34px; }
+.logos img.lg-mt    { height:26px; }
+
 /* ── FOOTER ────────────────────────────────────────────────── */
 footer {
   max-width:var(--page); margin:96px auto 0;
@@ -196,6 +211,11 @@ footer {
   .bio { grid-template-columns:1fr; gap:22px; }
   .portrait { max-width:200px; }
   .photos, .pair { grid-template-columns:1fr 1fr; gap:14px; }
+  .logos { gap:16px 26px; }
+  .logos img.lg-scale, .logos img.lg-bsi { height:24px; }
+  .logos img.lg-fbi { height:36px; }
+  .logos img.lg-hid, .logos img.lg-mt { height:21px; }
+  .logos img.lg-aws { height:27px; }
 }
 
 @media (max-width:420px) {
