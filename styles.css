@@ -2,6 +2,10 @@
    WILL JEDRZEJCZAK
    Black on white. No filters, no masks, no backdrop-filter,
    no transforms on scroll, no JavaScript. Nothing to lag.
+
+   Two widths: prose sits at --text so a line stays readable,
+   photographs and section rules use the full --page. That is
+   what fills the window without stretching the sentences.
    ============================================================ */
 
 @font-face { font-family:'Aeonik'; src:url('fonts/Aeonik-Regular.woff2') format('woff2'); font-weight:400; font-display:swap; }
@@ -13,6 +17,12 @@
   --line: #D6D6D6;
   --link: #0B4FD4;
   --font: 'Aeonik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+
+  /* Measured against the real Aeonik metrics: 600px of 18px Aeonik is
+     ~74 characters. The old 720px/17px ran 94, and the work accordions
+     ran 102 -- both well past a comfortable line. */
+  --page: 1200px;
+  --text: 600px;
 }
 
 *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
@@ -21,22 +31,24 @@ html { -webkit-text-size-adjust:100%; }
 
 body {
   font-family:var(--font);
-  font-size:17px;
+  font-size:18px;
   line-height:1.65;
   color:var(--fg);
   background:#ffffff;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
-  padding:0 24px 96px;
+  padding:0 32px 96px;
 }
 
+/* height:auto keeps the width/height attributes from overriding
+   aspect-ratio -- they act as a presentational size hint otherwise. */
 img { max-width:100%; display:block; height:auto; }
 
 /* Keyboard users need to see where they are. Browser defaults are
    inconsistent on a white ground, so this is explicit. */
 :focus-visible { outline:2px solid var(--link); outline-offset:3px; border-radius:1px; }
 
-/* Jump past the nav — first thing a keyboard or screen-reader user hits. */
+/* Jump past the nav -- first thing a keyboard or screen-reader user hits. */
 .skip {
   position:absolute; left:-9999px; top:0;
   background:var(--fg); color:#fff; padding:10px 16px;
@@ -48,43 +60,55 @@ a { color:var(--link); text-decoration:underline; text-underline-offset:2px; }
 a:hover { text-decoration:none; }
 
 /* ── HEADER ────────────────────────────────────────────────── */
+/* Spans the full page width, so the eye reads the page as wide
+   before it reaches a single paragraph. */
 header {
-  max-width:720px; margin:0 auto;
+  max-width:var(--page); margin:0 auto;
   display:flex; flex-wrap:wrap; align-items:baseline;
   justify-content:space-between; gap:12px 24px;
   padding:34px 0 0;
 }
 .name { font-size:16px; font-weight:500; color:var(--fg); text-decoration:none; }
-header nav { display:flex; gap:20px; }
+header nav { display:flex; flex-wrap:wrap; gap:20px; }
 header nav a { font-size:15px; color:var(--fg-2); text-decoration:none; }
 header nav a:hover { color:var(--fg); text-decoration:underline; }
 
 /* ── LAYOUT ────────────────────────────────────────────────── */
-main { max-width:720px; margin:0 auto; padding-top:72px; }
+main { max-width:var(--page); margin:0 auto; padding-top:76px; }
+
+/* Everything is prose-width by default; only pictures and rules opt out. */
+main > *,
+section > * { max-width:var(--text); }
+main > section { max-width:none; }
+section > h2,
+section > .photos,
+section > .pair,
+section > .bio { max-width:none; }
 
 h1 {
-  font-size:clamp(1.9rem,5vw,2.6rem);
-  font-weight:500; line-height:1.2; letter-spacing:-.02em;
-  margin-bottom:26px;
+  font-size:clamp(2rem,5vw,2.9rem);
+  font-weight:500; line-height:1.18; letter-spacing:-.02em;
+  margin-bottom:28px;
 }
 
-.lead { font-size:19px; line-height:1.6; margin-bottom:20px; }
+.lead { font-size:20px; line-height:1.55; margin-bottom:20px; }
 .meta { font-size:15px; color:var(--fg-2); margin-bottom:12px; }
 
-section { margin-top:72px; }
+section { margin-top:84px; }
 
+/* The rule runs the full width; the label sits at the left edge. */
 h2 {
   font-size:15px; font-weight:500;
   letter-spacing:.08em; text-transform:uppercase;
   color:var(--fg-2);
-  padding-bottom:10px; margin-bottom:22px;
+  padding-bottom:10px; margin-bottom:26px;
   border-bottom:1px solid var(--line);
 }
 
 p { margin-bottom:16px; }
 p:last-child { margin-bottom:0; }
 
-.small { font-size:15px; color:var(--fg-2); margin-top:22px; }
+.small { font-size:15px; color:var(--fg-2); margin-top:24px; }
 
 /* ── WORK (native details, zero JS) ────────────────────────── */
 details { border-bottom:1px solid var(--line); }
@@ -92,65 +116,88 @@ details:first-of-type { border-top:1px solid var(--line); }
 summary {
   display:flex; flex-wrap:wrap; align-items:baseline;
   justify-content:space-between; gap:4px 16px;
-  padding:15px 0; cursor:pointer; list-style:none;
+  padding:16px 0; cursor:pointer; list-style:none;
 }
 summary::-webkit-details-marker { display:none; }
 summary::marker { content:''; }
-summary b { font-size:17px; font-weight:500; }
+summary b { font-size:18px; font-weight:500; }
 summary span { font-size:14px; color:var(--fg-2); }
 summary:hover b { text-decoration:underline; }
 details[open] summary { padding-bottom:8px; }
-details p { font-size:16px; color:var(--fg-2); margin-bottom:12px; }
+details p { font-size:17px; color:var(--fg-2); margin-bottom:12px; }
 details > p:last-of-type { margin-bottom:18px; }
 
 /* ── ABOUT ─────────────────────────────────────────────────── */
-/* Portrait sits beside the opening paragraphs with a caption and a
-   hairline, so it reads as a considered plate rather than a stray image. */
-.bio { display:grid; grid-template-columns:232px 1fr; gap:30px; align-items:start; margin-bottom:8px; }
+.bio {
+  display:grid; grid-template-columns:232px minmax(0,var(--text));
+  gap:34px; align-items:start; margin-bottom:8px;
+}
 .portrait { margin:0; }
 .portrait img { width:100%; aspect-ratio:4/5; object-fit:cover; object-position:center 26%; border:1px solid var(--line); }
 .bio-text p:last-child { margin-bottom:0; }
 
-.facts { list-style:none; margin-top:22px; }
-.facts li { font-size:16px; padding:7px 0; border-bottom:1px solid var(--line); }
+.facts { list-style:none; margin-top:26px; }
+.facts li { font-size:17px; padding:8px 0; border-bottom:1px solid var(--line); }
 .facts li:first-child { border-top:1px solid var(--line); }
 .facts b { font-weight:500; }
 
 /* ── LISTS ─────────────────────────────────────────────────── */
 dl { margin:0; }
-dt { font-size:17px; font-weight:500; margin-top:20px; }
+dt { font-size:18px; font-weight:500; margin-top:22px; }
 dt:first-of-type { margin-top:0; }
-dd { font-size:16px; color:var(--fg-2); margin:5px 0 0; }
+dd { font-size:17px; color:var(--fg-2); margin:5px 0 0; }
 
 .links { list-style:none; }
-.links li { font-size:16px; padding:9px 0; border-bottom:1px solid var(--line); color:var(--fg-2); }
+.links li { font-size:17px; padding:10px 0; border-bottom:1px solid var(--line); color:var(--fg-2); }
 .links li:first-child { border-top:1px solid var(--line); }
 
-blockquote { margin:0 0 26px; padding-left:18px; border-left:2px solid var(--line); }
+blockquote { margin:0 0 28px; padding-left:20px; border-left:2px solid var(--line); }
 blockquote:last-child { margin-bottom:0; }
-blockquote p { font-size:17px; margin-bottom:9px; }
+blockquote p { font-size:18px; margin-bottom:9px; }
 cite { font-size:14px; font-style:normal; color:var(--fg-2); }
 
-/* ── PHOTOS ────────────────────────────────────────────────── */
-.photos {
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
-  gap:18px; margin-top:34px;
+/* ── PHOTOGRAPHS ───────────────────────────────────────────── */
+/* These are the only things allowed the full page width. auto-fit
+   means the column count falls out of the available space, so there
+   is no breakpoint to maintain and no horizontal scroll to cause. */
+.photos, .pair {
+  display:grid; gap:22px; margin-top:38px;
 }
-.photos figcaption { font-size:13px; color:var(--fg-2); padding-top:7px; }
+.photos { grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
+.pair   { grid-template-columns:repeat(auto-fit,minmax(390px,1fr)); }
+.photos figure, .pair figure { margin:0; }
+/* One ratio across the grid so the rows line up and the captions sit on a
+   shared baseline. Portraits get a higher crop point to keep faces in frame. */
+.photos img, .pair img {
+  width:100%; aspect-ratio:3/2; object-fit:cover;
+  object-position:center; border:1px solid var(--line);
+}
+.photos img.tall, .pair img.tall { object-position:center 20%; }
+figcaption { font-size:14px; color:var(--fg-2); padding-top:8px; }
 
 /* ── FOOTER ────────────────────────────────────────────────── */
 footer {
-  max-width:720px; margin:88px auto 0;
+  max-width:var(--page); margin:96px auto 0;
   padding-top:22px; border-top:1px solid var(--line);
   font-size:14px; color:var(--fg-2);
 }
 
-/* ── SMALL SCREENS ─────────────────────────────────────────── */
+/* ── NARROWER WINDOWS ──────────────────────────────────────── */
+@media (max-width:900px) {
+  .bio { grid-template-columns:200px minmax(0,1fr); gap:26px; }
+}
+
 @media (max-width:620px) {
-  body { padding:0 18px 72px; }
+  body { padding:0 18px 72px; font-size:17px; }
   main { padding-top:52px; }
-  section { margin-top:56px; }
-  header nav { gap:16px; }
+  section { margin-top:60px; }
+  header nav { gap:14px; }
+  .lead { font-size:18px; }
   .bio { grid-template-columns:1fr; gap:22px; }
   .portrait { max-width:200px; }
+  .photos, .pair { grid-template-columns:1fr 1fr; gap:14px; }
+}
+
+@media (max-width:420px) {
+  .photos, .pair { grid-template-columns:1fr; }
 }
