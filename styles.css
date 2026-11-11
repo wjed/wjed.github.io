@@ -164,15 +164,14 @@ cite { font-size:14px; font-style:normal; color:var(--fg-2); }
   grid-template-columns:repeat(auto-fit,minmax(390px,1fr));
 }
 .pair figure { margin:0; }
-/* A shared ratio keeps the pair level and the captions on one baseline.
-   Portrait-orientation frames then need their own crop point, or a 3:2
-   box cuts straight through somebody's face. */
-.pair img {
-  width:100%; aspect-ratio:3/2; object-fit:cover;
-  object-position:center; border:1px solid var(--line);
-}
-.pair img.crop-top { object-position:center top; }
-.pair img.crop-low { object-position:center 26%; }
+/* Nothing is cropped. Every frame is shown whole, at its own ratio. */
+.pair img { width:100%; border:1px solid var(--line); }
+
+/* A portrait frame and a landscape frame land on the same height when the
+   columns are sized to their own ratios (3:4 beside 3:2). That buys a level
+   pair without cutting anything out of either picture. */
+.pair.mixed { grid-template-columns:0.75fr 1.5fr; }
+@media (max-width:800px) { .pair.mixed { grid-template-columns:1fr; } }
 figcaption { font-size:14px; color:var(--fg-2); padding-top:8px; }
 
 /* ── LOGOS ─────────────────────────────────────────────────── */
