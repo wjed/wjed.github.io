@@ -88,17 +88,16 @@
   });
 
   /* ── Fades ─────────────────────────────────────────────────── */
-  gsap.utils.toArray('[data-fade]').forEach(function (el, i) {
-    gsap.to(el, {
+  gsap.utils.toArray('[data-fade]').forEach(function (el) {
+    gsap.fromTo(el, { opacity: 0, y: 24 }, {
       opacity: 1, y: 0, duration: .9, ease: 'power3.out',
       scrollTrigger: { trigger: el, start: 'top 90%' }
     });
-    gsap.set(el, { y: 24 });
   });
 
   /* ── Image parallax ────────────────────────────────────────── */
   gsap.utils.toArray('[data-par] img').forEach(function (img) {
-    gsap.fromTo(img, { yPercent: -8, scale: 1.14 }, {
+    gsap.fromTo(img, { yPercent: -6, scale: 1.1 }, {
       yPercent: 8, ease: 'none',
       scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'bottom top', scrub: true }
     });
@@ -124,15 +123,20 @@
   /* ── Ticker: constant drift + scroll-velocity push ─────────── */
   var row = document.getElementById('tickRow');
   if (row) {
-    var x = 0, half = row.scrollWidth / 2, vel = 0;
-    ScrollTrigger.create({
-      onUpdate: function (self) { vel = self.getVelocity() / 260; }
-    });
+    var x = 0, half = row.scrollWidth / 2, vel = 0, visible = true;
+    addEventListener('resize', function () { half = row.scrollWidth / 2; }, { passive: true });
+    ScrollTrigger.create({ onUpdate: function (self) { vel = self.getVelocity() / 260; } });
+    // don't burn frames animating a strip nobody can see
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (e) { visible = e[0].isIntersecting; })
+        .observe(row.parentElement);
+    }
     gsap.ticker.add(function () {
+      if (!visible) return;
       vel *= 0.92;
       x -= (0.9 + Math.abs(vel));
       if (half && -x >= half) x += half;
-      row.style.transform = 'translateX(' + x + 'px)';
+      row.style.transform = 'translate3d(' + x + 'px,0,0)';
     });
   }
 
@@ -154,29 +158,27 @@
     var cur = document.querySelector('.cur');
     if (cur && matchMedia('(hover:hover) and (pointer:fine)').matches && !reduce) {
       var dot = cur.querySelector('.cur-dot'),
-          ring = cur.querySelector('.cur-ring'),
-          label = cur.querySelector('.cur-label');
-      var mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my;
+          ring = cur.querySelector('.cur-ring');
+      var mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my, raf = 0;
 
-      addEventListener('mousemove', function (e) { mx = e.clientX; my = e.clientY; });
+      addEventListener('mousemove', function (e) {
+        mx = e.clientX; my = e.clientY;
+        if (!raf) raf = requestAnimationFrame(loop);
+      }, { passive: true });
 
-      (function loop() {
-        rx += (mx - rx) * 0.16;
-        ry += (my - ry) * 0.16;
-        dot.style.transform = 'translate(' + mx + 'px,' + my + 'px) translate(-50%,-50%)';
-        ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px) translate(-50%,-50%)';
-        requestAnimationFrame(loop);
-      })();
+      function loop() {
+        rx += (mx - rx) * 0.18;
+        ry += (my - ry) * 0.18;
+        dot.style.transform  = 'translate3d(' + mx + 'px,' + my + 'px,0) translate(-50%,-50%)';
+        ring.style.transform = 'translate3d(' + rx + 'px,' + ry + 'px,0) translate(-50%,-50%)';
+        // keep ticking only while the ring is still catching up
+        if (Math.abs(mx - rx) > .1 || Math.abs(my - ry) > .1) raf = requestAnimationFrame(loop);
+        else raf = 0;
+      }
 
       document.querySelectorAll('[data-c]').forEach(function (el) {
-        el.addEventListener('mouseenter', function () {
-          cur.classList.add('on');
-          label.textContent = el.getAttribute('data-c') || '';
-        });
-        el.addEventListener('mouseleave', function () {
-          cur.classList.remove('on');
-          label.textContent = '';
-        });
+        el.addEventListener('mouseenter', function () { cur.classList.add('on'); });
+        el.addEventListener('mouseleave', function () { cur.classList.remove('on'); });
       });
     }
 

@@ -12,7 +12,9 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230A0A0B'/><text x='50' y='70' font-size='62' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' fill='%23D4FF00'>W</text></svg>">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.css">
 <script>document.documentElement.className="js";</script>
-<link rel="stylesheet" href="styles.css?v=10">
+<link rel="preload" href="fonts/Aeonik-Black.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Aeonik-Light.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css?v=12">
 </head>
 <body>
 
@@ -20,7 +22,7 @@
 <div class="grain" aria-hidden="true"></div>
 
 <!-- ══ CURSOR ══ -->
-<div class="cur" aria-hidden="true"><div class="cur-dot"></div><div class="cur-ring"><span class="cur-label"></span></div></div>
+<div class="cur" aria-hidden="true"><div class="cur-dot"></div><div class="cur-ring"></div></div>
 
 <!-- ══ LOADER ══ -->
 <div class="load" id="load">
@@ -35,7 +37,7 @@
 
 <!-- ══ NAV ══ -->
 <header class="nav" id="nav">
-  <a href="#top" class="nav-mark" data-c="home">
+  <a href="#top" class="nav-mark" data-c>
     <span class="nav-dot"></span><span>W.J.</span>
   </a>
   <nav class="nav-links">
@@ -44,7 +46,7 @@
     <a href="#honors" data-c>Honors</a>
     <a href="#press" data-c>Press</a>
   </nav>
-  <a href="#contact" class="nav-cta" data-c="say hi"><span>Get in touch</span></a>
+  <a href="#contact" class="nav-cta" data-c><span>Get in touch</span></a>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
 </header>
 
@@ -131,7 +133,7 @@
 
     <ul class="jobs">
       <li class="job" data-fade>
-        <button class="job-bar" aria-expanded="false" data-c="open">
+        <button class="job-bar" aria-expanded="false" data-c>
           <span class="job-n mono">01</span>
           <span class="job-org">Scale AI</span>
           <span class="job-role mono">National Security TPM</span>
@@ -145,7 +147,7 @@
       </li>
 
       <li class="job" data-fade>
-        <button class="job-bar" aria-expanded="false" data-c="open">
+        <button class="job-bar" aria-expanded="false" data-c>
           <span class="job-n mono">02</span>
           <span class="job-org">Federal Bureau of Investigation</span>
           <span class="job-role mono">Computer Scientist / SWE</span>
@@ -159,7 +161,7 @@
       </li>
 
       <li class="job" data-fade>
-        <button class="job-bar" aria-expanded="false" data-c="open">
+        <button class="job-bar" aria-expanded="false" data-c>
           <span class="job-n mono">03</span>
           <span class="job-org">HiddenLayer</span>
           <span class="job-role mono">NatSec Solutions Architect</span>
@@ -173,7 +175,7 @@
       </li>
 
       <li class="job" data-fade>
-        <button class="job-bar" aria-expanded="false" data-c="open">
+        <button class="job-bar" aria-expanded="false" data-c>
           <span class="job-n mono">04</span>
           <span class="job-org">Blue Sky Innovators</span>
           <span class="job-role mono">R&amp;D Engineer</span>
@@ -186,7 +188,7 @@
       </li>
 
       <li class="job" data-fade>
-        <button class="job-bar" aria-expanded="false" data-c="open">
+        <button class="job-bar" aria-expanded="false" data-c>
           <span class="job-n mono">05</span>
           <span class="job-org">Amazon Web Services</span>
           <span class="job-role mono">NatSec Cloud Engineer</span>
@@ -200,7 +202,7 @@
       </li>
 
       <li class="job" data-fade>
-        <button class="job-bar" aria-expanded="false" data-c="open">
+        <button class="job-bar" aria-expanded="false" data-c>
           <span class="job-n mono">06</span>
           <span class="job-org">ManTech</span>
           <span class="job-role mono">Technical Engineer &amp; SME</span>
@@ -217,7 +219,7 @@
     <details class="more" data-fade>
       <summary data-c><span>Also along the way</span><i></i></summary>
       <div class="more-grid">
-        <div><h4>Rockingham County Public Schools</h4><span class="mono">Network &amp; Data Engineer · 2025–26</span><p>Rebuilt a division-wide telecom system across 23 schools serving 11,679 students. Python/pandas pipelines whose findings reached the Governor of Virginia.</p></div>
+        <div><h3>Rockingham County Public Schools</h3><span class="mono">Network &amp; Data Engineer · 2025–26</span><p>Rebuilt a division-wide telecom system across 23 schools serving 11,679 students. Python/pandas pipelines whose findings reached the Governor of Virginia.</p></div>
         <div><h4>Cyber Security Forum Initiative</h4><span class="mono">Cyber Threat Analyst · 2025</span><p>10+ twenty-page threat intelligence reports on APT groups for U.S. government and military partners.</p></div>
         <div><h4>Solvitur Systems</h4><span class="mono">Engineer · 2024</span><p>UI/UX across 20+ pages alongside web penetration testing.</p></div>
         <div><h4>Deloitte</h4><span class="mono">DLAMP Apprentice · 2024–25</span><p>Selected twice as the youngest apprentice in the cohort, mentored by Deloitte's AI &amp; Engineering practice.</p></div>
@@ -230,11 +232,10 @@
 <section class="band">
   <div class="wrap">
     <p class="band-q">
-      <span class="m"><span class="mi">At 19 I wrote it from <em>ManTech</em>.</span></span>
-      <span class="m"><span class="mi">At 20 I wrote it from <em>AWS</em>.</span></span>
-      <span class="m"><span class="mi">At 21 I was too busy to notice.</span></span>
+      <span class="m"><span class="mi">Six roles in three years.</span></span>
+      <span class="m"><span class="mi">Chosen for what they&rsquo;d <em>teach</em>,</span></span>
+      <span class="m"><span class="mi">not how they&rsquo;d read.</span></span>
     </p>
-    <p class="band-c mono" data-fade>On the birthday post I write every year — until the year that moved too fast.</p>
   </div>
 </section>
 
@@ -243,12 +244,12 @@
   <div class="wrap">
     <div class="head">
       <span class="idx mono">02 / About</span>
-      <h2 class="t2"><span class="m"><span class="mi">Talent wins games.</span></span><span class="m"><span class="mi">Teamwork wins titles.</span></span></h2>
+      <h2 class="t2"><span class="m"><span class="mi">The short</span></span><span class="m"><span class="mi">version</span></span></h2>
     </div>
 
     <div class="ab">
       <figure class="ab-img" data-par>
-        <img src="images/Will-Elodie-Image.png" alt="Will Jedrzejczak" loading="lazy">
+        <img src="images/opt/portrait.jpg" alt="Will Jedrzejczak" width="1000" height="1250" loading="lazy" decoding="async">
       </figure>
       <div class="ab-copy" data-fade>
         <p class="lede">I&rsquo;m a National Security Technical Program Manager on Scale AI&rsquo;s Public Sector team in Washington, DC — working on agents and evals, getting AI deployed and tested for the people who protect this country.</p>
@@ -367,26 +368,26 @@
     </div>
 
     <ul class="press">
-      <li data-fade><a href="https://scale.com/blog/securing-americas-decision-advantage-agentic-warfare" target="_blank" rel="noopener" data-c="read">
+      <li data-fade><a href="https://scale.com/blog/securing-americas-decision-advantage-agentic-warfare" target="_blank" rel="noopener" data-c>
         <span class="mono">Featured · Scale AI</span><span class="pt">Securing America&rsquo;s Decision Advantage with AI Agents</span><span class="go">&#8599;</span></a></li>
-      <li data-fade><a href="https://www.linkedin.com/in/cloudwithraj/" target="_blank" rel="noopener" data-c="listen">
+      <li data-fade><a href="https://www.linkedin.com/in/cloudwithraj/" target="_blank" rel="noopener" data-c>
         <span class="mono">Podcast · Jul 2026</span><span class="pt">How I Cracked AWS, FBI, Scale AI as a Fresher</span><span class="go">&#8599;</span></a></li>
-      <li data-fade><a href="https://rocktownnow.com/news/218812-jmu-student-helps-keep-rockingham-county-schools-connected-and-secure/" target="_blank" rel="noopener" data-c="read">
+      <li data-fade><a href="https://rocktownnow.com/news/218812-jmu-student-helps-keep-rockingham-county-schools-connected-and-secure/" target="_blank" rel="noopener" data-c>
         <span class="mono">Press · Mar 2026</span><span class="pt">JMU student helps keep Rockingham County schools connected and secure</span><span class="go">&#8599;</span></a></li>
-      <li data-fade><a href="https://www.youtube.com/watch?v=xG6l3lZcciA" target="_blank" rel="noopener" data-c="watch">
+      <li data-fade><a href="https://www.youtube.com/watch?v=xG6l3lZcciA" target="_blank" rel="noopener" data-c>
         <span class="mono">Keynote</span><span class="pt">Stewardship Luncheon — the only solo student speaker</span><span class="go">&#8599;</span></a></li>
-      <li data-fade><a href="https://www.jmu.edu/admissions/explore/profiles/jedrzejczak-will-26.shtml" target="_blank" rel="noopener" data-c="read">
+      <li data-fade><a href="https://www.jmu.edu/admissions/explore/profiles/jedrzejczak-will-26.shtml" target="_blank" rel="noopener" data-c>
         <span class="mono">Profile</span><span class="pt">JMU Admissions — on graduating early</span><span class="go">&#8599;</span></a></li>
-      <li data-fade><a href="https://www.linkedin.com/in/defend/" target="_blank" rel="noopener" data-c="follow">
+      <li data-fade><a href="https://www.linkedin.com/in/defend/" target="_blank" rel="noopener" data-c>
         <span class="mono">Writing · 4,100+ followers</span><span class="pt">Early-career strategy &amp; national security tech</span><span class="go">&#8599;</span></a></li>
     </ul>
 
     <div class="gal">
-      <figure data-par><img src="images/events/stewardship-luncheon.jpeg" alt="Speaking at the JMU Stewardship Luncheon" loading="lazy"><figcaption class="mono">Stewardship Luncheon keynote</figcaption></figure>
-      <figure data-par><img src="images/events/tech-panel.jpeg" alt="Hosting a tech industry panel" loading="lazy"><figcaption class="mono">Tech industry panel</figcaption></figure>
-      <figure data-par><img src="images/events/ambassadors.jpeg" alt="JMU IT Ambassadors" loading="lazy"><figcaption class="mono">Founding IT Ambassadors</figcaption></figure>
-      <figure data-par><img src="images/events/mts.jpeg" alt="Madison Tech Society" loading="lazy"><figcaption class="mono">Madison Tech Society</figcaption></figure>
-      <figure data-par><img src="images/events/school-interview.jpeg" alt="JMU profile interview" loading="lazy"><figcaption class="mono">JMU profile interview</figcaption></figure>
+      <figure data-par><img src="images/opt/keynote.jpg" alt="Speaking at the JMU Stewardship Luncheon" width="1200" height="900" loading="lazy" decoding="async"><figcaption class="mono">Stewardship Luncheon keynote</figcaption></figure>
+      <figure data-par><img src="images/opt/panel.jpg" alt="Hosting a tech industry panel" width="1200" height="900" loading="lazy" decoding="async"><figcaption class="mono">Tech industry panel</figcaption></figure>
+      <figure data-par><img src="images/opt/ambassadors.jpg" alt="JMU IT Ambassadors" width="1200" height="900" loading="lazy" decoding="async"><figcaption class="mono">Founding IT Ambassadors</figcaption></figure>
+      <figure data-par><img src="images/opt/mts.jpg" alt="Madison Tech Society" width="1200" height="900" loading="lazy" decoding="async"><figcaption class="mono">Madison Tech Society</figcaption></figure>
+      <figure data-par><img src="images/opt/interview.jpg" alt="JMU profile interview" width="1200" height="900" loading="lazy" decoding="async"><figcaption class="mono">JMU profile interview</figcaption></figure>
     </div>
   </div>
 </section>
@@ -397,7 +398,7 @@
 <footer class="end" id="contact">
   <div class="wrap">
     <span class="idx mono">08 / Contact</span>
-    <a class="end-big" href="mailto:will.jedrzejczak@gmail.com" data-c="email">
+    <a class="end-big" href="mailto:will.jedrzejczak@gmail.com" data-c>
       <span class="m"><span class="mi">Let&rsquo;s build</span></span>
       <span class="m"><span class="mi">something<em>.</em></span></span>
     </a>
@@ -411,8 +412,8 @@
 
     <div class="colo mono">
       <span>&copy; 2026 Will Jedrzejczak</span>
-      <span>Work hard. Have fun. Make history.</span>
-      <a href="#top" data-c="top">Back to top &uarr;</a>
+      <span>Washington, DC</span>
+      <a href="#top" data-c>Back to top &uarr;</a>
     </div>
   </div>
 </footer>
@@ -420,6 +421,6 @@
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="site.js?v=10"></script>
+<script src="site.js?v=12"></script>
 </body>
 </html>
