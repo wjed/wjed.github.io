@@ -28,9 +28,7 @@
 
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
 
-html { -webkit-text-size-adjust:100%; overflow-x:hidden; overflow-x:clip; }
-html.lenis,html.lenis body { height:auto; }
-.lenis.lenis-smooth { scroll-behavior:auto !important; }
+html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; overflow-x:hidden; overflow-x:clip; }
 
 body {
   font-family:var(--font);
@@ -100,7 +98,10 @@ a { color:inherit; text-decoration:none; }
   background:var(--bg);
   display:flex; flex-direction:column; justify-content:flex-end;
   padding:clamp(20px,4.5vw,72px);
+  clip-path:inset(0 0 0 0);
+  transition:clip-path .8s cubic-bezier(.76,0,.24,1);
 }
+.load.out { clip-path:inset(0 0 100% 0); }
 .load-bar { height:1px; background:var(--rule); position:relative; overflow:hidden; }
 .load-bar i { position:absolute; inset:0 100% 0 0; background:var(--acc); }
 .load-meta { display:flex; justify-content:space-between; align-items:flex-end; padding-top:18px; }
@@ -114,8 +115,25 @@ a { color:inherit; text-decoration:none; }
 /* ══ MASK REVEAL ═══════════════════════════════════════════════ */
 .m { display:block; overflow:hidden; }
 .mi { display:block; }
-.js .mi { transform:translateY(110%); }
-.js [data-fade] { opacity:0; }
+
+/* Reveals are pure CSS transitions — the compositor animates them,
+   so no JS runs per frame. JS only toggles .in. */
+.js .mi { transform:translateY(110%); transition:transform 1.05s var(--e); }
+.js .m.in > .mi { transform:none; }
+
+.js [data-fade] { opacity:0; transform:translateY(22px);
+                  transition:opacity .9s var(--e), transform .9s var(--e); }
+.js [data-fade].in { opacity:1; transform:none; }
+
+/* Hero plays once the loader clears, staggered by line. */
+.js .hero-top { opacity:0; transition:opacity .7s var(--e) .34s; }
+.js body.ready .hero-top { opacity:1; }
+.js .hero-h1 > .m:nth-child(1) > .mi { transition-delay:.06s; }
+.js .hero-h1 > .m:nth-child(2) > .mi { transition-delay:.15s; }
+.js .hero-h1 > .m:nth-child(3) > .mi { transition-delay:.24s; }
+.js .hero-foot .m > .mi { transition-delay:.42s; }
+.js body.ready .hero-h1 > .m > .mi,
+.js body.ready .hero-foot .m > .mi { transform:none; }
 
 /* ══ NAV ═══════════════════════════════════════════════════════ */
 .nav {
@@ -128,7 +146,16 @@ a { color:inherit; text-decoration:none; }
 .nav-mark { display:flex; align-items:center; gap:10px; font-size:14px; font-weight:500; letter-spacing:.04em; }
 .nav-dot { width:7px; height:7px; border-radius:50%; background:var(--acc); }
 .nav-links { display:flex; gap:30px; margin-left:auto; }
-.nav-links a { font-size:13px; font-weight:400; position:relative; padding:3px 0; }
+.nav-links a {
+  display:inline-flex; align-items:baseline; gap:7px;
+  font-size:13px; font-weight:400; position:relative; padding:3px 0;
+}
+.nav-links a i {
+  font-family:var(--mono); font-size:10px; font-style:normal;
+  letter-spacing:.06em; color:var(--faint);
+  transition:color .35s var(--e);
+}
+.nav-links a:hover i { color:var(--acc); }
 .nav-links a::after { content:''; position:absolute; left:0; bottom:0; height:1px; width:0; background:var(--acc); transition:width .4s var(--e); }
 .nav-links a:hover::after { width:100%; }
 .nav-cta {
@@ -168,7 +195,7 @@ a { color:inherit; text-decoration:none; }
 .hero-glow {
   position:absolute; top:-30%; left:50%; transform:translateX(-50%);
   width:min(120vw,1500px); aspect-ratio:1;
-  background:radial-gradient(circle, rgba(212,255,0,.09) 0%, rgba(212,255,0,.03) 32%, transparent 62%);
+  background:radial-gradient(circle, rgba(212,255,0,.13) 0%, rgba(212,255,0,.05) 26%, rgba(212,255,0,.015) 46%, transparent 66%);
   pointer-events:none;
 }
 .hero-top { display:flex; justify-content:space-between; gap:20px; color:var(--mute); position:relative; }
@@ -189,7 +216,11 @@ a { color:inherit; text-decoration:none; }
 
 /* the declassify beat — an accent bar wipes off the last line */
 .redact { position:relative; }
-.redact .bar { position:absolute; inset:0; background:var(--acc); transform-origin:left; }
+.redact .bar {
+  position:absolute; inset:0; background:var(--acc);
+  transform-origin:right;
+  transition:transform .85s cubic-bezier(.76,0,.24,1);
+}
 
 .hero-foot {
   display:grid; grid-template-columns:repeat(4,minmax(0,1fr));
@@ -212,7 +243,13 @@ a { color:inherit; text-decoration:none; }
 
 /* ══ TICKER ════════════════════════════════════════════════════ */
 .tick { border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:20px 0; overflow:hidden; white-space:nowrap; }
-.tick-row { display:inline-flex; align-items:center; gap:26px; will-change:transform; }
+.tick-row {
+  display:inline-flex; align-items:center; gap:26px;
+  animation:tickroll 44s linear infinite;
+  will-change:transform;
+}
+@keyframes tickroll { from { transform:translate3d(0,0,0); } to { transform:translate3d(-50%,0,0); } }
+.tick:hover .tick-row { animation-play-state:paused; }
 .tick-row span { font-size:clamp(1rem,2vw,1.5rem); font-weight:500; letter-spacing:-.02em; text-transform:uppercase; color:var(--mute); }
 .tick-row b { color:var(--acc); font-size:7px; }
 
@@ -423,8 +460,10 @@ a { color:inherit; text-decoration:none; }
 
 /* ══ MOTION PREFERENCE ═════════════════════════════════════════ */
 @media (prefers-reduced-motion:reduce){
+  html { scroll-behavior:auto; }
   .js .mi { transform:none !important; }
-  .js [data-fade] { opacity:1 !important; }
+  .js [data-fade] { opacity:1 !important; transform:none !important; }
+  .tick-row { animation:none; }
   .grain, .live, .arrow { animation:none; }
   .load { display:none; }
   *,*::before,*::after { transition-duration:.01ms !important; animation-duration:.01ms !important; }
