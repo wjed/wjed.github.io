@@ -14,19 +14,27 @@
 @font-face { font-family:'Aeonik'; src:url('fonts/Aeonik-BoldItalic.ttf') format('truetype'); font-weight:700; font-style:italic; font-display:swap; }
 
 :root {
-  --ink:        #0a0a0a;
-  --paper:      #f3f3f1;
+  /* Warm bone over blue-black ink. The old neon orange-to-purple read
+     like every other AI startup; this is quieter and ages better. */
+  --paper:      #EFEBE3;
+  --paper-2:    #E4DFD5;
+  --ink:        #15191F;
 
-  --bg:         #0a0a0a;
-  --bg-2:       #101010;
-  --fg:         #f4f4f1;
-  --fg-2:       #8d8d87;
-  --fg-3:       #55554f;
-  --rule:       #1d1d1d;
-  --rule-2:     #2b2b2b;
+  --bg:         #0E1116;
+  --bg-2:       #151A21;
+  --fg:         #EDEAE3;
+  --fg-2:       #8E959F;
+  --fg-3:       #596270;
+  --rule:       #1C222B;
+  --rule-2:     #2A313C;
 
-  --accent:     #B93CE5;
-  --grad:       linear-gradient(90deg,#F69A49 0%,#F27F74 20%,#E96A98 40%,#D54ECF 60%,#B93CE5 80%,#923BF9 100%);
+  --accent:     #D3A055;
+  --accent-2:   #8B9DF0;
+
+  /* The career spectrum, condensed. Light-surface variant is darkened
+     so it still clears contrast on bone. */
+  --grad:       linear-gradient(100deg,#8B9DF0 0%,#6FA69A 48%,#D3A055 100%);
+  --grad-ink:   linear-gradient(100deg,#3F50B5 0%,#357062 48%,#A16E24 100%);
 
   --shell:      1280px;
   --font:       'Aeonik',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
@@ -135,14 +143,14 @@ a { color:inherit; }
 .hero-eyebrow {
   display:inline-flex; align-items:center; gap:10px;
   font-size:13px; font-weight:400; letter-spacing:.06em; text-transform:uppercase;
-  color:#55554f; margin-bottom:clamp(24px,4vh,44px);
+  color:#6B6256; margin-bottom:clamp(24px,4vh,44px);
 }
-.pulse { width:7px; height:7px; border-radius:50%; background:#2fbf6b;
-         box-shadow:0 0 0 0 rgba(47,191,107,.6); animation:pulse 2.4s infinite; }
+.pulse { width:7px; height:7px; border-radius:50%; background:#4F9D6E;
+         box-shadow:0 0 0 0 rgba(79,157,110,.6); animation:pulse 2.4s infinite; }
 @keyframes pulse {
-  0%   { box-shadow:0 0 0 0 rgba(47,191,107,.55); }
-  70%  { box-shadow:0 0 0 11px rgba(47,191,107,0); }
-  100% { box-shadow:0 0 0 0 rgba(47,191,107,0); }
+  0%   { box-shadow:0 0 0 0 rgba(79,157,110,.5); }
+  70%  { box-shadow:0 0 0 11px rgba(79,157,110,0); }
+  100% { box-shadow:0 0 0 0 rgba(79,157,110,0); }
 }
 
 .hero-h1 {
@@ -153,28 +161,28 @@ a { color:inherit; }
 .hero-h1 .line { display:block; }
 .hero-h1 em {
   font-style:normal;
-  background:var(--grad); -webkit-background-clip:text; background-clip:text;
+  background:var(--grad-ink); -webkit-background-clip:text; background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 
 .hero-meta {
   display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
   gap:clamp(20px,4vw,56px); max-width:880px;
-  border-top:1px solid rgba(10,10,10,.14); padding-top:26px;
+  border-top:1px solid rgba(21,25,31,.16); padding-top:26px;
 }
 .hero-meta-col { display:flex; flex-direction:column; gap:7px; }
 .hero-meta .k { font-size:11px; font-weight:500; letter-spacing:.14em;
-                text-transform:uppercase; color:#86867f; }
+                text-transform:uppercase; color:#8A8276; }
 .hero-meta .v { font-size:15px; font-weight:400; line-height:1.5; color:var(--ink); }
 
 .hero-scroll {
   position:absolute; left:50%; bottom:30px;
   transform:translate(-50%,22px);
   display:flex; flex-direction:column; align-items:center; gap:10px;
-  font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#86867f;
+  font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#8A8276;
 }
 .hero-scroll.in { transform:translate(-50%,0); }
-.hero-scroll-line { width:1px; height:46px; background:linear-gradient(to bottom,#9a9a93,transparent); }
+.hero-scroll-line { width:1px; height:46px; background:linear-gradient(to bottom,#9C9387,transparent); }
 
 /* ══ MARQUEE ═══════════════════════════════════════════════════ */
 .marquee { background:var(--bg); border-bottom:1px solid var(--rule);
@@ -228,7 +236,7 @@ a { color:inherit; }
   transition:opacity .45s var(--ease); pointer-events:none;
 }
 .role:hover .role-bar::before,
-.role.open .role-bar::before { opacity:.085; }
+.role.open .role-bar::before { opacity:.11; }
 .role-bar > * { position:relative; z-index:1; }
 
 .role-n { font-size:12px; font-weight:500; letter-spacing:.16em; color:var(--fg-3);
@@ -243,7 +251,7 @@ a { color:inherit; }
   flex-shrink:0;
   display:grid; place-items:center;
   width:40px; height:40px; border-radius:10px;
-  background:var(--c); color:#fff;
+  background:var(--c); color:#0E1116;
   font-size:11px; font-weight:700; font-style:normal;
   letter-spacing:.02em; line-height:1;
   transition:transform .35s var(--ease);
@@ -269,7 +277,7 @@ a { color:inherit; }
 .role:hover .role-n { color:var(--c); }
 .role:hover .role-org,
 .role.open .role-org { color:var(--c); }
-.role-mark, .role:hover .role-mark { color:#fff; }
+.role-mark, .role:hover .role-mark { color:#0E1116; }
 .role:hover .role-plus::before,
 .role:hover .role-plus::after { background:var(--c); }
 
@@ -307,6 +315,36 @@ a { color:inherit; }
 .more-grid h4 { font-size:16px; font-weight:500; margin-bottom:5px; }
 .more-grid span { display:block; font-size:12.5px; color:var(--fg-3); margin-bottom:9px; }
 .more-grid p { font-size:14.5px; color:var(--fg-2); line-height:1.6; }
+
+/* ══ PULL QUOTE BAND ══════════════════════════════════════════
+   One quiet beat between the work and the person. */
+.band {
+  background:var(--bg-2);
+  border-bottom:1px solid var(--rule);
+  padding:clamp(72px,12vh,140px) 0;
+}
+.band-q {
+  font-size:clamp(1.6rem,4.4vw,3.2rem);
+  font-weight:300;
+  line-height:1.28;
+  letter-spacing:-.035em;
+  color:var(--fg);
+  max-width:20ch;
+}
+.band-q em {
+  font-style:normal;
+  font-weight:500;
+  background:var(--grad);
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.band-c {
+  margin-top:clamp(24px,4vh,40px);
+  font-size:14.5px;
+  color:var(--fg-3);
+  max-width:48ch;
+  line-height:1.6;
+}
 
 /* ══ ABOUT ═════════════════════════════════════════════════════ */
 .about-grid { display:grid; grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);
@@ -518,7 +556,7 @@ a { color:inherit; }
   *,*::before,*::after { transition-duration:.01ms !important; }
 }
 
-::selection { background:rgba(185,60,229,.3); color:#fff; }
+::selection { background:rgba(211,160,85,.28); color:var(--fg); }
 :focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
 
 ::-webkit-scrollbar { width:9px; }
