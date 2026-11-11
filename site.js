@@ -152,6 +152,32 @@
 
   initBasics();
 
+  /* ── Gallery masonry ───────────────────────────────────────
+     Each figure spans however many 8px rows its real height needs. */
+  function layoutGallery() {
+    var gal = document.querySelector('.gal');
+    if (!gal) return;
+    var cs = getComputedStyle(gal);
+    if (cs.gridTemplateColumns.split(' ').length < 2) {   // single column
+      gal.querySelectorAll('figure').forEach(function (f) { f.style.gridRowEnd = ''; });
+      return;
+    }
+    var row = parseFloat(cs.gridAutoRows) || 8;
+    var gap = parseFloat(cs.rowGap) || 0;
+    gal.querySelectorAll('figure').forEach(function (f) {
+      f.style.gridRowEnd = 'auto';
+      var h = f.getBoundingClientRect().height;
+      f.style.gridRowEnd = 'span ' + Math.ceil((h + gap) / (row + gap));
+    });
+  }
+
+  layoutGallery();
+  addEventListener('load', layoutGallery);
+  addEventListener('resize', layoutGallery, { passive: true });
+  document.querySelectorAll('.gal img').forEach(function (img) {
+    if (!img.complete) img.addEventListener('load', layoutGallery, { once: true });
+  });
+
   /* ── Cursor, accordion, menu, anchors ──────────────────────── */
   function initBasics() {
     /* cursor */
