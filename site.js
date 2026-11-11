@@ -1,5 +1,5 @@
 /* ============================================================
-   WILL JEDRZEJCZAK — site behaviour
+   WILL JEDRZEJCZAK — site behavior
    Reveals, header hide/show, stat counters, role accordion, menu.
    All motion is skipped when the visitor prefers reduced motion.
    ============================================================ */
@@ -68,8 +68,9 @@
     var target = parseFloat(el.getAttribute('data-count'));
     var dec = parseInt(el.getAttribute('data-dec') || '0', 10);
     var suffix = el.getAttribute('data-suffix') || '';
+    var prefix = el.getAttribute('data-prefix') || '';
 
-    if (reduce) { el.textContent = fmt(target, dec) + suffix; return; }
+    if (reduce) { el.textContent = prefix + fmt(target, dec) + suffix; return; }
 
     var dur = 1500, t0 = null;
     function step(ts) {
@@ -77,7 +78,7 @@
       var p = Math.min((ts - t0) / dur, 1);
       // ease-out cubic
       var eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = fmt(target * eased, dec) + (p === 1 ? suffix : '');
+      el.textContent = prefix + fmt(target * eased, dec) + (p === 1 ? suffix : '');
       if (p < 1) window.requestAnimationFrame(step);
     }
     window.requestAnimationFrame(step);
