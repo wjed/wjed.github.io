@@ -92,7 +92,12 @@ details p { font-size:16px; color:var(--fg-2); margin-bottom:12px; }
 details > p:last-of-type { margin-bottom:18px; }
 
 /* ── ABOUT ─────────────────────────────────────────────────── */
-.portrait { width:200px; margin-bottom:26px; }
+/* Portrait sits beside the opening paragraphs with a caption and a
+   hairline, so it reads as a considered plate rather than a stray image. */
+.bio { display:grid; grid-template-columns:232px 1fr; gap:30px; align-items:start; margin-bottom:8px; }
+.portrait { margin:0; }
+.portrait img { width:100%; aspect-ratio:4/5; object-fit:cover; object-position:center 26%; border:1px solid var(--line); }
+.bio-text p:last-child { margin-bottom:0; }
 
 .facts { list-style:none; margin-top:22px; }
 .facts li { font-size:16px; padding:7px 0; border-bottom:1px solid var(--line); }
@@ -134,5 +139,6 @@ footer {
   main { padding-top:52px; }
   section { margin-top:56px; }
   header nav { gap:16px; }
-  .portrait { width:160px; }
+  .bio { grid-template-columns:1fr; gap:22px; }
+  .portrait { max-width:200px; }
 }
