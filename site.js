@@ -53,6 +53,42 @@
     }, { passive: true });
   }
 
+  /* ── Counters ──────────────────────────────────────────────── */
+  function runCount(el) {
+    var to = parseFloat(el.dataset.to);
+    var dec = parseInt(el.dataset.dec || '0', 10);
+    var pre = el.dataset.pre || '', suf = el.dataset.suf || '';
+    var out = function (v) { return pre + (dec ? v.toFixed(dec) : Math.round(v)) + suf; };
+    if (reduce) { el.textContent = out(to); return; }
+    var t0 = null, DUR = 1500;
+    (function step(ts) {
+      if (t0 === null) t0 = ts;
+      var p = Math.min((ts - t0) / DUR, 1);
+      el.textContent = pre + (dec ? (to * (1 - Math.pow(1 - p, 3))).toFixed(dec)
+                                  : Math.round(to * (1 - Math.pow(1 - p, 3))));
+      if (p < 1) requestAnimationFrame(step); else el.textContent = out(to);
+    })(performance.now());
+  }
+
+  var nums = document.querySelectorAll('.n[data-to]');
+  if (reduce || !('IntersectionObserver' in window)) {
+    nums.forEach(runCount);
+  } else {
+    var nio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { runCount(e.target); nio.unobserve(e.target); }
+      });
+    }, { threshold: 0.35 });
+    nums.forEach(function (n) { nio.observe(n); });
+    /* counters depend on rAF; if it never runs, still show the value */
+    setTimeout(function () {
+      nums.forEach(function (n) {
+        if (n.textContent === '0') n.textContent =
+          (n.dataset.pre || '') + n.dataset.to + (n.dataset.suf || '');
+      });
+    }, 3500);
+  }
+
   /* ── Work rows ─────────────────────────────────────────────── */
   document.querySelectorAll('.row').forEach(function (btn) {
     btn.addEventListener('click', function () {
