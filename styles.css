@@ -81,7 +81,6 @@ main > *,
 section > * { max-width:var(--text); }
 main > section { max-width:none; }
 section > h2,
-section > .photos,
 section > .pair,
 section > .bio { max-width:none; }
 
@@ -157,22 +156,23 @@ blockquote p { font-size:18px; margin-bottom:9px; }
 cite { font-size:14px; font-style:normal; color:var(--fg-2); }
 
 /* ── PHOTOGRAPHS ───────────────────────────────────────────── */
-/* These are the only things allowed the full page width. auto-fit
-   means the column count falls out of the available space, so there
-   is no breakpoint to maintain and no horizontal scroll to cause. */
-.photos, .pair {
+/* The only things allowed the full page width. auto-fit means the
+   column count falls out of the available space, so there is no
+   breakpoint to maintain and no horizontal scroll to cause. */
+.pair {
   display:grid; gap:22px; margin-top:38px;
+  grid-template-columns:repeat(auto-fit,minmax(390px,1fr));
 }
-.photos { grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
-.pair   { grid-template-columns:repeat(auto-fit,minmax(390px,1fr)); }
-.photos figure, .pair figure { margin:0; }
-/* One ratio across the grid so the rows line up and the captions sit on a
-   shared baseline. Portraits get a higher crop point to keep faces in frame. */
-.photos img, .pair img {
+.pair figure { margin:0; }
+/* A shared ratio keeps the pair level and the captions on one baseline.
+   Portrait-orientation frames then need their own crop point, or a 3:2
+   box cuts straight through somebody's face. */
+.pair img {
   width:100%; aspect-ratio:3/2; object-fit:cover;
   object-position:center; border:1px solid var(--line);
 }
-.photos img.tall, .pair img.tall { object-position:center 20%; }
+.pair img.crop-top { object-position:center top; }
+.pair img.crop-low { object-position:center 26%; }
 figcaption { font-size:14px; color:var(--fg-2); padding-top:8px; }
 
 /* ── LOGOS ─────────────────────────────────────────────────── */
@@ -210,7 +210,7 @@ footer {
   .lead { font-size:18px; }
   .bio { grid-template-columns:1fr; gap:22px; }
   .portrait { max-width:200px; }
-  .photos, .pair { grid-template-columns:1fr 1fr; gap:14px; }
+  .pair { grid-template-columns:1fr 1fr; gap:14px; }
   .logos { gap:16px 26px; }
   .logos img.lg-scale, .logos img.lg-bsi { height:24px; }
   .logos img.lg-fbi { height:36px; }
@@ -219,5 +219,5 @@ footer {
 }
 
 @media (max-width:420px) {
-  .photos, .pair { grid-template-columns:1fr; }
+  .pair { grid-template-columns:1fr; }
 }
