@@ -1,954 +1,557 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Will Jedrzejczak</title>
-  <meta name="description" content="Ask Will Jedrzejczak anything about his background, experience, and projects.">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='0'><stop offset='0' stop-color='%23F69A49'/><stop offset='0.4' stop-color='%23E96A98'/><stop offset='0.7' stop-color='%23B93CE5'/><stop offset='1' stop-color='%23923BF9'/></linearGradient></defs><rect width='100' height='100' rx='20' fill='url(%23g)'/><text x='50' y='67' font-size='52' text-anchor='middle' font-family='Aeonik,system-ui,sans-serif' font-weight='700' fill='white'>W</text></svg>">
-  <script>
-    (function() {
-      var t = localStorage.getItem('theme') || 'light';
-      document.documentElement.setAttribute('data-theme', t);
-    })();
-  </script>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Will Jedrzejczak — National Security × AI</title>
+<meta name="description" content="National Security Technical Program Manager at Scale AI. Previously FBI, AWS, HiddenLayer. Active TS/SCI with Full Scope Polygraph.">
+<meta property="og:title" content="Will Jedrzejczak">
+<meta property="og:description" content="National Security TPM at Scale AI. Previously FBI, AWS, HiddenLayer.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='0'><stop offset='0' stop-color='%23F69A49'/><stop offset='0.4' stop-color='%23E96A98'/><stop offset='0.7' stop-color='%23B93CE5'/><stop offset='1' stop-color='%23923BF9'/></linearGradient></defs><rect width='100' height='100' rx='20' fill='url(%23g)'/><text x='50' y='68' font-size='54' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='700' fill='white'>W</text></svg>">
+<script>document.documentElement.className="js";</script>
+<link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
 
-<!-- ── INTRO OVERLAY ── -->
-<div id="intro">
-  <span id="intro-text"></span>
+<a class="skip" href="#work">Skip to content</a>
+
+<!-- ══ NAV ══ -->
+<header class="nav" id="nav">
+  <a href="#top" class="nav-mark" aria-label="Will Jedrzejczak — home">
+    <span class="nav-mark-dot"></span>
+    <span>Will Jedrzejczak</span>
+  </a>
+  <nav class="nav-links">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#recognition">Recognition</a>
+    <a href="#press">Press</a>
+    <a href="#contact" class="nav-cta">Get in touch</a>
+  </nav>
+  <button class="nav-burger" id="burger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <a href="#work">Work</a>
+  <a href="#about">About</a>
+  <a href="#recognition">Recognition</a>
+  <a href="#press">Press</a>
+  <a href="#education">Education</a>
+  <a href="#contact">Get in touch</a>
 </div>
 
-<div class="app">
+<!-- ══ HERO ══ -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <p class="hero-eyebrow reveal">
+      <span class="pulse"></span> Washington, DC &middot; Active TS/SCI w/ Full Scope Poly
+    </p>
 
-  <!-- ── SIDEBAR ── -->
-  <aside class="sidebar" id="sidebar">
-    <div class="sidebar-top">
-      <div class="brand">
-        <div class="brand-icon"><img src="images/scale/scale-triangle.png" alt="Scale AI" style="width:18px;height:18px;object-fit:contain;display:block;"></div>
-        <span class="brand-name">wjed.github.io</span>
+    <h1 class="hero-h1">
+      <span class="line reveal" style="--d:.05s">I build AI systems</span>
+      <span class="line reveal" style="--d:.12s">for national <em>security.</em></span>
+    </h1>
+
+    <div class="hero-meta reveal" style="--d:.2s">
+      <div class="hero-meta-col">
+        <span class="k">Currently</span>
+        <span class="v">National Security TPM<br>Public Sector @ Scale&nbsp;AI</span>
       </div>
-      <button class="icon-btn theme-toggle sidebar-theme" id="themeBtn" title="Toggle theme" aria-label="Toggle theme">
-        <svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button>
-    </div>
-
-    <div class="sidebar-body">
-      <div class="sidebar-label">Topics</div>
-      <nav class="sidebar-nav">
-        <button class="nav-btn" data-qa="about">About Will</button>
-        <button class="nav-btn" data-qa="experience">Work Experience</button>
-        <button class="nav-btn" data-qa="projects">Projects</button>
-        <button class="nav-btn" data-qa="certifications">Certifications</button>
-        <button class="nav-btn" data-qa="education">Education</button>
-        <button class="nav-btn" data-qa="leadership">Leadership</button>
-        <button class="nav-btn" data-qa="awards">Honors &amp; Awards</button>
-        <button class="nav-btn" data-qa="skills">Skills</button>
-        <button class="nav-btn" data-qa="recommendations">Recommendations</button>
-        <button class="nav-btn" data-qa="media">Press &amp; Media</button>
-        <button class="nav-btn" data-qa="undergrad">Undergrad Life</button>
-        <button class="nav-btn" data-qa="contact">Contact</button>
-      </nav>
-    </div>
-
-    <div class="sidebar-footer">
-      <a href="https://linkedin.com/in/defend" target="_blank" rel="noopener" class="sidebar-social">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        LinkedIn
-      </a>
-    </div>
-  </aside>
-
-  <!-- Mobile overlay -->
-  <div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-  <!-- ── MAIN ── -->
-  <div class="main" id="mainArea">
-
-    <!-- Mobile header -->
-    <header class="mobile-hdr">
-      <button class="icon-btn" id="mobileSidebarBtn" aria-label="Open sidebar">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-      <span class="mobile-title">Will Jedrzejczak</span>
-      <button class="icon-btn theme-toggle" id="mobileThemeBtn" aria-label="Toggle theme">
-        <svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button>
-    </header>
-
-    <!-- Welcome screen (hidden once chat starts) -->
-    <div class="welcome" id="welcome">
-      <div class="welcome-inner">
-        <div class="will-avatar">
-          <img src="images/Will-Elodie-Image.png" alt="Will Jedrzejczak" onerror="this.style.display='none';this.parentElement.classList.add('avatar-fallback')">
-        </div>
-        <h1 class="welcome-h1">Hi, I'm Will.</h1>
-        <p class="welcome-tagline">National Security @ Scale AI &middot; Prev. @ FBI, AWS, HiddenLayer &middot; Active TS/SCI w/ Full Scope Poly &middot; GT MSCS &rsquo;28</p>
-        <div class="scale-wordmark"><img src="images/scale/scale-word.png" alt="Scale AI"></div>
-        <p class="welcome-desc">Ask me anything about my background, experience, or what I'm working on.</p>
-        <div class="prompt-grid">
-          <button class="prompt-card" data-qa="about">
-            <div class="prompt-card-title">Who is Will?</div>
-            <div class="prompt-card-desc">Overview, background, and what I'm building</div>
-          </button>
-          <button class="prompt-card" data-qa="experience">
-            <div class="prompt-card-title">Work experience</div>
-            <div class="prompt-card-desc">Scale AI, FBI, AWS, HiddenLayer, and more</div>
-          </button>
-          <button class="prompt-card" data-qa="projects">
-            <div class="prompt-card-title">Projects I've built</div>
-            <div class="prompt-card-desc">AI security, UAV networks, satellite tech</div>
-          </button>
-          <button class="prompt-card" data-qa="certifications">
-            <div class="prompt-card-title">Certifications</div>
-            <div class="prompt-card-desc">40+ credentials in AWS, CompTIA, and AI</div>
-          </button>
-          <button class="prompt-card" data-qa="education">
-            <div class="prompt-card-title">Education</div>
-            <div class="prompt-card-desc">JMU a year early + Georgia Tech MSCS</div>
-          </button>
-          <button class="prompt-card" data-qa="recommendations">
-            <div class="prompt-card-title">What colleagues say</div>
-            <div class="prompt-card-desc">Recommendations from AWS, USAF, and more</div>
-          </button>
-        </div>
+      <div class="hero-meta-col">
+        <span class="k">Previously</span>
+        <span class="v">FBI &middot; AWS &middot; HiddenLayer<br>Blue Sky &middot; ManTech</span>
+      </div>
+      <div class="hero-meta-col">
+        <span class="k">Studying</span>
+        <span class="v">M.S. Computer Science<br>Georgia Tech &rsquo;28</span>
       </div>
     </div>
+  </div>
 
-    <!-- Messages (shown once chat starts) -->
-    <div class="messages" id="messages"></div>
+  <div class="hero-scroll reveal" style="--d:.3s">
+    <span>Scroll</span>
+    <span class="hero-scroll-line"></span>
+  </div>
+</section>
 
-    <!-- Input area (always visible) -->
-    <div class="input-area">
-      <div class="suggestions" id="suggestions"></div>
-      <div class="input-wrap">
-        <div class="input-box">
-          <textarea
-            id="inputText"
-            placeholder="Ask about Will..."
-            rows="1"
-            aria-label="Ask a question about Will"
-          ></textarea>
-          <button class="send-btn" id="sendBtn" disabled aria-label="Send">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
-          </button>
-          <button class="stop-btn" id="stopBtn" aria-label="Stop" style="display:none">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
-          </button>
-        </div>
+<!-- ══ MARQUEE ══ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Scale AI</span><i></i><span>Federal Bureau of Investigation</span><i></i>
+    <span>Amazon Web Services</span><i></i><span>HiddenLayer</span><i></i>
+    <span>Blue Sky Innovators</span><i></i><span>ManTech</span><i></i>
+    <span>Georgia Tech</span><i></i><span>James Madison University</span><i></i>
+    <span>Scale AI</span><i></i><span>Federal Bureau of Investigation</span><i></i>
+    <span>Amazon Web Services</span><i></i><span>HiddenLayer</span><i></i>
+    <span>Blue Sky Innovators</span><i></i><span>ManTech</span><i></i>
+    <span>Georgia Tech</span><i></i><span>James Madison University</span><i></i>
+  </div>
+</div>
+
+<main>
+
+<!-- ══ STATS ══ -->
+<section class="stats">
+  <div class="shell">
+    <div class="stats-grid">
+      <div class="stat reveal">
+        <span class="stat-n" data-count="46">0</span>
+        <span class="stat-l">Certifications across AWS, CompTIA &amp; AI</span>
       </div>
-      <p class="disclaimer">i'm not actually doing a raw llm call im not rich lol</p>
+      <div class="stat reveal" style="--d:.08s">
+        <span class="stat-n" data-count="6">0</span>
+        <span class="stat-l">Roles in three years, every one intentional</span>
+      </div>
+      <div class="stat reveal" style="--d:.16s">
+        <span class="stat-n" data-count="3.99" data-dec="2">0</span>
+        <span class="stat-l">GPA, graduated a year early</span>
+      </div>
+      <div class="stat reveal" style="--d:.24s">
+        <span class="stat-n" data-count="11500" data-suffix="+">0</span>
+        <span class="stat-l">Students kept online as a volunteer engineer</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WORK ══ -->
+<section class="sec" id="work">
+  <div class="shell">
+    <div class="sec-head reveal">
+      <span class="sec-idx">01</span>
+      <h2 class="sec-title">Work</h2>
+      <p class="sec-note">Six roles across defense, intelligence and cloud — from the only freshman on an $850M DoD contract to shipping agentic AI for the public sector.</p>
     </div>
 
-  </div><!-- .main -->
-</div><!-- .app -->
-
-<script>
-// ─── BACKGROUND-SAFE TIMER ────────────────────────────────────────────────────
-// Tries a Web Worker (not throttled in background tabs); falls back to setTimeout.
-let wTimeout;
-try {
-  const _tw = new Worker(URL.createObjectURL(new Blob(
-    ['self.onmessage=function(e){setTimeout(function(){self.postMessage(e.data)},e.data.d)}'],
-    {type:'application/javascript'}
-  )));
-  const _tcb = {};
-  let _tid = 0;
-  _tw.onmessage = function(e) { const f=_tcb[e.data.id]; if(f){delete _tcb[e.data.id];f();} };
-  wTimeout = function(fn, delay) {
-    const id = ++_tid;
-    _tcb[id] = fn;
-    _tw.postMessage({id, d: delay});
-  };
-} catch(e) {
-  wTimeout = function(fn, delay) { setTimeout(fn, delay); };
-}
-
-// ─── INTRO ANIMATION ──────────────────────────────────────────────────────────
-(function() {
-  const intro = document.getElementById('intro');
-  const container = document.getElementById('intro-text');
-  const lines = [
-    'hi, welcome to my website.',
-    "i've done a lot over the years",
-    'and i needed some way to put it together',
-    'besides a resume, because those are boring...',
-  ];
-  const CHAR_MS = 42;
-  const LINE_PAUSE = 320;
-
-  let lineIdx = 0;
-  let activeEl = null;
-
-  function nextLine() {
-    if (lineIdx >= lines.length) {
-      if (activeEl) activeEl.classList.add('done');
-      wTimeout(() => {
-        intro.classList.add('fade-out');
-        wTimeout(() => intro.remove(), 800);
-      }, 700);
-      return;
-    }
-
-    if (activeEl) activeEl.classList.add('done');
-
-    const span = document.createElement('span');
-    span.className = 'intro-line';
-    container.appendChild(span);
-    activeEl = span;
-
-    const text = lines[lineIdx++];
-    let i = 0;
-    function typeChar() {
-      if (i < text.length) {
-        span.textContent += text[i++];
-        wTimeout(typeChar, CHAR_MS);
-      } else {
-        wTimeout(nextLine, LINE_PAUSE);
-      }
-    }
-    typeChar();
-  }
-
-  nextLine();
-})();
-
-// ─── Q&A DATABASE ─────────────────────────────────────────────────────────────
-const QA = {
-  about: {
-    question: "Who is Will Jedrzejczak?",
-    answer: `Hey! I'm Will Jedrzejczak, a **National Security Technical Program Manager on the Public Sector team at Scale AI** in Washington, DC.
-
-I work on agentic workflows and reliable AI systems for some of the most important decisions out there.
-
-Before Scale, I spent time across the **FBI**, **AWS**, and defense-tech companies like **HiddenLayer**, **Blue Sky Innovators**, and **ManTech** — architecting cloud and AI solutions, contributing to DoD-funded R&D, and supporting federal programs worth hundreds of millions to billions in scope. Six internships in three years, every one of them intentional.
-
-I graduated from **James Madison University** a year early with a 3.99 GPA and the top GPA in my major, and I'm now doing an **M.S. in Computer Science at Georgia Tech**. I hold 40+ certifications across AWS and CompTIA, and an **active TS/SCI clearance with Full Scope Polygraph**.
-
-Other interests: lifting, Jack Johnson, and personal finance.`,
-    suggestions: ["experience", "education", "contact"]
-  },
-
-  experience: {
-    question: "Walk me through your work experience",
-    answer: `Here's how my career has looked so far:
-
-**Scale AI** · National Security Technical Program Manager · 2026–Present *(current)*
-Full-time in Washington, DC. Public Sector team, focused on agentic workflows — building reliable AI systems for defense, intelligence, and federal civilian customers.
-
-**Federal Bureau of Investigation** · Member of Technical Staff · 2026
-Quantico, VA. Built Python/Scapy traffic generators pushing 1M+ packets and 153 Splunk panels, managed networking, architected AWS solutions, and presented to the CAIO.
-
-**Blue Sky Innovators** · Member of Technical Staff *(Part-time)* · Aug 2025–Mar 2026
-Reston, VA. DoD-funded R&D team. Built a multi-agent code security pipeline that auto-tickets 50+ vulnerabilities, and presented it to GitHub's CISO and 200+ stakeholders.
-
-**HiddenLayer** · National Security Solutions Architect *(Part-time)* · 2025–2026
-Washington, DC. Built Intelligence Community demos with Python and AWS, and supported federal sales and RFIs on a $151B IDIQ.
-
-**Amazon Web Services** · National Security Cloud Engineer · May–Aug 2025
-Crystal City, VA. Amazon Dedicated Cloud (federal). Exceeded scope by 200% and delivered in half the time using 40+ AWS services. Hosted a company-wide GenAI workshop and received a return offer.
-
-**ManTech** · Technical Engineer III · 2024–2025
-**ManTech** · Software Engineer II · 2024
-Herndon, VA. My first job, and the only freshman on the team. Built inventory asset tracking for the Army under the $850M ALECS program and presented it directly to the CEO and C-suite. Then pivoted to SysAdmin work supporting 10,000+ users alongside the CIO, and built the company's first campus outreach program. Promoted twice in under a year.
-
-**Rockingham County Public Schools** · Network Engineer *(Volunteer)* · Aug 2025–May 2026
-Installed and configured switches/routers across several schools for 11,500+ students. Analyzed data with Python and Pandas, produced reports presented to the Governor of Virginia.
-
-**CSFI** · Cyber Threat Analyst · Jan–May 2025
-CYBERCOM and intelligence collection.
-
-**Solvitur Systems** · Engineer · Aug–Dec 2024
-Web security testing and UX design.
-
-**Deloitte DLAMP** · Scholar · Mar–Nov 2024
-Selected twice, youngest Summer 2024 JMU cohort member. AI and engineering focus.
-
-**JMU Computer Science** · First-Year Researcher · Dec 2023–May 2024
-Built MusicCPR, a niche LMS for music education.`,
-    suggestions: ["projects", "skills", "about"]
-  },
-
-  projects: {
-    question: "What projects have you built?",
-    answer: `Here's what I've been working on:
-
-**ML-Based Wireless Attack Detection for UAV Networks** · Jan–Aug 2026
-End-to-end security framework for detecting and classifying wireless attacks on unmanned aerial vehicle networks. Associated with JMU Computer Science (AI/ML, Python, cybersecurity).
-
-**Rottd** · Jan–May 2026
-Led an automation-heavy comms project as Distinguished Engineer. Built complex Twilio flows via n8n, HTML templates, and A2P regulatory logic. The concept: a daily newsletter that explains world news like your terminally online friend would. Short, funny, weirdly informative.
-
-**Friend(s)** · Dec 2025–Mar 2026
-Principal Software Developer. Led cloud architecture, mobile development, and long-term technical strategy for a scalable, distributed social platform — working across infrastructure, backend services, and client applications.
-
-**MusicCPR** · Dec 2023–May 2024
-A niche LMS for music education, similar to Canvas. Built with JavaScript and React, collaborated with music teachers. Well received by students and teachers during the pandemic.
-
-**JMU DukeSat (MeshSat)** · Feb–Mar 2024
-Contributed to a satellite communication system project at JMU using Python and AI/ML.
-
-**CybersecDB** · Academic
-A collaborative cybersecurity threat detection database built with SQL and Mockaroo. Presented as a threat detection solution.`,
-    suggestions: ["experience", "skills", "certifications"]
-  },
-
-  certifications: {
-    question: "What certifications do you hold?",
-    answer: `40+ certifications across cloud, cybersecurity, and AI. The highlights:
-
-**Amazon Web Services (9 certifications)**
-- AWS Certified Solutions Architect – Professional (Jun 2026)
-- AWS Certified Generative AI Developer – Professional (May 2026)
-- AWS Certified Data Engineer – Associate (Aug 2025)
-- AWS Certified Developer – Associate (Jul 2025)
-- AWS Certified Machine Learning Engineer – Associate (Jul 2025)
-- AWS Certified SysOps Administrator – Associate (May 2025)
-- AWS Certified AI Practitioner (Mar 2025)
-- AWS Certified Solutions Architect – Associate (Jul 2024)
-- AWS Certified Cloud Practitioner (Jun 2024)
-
-**CompTIA (8 certifications)**
-- CySA+ / Cybersecurity Analyst (Feb 2025)
-- Security Analytics Practitioner / CSAP (Feb 2025)
-- Secure Infrastructure Specialist / CSIS (Jun 2024)
-- Security+ (Jun 2024)
-- IT Operations Specialist / CIOS (Apr 2024)
-- Network+ (Apr 2024)
-- A+ (Feb 2024)
-- IT Fundamentals+ (May 2023)
-
-
-**Anthropic**
-- Building with the Claude API (Mar 2026)
-- Claude Code in Action (Mar 2026)
-
-**Additional**
-- Google AI Professional Certificate (Feb 2026)
-- Deloitte DLAMP Scholar (2024)
-- DoD Cyber Awareness Challenge 2025
-- Microsoft Azure – Create Serverless Applications (Aug 2024)
-- Cisco Network Technician Career Path (Aug 2024)
-
-All credentials are verifiable on LinkedIn.`,
-    suggestions: ["skills", "experience", "about"]
-  },
-
-  education: {
-    question: "Tell me about your education",
-    answer: `**B.S. in Information Technology** · **James Madison University** · graduated May 2026, a year early.
-
-**Academic stats:**
-- GPA: **3.99/4.00**
-- **Outstanding Academics in IT Award** — ranked first in GPA within my major
-- **Outstanding Student in Honors Award** — presented to the university president, taught Honors coursework, earned a $5,000 scholarship
-- **Summa cum laude**, President's List every single semester
-
-*(Footnote: I was told I wasn't eligible for valedictorian or departmental awards because I graduated a year early. That stung for about five minutes.)*
-
-**M.S. in Computer Science** · **Georgia Tech** · started Fall 2026, expected 2028. Specializing in artificial intelligence. 23 courses across both programs so far, including CS-6603 (AI, Ethics, and Society) and IT-460 (Advanced Cybersecurity).
-
-**Research and teaching at JMU:**
-- Teaching Assistant for IT-201 (Computational Structures & Logic)
-- Researcher, ML-Based Wireless Attack Detection for UAV Networks
-- Published: *Teaching to a Better Test, One Year Later*, quantitative assessment study for Rockingham County Public Schools (Nov 2025)
-- First-Year Researcher, MusicCPR web application
-
-**Conferences attended:** ShmooCon, CYBERWARCON, CAPWIC, IEEE, NCHC`,
-    suggestions: ["leadership", "certifications", "about"]
-  },
-
-  leadership: {
-    question: "What leadership roles have you held?",
-    answer: `**Founding & Lead IT Ambassador** · 2023–2026
-Built the IT ambassador program from the ground up. Helped IT become one of JMU's fastest-growing majors. Ranked top ambassador by hours contributed.
-
-**Internal VP, Madison Consulting Club** · Aug 2025–May 2026
-VP of one of the biggest clubs in JMU's College of Business. Hosted a tech industry panel bringing in JMU alumni from AWS, Google, Scale AI, and Stripe. Packed the room.
-
-**Executive Officer, Cyber Defense Club** · Aug–Dec 2025
-Led the club to **1st place** at the Virginia Military Institute (VMI) Cyber Competition.
-
-**Teaching Assistant, IT-201** · Aug 2024–Aug 2025
-Supported 300+ students across labs and coursework in computational structures, discrete math, and formal logic.
-
-**JMU SafeRides** · Aug 2024–Dec 2025
-Free late-night rides for students through one of JMU's largest student-run safety organizations.
-
-**Notetaker for Students with Disabilities** · Aug 2023–May 2025
-Uploaded organized lecture notes and materials for students unable to take notes in class.
-
-**Alpha Lambda Delta Academic Honor Society** · Mar 2024–May 2026
-
-**STEM Corps Student Leader** · 2024
-Taught elementary school kids STEM concepts, fostering early interest in tech and science.
-
-**Outstanding Academics in IT Award** · First in GPA within my major — 3.99, President's List every semester, graduated a year early.
-
-JMU also featured me as part of their student spotlight: *"Curiosity drives the best problem-solvers. Will took what he learned at JMU and put it straight to work."*`,
-    suggestions: ["education", "recommendations", "about"]
-  },
-
-  awards: {
-    question: "What honors and awards have you received?",
-    answer: `A few things I've been recognized for:
-
-**Certificate of Appreciation** · Federal Bureau of Investigation · Aug 2026
-For valued contributions, initiative, collaboration, and partnership making a significant impact on the FBI's Cyber Division.
-
-**Distinguished Graduate** · James Madison University · Apr 2026
-
-**Outstanding Academics in IT Award** · JMU · May 2026
-Ranked first in GPA within my major while graduating a year early. Summa cum laude, above a 3.90 every single semester.
-
-**Outstanding Student in Honors Award** · JMU · May 2026
-Presented to the university president, taught Honors coursework, and earned a $5,000 scholarship.
-
-**Service and Outreach Award** · JMU · May 2026
-Founded the IT Ambassador program as a freshman and served on the founding team through graduation, contributing to the rapid growth of the major across the university. Also helped design some of the classes within it.
-
-**Presidential Recognition** · JMU · May 2026`,
-    suggestions: ["leadership", "education", "media"]
-  },
-
-  skills: {
-    question: "What does your technical skill set look like?",
-    answer: `**Cloud**
-AWS (7 certifications): Bedrock, Lambda, S3, CDK, CloudFormation, Cognito, DynamoDB, EC2, API Gateway. Microsoft Azure, serverless and cloud architecture.
-
-**AI / ML**
-LLMs, Amazon Bedrock, Claude, OpenSearch, multi-agent pipelines. Agentic AI security, ML-based wireless attack detection, adversarial AI research (HiddenLayer).
-
-**Cybersecurity**
-Active TS/SCI clearance w/ Full Scope Polygraph. CompTIA CySA+, Security+, Network+ certified. Threat intelligence, IAM, Active Directory, web security testing, Splunk, Python/Scapy, CYBERCOM support. AI supply chain security and runtime security (HiddenLayer).
-
-**Programming**
-Python · JavaScript · React.js · SQL · n8n (automation) · HTML/CSS · AWS CDK
-
-**Platforms**
-OpenSearch · Splunk · Twilio · Cisco · Active Directory
-
-**Domain expertise**
-Federal defense and national security · Intelligence community · Government cloud (AWS Dedicated) · AI security · Data infrastructure · Network engineering · IT program management
-
-**Languages**
-English (native) · Spanish (elementary)`,
-    suggestions: ["certifications", "experience", "projects"]
-  },
-
-  recommendations: {
-    question: "What do your colleagues say about you?",
-    answer: `13 recommendations so far. Here's what some people have said:
-
-**Brian Stock**, Operations Research @ DoW
-*"Will is the definition of someone with a strong internal locus of control... regardless of the challenge, one underlying theme always stands out: grit. He leads by example, never asking a team member to do something he would not do himself."*
-
-**Cole W.**, Business Owner & Cybersecurity Researcher (M.S. Cybersecurity @ JMU)
-*"Will is a rare breed. He's the first one in and the last one to leave, not because he's trying to clock hours, but because he's genuinely obsessed with the pursuit of excellence... You don't just hire Will for his skills, you hire him for the culture of excellence he brings with him the moment he walks through the door."*
-
-**Sam Briggs**, CS @ JMU · Founder, Contractive
-*"He's a natural leader, incredibly self-motivated, and shows a genuine commitment to helping others grow. Will delivers sharp technical insight and high energy to each and every project he is a part of, executing at a high level without needing oversight."*
-
-**Mason Scofield**, CTO & Co-Founder @ ashlr.ai
-*"His work ethic is unmatched and I genuinely don't think I've ever seen him not working toward his next goal... I can't think of a professional situation where I wouldn't want Will on my team."*
-
-**Adam Bluhm**, Principal AI Security Architect @ HiddenLayer (ex-AWS) · was my mentor at AWS
-*"William's trajectory is going to the moon... he never asks for shortcuts, only for context that accelerates his own learning so he can serve customers better. That combination of initiative and humility is rare even among seasoned consultants."*
-
-**Troy L. Edwards Jr.**, Engagement Manager @ AWS (CISM · PMP · NASA alum · US Navy veteran) · managed me directly
-*"William is, without question, one of the most promising young professionals I've come across. He doesn't just execute. He engages... He's not chasing titles. He's doing the work."*
-
-**Mason Scofield**, CTO & Co-Founder, ashlr.ai
-*"His work ethic is unmatched and I genuinely don't think I've ever seen him not working toward his next goal... I can't think of a professional situation where I wouldn't want Will on my team."*
-
-**Shishira Nakka**, JMU student
-*"Imagine the greatest, brightest, smartest person you know. Will is that person to the millionth power... Brilliance has a name, and his name is William Jedrzejczak."*
-
-**Dilpreet Gill**, Networking at Verizon
-*"William is a rare blend of brilliance, motivation, and kindness... securing a coveted internship at ManTech freshman year. His tenacity isn't just about achieving goals but surpassing them."*
-
-**Thomas Montgomery**, Intelligence Analyst, USAF (Active TS/SCI)
-*"Will is an exceptionally talented professional whose work in the government sector has been transformative."*
-
-Full recommendations available on LinkedIn at linkedin.com/in/defend.`,
-    suggestions: ["media", "experience", "contact"]
-  },
-
-  media: {
-    question: "Where has your work been featured?",
-    answer: `A few places my work has shown up:
-
-**Podcast** — *How I Cracked AWS, FBI, Scale AI as a Fresher*
-*Cloud with Raj* · July 2026
-Sat down with [Rajdeep Saha](https://www.linkedin.com/in/cloudwithraj/) to talk about breaking in early: why starting before you're ready beats being the smartest person in the room, why execution beats hunting for the perfect idea, and why nobody teaches you how decisions actually get made. It's the conversation I wish I'd had at 18.
-
-**Press** — *JMU student helps keep Rockingham County schools connected and secure*
-*RockTown Now* · March 2026
-Coverage of my volunteer network engineering work across Rockingham County Public Schools, keeping classrooms online and secure for 11,500+ students. [Read it here.](https://rocktownnow.com/news/218812-jmu-student-helps-keep-rockingham-county-schools-connected-and-secure/)
-
-**JMU Admissions Profile**
-JMU's marketing team interviewed me about graduating early and the path that got me there. [Read it here.](https://www.jmu.edu/admissions/explore/profiles/jedrzejczak-will-26.shtml)
-
-**Stewardship Luncheon keynote**
-Spoke alongside the university president as the only solo student speaker, when JMU announced its $200M endowment. [Watch the speech.](https://www.youtube.com/watch?v=xG6l3lZcciA)
-
-**Commonwealth Cyber Initiative conference**
-Presented original research to 200+ people while still an undergrad. Thanks to Kendall Beebe and the CCI team for opening that door.
-
-I also write on LinkedIn pretty regularly at [linkedin.com/in/defend](https://www.linkedin.com/in/defend/) — mostly early-career strategy, national security tech, and what actually moves the needle.`,
-    suggestions: ["undergrad", "leadership", "contact"]
-  },
-
-  undergrad: {
-    question: "What were you up to in undergrad?",
-    answer: `Here's a few things that stood out from my time at JMU:
-
-**IT Ambassadors**
-When I was a freshman I joined the IT ambassadors and was part of the founding crew. We did a ton to promote the major and it ended up becoming objectively the fastest-growing major at JMU, they eventually had to put a cap on how many students they admitted lol. It really grew my public speaking skills and taught me how to sell something I genuinely believed in.
-
-![IT Ambassadors](images/events/ambassadors.jpeg)
-
-**Madison Tech Society ([MTS](https://mts.publicvm.com/))**
-One of the things I did in my spare time, which I didn't have much of lol, was found [MTS](https://mts.publicvm.com/), with [Brian Stock](https://www.linkedin.com/in/mitigate/) tacking on later. I grew it into the biggest club in our entire department. My whole goal was teaching the skills that school doesn't, I recognized a gap in the job market and aimed to fill it.
-
-![MTS](images/events/mts.jpeg)
-
-**Stewardship Luncheon**
-I got to speak alongside the president of the university and a few other folks as the only solo student speaker. JMU announced its $200M endowment and a few other things, largest audience I spoke to in my undergrad, both in terms of people and probably net worth lol. [Watch my speech here.](https://www.youtube.com/watch?v=xG6l3lZcciA)
-
-![Stewardship Luncheon](images/events/stewardship-luncheon.jpeg)
-
-**JMU Profile Interview**
-Bill Gentry, one of the guys who leads JMU's marketing, saw me talk about my volunteering work at Rockingham County and instantly wanted me interviewed to represent the school. Talked about my early graduation, my path, how JMU helped, all the corporate mumbo jumbo. [Check out the interview here.](https://www.jmu.edu/admissions/explore/profiles/jedrzejczak-will-26.shtml)
-
-![JMU Interview](images/events/school-interview.jpeg)`,
-    suggestions: ["experience", "leadership", "education"]
-  },
-
-  contact: {
-    question: "How do I get in touch with Will?",
-    answer: `Best way to reach me:
-
-**Personal**
-- will.jedrzejczak@gmail.com
-
-**LinkedIn**
-linkedin.com/in/defend
-
-**Work emails** (I've had a few):
-- will.jedrzejczak@scale.com
-- wjd@amazon.com
-- william.jedrzejczak@blueskyinnovators.com
-
-Feel free to reach out about opportunities, research, or just to connect. Always happy to chat.`,
-    suggestions: ["about", "experience", "recommendations"]
-  }
-};
-
-// Keyword matching
-const KEYWORD_MAP = [
-  { keys: ['who', 'about', 'yourself', 'introduce', 'background', 'overview', 'story', 'hi', 'hello', 'hey', 'tell me about will'], id: 'about' },
-  { keys: ['experience', 'work', 'job', 'career', 'scale', 'scale ai', 'aws', 'mantech', 'hiddenlayer', 'fbi', 'doj', 'blue sky', 'quantico', 'history', 'employment', 'role'], id: 'experience' },
-  { keys: ['project', 'built', 'build', 'created', 'musiccpr', 'rottd', 'uav', 'advising', 'bot', 'satellite', 'meshsat'], id: 'projects' },
-  { keys: ['cert', 'certification', 'comptia', 'security+', 'network+', 'credential', 'badge', 'qualified', 'license'], id: 'certifications' },
-  { keys: ['education', 'school', 'jmu', 'university', 'gpa', 'degree', 'college', 'georgia tech', 'graduate', 'masters', 'ms', 'valedictorian'], id: 'education' },
-  { keys: ['leadership', 'ambassador', 'club', 'officer', 'president', 'vp', 'vice', 'mentor', 'ta', 'teaching', 'stem'], id: 'leadership' },
-  { keys: ['award', 'awards', 'honor', 'honors', 'recognition', 'recognized', 'distinguished', 'accolade', 'scholarship'], id: 'awards' },
-  { keys: ['skill', 'technical', 'language', 'programming', 'python', 'react', 'tools', 'stack', 'tech', 'clearance'], id: 'skills' },
-  { keys: ['recommend', 'testimonial', 'colleague', 'say about', 'opinion', 'reference', 'review', 'think of you'], id: 'recommendations' },
-  { keys: ['press', 'media', 'featured', 'feature', 'podcast', 'publication', 'published', 'article', 'news', 'coverage', 'writing', 'blog', 'posts'], id: 'media' },
-  { keys: ['contact', 'email', 'reach', 'connect', 'linkedin', 'message', 'hire', 'touch', 'talk'], id: 'contact' },
-  { keys: ['undergrad', 'college', 'university', 'jmu', 'campus', 'student', 'ambassador', 'mts', 'speech', 'luncheon', 'interview', 'club', 'extracurricular', 'activities'], id: 'undergrad' }
-];
-
-// ─── STATE ────────────────────────────────────────────────────────────────────
-let chatActive = false;
-let isStreaming = false;
-let stopRequested = false;
-let activeNavBtn = null;
-
-function setStreaming(val) {
-  isStreaming = val;
-  const stopBtn = document.getElementById('stopBtn');
-  const sendBtn = document.getElementById('sendBtn');
-  if (stopBtn) stopBtn.style.display = val ? 'flex' : 'none';
-  if (sendBtn) sendBtn.style.display = val ? 'none' : 'flex';
-}
-
-// ─── MARKDOWN PARSER ──────────────────────────────────────────────────────────
-function md(text) {
-  let out = text
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
-
-  // Inline: bold, italic, links
-  out = out.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-  out = out.replace(/\*(.*?)\*/g, '<em>$1</em>');
-  out = out.replace(/(?<!!)\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
-
-  const lines = out.split('\n');
-  const result = [];
-  let i = 0;
-
-  while (i < lines.length) {
-    const line = lines[i];
-    if (line.startsWith('## ')) {
-      result.push({ type: 'block', html: `<h3 class="mh">${line.slice(3)}</h3>` });
-      i++; continue;
-    }
-    if (line.trim() === '---') {
-      result.push({ type: 'block', html: '<hr class="mhr">' });
-      i++; continue;
-    }
-    // Image: ![alt](src) on its own line
-    const imgMatch = line.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
-    if (imgMatch) {
-      result.push({ type: 'block', html: `<figure class="event-img"><img src="${imgMatch[2].replace(/ /g, '%20')}" alt="${imgMatch[1]}" loading="lazy"></figure>` });
-      i++; continue;
-    }
-    if (line.startsWith('- ')) {
-      const items = [];
-      while (i < lines.length && lines[i].startsWith('- ')) {
-        items.push(`<li>${lines[i].slice(2)}</li>`);
-        i++;
-      }
-      result.push({ type: 'block', html: `<ul class="mul">${items.join('')}</ul>` });
-      continue;
-    }
-    if (line.trim() === '') {
-      result.push({ type: 'break' });
-      i++; continue;
-    }
-    result.push({ type: 'text', content: line });
-    i++;
-  }
-
-  // Group consecutive text lines into <p>
-  const final = [];
-  let pBuf = [];
-  for (const r of result) {
-    if (r.type === 'text') {
-      pBuf.push(r.content);
-    } else {
-      if (pBuf.length) { final.push(`<p>${pBuf.join('<br>')}</p>`); pBuf = []; }
-      if (r.type === 'block') final.push(r.html);
-    }
-  }
-  if (pBuf.length) final.push(`<p>${pBuf.join('<br>')}</p>`);
-  return final.join('\n');
-}
-
-// ─── CHARACTER-BY-CHARACTER TYPING ANIMATION ──────────────────────────────────
-// Types each block sequentially, char by char, with inline blinking cursor.
-function streamHTML(element, htmlContent, onDone) {
-  const CHAR_DELAY = 8; // ms per character
-  const CURSOR_HTML = '<span class="cursor"></span>';
-
-  const temp = document.createElement('div');
-  temp.innerHTML = htmlContent;
-  const blocks = Array.from(temp.children);
-  element.innerHTML = '';
-
-  let blockIdx = 0;
-
-  function nextBlock() {
-    if (blockIdx >= blocks.length) {
-      onDone && onDone();
-      return;
-    }
-    const src = blocks[blockIdx++];
-    const tag = src.tagName.toLowerCase();
-
-    if (tag === 'hr' || tag === 'figure') {
-      element.appendChild(src.cloneNode(true));
-      scrollToBottom();
-      nextBlock();
-      return;
-    }
-
-    if (tag === 'ul' || tag === 'ol') {
-      const listEl = document.createElement(tag);
-      if (src.className) listEl.className = src.className;
-      element.appendChild(listEl);
-      const liSrcs = Array.from(src.children);
-      let liIdx = 0;
-      function nextLi() {
-        if (liIdx >= liSrcs.length) { nextBlock(); return; }
-        const liEl = document.createElement('li');
-        listEl.appendChild(liEl);
-        typeTokens(liEl, liSrcs[liIdx++].innerHTML, nextLi);
-      }
-      nextLi();
-      return;
-    }
-
-    const el = document.createElement(tag);
-    if (src.className) el.className = src.className;
-    element.appendChild(el);
-    typeTokens(el, src.innerHTML, nextBlock);
-  }
-
-  // Split HTML into tag-tokens and individual char-tokens
-  function tokenize(html) {
-    const tokens = [];
-    const re = /(<[^>]+>)|([^<])/g;
-    let m;
-    while ((m = re.exec(html)) !== null) {
-      tokens.push({ type: m[1] ? 'tag' : 'char', value: m[0] });
-    }
-    return tokens;
-  }
-
-  function typeTokens(el, html, onComplete) {
-    const tokens = tokenize(html);
-    let i = 0, built = '';
-    function step() {
-      if (stopRequested) {
-        el.innerHTML = html; // dump remaining instantly on stop
-        onComplete();
-        return;
-      }
-      if (i >= tokens.length) {
-        el.innerHTML = html; // clean final render (no cursor)
-        scrollToBottom();
-        onComplete();
-        return;
-      }
-      const tok = tokens[i++];
-      built += tok.value;
-      el.innerHTML = built + CURSOR_HTML;
-      if (tok.type === 'char') {
-        if (i % 8 === 0) scrollToBottom(); // scroll every 8 chars to avoid jank
-        wTimeout(step, CHAR_DELAY);
-      } else {
-        wTimeout(step, 0); // tags: instant, deferred to next tick
-      }
-    }
-    step();
-  }
-
-  nextBlock();
-}
-
-// ─── CHAT LOGIC ───────────────────────────────────────────────────────────────
-function showChat() {
-  if (!chatActive) {
-    chatActive = true;
-    document.getElementById('mainArea').classList.add('chat-mode');
-  }
-}
-
-function resetChat() {
-  chatActive = false;
-  setStreaming(false);
-  document.getElementById('mainArea').classList.remove('chat-mode');
-  document.getElementById('messages').innerHTML = '';
-  document.getElementById('suggestions').innerHTML = '';
-  document.getElementById('inputText').value = '';
-  document.getElementById('sendBtn').disabled = true;
-  if (activeNavBtn) { activeNavBtn.classList.remove('active'); activeNavBtn = null; }
-}
-
-function scrollToBottom() {
-  const msgs = document.getElementById('messages');
-  msgs.scrollTop = msgs.scrollHeight;
-}
-
-function addUserMessage(text) {
-  const msgs = document.getElementById('messages');
-  const div = document.createElement('div');
-  div.className = 'msg msg-user';
-  div.innerHTML = `<div class="msg-bubble">${text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>`;
-  msgs.appendChild(div);
-  scrollToBottom();
-}
-
-function addThinkingIndicator() {
-  const msgs = document.getElementById('messages');
-  const div = document.createElement('div');
-  div.className = 'msg msg-bot';
-  div.id = 'thinking';
-  div.innerHTML = `<div class="bot-avatar"><img src="images/scale/scale-triangle.png" alt="Scale AI"></div><div class="msg-body"><div class="thinking-dots"><span></span><span></span><span></span></div></div>`;
-  msgs.appendChild(div);
-  scrollToBottom();
-  return div;
-}
-
-function renderSuggestions(ids) {
-  const el = document.getElementById('suggestions');
-  el.innerHTML = '';
-  ids.forEach(id => {
-    if (!QA[id]) return;
-    const btn = document.createElement('button');
-    btn.className = 'suggestion-chip';
-    btn.textContent = QA[id].question;
-    btn.addEventListener('click', () => triggerQuestion(id));
-    el.appendChild(btn);
-  });
-}
-
-function setActiveNav(id) {
-  if (activeNavBtn) activeNavBtn.classList.remove('active');
-  const btn = document.querySelector(`.nav-btn[data-qa="${id}"]`);
-  if (btn) { btn.classList.add('active'); activeNavBtn = btn; }
-}
-
-function deliverAnswer(qaId) {
-  const qa = QA[qaId];
-  const thinking = addThinkingIndicator();
-  const delay = 700 + Math.random() * 500;
-
-  setTimeout(() => {
-    thinking.remove();
-    const msgs = document.getElementById('messages');
-    const div = document.createElement('div');
-    div.className = 'msg msg-bot';
-    div.innerHTML = `<div class="bot-avatar"><img src="images/scale/scale-triangle.png" alt="Scale AI"></div><div class="msg-body msg-content"></div>`;
-    msgs.appendChild(div);
-    const contentEl = div.querySelector('.msg-content');
-    streamHTML(contentEl, md(qa.answer), () => {
-      setStreaming(false);
-      renderSuggestions(qa.suggestions);
-      scrollToBottom();
-    });
-    scrollToBottom();
-  }, delay);
-}
-
-function triggerQuestion(id) {
-  if (isStreaming) return;
-  const qa = QA[id];
-  if (!qa) return;
-
-  setStreaming(true); stopRequested = false;
-  showChat();
-  setActiveNav(id);
-  renderSuggestions([]);
-
-  document.getElementById('sidebar').classList.remove('open');
-  document.getElementById('sidebarOverlay').classList.remove('show');
-
-  addUserMessage(qa.question);
-  setTimeout(() => deliverAnswer(id), 40);
-}
-
-// Short keys must match a whole word, or 'hi' fires on "hiddenlayer" and
-// 'ms' on "systems". Longer keys match from a word start, so 'cert' still
-// catches "certifications".
-const EXACT_KEYS = ['hi', 'hey', 'ms', 'ta', 'vp', 'who'];
-
-function keyHits(text, key) {
-  const esc = key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const tail = EXACT_KEYS.includes(key) ? 's?(?![a-z0-9])' : '';
-  return new RegExp('(?:^|[^a-z0-9])' + esc + tail).test(text);
-}
-
-function matchQuestion(input) {
-  const lower = input.toLowerCase();
-  let best = null, bestScore = 0;
-  KEYWORD_MAP.forEach(({ keys, id }) => {
-    let score = 0;
-    keys.forEach(k => { if (keyHits(lower, k)) score++; });
-    if (score > bestScore) { bestScore = score; best = id; }
-  });
-  return bestScore > 0 ? best : null;
-}
-
-function handleSend() {
-  const input = document.getElementById('inputText');
-  const text = input.value.trim();
-  if (!text || isStreaming) return;
-
-  input.value = '';
-  input.style.height = '';
-  document.getElementById('sendBtn').disabled = true;
-
-  const matched = matchQuestion(text);
-  setStreaming(true); stopRequested = false;
-  showChat();
-  renderSuggestions([]);
-  addUserMessage(text);
-
-  if (matched) {
-    setActiveNav(matched);
-    setTimeout(() => deliverAnswer(matched), 40);
-  } else {
-    // Fallback
-    const thinking = addThinkingIndicator();
-    setTimeout(() => {
-      thinking.remove();
-      const msgs = document.getElementById('messages');
-      const div = document.createElement('div');
-      div.className = 'msg msg-bot';
-      div.innerHTML = `<div class="bot-avatar"><img src="images/scale/scale-triangle.png" alt="Scale AI"></div><div class="msg-body msg-content"></div>`;
-      msgs.appendChild(div);
-      const fallback = `I can answer questions about Will's **experience**, **projects**, **certifications**, **education**, **leadership**, **awards**, **skills**, **recommendations**, **press & media**, or how to **contact** him. Try one of the suggestions below, or ask something more specific!`;
-      streamHTML(div.querySelector('.msg-content'), md(fallback), () => {
-        setStreaming(false);
-        renderSuggestions(['about', 'experience', 'contact']);
-        scrollToBottom();
-      });
-      scrollToBottom();
-    }, 700);
-  }
-}
-
-// ─── THEME ────────────────────────────────────────────────────────────────────
-function toggleTheme() {
-  const cur = document.documentElement.getAttribute('data-theme');
-  const next = cur === 'dark' ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', next);
-  localStorage.setItem('theme', next);
-}
-
-// ─── SIDEBAR (MOBILE) ─────────────────────────────────────────────────────────
-function openSidebar() {
-  document.getElementById('sidebar').classList.add('open');
-  document.getElementById('sidebarOverlay').classList.add('show');
-}
-function closeSidebar() {
-  document.getElementById('sidebar').classList.remove('open');
-  document.getElementById('sidebarOverlay').classList.remove('show');
-}
-
-// ─── INIT ─────────────────────────────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.prompt-card, .nav-btn').forEach(btn => {
-    btn.addEventListener('click', () => triggerQuestion(btn.dataset.qa));
-  });
-
-  document.getElementById('themeBtn').addEventListener('click', toggleTheme);
-  document.getElementById('mobileThemeBtn').addEventListener('click', toggleTheme);
-  document.getElementById('mobileSidebarBtn').addEventListener('click', openSidebar);
-  document.getElementById('sidebarOverlay').addEventListener('click', closeSidebar);
-
-  const inputText = document.getElementById('inputText');
-  const sendBtn = document.getElementById('sendBtn');
-
-  inputText.addEventListener('input', () => {
-    inputText.style.height = 'auto';
-    inputText.style.height = Math.min(inputText.scrollHeight, 160) + 'px';
-    sendBtn.disabled = !inputText.value.trim();
-  });
-
-  inputText.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      if (!sendBtn.disabled) handleSend();
-    }
-  });
-
-  sendBtn.addEventListener('click', handleSend);
-
-  document.getElementById('stopBtn').addEventListener('click', () => {
-    stopRequested = true;
-  });
-});
-</script>
+    <ul class="roles">
+      <li class="role reveal" style="--c:#923BF9">
+        <button class="role-bar" aria-expanded="false">
+          <span class="role-n">01</span>
+          <span class="role-org">Scale AI</span>
+          <span class="role-title">National Security Technical Program Manager</span>
+          <span class="role-yr">2026 &mdash;</span>
+          <span class="role-plus" aria-hidden="true"></span>
+        </button>
+        <div class="role-body"><div class="role-body-in">
+          <p>Full-time in Washington, DC on the Public Sector team, focused on agentic workflows — building reliable AI systems for defense, intelligence and federal civilian customers.</p>
+          <ul class="tags"><li>Agentic workflows</li><li>Public Sector</li><li>Washington, DC</li></ul>
+        </div></div>
+      </li>
+
+      <li class="role reveal" style="--c:#B93CE5">
+        <button class="role-bar" aria-expanded="false">
+          <span class="role-n">02</span>
+          <span class="role-org">Federal Bureau of Investigation</span>
+          <span class="role-title">Member of Technical Staff</span>
+          <span class="role-yr">2026</span>
+          <span class="role-plus" aria-hidden="true"></span>
+        </button>
+        <div class="role-body"><div class="role-body-in">
+          <p>Quantico, VA. Built Python/Scapy traffic generators pushing <strong>1M+ packets</strong> and <strong>153 Splunk panels</strong>, managed networking, architected AWS solutions, and presented to the CAIO.</p>
+          <ul class="tags"><li>Python / Scapy</li><li>Splunk</li><li>AWS</li><li>Cyber Division</li></ul>
+        </div></div>
+      </li>
+
+      <li class="role reveal" style="--c:#D54ECF">
+        <button class="role-bar" aria-expanded="false">
+          <span class="role-n">03</span>
+          <span class="role-org">Blue Sky Innovators</span>
+          <span class="role-title">Member of Technical Staff</span>
+          <span class="role-yr">2025 &mdash; 26</span>
+          <span class="role-plus" aria-hidden="true"></span>
+        </button>
+        <div class="role-body"><div class="role-body-in">
+          <p>Reston, VA. DoD-funded R&amp;D team. Built a multi-agent code security pipeline that auto-tickets <strong>50+ vulnerabilities</strong>, and presented it to GitHub&rsquo;s CISO and <strong>200+ stakeholders</strong>.</p>
+          <ul class="tags"><li>Multi-agent pipelines</li><li>DevSecOps</li><li>DoD R&amp;D</li></ul>
+        </div></div>
+      </li>
+
+      <li class="role reveal" style="--c:#E96A98">
+        <button class="role-bar" aria-expanded="false">
+          <span class="role-n">04</span>
+          <span class="role-org">HiddenLayer</span>
+          <span class="role-title">National Security Solutions Architect</span>
+          <span class="role-yr">2025 &mdash; 26</span>
+          <span class="role-plus" aria-hidden="true"></span>
+        </button>
+        <div class="role-body"><div class="role-body-in">
+          <p>Washington, DC. Built Intelligence Community demos with Python and AWS, and supported federal sales and RFIs on a <strong>$151B IDIQ</strong>.</p>
+          <ul class="tags"><li>AI security</li><li>Intelligence Community</li><li>Federal capture</li></ul>
+        </div></div>
+      </li>
+
+      <li class="role reveal" style="--c:#F27F74">
+        <button class="role-bar" aria-expanded="false">
+          <span class="role-n">05</span>
+          <span class="role-org">Amazon Web Services</span>
+          <span class="role-title">National Security Cloud Engineer</span>
+          <span class="role-yr">2025</span>
+          <span class="role-plus" aria-hidden="true"></span>
+        </button>
+        <div class="role-body"><div class="role-body-in">
+          <p>Crystal City, VA. Amazon Dedicated Cloud (federal). <strong>Exceeded scope by 200%</strong> and delivered in half the time using 40+ AWS services. Hosted a company-wide GenAI workshop and received a return offer.</p>
+          <ul class="tags"><li>Amazon Dedicated Cloud</li><li>GenAI</li><li>Data analytics</li></ul>
+        </div></div>
+      </li>
+
+      <li class="role reveal" style="--c:#F69A49">
+        <button class="role-bar" aria-expanded="false">
+          <span class="role-n">06</span>
+          <span class="role-org">ManTech</span>
+          <span class="role-title">Technical Engineer III &rarr; Software Engineer II</span>
+          <span class="role-yr">2024 &mdash; 25</span>
+          <span class="role-plus" aria-hidden="true"></span>
+        </button>
+        <div class="role-body"><div class="role-body-in">
+          <p>Herndon, VA. My first job, and the only freshman on the team. Built inventory asset tracking for the Army under the <strong>$850M ALECS program</strong> and presented it directly to the CEO and C-suite. Then pivoted to SysAdmin work supporting <strong>10,000+ users</strong> alongside the CIO, and built the company&rsquo;s first campus outreach program. <strong>Promoted twice in under a year.</strong></p>
+          <ul class="tags"><li>ALECS</li><li>IAM / Active Directory</li><li>Virtualization</li></ul>
+        </div></div>
+      </li>
+    </ul>
+
+    <details class="more reveal">
+      <summary><span>Also along the way</span></summary>
+      <div class="more-grid">
+        <div><h4>Rockingham County Public Schools</h4><span>Network Engineer (Volunteer) &middot; Aug 2025 &ndash; May 2026</span><p>Switches and routers across several schools for 11,500+ students. Python/Pandas analysis in reports presented to the Governor of Virginia.</p></div>
+        <div><h4>CSFI</h4><span>Cyber Threat Analyst &middot; Jan &ndash; May 2025</span><p>CYBERCOM and intelligence collection.</p></div>
+        <div><h4>Solvitur Systems</h4><span>Engineer &middot; Aug &ndash; Dec 2024</span><p>Web security testing and UX design.</p></div>
+        <div><h4>Deloitte DLAMP</h4><span>Scholar &middot; Mar &ndash; Nov 2024</span><p>Selected twice; youngest member of the Summer 2024 JMU cohort. AI and engineering focus.</p></div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ══ ABOUT ══ -->
+<section class="sec about" id="about">
+  <div class="shell">
+    <div class="sec-head reveal">
+      <span class="sec-idx">02</span>
+      <h2 class="sec-title">About</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-portrait reveal">
+        <img src="images/Will-Elodie-Image.png" alt="Will Jedrzejczak" loading="lazy">
+      </div>
+      <div class="about-copy reveal" style="--d:.1s">
+        <p class="lede">I work on agentic workflows and reliable AI systems for some of the most important decisions out there.</p>
+        <p>Before Scale, I spent time across the <strong>FBI</strong>, <strong>AWS</strong>, and defense-tech companies like <strong>HiddenLayer</strong>, <strong>Blue Sky Innovators</strong> and <strong>ManTech</strong> — architecting cloud and AI solutions, contributing to DoD-funded R&amp;D, and supporting federal programs worth hundreds of millions to billions in scope. Six internships in three years, every one of them intentional.</p>
+        <p>I graduated from <strong>James Madison University</strong> a year early with a 3.99 GPA and the top GPA in my major, and I&rsquo;m now doing an <strong>M.S. in Computer Science at Georgia Tech</strong>. I hold 40+ certifications across AWS and CompTIA, and an <strong>active TS/SCI clearance with Full Scope Polygraph</strong>.</p>
+        <p class="aside">Outside of work: lifting, Jack Johnson, and personal finance.</p>
+
+        <div class="skills">
+          <div><span class="k">AI / ML</span><p>LLMs &middot; Bedrock &middot; Claude &middot; multi-agent pipelines &middot; agentic AI security &middot; adversarial AI research</p></div>
+          <div><span class="k">Cloud</span><p>AWS (9 certs) &middot; Lambda &middot; S3 &middot; CDK &middot; CloudFormation &middot; DynamoDB &middot; EC2 &middot; Azure</p></div>
+          <div><span class="k">Security</span><p>Threat intelligence &middot; IAM &middot; Active Directory &middot; Splunk &middot; Python/Scapy &middot; CYBERCOM support</p></div>
+          <div><span class="k">Languages</span><p>Python &middot; JavaScript &middot; React &middot; SQL &middot; n8n &middot; HTML/CSS</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROJECTS ══ -->
+<section class="sec" id="projects">
+  <div class="shell">
+    <div class="sec-head reveal">
+      <span class="sec-idx">03</span>
+      <h2 class="sec-title">Selected projects</h2>
+    </div>
+
+    <div class="proj-grid">
+      <article class="proj reveal">
+        <span class="proj-yr">Jan &ndash; Aug 2026</span>
+        <h3>ML-Based Wireless Attack Detection for UAV Networks</h3>
+        <p>End-to-end security framework for detecting and classifying wireless attacks on unmanned aerial vehicle networks. Research with JMU Computer Science.</p>
+        <ul class="tags"><li>AI / ML</li><li>Python</li><li>Cybersecurity</li></ul>
+      </article>
+
+      <article class="proj reveal" style="--d:.08s">
+        <span class="proj-yr">Dec 2025 &ndash; Mar 2026</span>
+        <h3>Friend(s)</h3>
+        <p>Principal Software Developer. Led cloud architecture, mobile development and long-term technical strategy for a scalable, distributed social platform — across infrastructure, backend services and client apps.</p>
+        <ul class="tags"><li>Cloud architecture</li><li>Mobile</li><li>Distributed systems</li></ul>
+      </article>
+
+      <article class="proj reveal" style="--d:.16s">
+        <span class="proj-yr">Jan &ndash; May 2026</span>
+        <h3>Rottd</h3>
+        <p>Distinguished Engineer on an automation-heavy comms project. Twilio flows via n8n, HTML templates and A2P regulatory logic. A daily newsletter that explains world news like your terminally online friend would.</p>
+        <ul class="tags"><li>n8n</li><li>Twilio</li><li>Automation</li></ul>
+      </article>
+
+      <article class="proj reveal" style="--d:.24s">
+        <span class="proj-yr">Dec 2023 &ndash; May 2024</span>
+        <h3>MusicCPR</h3>
+        <p>A niche LMS for music education, similar to Canvas. Built with JavaScript and React alongside music teachers; well received by students and staff during the pandemic.</p>
+        <ul class="tags"><li>React</li><li>JavaScript</li><li>EdTech</li></ul>
+      </article>
+
+      <article class="proj reveal" style="--d:.32s">
+        <span class="proj-yr">Feb &ndash; Mar 2024</span>
+        <h3>JMU DukeSat (MeshSat)</h3>
+        <p>Contributed to a satellite communication system project at JMU using Python and AI/ML.</p>
+        <ul class="tags"><li>Python</li><li>Satellite comms</li></ul>
+      </article>
+
+      <article class="proj reveal" style="--d:.4s">
+        <span class="proj-yr">Academic</span>
+        <h3>CybersecDB</h3>
+        <p>A collaborative cybersecurity threat detection database built with SQL and Mockaroo, presented as a threat detection solution.</p>
+        <ul class="tags"><li>SQL</li><li>Threat detection</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══ RECOGNITION ══ -->
+<section class="sec" id="recognition">
+  <div class="shell">
+    <div class="sec-head reveal">
+      <span class="sec-idx">04</span>
+      <h2 class="sec-title">Recognition</h2>
+    </div>
+
+    <div class="award-lead reveal">
+      <span class="award-lead-tag">Federal Bureau of Investigation &middot; Aug 2026</span>
+      <h3>Certificate of Appreciation</h3>
+      <p>For valued contributions, initiative, collaboration and partnership making a significant impact on the FBI&rsquo;s Cyber Division.</p>
+    </div>
+
+    <ul class="awards">
+      <li class="reveal"><span class="aw-y">Apr 2026</span><h4>Distinguished Graduate</h4><p>James Madison University</p></li>
+      <li class="reveal" style="--d:.06s"><span class="aw-y">May 2026</span><h4>Outstanding Academics in IT</h4><p>Ranked first in GPA within the major while graduating a year early. Summa cum laude, above a 3.90 every semester.</p></li>
+      <li class="reveal" style="--d:.12s"><span class="aw-y">May 2026</span><h4>Outstanding Student in Honors</h4><p>Presented to the university president, taught Honors coursework, earned a $5,000 scholarship.</p></li>
+      <li class="reveal" style="--d:.18s"><span class="aw-y">May 2026</span><h4>Service &amp; Outreach Award</h4><p>Founded the IT Ambassador program as a freshman and served on the founding team through graduation, helping drive the major&rsquo;s growth — and helping design some of its classes.</p></li>
+      <li class="reveal" style="--d:.24s"><span class="aw-y">May 2026</span><h4>Presidential Recognition</h4><p>James Madison University</p></li>
+      <li class="reveal" style="--d:.3s"><span class="aw-y">2025</span><h4>1st place, VMI Cyber Competition</h4><p>Led the JMU Cyber Defense Club as Executive Officer.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ QUOTES ══ -->
+<section class="sec quotes">
+  <div class="shell">
+    <div class="sec-head reveal">
+      <span class="sec-idx">05</span>
+      <h2 class="sec-title">What people say</h2>
+      <p class="sec-note">13 recommendations on LinkedIn. A few of them:</p>
+    </div>
+
+    <div class="quote-grid">
+      <figure class="quote reveal">
+        <blockquote>William&rsquo;s trajectory is going to the moon. He never asks for shortcuts, only for context that accelerates his own learning so he can serve customers better. That combination of initiative and humility is rare even among seasoned consultants.</blockquote>
+        <figcaption><strong>Adam Bluhm</strong><span>Principal AI Security Architect @ HiddenLayer &middot; mentored Will at AWS</span></figcaption>
+      </figure>
+
+      <figure class="quote reveal" style="--d:.08s">
+        <blockquote>Without question, one of the most promising young professionals I&rsquo;ve come across. He doesn&rsquo;t just execute. He engages. He&rsquo;s not chasing titles. He&rsquo;s doing the work.</blockquote>
+        <figcaption><strong>Troy L. Edwards Jr.</strong><span>Engagement Manager @ AWS &middot; managed Will directly</span></figcaption>
+      </figure>
+
+      <figure class="quote reveal" style="--d:.16s">
+        <blockquote>Will is a rare breed. He&rsquo;s the first one in and the last one to leave, not because he&rsquo;s trying to clock hours, but because he&rsquo;s genuinely obsessed with the pursuit of excellence. You don&rsquo;t just hire Will for his skills, you hire him for the culture of excellence he brings with him.</blockquote>
+        <figcaption><strong>Cole W.</strong><span>Business Owner &amp; Cybersecurity Researcher</span></figcaption>
+      </figure>
+
+      <figure class="quote reveal" style="--d:.24s">
+        <blockquote>Will is the definition of someone with a strong internal locus of control. Regardless of the challenge, one underlying theme always stands out: grit. He leads by example, never asking a team member to do something he would not do himself.</blockquote>
+        <figcaption><strong>Brian Stock</strong><span>Operations Research @ DoW</span></figcaption>
+      </figure>
+
+      <figure class="quote reveal" style="--d:.32s">
+        <blockquote>His work ethic is unmatched and I genuinely don&rsquo;t think I&rsquo;ve ever seen him not working toward his next goal. I can&rsquo;t think of a professional situation where I wouldn&rsquo;t want Will on my team.</blockquote>
+        <figcaption><strong>Mason Scofield</strong><span>CTO &amp; Co-Founder @ ashlr.ai</span></figcaption>
+      </figure>
+
+      <figure class="quote reveal" style="--d:.4s">
+        <blockquote>An exceptionally talented professional whose work in the government sector has been transformative.</blockquote>
+        <figcaption><strong>Thomas Montgomery</strong><span>Intelligence Analyst, USAF</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EDUCATION ══ -->
+<section class="sec" id="education">
+  <div class="shell">
+    <div class="sec-head reveal">
+      <span class="sec-idx">06</span>
+      <h2 class="sec-title">Education</h2>
+    </div>
+
+    <div class="edu">
+      <div class="edu-row reveal">
+        <div class="edu-when">2026 &ndash; 2028</div>
+        <div class="edu-what">
+          <h3>M.S. Computer Science</h3>
+          <span class="edu-where">Georgia Institute of Technology</span>
+          <p>Specializing in artificial intelligence. 23 courses across both programs so far, including CS-6603 (AI, Ethics &amp; Society) and IT-460 (Advanced Cybersecurity).</p>
+        </div>
+      </div>
+
+      <div class="edu-row reveal" style="--d:.08s">
+        <div class="edu-when">2023 &ndash; 2026</div>
+        <div class="edu-what">
+          <h3>B.S. Information Technology</h3>
+          <span class="edu-where">James Madison University &middot; graduated a year early</span>
+          <p><strong>3.99 / 4.00</strong> &middot; Summa cum laude &middot; President&rsquo;s List every semester. Teaching Assistant for IT-201, supporting 300+ students. Published <em>Teaching to a Better Test, One Year Later</em>, a quantitative assessment study for Rockingham County Public Schools.</p>
+          <p class="aside">I was told I wasn&rsquo;t eligible for valedictorian because I graduated a year early. That stung for about five minutes.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="certs reveal">
+      <div class="certs-head">
+        <h3>46 certifications</h3>
+        <span>AWS &middot; CompTIA &middot; Anthropic &middot; Google</span>
+      </div>
+      <div class="certs-cols">
+        <div>
+          <span class="k">AWS &mdash; 9</span>
+          <ul>
+            <li>Solutions Architect &ndash; Professional</li>
+            <li>Generative AI Developer &ndash; Professional</li>
+            <li>Data Engineer &ndash; Associate</li>
+            <li>Machine Learning Engineer &ndash; Associate</li>
+            <li>Developer &ndash; Associate</li>
+            <li>SysOps Administrator &ndash; Associate</li>
+            <li>Solutions Architect &ndash; Associate</li>
+            <li>AI Practitioner</li>
+            <li>Cloud Practitioner</li>
+          </ul>
+        </div>
+        <div>
+          <span class="k">CompTIA &mdash; 8</span>
+          <ul>
+            <li>CySA+ / Cybersecurity Analyst</li>
+            <li>Security Analytics Practitioner</li>
+            <li>Secure Infrastructure Specialist</li>
+            <li>Security+</li>
+            <li>IT Operations Specialist</li>
+            <li>Network+</li>
+            <li>A+</li>
+            <li>IT Fundamentals+</li>
+          </ul>
+        </div>
+        <div>
+          <span class="k">AI &amp; other</span>
+          <ul>
+            <li>Building with the Claude API &mdash; Anthropic</li>
+            <li>Claude Code in Action &mdash; Anthropic</li>
+            <li>Google AI Professional Certificate</li>
+            <li>Deloitte DLAMP Scholar</li>
+            <li>Microsoft Azure &mdash; Serverless</li>
+            <li>Cisco Network Technician</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRESS ══ -->
+<section class="sec" id="press">
+  <div class="shell">
+    <div class="sec-head reveal">
+      <span class="sec-idx">07</span>
+      <h2 class="sec-title">Press &amp; speaking</h2>
+    </div>
+
+    <ul class="press">
+      <li class="reveal">
+        <a href="https://www.linkedin.com/in/cloudwithraj/" target="_blank" rel="noopener">
+          <span class="pr-k">Podcast &middot; Jul 2026</span>
+          <span class="pr-t">How I Cracked AWS, FBI, Scale AI as a Fresher</span>
+          <span class="pr-s">Cloud with Raj</span>
+          <span class="pr-go" aria-hidden="true">&#8599;</span>
+        </a>
+      </li>
+      <li class="reveal" style="--d:.06s">
+        <a href="https://rocktownnow.com/news/218812-jmu-student-helps-keep-rockingham-county-schools-connected-and-secure/" target="_blank" rel="noopener">
+          <span class="pr-k">Press &middot; Mar 2026</span>
+          <span class="pr-t">JMU student helps keep Rockingham County schools connected and secure</span>
+          <span class="pr-s">RockTown Now</span>
+          <span class="pr-go" aria-hidden="true">&#8599;</span>
+        </a>
+      </li>
+      <li class="reveal" style="--d:.12s">
+        <a href="https://www.youtube.com/watch?v=xG6l3lZcciA" target="_blank" rel="noopener">
+          <span class="pr-k">Keynote</span>
+          <span class="pr-t">Stewardship Luncheon &mdash; the only solo student speaker</span>
+          <span class="pr-s">JMU&rsquo;s $200M endowment announcement</span>
+          <span class="pr-go" aria-hidden="true">&#8599;</span>
+        </a>
+      </li>
+      <li class="reveal" style="--d:.18s">
+        <a href="https://www.jmu.edu/admissions/explore/profiles/jedrzejczak-will-26.shtml" target="_blank" rel="noopener">
+          <span class="pr-k">Profile</span>
+          <span class="pr-t">JMU Admissions &mdash; on graduating early and the path there</span>
+          <span class="pr-s">James Madison University</span>
+          <span class="pr-go" aria-hidden="true">&#8599;</span>
+        </a>
+      </li>
+      <li class="reveal" style="--d:.24s">
+        <a href="https://www.linkedin.com/in/defend/" target="_blank" rel="noopener">
+          <span class="pr-k">Writing</span>
+          <span class="pr-t">Early-career strategy &amp; national security tech</span>
+          <span class="pr-s">linkedin.com/in/defend</span>
+          <span class="pr-go" aria-hidden="true">&#8599;</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="gallery">
+      <figure class="reveal"><img src="images/events/stewardship-luncheon.jpeg" alt="Speaking at the JMU Stewardship Luncheon" loading="lazy"><figcaption>Stewardship Luncheon keynote</figcaption></figure>
+      <figure class="reveal" style="--d:.06s"><img src="images/events/tech-panel.jpeg" alt="Hosting a tech industry panel" loading="lazy"><figcaption>Tech industry panel &mdash; AWS, Google, Stripe alumni</figcaption></figure>
+      <figure class="reveal" style="--d:.12s"><img src="images/events/ambassadors.jpeg" alt="JMU IT Ambassadors" loading="lazy"><figcaption>Founding IT Ambassador crew</figcaption></figure>
+      <figure class="reveal" style="--d:.18s"><img src="images/events/mts.jpeg" alt="Madison Tech Society" loading="lazy"><figcaption>Madison Tech Society &mdash; founded, grew to the department&rsquo;s largest</figcaption></figure>
+      <figure class="reveal" style="--d:.24s"><img src="images/events/school-interview.jpeg" alt="JMU profile interview" loading="lazy"><figcaption>JMU profile interview</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══ CONTACT ══ -->
+<footer class="contact" id="contact">
+  <div class="shell">
+    <span class="sec-idx reveal">08</span>
+    <a class="contact-big reveal" href="mailto:will.jedrzejczak@gmail.com">
+      <span>Get in</span><span>touch<em>.</em></span>
+    </a>
+
+    <div class="contact-grid reveal">
+      <div>
+        <span class="k">Email</span>
+        <a href="mailto:will.jedrzejczak@gmail.com">will.jedrzejczak@gmail.com</a>
+      </div>
+      <div>
+        <span class="k">LinkedIn</span>
+        <a href="https://www.linkedin.com/in/defend/" target="_blank" rel="noopener">linkedin.com/in/defend</a>
+      </div>
+      <div>
+        <span class="k">Based in</span>
+        <span class="v">Washington, DC</span>
+      </div>
+      <div>
+        <span class="k">Clearance</span>
+        <span class="v">Active TS/SCI w/ Full Scope Poly</span>
+      </div>
+    </div>
+
+    <div class="colophon">
+      <span>&copy; 2026 Will Jedrzejczak</span>
+      <span>Set in Aeonik</span>
+      <a href="#top">Back to top &uarr;</a>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js?v=4"></script>
 </body>
 </html>
