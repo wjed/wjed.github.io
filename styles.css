@@ -23,7 +23,6 @@
      default and starts reading as a choice; everything else here
      is warmed by the same amount so nothing looks grey against it. */
   --bg:   #FAF9F5;
-  --ink:  #14130F;
   --fg:   #15140F;
   --fg-2: #5B564C;   /* 6.8:1 on --bg */
   --line: #DBD7CC;
@@ -44,25 +43,12 @@
 
 html { -webkit-text-size-adjust:100%; }
 
-/* The canvas, not the page. A background on body propagates to the canvas
-   and paints every pixel outside the document box -- so on a phone, when
-   the address bar retracts, the strip it uncovers below the last element
-   was being painted cream directly under the dark footer. The document
-   itself ends exactly at the footer, so this is not layout and no amount
-   of spacing fixes it. Painting the canvas ink makes that strip continue
-   the footer instead of interrupting it. */
-html { background:var(--ink); }
-
-/* The same strip exists above the document when you drag the page down.
-   This caps it in the page colour. Content above the origin cannot be
-   scrolled to, so it costs nothing and is only ever seen mid-bounce. */
-body { position:relative; }
-body::before {
-  content:''; position:absolute; z-index:-1;
-  left:0; right:0;   /* body's padding edge already spans the viewport */
-  top:-100vh; height:100vh;
-  background:var(--bg);
-}
+/* A background on body propagates to the canvas, which paints every pixel
+   outside the document box -- the strip a phone uncovers when its address
+   bar retracts, and the one you drag into at either end. Setting it here
+   too is belt and braces: the page is one colour now, so the strip can
+   never disagree with the page no matter which end it appears at. */
+html { background:var(--bg); }
 
 body {
   font-family:var(--font);
@@ -138,16 +124,19 @@ section > .figures,
 section > .logos,
 section > .bio { grid-column:1/-1; max-width:none; }
 
-/* The one place the serif leads. Weight 400, because a display serif
-   set bold stops being a voice and starts being a shout. */
+/* The page used to open on a paragraph-sized headline, which is the most
+   conventional thing a portfolio can do. It is a masthead now: full page
+   width, set at the size a serif is actually drawn for. Weight 400, because
+   a display serif set bold stops being a voice and starts being a shout. */
+.intro > h1 { max-width:none; }
 h1 {
   font-family:var(--display);
-  font-size:clamp(2.35rem,5.4vw,3.4rem);
-  font-weight:400; line-height:1.08; letter-spacing:-.01em;
-  margin-bottom:26px;
+  font-size:clamp(2.6rem,7.6vw,5.9rem);
+  font-weight:400; line-height:1.02; letter-spacing:-.018em;
+  margin-bottom:32px;
 }
 
-.lead { font-size:20px; line-height:1.55; margin-bottom:20px; }
+.lead { font-size:21px; line-height:1.5; margin-bottom:22px; }
 .meta { font-size:15px; color:var(--fg-2); margin-bottom:12px; }
 
 section { margin-top:104px; counter-increment:sec; }
@@ -158,7 +147,9 @@ section { margin-top:104px; counter-increment:sec; }
 section > h2,
 .band-in > h2 {
   grid-column:1; align-self:start;
-  position:sticky; top:26px;
+  /* Not sticky. A travelling label is a positioned element, and positioned
+     elements paint above unpositioned ones, so it rode over the full-width
+     photographs at the end of each section. */
   font-size:13px; font-weight:500;
   letter-spacing:.09em; text-transform:uppercase;
   color:var(--fg-2);
@@ -245,20 +236,18 @@ blockquote p { font-size:18px; margin-bottom:9px; }
 cite { font-size:14px; font-style:normal; color:var(--fg-2); }
 
 /* ── BAND ───────────────────────────────────────────── */
-/* One dark plate in the middle of the page, so the footer reads as the
-   close of a rhythm rather than as the only dark thing on the page. It
-   breaks out of the body gutter by exactly that gutter, the same way the
-   footer does, and never exceeds the viewport. */
+/* A change of pace without a change of palette. Two hairlines run the full
+   width of the window -- the only things on the page that touch both edges
+   -- and the quotes sit between them at display size. */
 section.band {
   display:block; max-width:none;
   margin-left:calc(-1 * var(--gut));
   margin-right:calc(-1 * var(--gut));
-  padding:92px var(--gut);
-  background:var(--ink); color:#CFC9BB;
+  padding:88px var(--gut);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
 }
 .band-in { max-width:var(--page); margin:0 auto; }
-.band h2 { color:#8E8779; }
-.band h2::before { color:#F2EEE4; }
 .band blockquote { border-left:none; padding-left:0; margin-bottom:48px; }
 .band blockquote:last-child { margin-bottom:0; }
 /* Set in the serif, these stop being testimonials and start being voices. */
@@ -266,10 +255,8 @@ section.band {
   font-family:var(--display); font-weight:400;
   font-size:clamp(1.45rem,2.3vw,1.95rem);
   line-height:1.28; letter-spacing:-.005em;
-  color:#F2EEE4; margin-bottom:14px;
+  color:var(--fg); margin-bottom:14px;
 }
-.band cite { color:#8E8779; }
-.band :focus-visible { outline-color:#F2EEE4; }
 
 /* ── PHOTOGRAPHS ───────────────────────────────────────────── */
 /* The only things allowed the full page width. auto-fit means the
@@ -306,39 +293,30 @@ figcaption { font-size:14px; color:var(--fg-2); padding-top:8px; }
 .logos img.lg-mt    { height:26px; }
 
 /* ── FOOTER ────────────────────────────────────────────────── */
-/* The negative margin is exactly the body's gutter, so the panel
-   reaches both window edges without a wrapper and without ever being
-   wider than the viewport. It is also the contact section now, so the
-   page has one ending instead of a thin section and a hairline. */
+/* Still the contact section, so the page has one ending rather than a thin
+   section followed by a hairline. The sign-off carries it now instead of a
+   change of colour. */
 footer {
-  margin:112px calc(-1 * var(--gut)) 0;
-  padding:74px var(--gut) 56px;
-  background:var(--ink);
-  color:#CFC9BB;
+  max-width:var(--page); margin:116px auto 0;
+  padding:42px 0 76px;
+  border-top:1px solid var(--line);
 }
 .foot-in {
-  max-width:var(--page); margin:0 auto;
   display:grid; grid-template-columns:1fr auto;
-  gap:40px 48px; align-items:end;
+  gap:36px 48px; align-items:end;
 }
 .foot-sign {
   font-family:var(--display); font-weight:400;
   font-size:clamp(2rem,4vw,2.9rem); line-height:1.04;
-  letter-spacing:-.01em; color:#F2EEE4;
+  letter-spacing:-.01em; color:var(--fg);
 }
 .foot-links { list-style:none; display:grid; gap:10px; justify-items:start; }
-.foot-links a {
-  font-size:16px; color:#F2EEE4; text-decoration:none;
-  border-bottom:1px solid rgba(242,238,228,.34); padding-bottom:2px;
-}
-.foot-links a:hover { border-bottom-color:#F2EEE4; }
+.foot-links a { font-size:16px; }
 .foot-meta {
-  grid-column:1/-1; margin:18px 0 0; padding-top:20px;
-  border-top:1px solid rgba(242,238,228,.14);
-  font-size:13.5px; letter-spacing:.04em; color:#918A7B;  /* 5.5:1 on --ink */
+  grid-column:1/-1; margin:14px 0 0; padding-top:20px;
+  border-top:1px solid var(--line);
+  font-size:13.5px; letter-spacing:.04em; color:var(--fg-2);
 }
-/* The blue focus ring is invisible on the dark panel. */
-footer :focus-visible { outline-color:#F2EEE4; }
 
 @media (max-width:700px) {
   .foot-in { grid-template-columns:1fr; gap:30px; }
@@ -376,8 +354,7 @@ footer :focus-visible { outline-color:#F2EEE4; }
   .portrait { max-width:200px; }
   .pair { grid-template-columns:1fr 1fr; gap:14px; }
   .figures { gap:24px 20px; }
-  /* The cream band above the panel read as dead space at this width. */
-  footer { margin-top:52px; padding:48px var(--gut) 40px; }
+  footer { margin-top:72px; padding:32px 0 56px; }
   .foot-in { gap:24px; }
   .foot-meta { margin-top:8px; padding-top:18px; }
   section.band { padding:52px var(--gut); }
