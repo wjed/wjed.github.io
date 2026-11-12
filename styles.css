@@ -44,6 +44,26 @@
 
 html { -webkit-text-size-adjust:100%; }
 
+/* The canvas, not the page. A background on body propagates to the canvas
+   and paints every pixel outside the document box -- so on a phone, when
+   the address bar retracts, the strip it uncovers below the last element
+   was being painted cream directly under the dark footer. The document
+   itself ends exactly at the footer, so this is not layout and no amount
+   of spacing fixes it. Painting the canvas ink makes that strip continue
+   the footer instead of interrupting it. */
+html { background:var(--ink); }
+
+/* The same strip exists above the document when you drag the page down.
+   This caps it in the page colour. Content above the origin cannot be
+   scrolled to, so it costs nothing and is only ever seen mid-bounce. */
+body { position:relative; }
+body::before {
+  content:''; position:absolute; z-index:-1;
+  left:0; right:0;   /* body's padding edge already spans the viewport */
+  top:-100vh; height:100vh;
+  background:var(--bg);
+}
+
 body {
   font-family:var(--font);
   font-size:18px;
