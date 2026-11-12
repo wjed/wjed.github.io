@@ -36,7 +36,8 @@
      ran 102 -- both well past a comfortable line. */
   --page: 1200px;
   --text: 600px;
-  --gut:  32px;      /* the footer breaks out of exactly this */
+  --gut:  32px;      /* bands break out of exactly this */
+  --rail: 150px;     /* the numbered label column */
 }
 
 *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
@@ -88,16 +89,34 @@ header nav a { font-size:15px; color:var(--fg-2); text-decoration:none; }
 header nav a:hover { color:var(--fg); text-decoration:underline; }
 
 /* ── LAYOUT ────────────────────────────────────────────────── */
-main { max-width:var(--page); margin:0 auto; padding-top:76px; }
+/* main is full width so that a section can break out of it into a band.
+   A centred container cannot full-bleed without 100vw, and 100vw counts
+   the scrollbar, so the page measure lives on the sections instead. */
+main { padding-top:76px; counter-reset:sec; }
+.intro,
+main > section { max-width:var(--page); margin-left:auto; margin-right:auto; }
+.intro > * { max-width:var(--text); }
 
-/* Everything is prose-width by default; only pictures and rules opt out. */
-main > *,
-section > * { max-width:var(--text); }
-main > section { max-width:none; }
-section > h2,
+/* Each section is a label rail and a content column. The rail fills the
+   margin that used to sit empty and gives the page a spine to hang on. */
+section,
+.band-in {
+  display:grid;
+  grid-template-columns:var(--rail) minmax(0,1fr);
+  column-gap:52px;
+}
+section > *,
+.band-in > * { grid-column:2; max-width:var(--text); }
+/* Rows are not prose: they carry a title left and a date right, so they
+   read better a little wider. Pictures and figures take everything. */
+section > details,
+section > dl,
+section > .links,
+.band-in > blockquote { max-width:760px; }
 section > .pair,
 section > .figures,
-section > .bio { max-width:none; }
+section > .logos,
+section > .bio { grid-column:1/-1; max-width:none; }
 
 /* The one place the serif leads. Weight 400, because a display serif
    set bold stops being a voice and starts being a shout. */
@@ -111,15 +130,27 @@ h1 {
 .lead { font-size:20px; line-height:1.55; margin-bottom:20px; }
 .meta { font-size:15px; color:var(--fg-2); margin-bottom:12px; }
 
-section { margin-top:84px; }
+section { margin-top:104px; counter-increment:sec; }
 
-/* The rule runs the full width; the label sits at the left edge. */
-h2 {
-  font-size:15px; font-weight:500;
-  letter-spacing:.08em; text-transform:uppercase;
+/* The label sits in the rail and stays with you while the section runs.
+   The number is a CSS counter, so the markup stays clean and the sequence
+   can never drift out of step with the page. */
+section > h2,
+.band-in > h2 {
+  grid-column:1; align-self:start;
+  position:sticky; top:26px;
+  font-size:13px; font-weight:500;
+  letter-spacing:.09em; text-transform:uppercase;
   color:var(--fg-2);
-  padding-bottom:10px; margin-bottom:26px;
-  border-bottom:1px solid var(--line);
+  border:none; padding:0; margin:0; max-width:none;
+}
+section > h2::before,
+.band-in > h2::before {
+  content:counter(sec,decimal-leading-zero);
+  display:block;
+  font-family:var(--display); font-weight:400;
+  font-size:34px; line-height:1; letter-spacing:0;
+  color:var(--fg); margin-bottom:10px;
 }
 
 p { margin-bottom:16px; }
@@ -192,6 +223,33 @@ blockquote { margin:0 0 28px; padding-left:20px; border-left:2px solid var(--lin
 blockquote:last-child { margin-bottom:0; }
 blockquote p { font-size:18px; margin-bottom:9px; }
 cite { font-size:14px; font-style:normal; color:var(--fg-2); }
+
+/* ── BAND ───────────────────────────────────────────── */
+/* One dark plate in the middle of the page, so the footer reads as the
+   close of a rhythm rather than as the only dark thing on the page. It
+   breaks out of the body gutter by exactly that gutter, the same way the
+   footer does, and never exceeds the viewport. */
+section.band {
+  display:block; max-width:none;
+  margin-left:calc(-1 * var(--gut));
+  margin-right:calc(-1 * var(--gut));
+  padding:92px var(--gut);
+  background:var(--ink); color:#CFC9BB;
+}
+.band-in { max-width:var(--page); margin:0 auto; }
+.band h2 { color:#8E8779; }
+.band h2::before { color:#F2EEE4; }
+.band blockquote { border-left:none; padding-left:0; margin-bottom:48px; }
+.band blockquote:last-child { margin-bottom:0; }
+/* Set in the serif, these stop being testimonials and start being voices. */
+.band blockquote p {
+  font-family:var(--display); font-weight:400;
+  font-size:clamp(1.45rem,2.3vw,1.95rem);
+  line-height:1.28; letter-spacing:-.005em;
+  color:#F2EEE4; margin-bottom:14px;
+}
+.band cite { color:#8E8779; }
+.band :focus-visible { outline-color:#F2EEE4; }
 
 /* ── PHOTOGRAPHS ───────────────────────────────────────────── */
 /* The only things allowed the full page width. auto-fit means the
@@ -269,6 +327,22 @@ footer :focus-visible { outline-color:#F2EEE4; }
 /* ── NARROWER WINDOWS ──────────────────────────────────────── */
 @media (max-width:900px) {
   .bio { grid-template-columns:200px minmax(0,1fr); gap:26px; }
+
+  /* Not enough width for a rail. The number folds up next to the label
+     and the hairline comes back to separate the sections. */
+  section, .band-in { display:block; }
+  section > h2, .band-in > h2 {
+    position:static;
+    display:flex; align-items:baseline; gap:11px;
+    padding-bottom:10px; margin-bottom:24px;
+    border-bottom:1px solid var(--line);
+  }
+  section > h2::before, .band-in > h2::before {
+    display:inline-block; font-size:19px; margin-bottom:0;
+  }
+  .band h2 { border-bottom-color:rgba(242,238,228,.18); }
+  section > details, section > dl, section > .links { max-width:none; }
+  section.band { padding:64px var(--gut); }
 }
 
 @media (max-width:620px) {
@@ -282,7 +356,11 @@ footer :focus-visible { outline-color:#F2EEE4; }
   .portrait { max-width:200px; }
   .pair { grid-template-columns:1fr 1fr; gap:14px; }
   .figures { gap:24px 20px; }
-  footer { margin-top:84px; padding:56px var(--gut) 44px; }
+  /* The cream band above the panel read as dead space at this width. */
+  footer { margin-top:52px; padding:48px var(--gut) 40px; }
+  .foot-in { gap:24px; }
+  .foot-meta { margin-top:8px; padding-top:18px; }
+  section.band { padding:52px var(--gut); }
   .logos { gap:16px 26px; }
   .logos img.lg-scale, .logos img.lg-bsi { height:24px; }
   .logos img.lg-fbi { height:36px; }
