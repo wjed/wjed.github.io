@@ -169,6 +169,36 @@ p:last-child { margin-bottom:0; }
 
 .small { font-size:15px; color:var(--fg-2); margin-top:24px; }
 
+/* ── MARKS ───────────────────────────────────────── */
+/* Drawn by hand, in the sense that the paths are irregular on purpose: no
+   two waves of the underline match and the ring overshoots where it closes.
+   Both are backgrounds, not elements, so a phrase that wraps gets the mark
+   on each line (box-decoration-break) and the ring paints behind its glyph
+   rather than on top of it. Neither is announced to a screen reader, which
+   is correct -- they are emphasis, and the words already carry the meaning. */
+.u {
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 10' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%2315140F' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M3 5.6C38 3.4 74 7.4 112 5.4C150 3.4 186 7.2 224 5.2C252 3.7 276 6.4 297 4.6'/%3E%3Cpath d='M24 8.2C62 6.4 98 9.2 140 7.6C182 6 216 8.6 254 7.2C268 6.7 280 7.8 288 7.4' stroke-width='2.2' opacity='.72'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:0 100%;
+  /* The floor matters: at 17px body text a purely em-based mark draws a
+     half-pixel line and disappears. */
+  background-size:100% max(6px,.15em);
+  padding-bottom:max(3px,.05em);
+  -webkit-box-decoration-break:clone;
+  box-decoration-break:clone;
+}
+
+.ring {
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 100' preserveAspectRatio='none'%3E%3Cpath fill='none' stroke='%2315140F' stroke-width='4' stroke-linecap='round' d='M86 11C57 2 26 10 16 32C6 55 21 80 50 88C80 96 108 83 112 59C116 35 99 15 73 8.5C65 6.4 57 6.2 50 7.8'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:100% 100%;
+  /* Padding grows the background box past the glyph so the ring encircles
+     it; the matching negative margin keeps the layout exactly where it was. */
+  padding:.1em .26em .14em;
+  margin:-.1em -.26em -.14em;
+}
+
 /* ── WORK (native details, zero JS) ────────────────────────── */
 details { border-bottom:1px solid var(--line); }
 details:first-of-type { border-top:1px solid var(--line); }
@@ -213,7 +243,10 @@ details > p:last-of-type { margin-bottom:18px; }
   font-size:clamp(2.7rem,4.8vw,4rem);
   line-height:.94; letter-spacing:-.015em;
 }
-.figures span {
+/* Direct child of the li, not any descendant span: the label rule used to
+   be `.figures span` and swallowed the ring's span inside the <b>, setting
+   the 64px numeral to 13px uppercase. */
+.figures li > span {
   display:block; margin-top:12px;
   font-size:13px; font-weight:500;
   letter-spacing:.075em; text-transform:uppercase;
