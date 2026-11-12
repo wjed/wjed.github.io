@@ -6,23 +6,37 @@
    Two widths: prose sits at --text so a line stays readable,
    photographs and section rules use the full --page. That is
    what fills the window without stretching the sentences.
+
+   Aeonik carries everything you actually read. One serif appears
+   on the h1, the figures and the sign-off, about fifteen words on
+   the page. The ground is warm rather than white, and the page
+   closes on a dark panel instead of trailing off into a hairline.
    ============================================================ */
 
 @font-face { font-family:'Aeonik'; src:url('fonts/Aeonik-Regular.woff2') format('woff2'); font-weight:400; font-display:swap; }
 @font-face { font-family:'Aeonik'; src:url('fonts/Aeonik-Medium.woff2') format('woff2'); font-weight:500; font-display:swap; }
+/* Instrument Serif, SIL OFL 1.1 -- see fonts/InstrumentSerif-OFL.txt */
+@font-face { font-family:'Instrument Serif'; src:url('fonts/InstrumentSerif-Regular.woff2') format('woff2'); font-weight:400; font-display:swap; }
 
 :root {
-  --fg:   #111111;
-  --fg-2: #5A5A5A;
-  --line: #D6D6D6;
-  --link: #0B4FD4;
+  /* A warm ground rather than #fff. The page stops reading as a
+     default and starts reading as a choice; everything else here
+     is warmed by the same amount so nothing looks grey against it. */
+  --bg:   #FAF9F5;
+  --ink:  #14130F;
+  --fg:   #15140F;
+  --fg-2: #5B564C;   /* 6.8:1 on --bg */
+  --line: #DBD7CC;
+  --link: #0B4FD4;   /* 6.4:1 on --bg */
   --font: 'Aeonik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
 
   /* Measured against the real Aeonik metrics: 600px of 18px Aeonik is
      ~74 characters. The old 720px/17px ran 94, and the work accordions
      ran 102 -- both well past a comfortable line. */
   --page: 1200px;
   --text: 600px;
+  --gut:  32px;      /* the footer breaks out of exactly this */
 }
 
 *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
@@ -34,10 +48,10 @@ body {
   font-size:18px;
   line-height:1.65;
   color:var(--fg);
-  background:#ffffff;
+  background:var(--bg);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
-  padding:0 32px 96px;
+  padding:0 var(--gut);
 }
 
 /* height:auto keeps the width/height attributes from overriding
@@ -82,12 +96,16 @@ section > * { max-width:var(--text); }
 main > section { max-width:none; }
 section > h2,
 section > .pair,
+section > .figures,
 section > .bio { max-width:none; }
 
+/* The one place the serif leads. Weight 400, because a display serif
+   set bold stops being a voice and starts being a shout. */
 h1 {
-  font-size:clamp(2rem,5vw,2.9rem);
-  font-weight:500; line-height:1.18; letter-spacing:-.02em;
-  margin-bottom:28px;
+  font-family:var(--display);
+  font-size:clamp(2.35rem,5.4vw,3.4rem);
+  font-weight:400; line-height:1.08; letter-spacing:-.01em;
+  margin-bottom:26px;
 }
 
 .lead { font-size:20px; line-height:1.55; margin-bottom:20px; }
@@ -135,10 +153,30 @@ details > p:last-of-type { margin-bottom:18px; }
 .portrait img { width:100%; aspect-ratio:4/5; object-fit:cover; object-position:center 26%; border:1px solid var(--line); }
 .bio-text p:last-child { margin-bottom:0; }
 
-.facts { list-style:none; margin-top:26px; }
-.facts li { font-size:17px; padding:8px 0; border-bottom:1px solid var(--line); }
-.facts li:first-child { border-top:1px solid var(--line); }
-.facts b { font-weight:500; }
+/* -- FIGURES ------------------------------------------------- */
+/* These numbers were doing nothing as a bulleted list. Set large in
+   the serif they become the one part of the page no template could
+   supply, because nobody else has them. Instrument Serif's figures
+   are lining, so they sit level instead of hopping the baseline. */
+.figures {
+  list-style:none; max-width:none;
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr));
+  gap:30px 26px;
+  margin-top:46px; padding-top:28px;
+  border-top:1px solid var(--line);
+}
+.figures b {
+  display:block;
+  font-family:var(--display); font-weight:400;
+  font-size:clamp(2.7rem,4.8vw,4rem);
+  line-height:.94; letter-spacing:-.015em;
+}
+.figures span {
+  display:block; margin-top:12px;
+  font-size:13px; font-weight:500;
+  letter-spacing:.075em; text-transform:uppercase;
+  color:var(--fg-2);
+}
 
 /* ── LISTS ─────────────────────────────────────────────────── */
 dl { margin:0; }
@@ -190,10 +228,42 @@ figcaption { font-size:14px; color:var(--fg-2); padding-top:8px; }
 .logos img.lg-mt    { height:26px; }
 
 /* ── FOOTER ────────────────────────────────────────────────── */
+/* The negative margin is exactly the body's gutter, so the panel
+   reaches both window edges without a wrapper and without ever being
+   wider than the viewport. It is also the contact section now, so the
+   page has one ending instead of a thin section and a hairline. */
 footer {
-  max-width:var(--page); margin:96px auto 0;
-  padding-top:22px; border-top:1px solid var(--line);
-  font-size:14px; color:var(--fg-2);
+  margin:112px calc(-1 * var(--gut)) 0;
+  padding:74px var(--gut) 56px;
+  background:var(--ink);
+  color:#CFC9BB;
+}
+.foot-in {
+  max-width:var(--page); margin:0 auto;
+  display:grid; grid-template-columns:1fr auto;
+  gap:40px 48px; align-items:end;
+}
+.foot-sign {
+  font-family:var(--display); font-weight:400;
+  font-size:clamp(2rem,4vw,2.9rem); line-height:1.04;
+  letter-spacing:-.01em; color:#F2EEE4;
+}
+.foot-links { list-style:none; display:grid; gap:10px; justify-items:start; }
+.foot-links a {
+  font-size:16px; color:#F2EEE4; text-decoration:none;
+  border-bottom:1px solid rgba(242,238,228,.34); padding-bottom:2px;
+}
+.foot-links a:hover { border-bottom-color:#F2EEE4; }
+.foot-meta {
+  grid-column:1/-1; margin:18px 0 0; padding-top:20px;
+  border-top:1px solid rgba(242,238,228,.14);
+  font-size:13.5px; letter-spacing:.04em; color:#918A7B;  /* 5.5:1 on --ink */
+}
+/* The blue focus ring is invisible on the dark panel. */
+footer :focus-visible { outline-color:#F2EEE4; }
+
+@media (max-width:700px) {
+  .foot-in { grid-template-columns:1fr; gap:30px; }
 }
 
 /* ── NARROWER WINDOWS ──────────────────────────────────────── */
@@ -202,7 +272,8 @@ footer {
 }
 
 @media (max-width:620px) {
-  body { padding:0 18px 72px; font-size:17px; }
+  :root { --gut:18px; }
+  body { padding:0 var(--gut); font-size:17px; }
   main { padding-top:52px; }
   section { margin-top:60px; }
   header nav { gap:14px; }
@@ -210,6 +281,8 @@ footer {
   .bio { grid-template-columns:1fr; gap:22px; }
   .portrait { max-width:200px; }
   .pair { grid-template-columns:1fr 1fr; gap:14px; }
+  .figures { gap:24px 20px; }
+  footer { margin-top:84px; padding:56px var(--gut) 44px; }
   .logos { gap:16px 26px; }
   .logos img.lg-scale, .logos img.lg-bsi { height:24px; }
   .logos img.lg-fbi { height:36px; }
