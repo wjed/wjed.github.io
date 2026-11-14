@@ -24,4 +24,4 @@ button, input, select, textarea { font: inherit; }
 @media (max-width: 40rem) { :root { --gutter: 16px; --section-gap-s: 56px; --section-gap: 72px; --section-gap-l: 96px; --gap-columns: 16px; } }
 @media (prefers-reduced-motion: reduce) { *:not(.keep-motion), *:not(.keep-motion)::before, *:not(.keep-motion)::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
 /* photographs: mono */
-[data-slot] > img { filter: grayscale(1) contrast(1.18); }
+/* Mono is baked into the image files, never a paint-time filter. */

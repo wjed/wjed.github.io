@@ -78,25 +78,26 @@ a:active { color:var(--color-ink); }
 /* A tall field of picture, the head resting at its base. */
 .hero { padding-block:var(--space-2xl) var(--space-3xl); }
 .hero-in {
-  /* Leaves the head clear of the fold at 800px rather than flush against it. */
-  min-height:calc(100svh - 200px);
+  /* Enough air above to read as a ledge; bounded so the block never floats
+     in a cavern now that a 300px portrait sits where a full-bleed strip did. */
+  min-height:clamp(380px, 56svh, 560px);
   display:flex; flex-direction:column; justify-content:flex-end;
   gap:var(--space-2xl);
 }
-.hero-pic { margin:0; }
-.hero-pic img {
-  width:100%; height:clamp(200px, 36svh, 430px);
-  object-fit:cover; object-position:center 42%;
-}
+/* 300px is deliberate: the source is 600px wide, so this is exactly 2x on a
+   retina screen. Wider would start resampling up and go soft. */
+.hero-pic { margin:0; grid-column:2; grid-row:1 / span 3; align-self:end; width:300px; }
+.hero-pic img { width:100%; height:auto; display:block; }
 .hero-foot {
-  display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr);
+  display:grid; grid-template-columns:minmax(0,1fr) auto;
   gap:var(--space-lg) var(--gap-columns);
   align-items:end;
   border-top:2px solid var(--color-rule-2);
   padding-top:var(--space-lg);
 }
-.hero-foot h1 { grid-row:1 / span 2; max-width:14ch; }
-.hero-foot .lead { align-self:end; }
+.hero-foot h1 { grid-column:1; max-width:14ch; }
+.hero-foot .lead { grid-column:1; max-width:46ch; }
+.hero-foot .hero-act { grid-column:1; }
 .hero-act { font:700 var(--text-md)/1 var(--font-display); }
 .hero-act a { text-underline-offset:0.2em; }
 
@@ -140,7 +141,7 @@ section { padding-block:var(--section-gap-s); }
   gap:var(--space-lg) var(--space-xl);
   border-block:var(--rule-hair) solid var(--color-rule);
 }
-.logos img { width:auto; filter:grayscale(1) contrast(1.1); }
+.logos img { width:auto; }
 .logos img.lg-scale { height:26px; }
 .logos img.lg-fbi   { height:40px; }
 .logos img.lg-hid   { height:22px; }
@@ -204,11 +205,13 @@ section { padding-block:var(--section-gap-s); }
 
 /* ── Pictures ─────────────────────────────────────────────── */
 /* Printed as a paper prints them: black and white, a hairline, a caption
-   that states a fact. Never tinted, never without the caption. */
+   that states a fact. Never tinted, never without the caption.
+   The mono conversion is baked into the files, not a paint-time filter: a
+   CSS filter promotes every image to its own composited layer and re-runs
+   the shader on scroll, which is what made the page choppy on a phone. */
 figure { margin:0; }
 figure img {
   border:var(--rule-hair) solid var(--color-rule);
-  filter:grayscale(1) contrast(1.12);
 }
 figcaption {
   font:500 var(--text-sm)/1.4 var(--font-body);
@@ -262,7 +265,7 @@ figcaption {
   gap:var(--space-2xl) var(--gap-columns);
   align-items:center;
 }
-.close-pic img { width:100%; aspect-ratio:4/5; object-fit:cover; object-position:center 24%; }
+.close-pic img { width:100%; aspect-ratio:3/2; object-fit:cover; object-position:center 38%; }
 .close-text .lead { margin-top:var(--space-md); }
 .close-links {
   list-style:none; margin:var(--space-xl) 0 0; padding:0;
@@ -306,9 +309,11 @@ figcaption {
   .hero-in { min-height:0; }
   .hero-foot { grid-template-columns:minmax(0,1fr); }
   .hero-foot h1 { grid-row:auto; max-width:none; }
+  /* Stacks in source order: headline, portrait, line, address. */
+  .hero-pic { grid-column:1; grid-row:auto; width:200px; }
   .case-in, .close-in, .two-up { grid-template-columns:minmax(0,1fr); }
   .edu-pics { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
-  .close-pic { max-width:320px; }
+  .close-pic { max-width:none; }
   .index > .row > summary,
   .index-flat > .row {
     grid-template-columns:minmax(0,1fr) auto;
