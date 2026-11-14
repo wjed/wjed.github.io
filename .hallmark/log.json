@@ -1,0 +1,34 @@
+[
+ {
+  "mode": "redesign",
+  "depth": "full",
+  "scope": "page",
+  "shape": "Index-First",
+  "theme": "newsprint",
+  "axes": "light/slab-serif/warm",
+  "hero": "Ledge",
+  "nav": "slab",
+  "footer": "mast",
+  "imagery": "photographs",
+  "photos": [],
+  "entry": "the lead photograph over a double rule, the head resting at its base",
+  "fingerprint": "3174ff",
+  "sections": [
+   "hero",
+   "work index",
+   "the Bureau as a case",
+   "projects",
+   "about with degrees and recognition",
+   "words",
+   "press",
+   "close",
+   "mast"
+  ],
+  "signature": "the six roles as a ruled index, the years in agate",
+  "waived": [
+   "49b"
+  ],
+  "prompt": "personal site for a national security technical program manager",
+  "date": "2026-11-14"
+ }
+]

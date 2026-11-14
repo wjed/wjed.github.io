@@ -1,403 +1,326 @@
-/* ============================================================
-   WILL JEDRZEJCZAK
-   Black on white. No filters, no masks, no backdrop-filter,
-   no transforms on scroll, no JavaScript. Nothing to lag.
+/* Hallmark · shape: Index-First (draw 3174ff dealt Catalogue; swapped, Catalogue refuses a hierarchy) · genre: editorial · theme: Newsprint (deal 2/3, seed personal-national-security-technical-f92d·738131c4·2026-11-14·r0) · redesign: full
+ * hero: Ledge · nav: slab · footer: mast · imagery: photographs · signature: the six roles as a ruled index, the years in agate
+ * axes: light/slab-serif/warm · posture: restrained · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · reworded "Work" to "Six roles in three years." · 67 named the head, 13px tracked capitals */
+/* Hallmark · reworded "About" to "Twenty-one, and seven years in." · 67 named the head */
+/* Hallmark · reworded "Projects" to "Built and written." · 67 named the head */
+/* Hallmark · reworded "What people say" to "What people say." · 67 named the head */
+/* Hallmark · reworded "Press & speaking" to "Press and speaking." · 19 named the ampersand */
+/* Hallmark · dropped "Education" · merged into #about as a ruled sub-head, the id kept so links still land */
+/* Hallmark · dropped "Recognition" · merged into #about as a ruled sub-head, the id kept so links still land */
+/* Hallmark · waive 49b · the four links are published titles (Cloud with Raj, RockTown Now, the keynote, JMU Admissions) · shortening them would misquote the source */
+/* Hallmark · pre-emit critique: P3 H4 E4 S5 R4 V4 · weakest: P, a CV has a tone rather than an argument; led on the compression (six roles, three years, from 18) and let the index carry it instead of adjectives */
+@import url("./tokens.css");
+@import url("./base.css");
 
-   Two widths: prose sits at --text so a line stays readable,
-   photographs and section rules use the full --page. That is
-   what fills the window without stretching the sentences.
+/* The faces are self-hosted, so the page still makes no third-party request. */
+@font-face { font-family:'Zilla Slab'; src:url('fonts/np/ZillaSlab-700.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Spectral'; src:url('fonts/np/Spectral-400.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Spectral'; src:url('fonts/np/Spectral-400italic.woff2') format('woff2'); font-weight:400; font-style:italic; font-display:swap; }
+@font-face { font-family:'Spectral'; src:url('fonts/np/Spectral-500.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Libre Franklin'; src:url('fonts/np/LibreFranklin-500.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
 
-   Aeonik carries everything you actually read. One serif appears
-   on the h1, the figures and the sign-off, about fifteen words on
-   the page. The ground is warm rather than white, and the page
-   closes on a dark panel instead of trailing off into a hairline.
-   ============================================================ */
-
-@font-face { font-family:'Aeonik'; src:url('fonts/Aeonik-Regular.woff2') format('woff2'); font-weight:400; font-display:swap; }
-@font-face { font-family:'Aeonik'; src:url('fonts/Aeonik-Medium.woff2') format('woff2'); font-weight:500; font-display:swap; }
-/* Instrument Serif, SIL OFL 1.1 -- see fonts/InstrumentSerif-OFL.txt */
-@font-face { font-family:'Instrument Serif'; src:url('fonts/InstrumentSerif-Regular.woff2') format('woff2'); font-weight:400; font-display:swap; }
-
-:root {
-  /* A warm ground rather than #fff. The page stops reading as a
-     default and starts reading as a choice; everything else here
-     is warmed by the same amount so nothing looks grey against it. */
-  --bg:   #FAF9F5;
-  --fg:   #15140F;
-  --fg-2: #5B564C;   /* 6.8:1 on --bg */
-  --line: #DBD7CC;
-  --link: #0B4FD4;   /* 6.4:1 on --bg */
-  --font: 'Aeonik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-  --display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
-
-  /* Measured against the real Aeonik metrics: 600px of 18px Aeonik is
-     ~74 characters. The old 720px/17px ran 94, and the work accordions
-     ran 102 -- both well past a comfortable line. */
-  --page: 1200px;
-  --text: 600px;
-  --gut:  32px;      /* bands break out of exactly this */
-  --rail: 150px;     /* the numbered label column */
+/* ── Shared ───────────────────────────────────────────────── */
+.agate {
+  font:500 1em/1 var(--font-outlier);
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap;
 }
-
-*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-
-html { -webkit-text-size-adjust:100%; }
-
-/* A background on body propagates to the canvas, which paints every pixel
-   outside the document box -- the strip a phone uncovers when its address
-   bar retracts, and the one you drag into at either end. Setting it here
-   too is belt and braces: the page is one colour now, so the strip can
-   never disagree with the page no matter which end it appears at. */
-html { background:var(--bg); }
-
-body {
-  font-family:var(--font);
-  font-size:18px;
-  line-height:1.65;
-  color:var(--fg);
-  background:var(--bg);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  padding:0 var(--gut);
+.rule-double {
+  height:2px; border:0;
+  border-block:var(--rule-hair) solid var(--color-rule-2);
+  box-sizing:content-box;
 }
+a { color:var(--color-accent); text-decoration:underline; text-decoration-color:var(--color-accent); }
+a:hover { text-decoration-thickness:2px; }
+a:active { color:var(--color-ink); }
 
-/* height:auto keeps the width/height attributes from overriding
-   aspect-ratio -- they act as a presentational size hint otherwise. */
-img { max-width:100%; display:block; height:auto; }
-
-/* Keyboard users need to see where they are. Browser defaults are
-   inconsistent on a white ground, so this is explicit. */
-:focus-visible { outline:2px solid var(--link); outline-offset:3px; border-radius:1px; }
-
-/* Jump past the nav -- first thing a keyboard or screen-reader user hits. */
+/* Clipped rather than parked 9999px off-screen, which overflows the page. */
 .skip {
-  position:absolute; left:-9999px; top:0;
-  background:var(--fg); color:#fff; padding:10px 16px;
-  font-size:15px; text-decoration:none; z-index:10;
+  position:fixed; inset:0 auto auto 0; z-index:var(--z-sticky-nav);
+  transform:translateY(-200%);
+  white-space:nowrap;
+  background:var(--color-ink); color:var(--color-paper);
+  padding:var(--space-sm) var(--space-md);
+  font:700 var(--text-sm)/1 var(--font-display);
+  text-decoration:none;
 }
-.skip:focus { left:8px; top:8px; }
+.skip:focus { transform:translate(var(--space-xs), var(--space-xs)); }
 
-a { color:var(--link); text-decoration:underline; text-underline-offset:2px; }
-a:hover { text-decoration:none; }
-
-/* ── HEADER ────────────────────────────────────────────────── */
-/* Spans the full page width, so the eye reads the page as wide
-   before it reaches a single paragraph. */
-header {
-  max-width:var(--page); margin:0 auto;
+/* ── Nav · slab ───────────────────────────────────────────── */
+.slab {
+  background:var(--color-ink);
+  color:var(--color-paper);
+  border-bottom:var(--rule-hair) solid var(--color-ink);
+}
+.slab-in {
   display:flex; flex-wrap:wrap; align-items:baseline;
-  justify-content:space-between; gap:12px 24px;
-  padding:34px 0 0;
+  gap:var(--space-sm) var(--space-xl);
+  padding-block:var(--space-lg);
 }
-.name { font-size:16px; font-weight:500; color:var(--fg); text-decoration:none; }
-header nav { display:flex; flex-wrap:wrap; gap:20px; }
-header nav a { font-size:15px; color:var(--fg-2); text-decoration:none; }
-header nav a:hover { color:var(--fg); text-decoration:underline; }
-
-/* ── LAYOUT ────────────────────────────────────────────────── */
-/* main is full width so that a section can break out of it into a band.
-   A centred container cannot full-bleed without 100vw, and 100vw counts
-   the scrollbar, so the page measure lives on the sections instead. */
-main { padding-top:76px; counter-reset:sec; }
-.intro,
-main > section { max-width:var(--page); margin-left:auto; margin-right:auto; }
-.intro > * { max-width:var(--text); }
-
-/* Each section is a label rail and a content column. The rail fills the
-   margin that used to sit empty and gives the page a spine to hang on. */
-section,
-.band-in {
-  display:grid;
-  grid-template-columns:var(--rail) minmax(0,1fr);
-  column-gap:52px;
+.wordmark {
+  font:700 var(--text-lg)/1 var(--font-display);
+  letter-spacing:var(--tracking-display);
+  color:var(--color-paper); text-decoration:none;
+  margin-right:auto;
 }
-section > *,
-.band-in > * { grid-column:2; max-width:var(--text); }
-/* Rows are not prose: they carry a title left and a date right, so they
-   read better a little wider. Pictures and figures take everything. */
-section > details,
-section > dl,
-section > .links,
-.band-in > blockquote { max-width:760px; }
-section > .pair,
-section > .figures,
-section > .logos,
-section > .bio { grid-column:1/-1; max-width:none; }
-
-/* The page used to open on a paragraph-sized headline, which is the most
-   conventional thing a portfolio can do. It is a masthead now: full page
-   width, set at the size a serif is actually drawn for. Weight 400, because
-   a display serif set bold stops being a voice and starts being a shout. */
-.intro > h1 { max-width:none; }
-h1 {
-  font-family:var(--display);
-  font-size:clamp(2.6rem,7.6vw,5.9rem);
-  font-weight:400; line-height:1.02; letter-spacing:-.018em;
-  margin-bottom:32px;
+.slab-nav { display:flex; flex-wrap:wrap; gap:var(--space-lg); }
+.slab a, .slab-contact {
+  color:var(--color-paper);
+  text-decoration-color:color-mix(in oklab, var(--color-paper) 45%, transparent);
 }
+.slab a:hover { text-decoration-thickness:2px; }
+.slab a:active { color:var(--color-paper-3); }
+.slab :focus-visible { outline-color:var(--color-paper); }
+.slab-contact { font-size:var(--text-sm); }
 
-.lead { font-size:21px; line-height:1.5; margin-bottom:22px; }
-.meta { font-size:15px; color:var(--fg-2); margin-bottom:12px; }
-
-section { margin-top:104px; counter-increment:sec; }
-
-/* The label sits in the rail and stays with you while the section runs.
-   The number is a CSS counter, so the markup stays clean and the sequence
-   can never drift out of step with the page. */
-section > h2,
-.band-in > h2 {
-  grid-column:1; align-self:start;
-  /* Not sticky. A travelling label is a positioned element, and positioned
-     elements paint above unpositioned ones, so it rode over the full-width
-     photographs at the end of each section. */
-  font-size:13px; font-weight:500;
-  letter-spacing:.09em; text-transform:uppercase;
-  color:var(--fg-2);
-  border:none; padding:0; margin:0; max-width:none;
+/* ── Hero · Ledge ─────────────────────────────────────────── */
+/* A tall field of picture, the head resting at its base. */
+.hero { padding-block:var(--space-2xl) var(--space-3xl); }
+.hero-in {
+  /* Leaves the head clear of the fold at 800px rather than flush against it. */
+  min-height:calc(100svh - 200px);
+  display:flex; flex-direction:column; justify-content:flex-end;
+  gap:var(--space-2xl);
 }
-section > h2::before,
-.band-in > h2::before {
-  content:counter(sec,decimal-leading-zero);
-  display:block;
-  font-family:var(--display); font-weight:400;
-  font-size:34px; line-height:1; letter-spacing:0;
-  color:var(--fg); margin-bottom:10px;
+.hero-pic { margin:0; }
+.hero-pic img {
+  width:100%; height:clamp(200px, 36svh, 430px);
+  object-fit:cover; object-position:center 42%;
+}
+.hero-foot {
+  display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr);
+  gap:var(--space-lg) var(--gap-columns);
+  align-items:end;
+  border-top:2px solid var(--color-rule-2);
+  padding-top:var(--space-lg);
+}
+.hero-foot h1 { grid-row:1 / span 2; max-width:14ch; }
+.hero-foot .lead { align-self:end; }
+.hero-act { font:700 var(--text-md)/1 var(--font-display); }
+.hero-act a { text-underline-offset:0.2em; }
+
+/* ── Head blocks ──────────────────────────────────────────── */
+section { padding-block:var(--section-gap-s); }
+#work { padding-block:var(--section-gap); }
+#about { padding-block:var(--section-gap); }
+.band-paper { background:var(--color-paper-2); }
+.head-block { max-width:62ch; margin-bottom:var(--space-2xl); }
+.head-block .lead { margin-top:var(--space-md); }
+.sub {
+  font:500 var(--text-sm)/1.4 var(--font-body);
+  color:var(--color-muted);
+  padding-bottom:var(--space-xs);
+  margin-bottom:var(--space-md);
+  border-bottom:var(--rule-hair) solid var(--color-rule);
+}
+.note {
+  margin-top:var(--space-xl);
+  font-size:var(--text-sm); color:var(--color-muted); max-width:72ch;
 }
 
-p { margin-bottom:16px; }
-p:last-child { margin-bottom:0; }
-
-.small { font-size:15px; color:var(--fg-2); margin-top:24px; }
-
-/* ── MARKS ───────────────────────────────────────── */
-/* Drawn by hand, in the sense that the paths are irregular on purpose: no
-   two waves of the underline match and the ring overshoots where it closes.
-   Both are backgrounds, not elements, so a phrase that wraps gets the mark
-   on each line (box-decoration-break) and the ring paints behind its glyph
-   rather than on top of it. Neither is announced to a screen reader, which
-   is correct -- they are emphasis, and the words already carry the meaning. */
-.u {
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 10' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%2315140F' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M3 5.6C38 3.4 74 7.4 112 5.4C150 3.4 186 7.2 224 5.2C252 3.7 276 6.4 297 4.6'/%3E%3Cpath d='M24 8.2C62 6.4 98 9.2 140 7.6C182 6 216 8.6 254 7.2C268 6.7 280 7.8 288 7.4' stroke-width='2.2' opacity='.72'/%3E%3C/g%3E%3C/svg%3E");
-  background-repeat:no-repeat;
-  background-position:0 100%;
-  /* The floor matters: at 17px body text a purely em-based mark draws a
-     half-pixel line and disappears. */
-  background-size:100% max(6px,.15em);
-  padding-bottom:max(3px,.05em);
-  -webkit-box-decoration-break:clone;
-  box-decoration-break:clone;
+/* ── What I do ────────────────────────────────────────────── */
+.does {
+  list-style:none; margin:0 0 var(--space-2xl); padding:0;
+  display:grid; gap:0;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+  border-top:2px solid var(--color-rule-2);
+}
+.does li {
+  font:700 var(--text-title)/1.2 var(--font-display);
+  letter-spacing:var(--tracking-display);
+  padding:var(--space-md) var(--space-lg) var(--space-md) 0;
+  border-bottom:var(--rule-hair) solid var(--color-rule);
 }
 
-.ring {
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 100' preserveAspectRatio='none'%3E%3Cpath fill='none' stroke='%2315140F' stroke-width='4' stroke-linecap='round' d='M86 11C57 2 26 10 16 32C6 55 21 80 50 88C80 96 108 83 112 59C116 35 99 15 73 8.5C65 6.4 57 6.2 50 7.8'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;
-  background-position:center;
-  background-size:100% 100%;
-  /* Padding grows the background box past the glyph so the ring encircles
-     it; the matching negative margin keeps the layout exactly where it was. */
-  padding:.1em .26em .14em;
-  margin:-.1em -.26em -.14em;
-}
-
-/* ── WORK (native details, zero JS) ────────────────────────── */
-details { border-bottom:1px solid var(--line); }
-details:first-of-type { border-top:1px solid var(--line); }
-summary {
-  display:flex; flex-wrap:wrap; align-items:baseline;
-  justify-content:space-between; gap:4px 16px;
-  padding:16px 0; cursor:pointer; list-style:none;
-}
-summary::-webkit-details-marker { display:none; }
-summary::marker { content:''; }
-summary b { font-size:18px; font-weight:500; }
-summary span { font-size:14px; color:var(--fg-2); }
-summary:hover b { text-decoration:underline; }
-details[open] summary { padding-bottom:8px; }
-details p { font-size:17px; color:var(--fg-2); margin-bottom:12px; }
-details > p:last-of-type { margin-bottom:18px; }
-
-/* ── ABOUT ─────────────────────────────────────────────────── */
-.bio {
-  display:grid; grid-template-columns:232px minmax(0,var(--text));
-  gap:34px; align-items:start; margin-bottom:8px;
-}
-.portrait { margin:0; }
-.portrait img { width:100%; aspect-ratio:4/5; object-fit:cover; object-position:center 26%; border:1px solid var(--line); }
-.bio-text p:last-child { margin-bottom:0; }
-
-/* -- FIGURES ------------------------------------------------- */
-/* These numbers were doing nothing as a bulleted list. Set large in
-   the serif they become the one part of the page no template could
-   supply, because nobody else has them. Instrument Serif's figures
-   are lining, so they sit level instead of hopping the baseline. */
-.figures {
-  list-style:none; max-width:none;
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr));
-  gap:30px 26px;
-  margin-top:46px; padding-top:28px;
-  border-top:1px solid var(--line);
-}
-.figures b {
-  display:block;
-  font-family:var(--display); font-weight:400;
-  font-size:clamp(2.7rem,4.8vw,4rem);
-  line-height:.94; letter-spacing:-.015em;
-}
-/* Direct child of the li, not any descendant span: the label rule used to
-   be `.figures span` and swallowed the ring's span inside the <b>, setting
-   the 64px numeral to 13px uppercase. */
-.figures li > span {
-  display:block; margin-top:12px;
-  font-size:13px; font-weight:500;
-  letter-spacing:.075em; text-transform:uppercase;
-  color:var(--fg-2);
-}
-
-/* ── LISTS ─────────────────────────────────────────────────── */
-dl { margin:0; }
-dt { font-size:18px; font-weight:500; margin-top:22px; }
-dt:first-of-type { margin-top:0; }
-dd { font-size:17px; color:var(--fg-2); margin:5px 0 0; }
-
-.links { list-style:none; }
-.links li { font-size:17px; padding:10px 0; border-bottom:1px solid var(--line); color:var(--fg-2); }
-.links li:first-child { border-top:1px solid var(--line); }
-
-blockquote { margin:0 0 28px; padding-left:20px; border-left:2px solid var(--line); }
-blockquote:last-child { margin-bottom:0; }
-blockquote p { font-size:18px; margin-bottom:9px; }
-cite { font-size:14px; font-style:normal; color:var(--fg-2); }
-
-/* ── BAND ───────────────────────────────────────────── */
-/* A change of pace without a change of palette. Two hairlines run the full
-   width of the window -- the only things on the page that touch both edges
-   -- and the quotes sit between them at display size. */
-section.band {
-  display:block; max-width:none;
-  margin-left:calc(-1 * var(--gut));
-  margin-right:calc(-1 * var(--gut));
-  padding:88px var(--gut);
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-}
-.band-in { max-width:var(--page); margin:0 auto; }
-.band blockquote { border-left:none; padding-left:0; margin-bottom:48px; }
-.band blockquote:last-child { margin-bottom:0; }
-/* Set in the serif, these stop being testimonials and start being voices. */
-.band blockquote p {
-  font-family:var(--display); font-weight:400;
-  font-size:clamp(1.45rem,2.3vw,1.95rem);
-  line-height:1.28; letter-spacing:-.005em;
-  color:var(--fg); margin-bottom:14px;
-}
-
-/* ── PHOTOGRAPHS ───────────────────────────────────────────── */
-/* The only things allowed the full page width. auto-fit means the
-   column count falls out of the available space, so there is no
-   breakpoint to maintain and no horizontal scroll to cause. */
-.pair {
-  display:grid; gap:22px; margin-top:38px;
-  grid-template-columns:repeat(auto-fit,minmax(390px,1fr));
-}
-.pair figure { margin:0; }
-/* Nothing is cropped. Every frame is shown whole, at its own ratio. */
-.pair img { width:100%; border:1px solid var(--line); }
-
-/* A portrait frame and a landscape frame land on the same height when the
-   columns are sized to their own ratios (3:4 beside 3:2). That buys a level
-   pair without cutting anything out of either picture. */
-.pair.mixed { grid-template-columns:0.75fr 1.5fr; }
-@media (max-width:800px) { .pair.mixed { grid-template-columns:1fr; } }
-figcaption { font-size:14px; color:var(--fg-2); padding-top:8px; }
-
-/* ── LOGOS ─────────────────────────────────────────────────── */
-/* Heights are set per mark, not shared. A round seal and a long
-   wordmark matched on height look wrong; these are matched by eye. */
+/* ── Logos ────────────────────────────────────────────────── */
 .logos {
+  list-style:none; margin:0 0 var(--space-2xl); padding:var(--space-lg) 0;
   display:flex; flex-wrap:wrap; align-items:center;
-  gap:20px 40px; margin:0 0 38px; max-width:none;
+  gap:var(--space-lg) var(--space-xl);
+  border-block:var(--rule-hair) solid var(--color-rule);
 }
-.logos img { display:block; width:auto; }
-.logos img.lg-scale { height:30px; }
-.logos img.lg-fbi   { height:46px; }
-.logos img.lg-hid   { height:26px; }
-.logos img.lg-bsi   { height:30px; }
-.logos img.lg-aws   { height:34px; }
-.logos img.lg-mt    { height:26px; }
+.logos img { width:auto; filter:grayscale(1) contrast(1.1); }
+.logos img.lg-scale { height:26px; }
+.logos img.lg-fbi   { height:40px; }
+.logos img.lg-hid   { height:22px; }
+.logos img.lg-bsi   { height:26px; }
+.logos img.lg-aws   { height:30px; }
+.logos img.lg-mt    { height:22px; }
 
-/* ── FOOTER ────────────────────────────────────────────────── */
-/* Still the contact section, so the page has one ending rather than a thin
-   section followed by a hairline. The sign-off carries it now instead of a
-   change of colour. */
-footer {
-  max-width:var(--page); margin:116px auto 0;
-  padding:42px 0 76px;
-  border-top:1px solid var(--line);
+/* ── Index · the ruled listing that carries the page ──────── */
+.index { border-top:2px solid var(--color-rule-2); }
+.row {
+  border-bottom:var(--rule-hair) solid var(--color-rule);
 }
-.foot-in {
-  display:grid; grid-template-columns:1fr auto;
-  gap:36px 48px; align-items:end;
+.index > .row > summary,
+.index-flat > .row {
+  display:grid;
+  grid-template-columns:minmax(0,5fr) minmax(0,5fr) minmax(0,2fr);
+  gap:var(--space-xs) var(--gap-columns);
+  align-items:baseline;
+  /* 71: a head wants at least twice the space above it as below. */
+  padding-block:var(--space-xl) var(--space-sm);
 }
-.foot-sign {
-  font-family:var(--display); font-weight:400;
-  font-size:clamp(2rem,4vw,2.9rem); line-height:1.04;
-  letter-spacing:-.01em; color:var(--fg);
+.index > .row > summary { cursor:pointer; list-style:none; }
+.index > .row > summary::-webkit-details-marker { display:none; }
+.index > .row > summary::marker { content:''; }
+.row h3 { margin:0; }
+.row-lead h3 { font-size:var(--text-2xl); }
+.row-role {
+  font:400 var(--text-md)/1.45 var(--font-body);
+  color:var(--color-muted); margin:0; max-width:52ch;
 }
-.foot-links { list-style:none; display:grid; gap:10px; justify-items:start; }
-.foot-links a { font-size:16px; }
-.foot-meta {
-  grid-column:1/-1; margin:14px 0 0; padding-top:20px;
-  border-top:1px solid var(--line);
-  font-size:13.5px; letter-spacing:.04em; color:var(--fg-2);
+.row .agate { text-align:right; color:var(--color-ink-2); }
+.index > .row > summary:hover h3 { text-decoration:underline; text-decoration-thickness:2px; }
+.index > .row > summary:active h3 { color:var(--color-accent); }
+.index > .row > summary:focus-visible { outline:2px solid var(--color-focus); outline-offset:-2px; }
+.row-body {
+  padding-bottom:var(--space-lg);
+  display:grid; gap:var(--space-md);
+  max-width:68ch;
 }
 
-@media (max-width:700px) {
-  .foot-in { grid-template-columns:1fr; gap:30px; }
+/* ── The case ─────────────────────────────────────────────── */
+.case-in {
+  display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr);
+  gap:var(--space-2xl) var(--gap-columns);
+  align-items:start;
+}
+.case-text > p { margin-top:var(--space-md); max-width:62ch; }
+.case-text > h2 { margin-bottom:var(--space-lg); }
+.facts {
+  margin:var(--space-xl) 0 0;
+  border-top:2px solid var(--color-rule-2);
+}
+.facts > div {
+  display:flex; justify-content:space-between; align-items:baseline;
+  gap:var(--space-lg);
+  padding-block:var(--space-sm);
+  border-bottom:var(--rule-hair) solid var(--color-rule);
+}
+.facts dt { font-size:var(--text-sm); color:var(--color-muted); }
+.facts dd { margin:0; font-size:var(--text-xl); }
+
+/* ── Pictures ─────────────────────────────────────────────── */
+/* Printed as a paper prints them: black and white, a hairline, a caption
+   that states a fact. Never tinted, never without the caption. */
+figure { margin:0; }
+figure img {
+  border:var(--rule-hair) solid var(--color-rule);
+  filter:grayscale(1) contrast(1.12);
+}
+figcaption {
+  font:500 var(--text-sm)/1.4 var(--font-body);
+  color:var(--color-muted);
+  padding-top:var(--space-xs);
+}
+.case-pic img { width:100%; aspect-ratio:3/4; object-fit:cover; object-position:center 22%; }
+.edu-pics, .press-pics {
+  display:grid; gap:var(--space-lg) var(--gap-columns);
+  margin-bottom:var(--space-2xl);
+}
+.edu-pics { grid-template-columns:minmax(0,4fr) minmax(0,8fr); align-items:start; }
+.press-pics { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+.edu-pics img, .press-pics img { width:100%; }
+.edu-pics figure:first-child img { aspect-ratio:3/4; object-fit:cover; object-position:center 26%; }
+.edu-pics figure:last-child img, .press-pics img { aspect-ratio:3/2; object-fit:cover; }
+
+/* ── Two up ───────────────────────────────────────────────── */
+.two-up {
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:var(--space-2xl) var(--gap-columns);
+}
+/* Half the width cannot carry three columns: the title takes the line and
+   the figure sits at its right, with the note beneath. */
+.two-up .index-flat > .row { grid-template-columns:minmax(0,1fr) auto; }
+.two-up .row h3 { grid-column:1; }
+.two-up .row .agate { grid-column:2; grid-row:1; }
+.two-up .row-role { grid-column:1 / -1; max-width:62ch; }
+
+/* ── The well ─────────────────────────────────────────────── */
+/* A field of paper ruled top and bottom. Never a bordered card. */
+.well {
+  background:var(--color-paper-3);
+  border-block:var(--rule-hair) solid var(--color-rule-2);
+  padding:var(--space-2xl) var(--space-xl);
+  display:grid; gap:var(--space-xl);
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+}
+.well-head { grid-column:1 / -1; }
+.well blockquote { margin:0; }
+.well blockquote p { font-size:var(--text-md); max-width:52ch; }
+.well cite {
+  display:block; margin-top:var(--space-sm);
+  font:500 var(--text-sm)/1.4 var(--font-body);
+  font-style:normal; color:var(--color-muted);
 }
 
-/* ── NARROWER WINDOWS ──────────────────────────────────────── */
-@media (max-width:900px) {
-  .bio { grid-template-columns:200px minmax(0,1fr); gap:26px; }
+/* ── The close ────────────────────────────────────────────── */
+.close-in {
+  display:grid; grid-template-columns:minmax(0,4fr) minmax(0,8fr);
+  gap:var(--space-2xl) var(--gap-columns);
+  align-items:center;
+}
+.close-pic img { width:100%; aspect-ratio:4/5; object-fit:cover; object-position:center 24%; }
+.close-text .lead { margin-top:var(--space-md); }
+.close-links {
+  list-style:none; margin:var(--space-xl) 0 0; padding:0;
+  border-top:2px solid var(--color-rule-2);
+}
+.close-links li {
+  padding-block:var(--space-md);
+  border-bottom:var(--rule-hair) solid var(--color-rule);
+  font:700 var(--text-title)/1.2 var(--font-display);
+  letter-spacing:var(--tracking-display);
+}
 
-  /* Not enough width for a rail. The number folds up next to the label
-     and the hairline comes back to separate the sections. */
-  section, .band-in { display:block; }
-  section > h2, .band-in > h2 {
-    position:static;
-    display:flex; align-items:baseline; gap:11px;
-    padding-bottom:10px; margin-bottom:24px;
-    border-bottom:1px solid var(--line);
+/* ── Footer · mast ────────────────────────────────────────── */
+.mast {
+  background:var(--color-ink);
+  color:var(--color-paper);
+  padding-block:var(--space-2xl);
+}
+.mast-name {
+  font:700 var(--text-3xl)/1 var(--font-display);
+  letter-spacing:var(--tracking-display);
+  margin-bottom:var(--space-lg);
+}
+.mast-links {
+  list-style:none; margin:0 0 var(--space-lg); padding:0;
+  display:flex; flex-wrap:wrap; gap:var(--space-lg);
+  border-top:var(--rule-hair) solid color-mix(in oklab, var(--color-paper) 30%, transparent);
+  padding-top:var(--space-lg);
+}
+.mast a {
+  color:var(--color-paper);
+  text-decoration-color:color-mix(in oklab, var(--color-paper) 45%, transparent);
+}
+.mast a:hover { text-decoration-thickness:2px; }
+.mast a:active { color:var(--color-paper-3); }
+.mast :focus-visible { outline-color:var(--color-paper); }
+.mast-legal { font-size:var(--text-sm); color:var(--color-paper-3); }
+
+/* ── Narrower ─────────────────────────────────────────────── */
+@media (max-width:60rem) {
+  .hero-in { min-height:0; }
+  .hero-foot { grid-template-columns:minmax(0,1fr); }
+  .hero-foot h1 { grid-row:auto; max-width:none; }
+  .case-in, .close-in, .two-up { grid-template-columns:minmax(0,1fr); }
+  .edu-pics { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+  .close-pic { max-width:320px; }
+  .index > .row > summary,
+  .index-flat > .row {
+    grid-template-columns:minmax(0,1fr) auto;
   }
-  section > h2::before, .band-in > h2::before {
-    display:inline-block; font-size:19px; margin-bottom:0;
-  }
-  .band h2 { border-bottom-color:rgba(242,238,228,.18); }
-  section > details, section > dl, section > .links { max-width:none; }
-  section.band { padding:64px var(--gut); }
+  .row h3 { grid-column:1; }
+  .row .agate { grid-column:2; grid-row:1; }
+  .row-role { grid-column:1 / -1; }
 }
 
-@media (max-width:620px) {
-  :root { --gut:18px; }
-  body { padding:0 var(--gut); font-size:17px; }
-  main { padding-top:52px; }
-  section { margin-top:60px; }
-  header nav { gap:14px; }
-  .lead { font-size:18px; }
-  .bio { grid-template-columns:1fr; gap:22px; }
-  .portrait { max-width:200px; }
-  .pair { grid-template-columns:1fr 1fr; gap:14px; }
-  .figures { gap:24px 20px; }
-  footer { margin-top:72px; padding:32px 0 56px; }
-  .foot-in { gap:24px; }
-  .foot-meta { margin-top:8px; padding-top:18px; }
-  section.band { padding:52px var(--gut); }
-  .logos { gap:16px 26px; }
-  .logos img.lg-scale, .logos img.lg-bsi { height:24px; }
-  .logos img.lg-fbi { height:36px; }
-  .logos img.lg-hid, .logos img.lg-mt { height:21px; }
-  .logos img.lg-aws { height:27px; }
-}
-
-@media (max-width:420px) {
-  .pair { grid-template-columns:1fr; }
+@media (max-width:40rem) {
+  .slab-in { padding-block:var(--space-md); }
+  .slab-contact { width:100%; }
+  .edu-pics, .press-pics { grid-template-columns:minmax(0,1fr); }
+  .well { padding:var(--space-xl) var(--space-md); }
 }
